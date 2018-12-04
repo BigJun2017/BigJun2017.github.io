@@ -1,0 +1,892 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="API扫描工具类的实现, Blog4Jun">
+    <meta name="description" content="公司的架构师开发了一套接口扫描工具类，我想着，如果自己以后开公司了可能也用得着，所以研究了下，整理出了下面的开发思路和相关技术代码。     API扫描工具类的主要开发思路如下：     1、定义接口上的注解；     2、引用注解    ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>API扫描工具类的实现 | Blog4Jun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Blog4Jun</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Blog4Jun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        API扫描工具类的实现
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-04
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>公司的架构师开发了一套接口扫描工具类，我想着，如果自己以后开公司了可能也用得着，所以研究了下，整理出了下面的开发思路和相关技术代码。<br>     API扫描工具类的主要开发思路如下：<br>     1、定义接口上的注解；<br>     2、引用注解<br>     3、扫描注解<br>     首先定义注解：</p>
+<p>定义接口上的注解</p>
+<pre><code>package com.fs.comment;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(value = {ElementType.METHOD, ElementType.FIELD,ElementType.LOCAL_VARIABLE,ElementType.PARAMETER})
+public @interface PersistenceContext {
+    String unitName();
+}
+
+</code></pre><p>关于注解：请参照下面的文章：<br><a href="https://blog.csdn.net/forezp/article/details/78026146" target="_blank" rel="noopener">Java注解详解</a><br><a href="https://blog.csdn.net/limj625/article/details/70242773" target="_blank" rel="noopener">Java注解之Retention、Documented、Target介绍</a><br><a href="https://blog.csdn.net/shao_zhiqiang/article/details/51764296" target="_blank" rel="noopener">实用的java注解工具类</a><br>如果想要动态的修改注解的值【如动态切换数据源】，一般看来注解的值是不能动态修改的，但是借助特殊工具还是可以的，参照下面的文章：<br><a href="https://blog.csdn.net/jly4758/article/details/44774217" target="_blank" rel="noopener">JAVAssist—动态修改注解</a></p>
+<p>引用注解</p>
+<pre><code>package com.fs.model.model2.model3.model4.model5;
+
+import com.fs.comment.PersistenceContext;
+import com.fs.model.EntityManager;
+
+public class CollectionBase{  
+    /** 
+     * 注入实体单元 
+     */  
+    @PersistenceContext(unitName=&quot;collection-entity&quot;)  
+    protected EntityManager em;  
+    /**EntityManger 
+     * 实例化 
+     */
+    @PersistenceContext(unitName=&quot;collection-entity-01-01-01-01-01-01&quot;)  
+    public EntityManager getEntityManager() {          
+        return this.em;  
+    }  
+
+    @PersistenceContext(unitName=&quot;collection-entity-01-02-02-01-01-01&quot;)
+    public EntityManager getEntityManager2() {          
+        return this.em;  
+    }  
+} 
+</code></pre><p>扫描注解<br>扫描注解的工具类是参考了别人的代码写出来的。</p>
+<pre><code>package com.fs.commentUtils;
+
+import java.io.File;
+import java.io.FileFilter;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+
+import com.fs.comment.PersistenceContext;
+
+/**
+ * 
+ * 注解扫描工具类;
+ *
+ */
+public class CommentScanUtil {
+    /**    
+       * getRequestMappingValue方法描述:  
+       * 作者:JunJun
+       * 日期:2018年6月7日 下午5:41:00         
+       * 异常对象:@param packageName
+       * 异常对象:@return 
+    */
+        public static List&lt;String&gt; getRequestMappingValue(String packageName) {
+
+       // GetAnnotationValueUtil getAnnotationValueUtil = new GetAnnotationValueUtil();
+
+             //第一个class类的集合  
+            List&lt;Class&lt;?&gt;&gt; classes = new ArrayList&lt;Class&lt;?&gt;&gt;();  
+
+            //是否循环迭代  
+            boolean recursive = true;  
+
+            //获取包的名字 并进行替换  
+            String packageDirName = packageName.replace(&#39;.&#39;, &#39;/&#39;);  
+
+            //定义一个枚举的集合 并进行循环来处理这个目录下的文件 
+            Enumeration&lt;URL&gt; dirs;
+            try {  
+                //读取指定package下的所有class
+                dirs = Thread.currentThread().getContextClassLoader().getResources(packageDirName); 
+                while (dirs.hasMoreElements()){  
+                    URL url = dirs.nextElement();  
+                    //得到协议的名称  
+                    String protocol = url.getProtocol();
+                    //判断是否以文件的形式保存在服务器上  
+                    if (&quot;file&quot;.equals(protocol)) {
+                        //获取包的物理路径  
+                         String filePath = URLDecoder.decode(url.getFile(), &quot;UTF-8&quot;);
+                         filePath = filePath.substring(1);
+                        //以文件的方式扫描整个包下的文件 并添加到集合中  
+                        findAndAddClassesInPackageByFile(packageName, filePath, recursive, classes);
+                    } 
+                }  
+            } catch (IOException e) {
+                e.printStackTrace();  
+            } 
+            List&lt;String&gt; stringList = new ArrayList&lt;String&gt;();
+
+            for (Class&lt;?&gt; clazz : classes) {
+                //循环获取所有的类
+                Class&lt;?&gt; c = clazz;
+                //获取类的所有方法
+                Method[] methods = c.getMethods();
+                for (Method method : methods) {
+                    //获取RequestMapping注解
+                    PersistenceContext annotation = method.getAnnotation(PersistenceContext.class);
+                    if (annotation != null) {
+                        //获取注解的value值
+                        String value = annotation.unitName();
+                        System.out.println(&quot;-------anoValue--------&quot;+value);
+                    }
+                }
+            }
+            return stringList;
+        }
+
+
+        /**    
+         * findAndAddClassesInPackageByFile方法描述:  
+         * 作者:JunJun
+         * 日期:2018年6月7日 下午5:41:12         
+         * 异常对象:@param packageName
+         * 异常对象:@param packagePath
+         * 异常对象:@param recursive
+         * 异常对象:@param classes 
+         */
+        public static void findAndAddClassesInPackageByFile(String packageName, String packagePath, final boolean recursive, List&lt;Class&lt;?&gt;&gt; classes){  
+            //packagePath = packagePath.trim().substring(1);
+            //获取此包的目录 建立一个File  
+            File dir = new File(packagePath);
+            //如果不存在或者 也不是目录就直接返回  
+            if (!dir.exists() || !dir.isDirectory()) {
+                return;  
+            }  
+            //如果存在 就获取包下的所有文件 包括目录  
+            File[] dirfiles = dir.listFiles(new FileFilter() {  
+                  //自定义过滤规则 如果可以循环(包含子目录) 或则是以.class结尾的文件(编译好的java类文件)  
+                  public boolean accept(File file) { 
+                    return (recursive &amp;&amp; file.isDirectory()) || (file.getName().endsWith(&quot;.class&quot;));  
+                  }
+            }); 
+            //循环所有文件 
+            for (File file : dirfiles) { 
+                //如果是目录 则继续扫描  
+                if (file.isDirectory()) {
+                    findAndAddClassesInPackageByFile(packageName + &quot;.&quot; + file.getName(),  
+                                          file.getAbsolutePath(),  
+                                          recursive,  
+                                          classes);
+                }  
+                else {  
+                    //如果是java类文件 去掉后面的.class 只留下类名  
+                    String className = file.getName().substring(0, file.getName().length() - 6); 
+                    try {  
+                        //添加到集合中去  
+                        classes.add(Thread.currentThread().getContextClassLoader().loadClass(packageName + &quot;.&quot; + className));  
+                    } catch (ClassNotFoundException e) {  
+                        e.printStackTrace();  
+                    }  
+                }  
+            } 
+        }}
+
+</code></pre><p>经过测试，证实这段代码对深层代码的递归扫描性能很高。测试的递归路径如下图所示：<br><img src="https://img-blog.csdn.net/20180607212933565?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pqMjAxNDIyMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>另外在研究过程中尝试了自动解析API参数为JSON ，虽然最终以失败告终,失败的原因是写出来的代码无法适应参数中泛型以及泛型中属性名的动态匹配。下面是在尝试中总结出来的工具类：</p>
+<p>扫描API中参数的类型工具类：</p>
+<pre><code>package com.fs;
+
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.List;
+
+import com.fs.comment.NoNull;
+import com.fs.model.BlueChartProjectSearchFilter;
+import com.fs.model.ReqObject;
+import com.fs.model.ReqQuery;
+import com.fs.model.Student;
+import com.fs.model.Teacher;
+
+/**
+ * 通过反射获取泛型信息
+ * 
+ * @author Administrator
+ *
+ */
+public class Generic {
+    /**
+     * 方法一
+     * 
+     * @param map
+     * @param list
+     */
+    public static void test01(@NoNull ReqObject&lt;ReqQuery&lt;BlueChartProjectSearchFilter&gt;&gt;  map, @NoNull List&lt;Student&gt; list,
+            @NoNull Teacher&lt;Student&gt; a) {
+        System.out.println(&quot;Generic.test01()&quot;);
+    }
+
+
+    public static void main(String[] args) {
+        try {
+            Method[] methods = Generic.class.getDeclaredMethods();
+            Class&lt;?&gt;[] parameterTypes2 = methods[1].getParameterTypes();
+            Method m = Generic.class.getMethod(&quot;test01&quot;, parameterTypes2);
+            Class&lt;?&gt;[] parameterTypes = m.getParameterTypes();
+            for (Class&lt;?&gt; class1 : parameterTypes) {
+                System.out.println(&quot;---------&gt;&lt;&gt;&lt;&gt;&lt;&gt;&quot; + class1);
+            }
+            Type[] t = m.getGenericParameterTypes();// 获取参数泛型
+            for (Type paramType : t) {
+                System.out.println(&quot;#&quot; + paramType);
+                if (paramType instanceof ParameterizedType) {
+                    Type[] genericTypes = ((ParameterizedType) paramType).getActualTypeArguments();
+                    for (@SuppressWarnings(&quot;unused&quot;) Type genericType : genericTypes) {
+                        System.out.println(&quot;#&quot;+paramType);
+                    }
+                }
+            }
+
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><p>字符串转化为JAVA代码的工具类:</p>
+<pre><code>package com.fs.commentUtils;
+
+import java.util.Map;
+
+import org.apache.commons.jexl2.Expression;
+import org.apache.commons.jexl2.JexlContext;
+import org.apache.commons.jexl2.JexlEngine;
+import org.apache.commons.jexl2.MapContext;
+
+import com.fs.model.BlueChartProjectSearchFilter;
+import com.fs.model.ReqObject;
+import com.fs.model.ReqQuery;
+
+import net.sf.json.JSONObject;
+
+/**
+ * 字符串转化为代码;
+ * 
+ * @author xdsm
+ *
+ */
+public class StringToCode {
+    /**
+     * 
+     * @author: Longjun
+     * @Description: 使用commons的jexl可实现将字符串变成可执行代码的功能
+     * @date:2016年3月21日 下午1:45:13
+     */
+    public static Object convertToCode(String jexlExp, Map&lt;String, Object&gt; map) {
+        JexlEngine jexl = new JexlEngine();
+        Expression e = jexl.createExpression(jexlExp);
+        JexlContext jc = new MapContext();
+        for (String key : map.keySet()) {
+            jc.set(key, map.get(key));
+        }
+        if (null == e.evaluate(jc)) {
+            return &quot;&quot;;
+        }
+        return e.evaluate(jc);
+    }
+
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {  
+        /*ReqObject req = (ReqObject) Class.forName(&quot;com.fs.model.ReqObject&quot;).newInstance();
+        ReqQuery reqq = (ReqQuery) Class.forName(&quot;com.fs.model.ReqQuery&quot;).newInstance();
+        BlueChartProjectSearchFilter bcsf = (BlueChartProjectSearchFilter) Class.forName(&quot;com.fs.model.BlueChartProjectSearchFilter&quot;).newInstance();
+        reqq.setObj(bcsf);
+        req.setObj(reqq);
+        JSONObject json = JSONObject.fromObject(req);*/
+        /*Object req = Class.forName(&quot;com.fs.model.ReqObject&quot;).cast(Class.forName(&quot;com.fs.model.ReqObject&quot;).newInstance());
+        Object reqq = Class.forName(&quot;com.fs.model.ReqQuery&quot;).cast(Class.forName(&quot;com.fs.model.ReqQuery&quot;).newInstance());
+        Object bcsf = Class.forName(&quot;com.fs.model.BlueChartProjectSearchFilter&quot;).cast(Class.forName(&quot;com.fs.model.BlueChartProjectSearchFilter&quot;).newInstance());
+        Field[] fields = req.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            String fieldStr = field.toString();
+            String[] fieldPreStrArray = fieldStr.split(&quot; &quot;);
+            String fieldType = fieldPreStrArray[1];
+            String fieldName = fieldPreStrArray[2].substring(fieldPreStrArray[2].lastIndexOf(&quot;.&quot;) + 1);
+            System.out.println(&quot;----fieldType----&quot;+fieldType);
+            System.out.println(&quot;//----fieldName----&quot;+fieldName);
+        }*/
+        ReqObject&lt;ReqQuery&lt;BlueChartProjectSearchFilter&gt;&gt; req = new ReqObject&lt;ReqQuery&lt;BlueChartProjectSearchFilter&gt;&gt;();
+        JSONObject json = JSONObject.fromObject(req);
+        System.out.println(json);
+        /*try {  
+            Map&lt;String,Object&gt; map=new HashMap&lt;String,Object&gt;();   
+            map.put(&quot;money&quot;,2100);    
+            String expression=&quot;money&gt;=2000&amp;&amp;money&lt;=4000&quot;;
+            Object code = convertToCode(expression,map);
+            System.out.println(code);
+        } catch (Exception e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        }  */
+    }  
+}
+
+</code></pre><p>参考文章：<a href="https://blog.csdn.net/junlong750/article/details/50945883" target="_blank" rel="noopener">java将字符串转换成可执行代码</a></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://BigJun2017.github.io" class="b-link-green">Blog4Jun</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/04/lao-bo-ke/api-sao-miao-gong-ju-lei-de-shi-xian/" class="b-link-green">API扫描工具类的实现</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/b-s-he-c-s-de-han-yi-ji-qi-qu-bie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="B/S和C/S的含义及其区别">
+                        
+                        <span class="card-title">B/S和C/S的含义及其区别</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+B/S结构，即Browser/Server(浏览器/服务器)结构，是随着Internet技术的兴起，对C/S结构的一种变化或者改进的结构。在这种结构下，用户界面完全通过WWW浏览器实现，一部分事务逻辑在前端实现，但是主要事务逻辑在服务器端</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/aop-zhong-de-gai-nian-tong-zhi-qie-dian-qie-mian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="AOP中的概念通知、切点、切面">
+                        
+                        <span class="card-title">AOP中的概念通知、切点、切面</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">通知、增强处理（Advice）
+
+通知、增强处理（Advice） 就是你想要的功能，也就是上说的安全、事物、日子等。你给先定义好，然后再想用的地方用一下。包含Aspect的一段处理代码
+连接点（JoinPoint）
+
+连接点（JoinPoi</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

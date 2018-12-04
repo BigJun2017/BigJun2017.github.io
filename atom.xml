@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://BigJun2017.github.io/"/>
-  <updated>2018-12-03T12:31:45.028Z</updated>
+  <updated>2017-12-24T09:16:14.000Z</updated>
   <id>https://BigJun2017.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>单页面面应用【SPA】和多页面应用【MPA】之间的区别</title>
-    <link href="https://BigJun2017.github.io/2018/12/02/lao-bo-ke/dan-ye-mian-mian-ying-yong-spa-he-duo-ye-mian-ying-yong-mpa-zhi-jian-de-qu-bie/"/>
-    <id>https://BigJun2017.github.io/2018/12/02/lao-bo-ke/dan-ye-mian-mian-ying-yong-spa-he-duo-ye-mian-ying-yong-mpa-zhi-jian-de-qu-bie/</id>
-    <published>2018-12-02T13:20:31.000Z</published>
-    <updated>2018-12-03T12:31:45.028Z</updated>
+    <title>自己对react中flux框架部分底层原理的理解</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/</id>
+    <published>2018-12-04T12:35:56.459Z</published>
+    <updated>2017-12-24T09:16:14.000Z</updated>
     
     <summary type="html">
     
@@ -29,33 +29,9 @@
       
         
         
-          &lt;p&gt;单页面面应用【SPA】和多页面应用【MPA】之间的区别：&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="老博客" scheme="https://BigJun2017.github.io/categories/%E8%80%81%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://BigJun2017.github.io/2018/12/02/hello-world/"/>
-    <id>https://BigJun2017.github.io/2018/12/02/hello-world/</id>
-    <published>2018-12-02T13:08:13.397Z</published>
-    <updated>2018-12-02T13:08:13.397Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;p&gt;这是我在学习react框架时的个人理解，包含个人总结和案例中代码的分析，对于react中部分与内存分配相关的原理还是不是很懂:&lt;br&gt;1.个人总结：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;flux架构的理解：&lt;br&gt;    flux架构中数据是单向流动的；&lt;br&gt;   
         
       
     
@@ -65,11 +41,11 @@
   </entry>
   
   <entry>
-    <title>软件程序设计原则</title>
-    <link href="https://BigJun2017.github.io/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/"/>
-    <id>https://BigJun2017.github.io/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/</id>
-    <published>2018-11-23T16:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>运行时异常-RunTimeExcepption</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/</id>
+    <published>2018-12-04T12:35:56.457Z</published>
+    <updated>2018-04-19T14:39:52.000Z</updated>
     
     <summary type="html">
     
@@ -77,29 +53,24 @@
       
         
         
-          &lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;前几天写代码的时候，遇到一个需求，保存的时候如果重名则不执行保存，并抛出异常。但是当我抛出的不是运行时异常的时候，这个异常就需要一层层的捕获。就像下面这样：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ExceptionTest .java
+
+package
         
       
     
     </summary>
     
-      <category term="软件设计" scheme="https://BigJun2017.github.io/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
-    
-      <category term="面向对象编程" scheme="https://BigJun2017.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="设计原则" scheme="https://BigJun2017.github.io/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
     
   </entry>
   
   <entry>
-    <title>GitLab CI/CD 介绍和使用</title>
-    <link href="https://BigJun2017.github.io/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/"/>
-    <id>https://BigJun2017.github.io/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/</id>
-    <published>2018-11-22T15:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>用JAVA判断一个URL是否有效</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</id>
+    <published>2018-12-04T12:35:56.456Z</published>
+    <updated>2017-08-29T00:59:26.000Z</updated>
     
     <summary type="html">
     
@@ -107,29 +78,21 @@
       
         
         
-          &lt;h2 id=&quot;一、持续集成介绍&quot;&gt;&lt;a href=&quot;#一、持续集成介绍&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL
         
       
     
     </summary>
     
-      <category term="软件工具" scheme="https://BigJun2017.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="GitLab CI" scheme="https://BigJun2017.github.io/tags/GitLab-CI/"/>
-    
-      <category term="DevOps" scheme="https://BigJun2017.github.io/tags/DevOps/"/>
-    
-      <category term="Jenkins" scheme="https://BigJun2017.github.io/tags/Jenkins/"/>
     
   </entry>
   
   <entry>
-    <title>Vue 文档风格的 Typora 主题</title>
-    <link href="https://BigJun2017.github.io/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/"/>
-    <id>https://BigJun2017.github.io/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/</id>
-    <published>2018-11-18T16:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>移动端学习之初始化-angular4的学习</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/</id>
+    <published>2018-12-04T12:35:56.454Z</published>
+    <updated>2018-01-07T14:00:12.000Z</updated>
     
     <summary type="html">
     
@@ -137,30 +100,21 @@
       
         
         
-          &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/blinkfox/typora-vue-theme&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;typora-vue-theme&lt;/a&gt; 是 Typora
+          &lt;p&gt;最近在学习angular4感觉也没有那么难啦，好奇移动端到底可以做出啥，继续学习中……&lt;br&gt;&lt;img
         
       
     
     </summary>
     
-      <category term="软件工具" scheme="https://BigJun2017.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Typora" scheme="https://BigJun2017.github.io/tags/Typora/"/>
-    
-      <category term="Markdown" scheme="https://BigJun2017.github.io/tags/Markdown/"/>
-    
-      <category term="Vue" scheme="https://BigJun2017.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>CPU多级缓存</title>
-    <link href="https://BigJun2017.github.io/2018/11/18/ruan-jian-gong-ju/cpu-duo-ji-huan-cun/"/>
-    <id>https://BigJun2017.github.io/2018/11/18/ruan-jian-gong-ju/cpu-duo-ji-huan-cun/</id>
-    <published>2018-11-18T13:55:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>使用七牛上传图片的demo</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-qi-niu-shang-chuan-tu-pian-de-demo/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-qi-niu-shang-chuan-tu-pian-de-demo/</id>
+    <published>2018-12-04T12:35:56.453Z</published>
+    <updated>2018-02-01T00:46:02.000Z</updated>
     
     <summary type="html">
     
@@ -168,25 +122,28 @@
       
         
         
-          &lt;h2 id=&quot;一、什么是CPU缓存&quot;&gt;&lt;a href=&quot;#一、什么是CPU缓存&quot; class=&quot;headerlink&quot; title=&quot;一、什么是CPU缓存&quot;&gt;&lt;/a&gt;一、什么是CPU缓存&lt;/h2&gt;&lt;h3 id=&quot;1-CPU缓存的来历&quot;&gt;&lt;a
+          &lt;p&gt;七牛是一个很好的第三方的图片服务器,下面介绍一下使用七牛上传图片的demo.&lt;br&gt;1、直接上代码:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;UploadDemo.java
+
+
+----------
+package com.qiniu.up;
+
+import
         
       
     
     </summary>
     
-      <category term="软件工具" scheme="https://BigJun2017.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="CPU缓存" scheme="https://BigJun2017.github.io/tags/CPU%E7%BC%93%E5%AD%98/"/>
     
   </entry>
   
   <entry>
-    <title>单元测试指南</title>
-    <link href="https://BigJun2017.github.io/2018/11/15/hou-duan/java/dan-yuan-ce-shi-zhi-nan/"/>
-    <id>https://BigJun2017.github.io/2018/11/15/hou-duan/java/dan-yuan-ce-shi-zhi-nan/</id>
-    <published>2018-11-15T14:50:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>使用XShell部署SpringBoot的jar文件到Linux服务器上</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-xshell-bu-shu-springboot-de-jar-wen-jian-dao-linux-fu-wu-qi-shang/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-xshell-bu-shu-springboot-de-jar-wen-jian-dao-linux-fu-wu-qi-shang/</id>
+    <published>2018-12-04T12:35:56.451Z</published>
+    <updated>2018-04-15T14:15:50.000Z</updated>
     
     <summary type="html">
     
@@ -194,27 +151,23 @@
       
         
         
-          &lt;h2 id=&quot;一、必要性&quot;&gt;&lt;a href=&quot;#一、必要性&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;最近师傅教我了通过jenkins发布项目，但是发现公司的Maven出了点问题，因此就用XShell进行项目的发布操作。发布的步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在eclipse中通过Maven命令Clean–&amp;gt;Install生成jar文件；&lt;br&gt;clean:清楚t
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
-    
-      <category term="单元测试" scheme="https://BigJun2017.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
-    <title>Java8新特性及使用(二)</title>
-    <link href="https://BigJun2017.github.io/2018/11/14/hou-duan/java/java8-xin-te-xing-ji-shi-yong-er/"/>
-    <id>https://BigJun2017.github.io/2018/11/14/hou-duan/java/java8-xin-te-xing-ji-shi-yong-er/</id>
-    <published>2018-11-14T14:00:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>使用JSOUP爬取国家统计局的地理位置数据</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jsoup-pa-qu-guo-jia-tong-ji-ju-de-di-li-wei-zhi-shu-ju/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jsoup-pa-qu-guo-jia-tong-ji-ju-de-di-li-wei-zhi-shu-ju/</id>
+    <published>2018-12-04T12:35:56.449Z</published>
+    <updated>2018-09-02T09:04:02.000Z</updated>
     
     <summary type="html">
     
@@ -222,25 +175,24 @@
       
         
         
-          &lt;h2 id=&quot;扩展注解的支持&quot;&gt;&lt;a href=&quot;#扩展注解的支持&quot; class=&quot;headerlink&quot; title=&quot;扩展注解的支持&quot;&gt;&lt;/a&gt;扩展注解的支持&lt;/h2&gt;&lt;p&gt;Java
+          &lt;p&gt;最近因工作需要，我需要爬取国家统计局的最新统计数据。因此参照网上的例子使用JSOUP爬取了国家统计局的省、市、县、镇、村的数据。因为要爬取的数据较多，因此在里面使用了多线程的相关技术。下面首先讲解下多线程相关的东西。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>Java8新特性及使用(一)</title>
-    <link href="https://BigJun2017.github.io/2018/11/13/hou-duan/java/java8-xin-te-xing-ji-shi-yong-yi/"/>
-    <id>https://BigJun2017.github.io/2018/11/13/hou-duan/java/java8-xin-te-xing-ji-shi-yong-yi/</id>
-    <published>2018-11-13T14:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>使用Jenkins配置Git+Maven的自动化构建</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-pei-zhi-git-maven-de-zi-dong-hua-gou-jian/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-pei-zhi-git-maven-de-zi-dong-hua-gou-jian/</id>
+    <published>2018-12-04T12:35:56.448Z</published>
+    <updated>2017-09-06T08:53:16.000Z</updated>
     
     <summary type="html">
     
@@ -248,25 +200,23 @@
       
         
         
-          &lt;h2 id=&quot;新特性列表&quot;&gt;&lt;a href=&quot;#新特性列表&quot; class=&quot;headerlink&quot; title=&quot;新特性列表&quot;&gt;&lt;/a&gt;新特性列表&lt;/h2&gt;&lt;p&gt;以下是Java8中的引入的部分新特性。关于Java8新特性更详细的介绍可参考&lt;a
+          &lt;hr&gt;
+&lt;p&gt;最近安装Jenkins，参照网上的各种资料进行尝试，折腾了好久，但是查找了这么多资料，相似度在90%以上！！！，相同的安装过程，测试了几台机器，未曾成功，不得不感慨自己能力有限，最终慢慢摸索，形成思路，现分享给大家，希望大家在安装的时候少走弯路。&lt;/p&gt;
+&lt;p&gt;P
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>Java7新特性及使用</title>
-    <link href="https://BigJun2017.github.io/2018/11/12/hou-duan/java/java7-xin-te-xing-ji-shi-yong/"/>
-    <id>https://BigJun2017.github.io/2018/11/12/hou-duan/java/java7-xin-te-xing-ji-shi-yong/</id>
-    <published>2018-11-11T16:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>使用jenkins+github+tomcat实现Springboot半自动化部署</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/</id>
+    <published>2018-12-04T12:35:56.446Z</published>
+    <updated>2018-02-05T13:00:02.000Z</updated>
     
     <summary type="html">
     
@@ -274,25 +224,21 @@
       
         
         
-          &lt;h2 id=&quot;新特性列表&quot;&gt;&lt;a href=&quot;#新特性列表&quot; class=&quot;headerlink&quot; title=&quot;新特性列表&quot;&gt;&lt;/a&gt;新特性列表&lt;/h2&gt;&lt;p&gt;以下是Java7中的引入的部分新特性。关于Java7更详细的介绍可参考&lt;a
+          &lt;p&gt;本文讲解的是使用jenkins+github+tomcat实现springboot项目的半自动化部署，为啥叫做半自动化部署？因为我没钱买服务器，webhook又无法访问本地服务器，因此没有使用webhook进行全自动的部署演示，并且我本人认为，全自动的部署是没有必要的，因为
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>Java6新特性及使用</title>
-    <link href="https://BigJun2017.github.io/2018/11/11/hou-duan/java/java6-xin-te-xing-ji-shi-yong/"/>
-    <id>https://BigJun2017.github.io/2018/11/11/hou-duan/java/java6-xin-te-xing-ji-shi-yong/</id>
-    <published>2018-11-11T14:40:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>hexo+github搭建个人博客</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/</id>
+    <published>2018-12-04T12:35:56.444Z</published>
+    <updated>2017-08-29T09:39:02.000Z</updated>
     
     <summary type="html">
     
@@ -300,25 +246,21 @@
       
         
         
-          &lt;h2 id=&quot;新特性列表&quot;&gt;&lt;a href=&quot;#新特性列表&quot; class=&quot;headerlink&quot; title=&quot;新特性列表&quot;&gt;&lt;/a&gt;新特性列表&lt;/h2&gt;&lt;p&gt;以下是Java6中的引入的部分新特性，相比Java5的新特性就少了很多了。关于Java6更详细的介绍可参考&lt;a
+          &lt;p&gt;   &lt;strong&gt;使用hexo+github搭建博客的步骤为：&lt;/strong&gt;&lt;br&gt;       1.软件的安装；&lt;br&gt;                 (1.)安装Node；&lt;br&gt;                 (2.)安装Hexo;&lt;br&gt;       
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>Java5新特性及使用</title>
-    <link href="https://BigJun2017.github.io/2018/11/09/hou-duan/java/java5-xin-te-xing-ji-shi-yong/"/>
-    <id>https://BigJun2017.github.io/2018/11/09/hou-duan/java/java5-xin-te-xing-ji-shi-yong/</id>
-    <published>2018-11-08T16:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>适配器模式</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/</id>
+    <published>2018-12-04T12:35:56.443Z</published>
+    <updated>2017-09-08T10:53:44.000Z</updated>
     
     <summary type="html">
     
@@ -326,25 +268,21 @@
       
         
         
-          &lt;h2 id=&quot;新特性列表&quot;&gt;&lt;a href=&quot;#新特性列表&quot; class=&quot;headerlink&quot; title=&quot;新特性列表&quot;&gt;&lt;/a&gt;新特性列表&lt;/h2&gt;&lt;p&gt;以下是Java5中的引入的部分新特性，关于更详细的新特性了解，可参考&lt;a
+          &lt;pre&gt;&lt;code&gt;   适配器模式(Adapter
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>Java注解的理解和应用</title>
-    <link href="https://BigJun2017.github.io/2018/11/08/hou-duan/java/java-zhu-jie-de-li-jie-he-ying-yong/"/>
-    <id>https://BigJun2017.github.io/2018/11/08/hou-duan/java/java-zhu-jie-de-li-jie-he-ying-yong/</id>
-    <published>2018-11-07T16:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>明天就要学转前端了，收集了一些资料放这里了</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ming-tian-jiu-yao-xue-zhuan-qian-duan-liao-shou-ji-liao-yi-xie-zi-liao-fang-zhe-li-liao/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ming-tian-jiu-yao-xue-zhuan-qian-duan-liao-shou-ji-liao-yi-xie-zi-liao-fang-zhe-li-liao/</id>
+    <published>2018-12-04T12:35:56.441Z</published>
+    <updated>2017-12-03T13:33:18.000Z</updated>
     
     <summary type="html">
     
@@ -352,25 +290,23 @@
       
         
         
-          &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&quot;1-什么是注解&quot;&gt;&lt;a href=&quot;#1-什么是注解&quot; class=&quot;headerlink&quot; title=&quot;1.
+          &lt;p&gt;#下面是资料的链接，请尊重资料的作者，不要随意转发。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;1.react相关的学习资料&lt;br&gt;&lt;a href=&quot;http://it-ebooks.flygon.net/&quot; target=&quot;_blank&quot;
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>Java反射基础</title>
-    <link href="https://BigJun2017.github.io/2018/11/07/hou-duan/java/java-fan-she-ji-chu/"/>
-    <id>https://BigJun2017.github.io/2018/11/07/hou-duan/java/java-fan-she-ji-chu/</id>
-    <published>2018-11-07T13:40:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>面向对象程序设计原则</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mian-xiang-dui-xiang-cheng-xu-she-ji-liu-da-yuan-ze/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mian-xiang-dui-xiang-cheng-xu-she-ji-liu-da-yuan-ze/</id>
+    <published>2018-12-04T12:35:56.440Z</published>
+    <updated>2017-08-29T09:50:52.000Z</updated>
     
     <summary type="html">
     
@@ -378,25 +314,23 @@
       
         
         
-          &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1.
+          &lt;p&gt;面向对象程序设计原则&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;一、单一职责原则：
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;全称：“Single-Responsibility
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>Java IO 知识整理</title>
-    <link href="https://BigJun2017.github.io/2018/11/05/hou-duan/java/java-io-zhi-shi-zheng-li/"/>
-    <id>https://BigJun2017.github.io/2018/11/05/hou-duan/java/java-io-zhi-shi-zheng-li/</id>
-    <published>2018-11-05T03:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>幂等性[或者http幂等性]的理解</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mi-deng-xing-huo-zhe-http-mi-deng-xing-de-li-jie/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mi-deng-xing-huo-zhe-http-mi-deng-xing-de-li-jie/</id>
+    <published>2018-12-04T12:35:56.438Z</published>
+    <updated>2018-01-10T14:33:54.000Z</updated>
     
     <summary type="html">
     
@@ -404,26 +338,21 @@
       
         
         
-          &lt;h2 id=&quot;各IO类关系梳理&quot;&gt;&lt;a href=&quot;#各IO类关系梳理&quot; class=&quot;headerlink&quot; title=&quot;各IO类关系梳理&quot;&gt;&lt;/a&gt;各IO类关系梳理&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;InputStream: Java
+          &lt;p&gt;&lt;/p&gt;&lt;h2 id=&quot;怎么理解幂等性&quot;&gt;&lt;a href=&quot;#怎么理解幂等性&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>Java面向对象设计之责任链模式</title>
-    <link href="https://BigJun2017.github.io/2018/11/04/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ze-ren-lian-mo-shi/"/>
-    <id>https://BigJun2017.github.io/2018/11/04/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ze-ren-lian-mo-shi/</id>
-    <published>2018-11-04T14:00:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>梦想是一个天真的词，实现梦想是一个残酷的词</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/meng-xiang-shi-yi-ge-tian-zhen-de-ci-shi-xian-meng-xiang-shi-yi-ge-can-ku-de-ci/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/meng-xiang-shi-yi-ge-tian-zhen-de-ci-shi-xian-meng-xiang-shi-yi-ge-can-ku-de-ci/</id>
+    <published>2018-12-04T12:35:56.436Z</published>
+    <updated>2018-05-18T02:10:02.000Z</updated>
     
     <summary type="html">
     
@@ -431,27 +360,21 @@
       
         
         
-          &lt;h2 id=&quot;模式动机&quot;&gt;&lt;a href=&quot;#模式动机&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;梦想是一个天真的词，实现梦想是一个残酷的词。今天我要探索人工智能啦！&lt;br&gt;&lt;img src=&quot;http://ouuy81imh.bkt.clouddn.com/20180508092648717.png&quot;
         
       
     
     </summary>
     
-      <category term="软件设计" scheme="https://BigJun2017.github.io/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
-    
-      <category term="设计模式" scheme="https://BigJun2017.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
-    <title>JavaScript之再学习</title>
-    <link href="https://BigJun2017.github.io/2018/10/30/qian-duan/javascript-zhi-zai-xue-xi/"/>
-    <id>https://BigJun2017.github.io/2018/10/30/qian-duan/javascript-zhi-zai-xue-xi/</id>
-    <published>2018-10-29T16:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>枚举实现单例的原理</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mei-ju-shi-xian-dan-li-yuan-li/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mei-ju-shi-xian-dan-li-yuan-li/</id>
+    <published>2018-12-04T12:35:56.434Z</published>
+    <updated>2018-08-06T14:01:20.000Z</updated>
     
     <summary type="html">
     
@@ -459,25 +382,21 @@
       
         
         
-          &lt;h2 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot; class=&quot;headerlink&quot; title=&quot;概览&quot;&gt;&lt;/a&gt;概览&lt;/h2&gt;&lt;p&gt;JavaScript 是一种面向对象的动态语言，它包含类型、运算符、标准内置（ built-in）对象和方法。它的语法来源于 Java 和
+          &lt;p&gt;最近因为工作需要需要实现单例模式，考虑到单例模式最简单的实现方式是枚举实现，因此研究了下枚举实现单例模式的原理，下面将从原理、详解两个步骤说明：&lt;br&gt;             一：原理&lt;br&gt;        1、单例模式利用了“&lt;clinit&gt;()”
         
       
     
     </summary>
     
-      <category term="前端" scheme="https://BigJun2017.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="JavaScript" scheme="https://BigJun2017.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
-    <title>Java面向对象设计之单例模式</title>
-    <link href="https://BigJun2017.github.io/2018/10/29/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dan-li-mo-shi/"/>
-    <id>https://BigJun2017.github.io/2018/10/29/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dan-li-mo-shi/</id>
-    <published>2018-10-29T15:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>码农进化之Oracle学习篇</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/</id>
+    <published>2018-12-04T12:35:56.432Z</published>
+    <updated>2017-08-29T10:22:48.000Z</updated>
     
     <summary type="html">
     
@@ -485,27 +404,23 @@
       
         
         
-          &lt;h2 id=&quot;模式动机&quot;&gt;&lt;a href=&quot;#模式动机&quot; class=&quot;headerlink&quot;
+          &lt;hr&gt;
+&lt;pre&gt;&lt;code&gt;1.oracle-c/s
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;C/S结构：&lt;br&gt;client/server   客户端
         
       
     
     </summary>
     
-      <category term="软件设计" scheme="https://BigJun2017.github.io/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
-    
-      <category term="设计模式" scheme="https://BigJun2017.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
-    <title>Java异常知识汇总</title>
-    <link href="https://BigJun2017.github.io/2018/10/28/hou-duan/java/java-yi-chang-zhi-shi-hui-zong/"/>
-    <id>https://BigJun2017.github.io/2018/10/28/hou-duan/java/java-yi-chang-zhi-shi-hui-zong/</id>
-    <published>2018-10-27T16:30:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>react-motion动画库</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/</id>
+    <published>2018-12-04T12:35:56.431Z</published>
+    <updated>2018-03-03T02:07:36.000Z</updated>
     
     <summary type="html">
     
@@ -513,25 +428,21 @@
       
         
         
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;h3 id=&quot;为什么要使用异常&quot;&gt;&lt;a href=&quot;#为什么要使用异常&quot; class=&quot;headerlink&quot;
+          &lt;div class=&quot;preview&quot;&gt;&lt;br&gt;                &lt;div class=&quot;show-content&quot;&gt;&lt;br&gt;                   
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>你需要知道的Java枚举知识</title>
-    <link href="https://BigJun2017.github.io/2018/10/27/hou-duan/java/ni-xu-yao-zhi-dao-de-java-mei-ju-zhi-shi/"/>
-    <id>https://BigJun2017.github.io/2018/10/27/hou-duan/java/ni-xu-yao-zhi-dao-de-java-mei-ju-zhi-shi/</id>
-    <published>2018-10-27T15:20:00.000Z</published>
-    <updated>2018-11-23T16:45:01.000Z</updated>
+    <title>基于Vue2.x的自定义博客</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/</id>
+    <published>2018-12-04T12:35:56.429Z</published>
+    <updated>2018-09-18T09:16:32.000Z</updated>
     
     <summary type="html">
     
@@ -539,16 +450,38 @@
       
         
         
-          &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;最近闲来无事，就用Vue2.x模仿着自己的github博客手撸了一个博客，主要用到的技术有：VueX、Vue2.x、axios、iView、Router。最终的博客成果如下图：&lt;br&gt;      &lt;img
         
       
     
     </summary>
     
-      <category term="后端" scheme="https://BigJun2017.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
     
+  </entry>
+  
+  <entry>
+    <title>国内优秀npm镜像推荐使用</title>
+    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/guo-nei-you-xiu-npm-jing-xiang-tui-jian-shi-yong/"/>
+    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/guo-nei-you-xiu-npm-jing-xiang-tui-jian-shi-yong/</id>
+    <published>2018-12-04T12:35:56.427Z</published>
+    <updated>2017-12-13T09:25:14.000Z</updated>
     
-      <category term="Java" scheme="https://BigJun2017.github.io/tags/Java/"/>
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;/p&gt;&lt;h2 id=&quot;国内优秀npm镜像&quot;&gt;国内优秀npm镜像&lt;/h2&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;hr&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;h3 id=&quot;淘宝npm镜像&quot;&gt;淘宝npm镜像&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;li&gt;搜索地址：&lt;a
+        
+      
+    
+    </summary>
+    
     
   </entry>
   

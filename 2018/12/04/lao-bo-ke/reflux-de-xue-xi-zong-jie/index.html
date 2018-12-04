@@ -1,0 +1,999 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="学习reflux的总结, Blog4Jun">
+    <meta name="description" content="最近学习reflux,总结一下，方便以后回顾.参考资料,我觉得这个是极品，但是demo无法正常运行.1.reflux的原理:   1.1reflux是对flux架构的实现[flux相当于java中的架构/思想]；   1.2reflux中的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>学习reflux的总结 | Blog4Jun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Blog4Jun</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Blog4Jun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        学习reflux的总结
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-04
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>最近学习reflux,总结一下，方便以后回顾.<br><a href="https://www.cnblogs.com/lovesueee/p/4893218.html" target="_blank" rel="noopener">参考资料,我觉得这个是极品，但是demo无法正常运行.</a><br>1.reflux的原理:<br>   1.1reflux是对flux架构的实现[flux相当于java中的架构/思想]；<br>   1.2reflux中的数据流是单向的;<br>2.reflux和flux的重点区别:<br>  2.1flux中的action是一个标准的信息载体【dataer】，并不具备publisher的功能；<br>  2.2flux中的action是一个publisher，并具备信息载体的功能;<br>  2.3reflux中的action被发送出去之后，只有订阅【监听了】了action的store中的回调函数才会被调用；<br>  2.4flux中档action被发送后，所有注册在dispatcher上的回调函数都将被触发、调用我们通过action中type进行switch后才能进行指定的操作，执行效率较低;<br>3.reflux的demo:</p>
+<pre><code>action【action.js】
+
+action中定义了组件的行，同时reflux中的action作为publisher存在，当action被触发【执行：action.actionName();】时将自动转发action[一般携带着数据]到订阅了[监听]该action的store中，该store中的onActionName()回调函数将会被调用;
+----------
+
+
+var Reflux = require(&#39;reflux&#39;);
+
+var WorkLogActions = Reflux.createActions([
+    &#39;createHrWorkLog&#39;,
+    &#39;deleteHrWorkLog&#39;,
+    &#39;updateHrWorkLog&#39;,
+    &#39;retrieveHrWorkLog&#39;,
+    &#39;retrieveHrWorkLogPage&#39;,
+    &#39;initHrWorkLog&#39;,
+    &#39;retrieveEmpWorkLog&#39;,
+    &#39;retrieveEmpLoyee&#39;,
+    &#39;getCacheData&#39;
+]);
+
+module.exports = WorkLogActions;
+
+</code></pre><pre><code>store【WorkLogStore.js】
+
+reflux中store作为publisher和subscriber存在，当接收到action后，将执行对应的onActionName()回调函数，并执行
+this.fireEvent(&#39;retrieve&#39;, &#39;&#39;, this);
+或者storeA.trigger(3)发送事件和数据。当组件监听到后将执行监听回调函数，更新state从而驱动UI的更新;
+----------
+﻿var Reflux = require(&#39;reflux&#39;);
+var WorkLogActions = require(&#39;../action/WorkLogActions&#39;);
+var Utils = require(&#39;../../../public/script/utils&#39;);
+var MsgActions = require(&#39;../../../lib/action/MsgActions&#39;);
+
+var WorkLogStore = Reflux.createStore({
+    listenables: [WorkLogActions],
+
+    filter: {},
+    recordSet: [],
+    startPage : 0,
+    pageRow : 0,
+    totalRow : 0,
+
+    init: function() {
+    },
+    getServiceUrl: function(action)
+    {
+        return Utils.hrUrl+action;
+    },
+
+    fireEvent: function(operation, errMsg, self)
+    {
+        self.trigger({
+            filter: self.filter,
+            recordSet: self.recordSet,
+            startPage: self.startPage,
+            pageRow: self.pageRow,
+            totalRow: self.totalRow,
+            operation: operation,
+            errMsg: errMsg
+        });
+
+        MsgActions.showError(&#39;hr_work_log&#39;, operation, errMsg);
+    },
+    onGetCacheData: function() {
+        this.fireEvent(&#39;cache&#39;, &#39;&#39;, this);
+    },
+
+    onRetrieveHrWorkLog: function(filter) {
+        var self = this;
+        var url = this.getServiceUrl(&#39;hr_work_log/retrieve&#39;);
+        Utils.doRetrieveService(url, filter, self.startPage, self.pageRow, self.totalRow).then(function(result) {
+            if(result.errCode==null || result.errCode==&#39;&#39; || result.errCode==&#39;000000&#39;){
+                self.recordSet = result.object.list;
+                self.startPage = result.object.startPage;
+                self.pageRow = result.object.pageRow;
+                self.totalRow = result.object.totalRow;
+                self.filter = filter;
+
+                self.fireEvent(&#39;retrieve&#39;, &#39;&#39;, self);
+            }
+            else{
+                self.fireEvent(&#39;retrieve&#39;, &quot;处理错误[&quot;+result.errCode+&quot;][&quot;+result.errDesc+&quot;]&quot;, self);
+            }
+        }, function(value){
+            self.fireEvent(&#39;retrieve&#39;, &quot;调用服务错误&quot;, self);
+        });
+    },
+
+    onRetrieveHrWorkLogPage: function(filter, startPage, pageRow) {
+        this.startPage = startPage;
+        this.pageRow = pageRow;
+        this.onRetrieveHrWorkLog( filter );
+    },
+
+    onInitHrWorkLog: function(filter) {
+        if( this.recordSet.length &gt; 0 ){
+            if( Utils.compareTo(this.filter, filter) ){
+                this.fireEvent(&#39;retrieve&#39;, &#39;&#39;, this);
+                return;
+            }
+        }
+
+        this.onRetrieveHrWorkLog(filter);
+    },
+
+
+    onCreateHrWorkLog: function(workLog) {
+
+        var self = this;
+        var data = workLog;
+        var url = this.getServiceUrl(&#39;hr_work_log/create&#39;);
+        Utils.doCreateService(url, data).then(function(result) {
+            if(result.errCode==null || result.errCode==&#39;&#39; || result.errCode==&#39;000000&#39;){
+                result.object.perName = data.perName;
+                result.object.staffCode = data.staffCode;
+                result.object.deptName = data.deptName;
+                self.recordSet.push(result.object);
+
+                self.totalRow = self.totalRow + 1;
+                self.fireEvent(&#39;create&#39;, &#39;&#39;, self);
+            }
+            else{
+                self.fireEvent(&#39;create&#39;, &quot;处理错误[&quot;+result.errCode+&quot;][&quot;+result.errDesc+&quot;]&quot;, self);
+            }
+        }, function(value){
+            self.fireEvent(&#39;create&#39;, &quot;调用服务错误&quot;, self);
+        });
+
+    },
+
+    onUpdateHrWorkLog: function(workLog) {
+        var url = this.getServiceUrl(&#39;hr_work_log/update&#39;);
+        Utils.recordUpdate(this, workLog, url);
+    },
+
+    onDeleteHrWorkLog: function(uuid) {
+        var url = this.getServiceUrl(&#39;hr_work_log/remove&#39;);
+        Utils.recordDelete(this, uuid, url);
+    }
+});
+
+module.exports = WorkLogStore;
+
+
+</code></pre><pre><code>component【WorkLogPage.js】
+
+component中监听store中发送的事件并更新state，驱动UI的更新
+----------
+
+﻿&#39;use strict&#39;;
+
+import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+import ReactMixin from &#39;react-mixin&#39;;
+var Reflux = require(&#39;reflux&#39;);
+import { Button, Table, Icon, Modal, Input } from &#39;antd&#39;;
+const Search = Input.Search;
+
+import ServiceMsg from &#39;../../lib/Components/ServiceMsg&#39;;
+import DimissTodoPage from &#39;./Components/DimissTodoPage&#39;;
+var Common = require(&#39;../../public/script/common&#39;);
+var Utils = require(&#39;../../public/script/utils&#39;);
+var WorkLogStore = require(&#39;./data/WorkLogStore.js&#39;);
+var WorkLogActions = require(&#39;./action/WorkLogActions&#39;);
+import WorkLogFilter from &#39;./Components/WorkLogFilter&#39;;
+import CreateWorkLogPage from &#39;./Components/CreateWorkLogPage&#39;;
+import UpdateWorkLogPage from &#39;./Components/UpdateWorkLogPage&#39;;
+import DetailsWorkLogPage from &#39;./Components/DetailsWorkLogPage&#39;;
+
+
+var pageRows = 10;
+var WorkLogPage = React.createClass({
+    getInitialState: function () {
+        return {
+            workLogSet: {
+                recordSet: [],
+                startPage: 1,
+                pageRow: 10,
+                totalRow: 0,
+                operation: &#39;&#39;,
+                errMsg: &#39;&#39;
+            },
+            action: &#39;query&#39;,
+            workLog: null,
+
+            loading: false,
+            moreFilter: false,
+            filterValue: &#39;&#39;,
+            filter: {},
+        }
+    },
+
+    mixins: [Reflux.listenTo(WorkLogStore, &quot;onServiceComplete&quot;)],
+    onServiceComplete: function (data) {
+        if (data.operation === &#39;cache&#39;) {
+            var ff = data.filter.staffCode;
+            if (ff === null || typeof (ff) === &#39;undefined&#39; || ff === &#39;&#39;) {
+                ff = data.filter.perName;
+                if (ff === null || typeof (ff) === &#39;undefined&#39;) {
+                    ff = &#39;&#39;;
+                }
+            }
+
+            this.state.filterValue = ff;
+            this.state.filter = data.filter;
+            this.state.moreFilter = (data.filter.more === &#39;1&#39;);
+
+            if (this.state.moreFilter) {
+                var mp = this.refs.WorkLogFilter;
+                if (mp !== null &amp;&amp; typeof (mp) !== &#39;undefined&#39;) {
+                    mp.state.workLog = this.state.filter;
+                }
+            }
+        }
+
+        this.setState({
+            loading: false,
+            workLogSet: data
+        });
+    },
+    // 第一次加载
+    componentDidMount: function () {
+        WorkLogActions.getCacheData();
+    },
+    handleQueryClick: function () {
+        this.setState({ loading: true });
+        this.state.filter.status = &#39;1&#39;;
+        this.state.filter.corpUuid = window.loginData.compUser.corpUuid;
+        this.state.filter.more = (this.state.moreFilter ? &#39;1&#39; : &#39;0&#39;);
+        WorkLogActions.retrieveHrWorkLogPage(this.state.filter, this.state.workLogSet.startPage, pageRows);
+    },
+    showMoreFilter: function (event) {
+        this.setState({ moreFilter: !this.state.moreFilter });
+    },
+    onChangePage: function (pageNumber) {
+        this.state.workLogSet.startPage = pageNumber;
+        this.handleQueryClick();
+    },
+    onShowSizeChange: function (current, pageSize) {
+        pageRows = pageSize;
+        this.handleQueryClick();
+    },
+    onChangeFilter: function (e) {
+        this.setState({ filterValue: e.target.value });
+    },
+    onSearch: function (e) {
+        this.state.filter = {};
+        var filterValue = this.state.filterValue;
+        if (Common.isIncNumber(filterValue)) {
+            this.state.filter.staffCode = filterValue;
+        }
+        else {
+            this.state.filter.perName = filterValue;
+        }
+
+        this.handleQueryClick();
+    },
+    onMoreSearch: function () {
+        this.state.filter = this.refs.WorkLogFilter.state.workLog;
+        this.handleQueryClick();
+    },
+    onClickDelete: function (workLog, event) {
+        Modal.confirm({
+            title: &#39;删除确认&#39;,
+            content: &#39;是否删除选中的工作日志&#39;,
+            okText: &#39;确定&#39;,
+            cancelText: &#39;取消&#39;,
+            onOk: this.onClickDelete2.bind(this, workLog)
+        });
+    },
+    onClickDelete2: function (workLog) {
+        this.setState({ loading: true });
+        this.state.workLogSet.operation = &#39;&#39;;
+        WorkLogActions.deleteHrWorkLog(workLog.uuid);
+    },
+    handleCreate: function (e) {
+        this.setState({ action: &#39;create&#39; });
+    },
+    onClickDetails: function (workLog, event) {
+        this.setState({ workLog: workLog, action: &#39;detail&#39; });
+    },
+    onClickUpdate: function (workLog, event) {
+        this.setState({ workLog: workLog, action: &#39;update&#39; });
+    },
+    onGoBack: function (workLog) {
+        this.setState({ action: &#39;query&#39; });
+        // 离职后处理
+        if (workLog) {
+            var chgType = workLog.chgType;
+            if (chgType === &#39;离职&#39; || chgType === &#39;辞退&#39; || chgType === &#39;开除&#39;) {
+                this.refs.nextWindow.toggle();
+                this.refs.nextWindow.initStaff(workLog);
+            }
+        }
+    },
+
+    render: function () {
+        const columns = [
+            {
+                title: &#39;员工编号&#39;,
+                dataIndex: &#39;staffCode&#39;,
+                key: &#39;staffCode&#39;,
+                width: 140,
+            },
+            {
+                title: &#39;姓名&#39;,
+                dataIndex: &#39;perName&#39;,
+                key: &#39;perName&#39;,
+                width: 140,
+            },
+            {
+                title: &#39;变更类型&#39;,
+                dataIndex: &#39;chgType&#39;,
+                key: &#39;chgType&#39;,
+                width: 140,
+                render: (text, record) =&gt; (Utils.getOptionName(&#39;HR系统&#39;, &#39;工作变更类型&#39;, record.chgType, false, this)),
+            },
+            {
+                title: &#39;部门名称&#39;,
+                dataIndex: &#39;deptName&#39;,
+                key: &#39;deptName&#39;,
+                width: 140,
+            },
+            {
+                title: &#39;调前说明&#39;,
+                dataIndex: &#39;befMemo&#39;,
+                key: &#39;befMemo&#39;,
+                width: 140,
+            },
+            {
+                title: &#39;调后说明&#39;,
+                dataIndex: &#39;aftMemo&#39;,
+                key: &#39;aftMemo&#39;,
+                width: 140,
+            },
+            {
+                title: &#39;生效日期&#39;,
+                dataIndex: &#39;effectDate&#39;,
+                key: &#39;effectDate&#39;,
+                width: 140,
+                render: (text, record) =&gt; (Common.formatDate(text, Common.dateFormat)),
+            },
+
+            {
+                title: &#39;更多操作&#39;,
+                key: &#39;action&#39;,
+                width: 70,
+                render: (text, record) =&gt; (
+                    &lt;span&gt;
+                        &lt;a href=&quot;#&quot; onClick={this.onClickDetails.bind(this, record)} title=&#39;详情&#39;&gt;&lt;Icon type=&#39;bars&#39; /&gt;&lt;/a&gt;
+                    &lt;/span&gt;
+                ),
+            }
+        ];
+        /*
+                        &lt;a href=&quot;#&quot; onClick={this.onClickUpdate.bind(this, record)} title=&#39;修改工作&#39;&gt;&lt;Icon type={Common.iconUpdate} /&gt;&lt;/a&gt;
+                        &lt;span className=&quot;ant-divider&quot; /&gt;
+                    &lt;a href=&quot;#&quot; onClick={this.onClickDelete.bind(this, record)} title=&#39;删除工作&#39;&gt;&lt;Icon type={Common.iconRemove}/&gt;&lt;/a&gt;
+                    &lt;span className=&quot;ant-divider&quot; /&gt;
+        */
+
+        var recordSet = this.state.workLogSet.recordSet;
+        var moreFilter = this.state.moreFilter;
+        var visible = (this.state.action === &#39;query&#39;) ? &#39;&#39; : &#39;none&#39;;
+        var pag = {
+            showQuickJumper: true, total: this.state.workLogSet.totalRow, pageSize: this.state.workLogSet.pageRow,
+            current: this.state.workLogSet.startPage, size: &#39;large&#39;, showSizeChanger: true, onShowSizeChange: this.onShowSizeChange, onChange: this.onChangePage
+        };
+
+        var contactTable =
+            &lt;div className=&#39;grid-page&#39; style={{ overflow: 'hidden', display: visible }}&gt;
+                &lt;div style={{ padding: '8px 0 0 0', height: '100%', width: '100%', overflowY: 'auto' }}&gt;
+                    &lt;ServiceMsg ref=&#39;mxgBox&#39; svcList={[&#39;hr_work_log/retrieve&#39;, &#39;hr_work_log/remove&#39;]} /&gt;
+                    &lt;WorkLogFilter ref=&quot;WorkLogFilter&quot; moreFilter={moreFilter} /&gt;
+
+                    &lt;div style={{ margin: '8px 0 0 0' }}&gt;
+                        &lt;div className=&#39;toolbar-table&#39;&gt;
+                            &lt;div style={{ float: 'left' }}&gt;
+                                &lt;Button icon={Common.iconAdd} type=&quot;primary&quot; title=&quot;增加工作变更信息&quot; onClick={this.handleCreate} /&gt;
+                                &lt;Button icon={Common.iconRefresh} title=&quot;刷新数据&quot; onClick={this.handleQueryClick} style={{ marginLeft: '4px' }} /&gt;
+                            &lt;/div&gt;
+                            {
+                                moreFilter ?
+                                    &lt;div style={{ textAlign: 'right', width: '100%' }}&gt;
+                                        &lt;Button title=&quot;查询&quot; onClick={this.onMoreSearch} loading={this.state.loading} style={{ marginRight: '5px' }}&gt;查询&lt;/Button&gt;
+                                        &lt;Button title=&quot;快速条件&quot; onClick={this.showMoreFilter}&gt;快速条件&lt;/Button&gt;
+                                    &lt;/div&gt; :
+                                    &lt;div style={{ textAlign: 'right', width: '100%' }}&gt;
+                                        &lt;Search placeholder=&quot;查询(员工编号/员工姓名)&quot; style={{ width: Common.searchWidth }} value={this.state.filterValue} onChange={this.onChangeFilter} onSearch={this.onSearch} /&gt;
+                                        &lt;Button title=&quot;更多条件&quot; onClick={this.showMoreFilter} style={{ marginLeft: '8px' }}&gt;更多条件&lt;/Button&gt;
+                                    &lt;/div&gt;
+                            }
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div style={{ width: '100%', padding: '0 18px 8px 20px' }}&gt;
+                        &lt;Table columns={columns} dataSource={recordSet} rowKey={record =&gt; record.uuid} loading={this.state.loading} pagination={pag} size=&quot;middle&quot; bordered={Common.tableBorder} /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;;
+
+        var page = null;
+        if (this.state.action === &#39;create&#39;) {
+            page = &lt;CreateWorkLogPage ref=&#39;createPage&#39; onBack={this.onGoBack} /&gt;;
+        }
+        else if (this.state.action === &#39;detail&#39;) {
+            page = &lt;DetailsWorkLogPage onBack={this.onGoBack} userUuid={this.state.workLog.userUuid} /&gt;
+        }
+        else if (this.state.action === &#39;update&#39;) {
+            page = &lt;UpdateWorkLogPage onBack={this.onGoBack} workLog={this.state.workLog} /&gt;
+        }
+
+        return (
+            &lt;div style={{ width: '100%', height: '100%' }}&gt;
+                {contactTable}
+                {page}
+                &lt;DimissTodoPage ref=&quot;nextWindow&quot; /&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+
+module.exports = WorkLogPage;
+
+</code></pre>
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://BigJun2017.github.io" class="b-link-green">Blog4Jun</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/" class="b-link-green">学习reflux的总结</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="reflux中一个小error[error-linstenner is no a function]总结">
+                        
+                        <span class="card-title">reflux中一个小error[error-linstenner is no a function]总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">最近在使用reflux的时候，我想为事件监听的callback函数添加参数，如下所示:
+1、ContentStore.removeChangeListener(CHANGE_EVENT_BATCH_DEL_ATTENCE_DETAIL, t</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="redis启动出错">
+                        
+                        <span class="card-title">redis启动出错</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">   windows下安装redis第一次启动报错：
+[2368] 21 Apr 02:57:05.611 # Creating Server TCP listening socket 127.0.0.1:6379: bind: No er</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

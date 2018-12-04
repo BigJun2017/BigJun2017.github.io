@@ -1,0 +1,666 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="hexo+github搭建个人博客, Blog4Jun">
+    <meta name="description" content="   使用hexo+github搭建博客的步骤为：       1.软件的安装；                 (1.)安装Node；                 (2.)安装Hexo;                 (3.)安装G">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>hexo+github搭建个人博客 | Blog4Jun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Blog4Jun</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Blog4Jun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        hexo+github搭建个人博客
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-04
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>   <strong>使用hexo+github搭建博客的步骤为：</strong><br>       1.软件的安装；<br>                 (1.)安装Node；<br>                 (2.)安装Hexo;<br>                 (3.)安装Git;<br>                 (4.)安装主题；<br>       2.内容的发布;<br>                 使用hexo插件发布博客内容;<br>      <em>详细步骤如下：</em>    </p>
+<hr>
+<p><strong>前提条件</strong><br>需要有个github账号。<br>一般做为一个开发人员，github肯定是访问过的，相信绝大多数开发人员会注册拥有一个github账号，因为这是全球知名的代码托管网站。全世界均可访问到它。若还没有可以到Github注册。</p>
+<p>基本软件NodeJS，Git，Hexo<br>在机子上需要使用到NodeJS进行部署，安装插件等。下载NodeJs。<br>安装Git，进入Git下载页面选择合适的版本进行下载。<br>如果不清楚Hexo是什么？？她是一个快速，简介，高效的博客框架。更多详情可以到Hexo官网读下这个文档就知道了。</p>
+<p>安装完成Git及NodeJs后，那么就可以开始准备安装Hexo了。<br>打开GitBash，使用npm命令来安装Hexo程序。</p>
+<p>安装Hexo</p>
+<hr>
+<p>在命令行输入如下命令:<br>$ npm install -g hexo-cli<br>由于众所周知的原因,可能你执行这条命令会报错，如果你不会调整姿势上网，可以使用淘宝 npm 镜像，执行如下命令即可：<br>$ npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>之后很多 npm 命令可以使用 cnpm 代替。执行下面命令即可安装 Hexo :<br>$ cnpm install -g hexo-cli<br>可能出现一些 WARN ,可以不用理会，然后执行：<br>$ cnpm install hexo –save<br>输入$ hexo -v命令，出现下面所示的版本信息，则说明安装成功</p>
+<p><img src="http://img.blog.csdn.net/20170829093934795?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemoyMDE0MjIxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>这样表示Hexo安装成功了。<br>到此，搭建个人微博需要的3个软件就安装完成了。</p>
+<p>接下来就需要进行相关配置及插件安装了。<br>所有的操作均在GitBash命令行中进行操作。</p>
+<p><strong>建站</strong><br>首先简历一个简单的站，创建初始化一个简单的文件夹。</p>
+<pre><code>$ hexo init myGitPages
+$ cd myGitPages
+$ npm install
+</code></pre><p>这样就可以新建所需要的文件。<br>安装完成后，可以看到如下的几个主要文件。</p>
+<p>   <img src="http://img.blog.csdn.net/20170829094415438?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemoyMDE0MjIxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>其中:<br>_config.xml 可以配置网站信息。可以参考配置<br>package.json 应用程序信息。有默认配置一些组件，可以自己根据需要添加或者移除。<br>scaffolds 模板文件夹。当新建文章时，Hexo会根据scaffold来建立文件。<br>source 资源文件夹，存放用户资源的地方。<br>themes 主题文件夹。Hexo会根据主题来生成静态页面。</p>
+<p><strong>主题</strong></p>
+<hr>
+<p>Hexo可以有很多主题，在Github首页搜索框内输入”hexo theme”，可以搜索到很多主题，目前我使用的是litten的yilia主题。</p>
+<p>可以在进入到建立的站点文件夹下（我的是myGitPages）下，下载yilia主题</p>
+<pre><code>$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+</code></pre><p>下载完成后，打开站点个目录下（myGitPages）的_config.xml文件，修改其中的theme属性成</p>
+<pre><code>theme: yilia
+</code></pre><p>这样就可以在发布文章的手看到修改的主题，或者通过hexo server进行查看。</p>
+<p><strong>发布</strong></p>
+<hr>
+<p>发布文章前一定要确认已经安装了hexo-deployer-git插件，否则无法正常发文章到git上的。</p>
+<pre><code>$ npm install hexo-deployer-git --save
+</code></pre><p>来安装git插件。</p>
+<p>到目前基本上需要的从博客站点建立，到发布所需要的软件准备工作都就绪了。</p>
+<p>PS：yilia要显示所有文章还需要进行一个配置，下文会写到。</p>
+<p>在开始写文章发布之前可以，先查本地运行查看Hexo运行情况，运行</p>
+<pre><code>$ hexo server
+</code></pre><p>在dos窗口的命令为（对应的安装路径下）:hexo s;[启动hexo]</p>
+<p>启动服务器。默认情况下，端口地址是4000。打开浏览器，访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>查看效果。若访问出错，没有打开页面，那么可能是端口被占用导致。此时可以使用</p>
+<pre><code>$ hexo server -p 5000
+</code></pre><p>修改端口，然后重新输入端口号进行查看。<br>若访问成功，默认看到的是hello-wold.md（即source/_post文件夹下的默认创建文件）文件发布后的效果。</p>
+<p><strong>准备工作结束，可以开始写文章发布</strong></p>
+<hr>
+<p>用github+hexo搭建完个人博客后，朋友们应该很想知道怎么在上面写博文吧，这里介绍一个很简单的方法</p>
+<p>你可以使用CSDN网上面提供的MarkDown编辑器 <a href="http://write.blog.csdn.net/mdeditor" target="_blank" rel="noopener">http://write.blog.csdn.net/mdeditor</a> (在csdn博客写新文章的时候能切换到这种编辑器)，写好文章后，找到菜单栏的“导出到本地”选项<br><img src="http://img.blog.csdn.net/20170829100749122?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemoyMDE0MjIxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>以md格式导出到本地，然后copy该md文件，粘贴到你当初建的博客站点文件夹下的source\ _posts目录下，一个md文件对应一篇博客文章。</p>
+<hr>
+<p>在写完文章之后就需要将写的文章部署到GitHub上去了。<br>来看下这个过程。</p>
+<p>由于要发布博客到GitHub实际上使用了GitHub Pages功能，因此可以到这里来查看相关的介绍。其中详细介绍了Pages概念，及如何建立自己的站点。</p>
+<p>一下先简绍下我自己的建立过程。</p>
+<pre><code>建立GitHub仓库
+</code></pre><p>建立仓库，用以部署Hexo生成的博客。如果还没有GitHub账号就需要注册了。<br>有GitHub账号的小伙伴可以到Github网站创建一个新仓库，如下显示。</p>
+<p><img src="http://img.blog.csdn.net/20170829101340431?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemoyMDE0MjIxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>新仓库
+</code></pre><p>其中仓库名有所讲究，它必须是username.github.io ，这里的username有两种情况，其一是你的用户名即注册时使用的名称，其二是组织名称（此处组织名称并未尝试）。如下图可以看下位置。</p>
+<p><img src="http://img.blog.csdn.net/20170829101515174?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemoyMDE0MjIxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>Hexo发布前需要配置_config.xml
+</code></pre><p>在站点根目录下（myGitPages），找到并编辑_config.xml文件，如下部分。</p>
+<pre><code># Deployment
+deploy:
+    type: git
+    repository: git@github.com:yourname/yourname.github.io.git
+    branch: master
+</code></pre><p>将新建的仓库信息及分支信息配置到_config.xml，让Hexo知道部署到GitHub的那个仓库。</p>
+<pre><code>发布
+</code></pre><p>最后，就需要发布了。可以在站点根目录下（myGitPages）下运行一下命令：</p>
+<pre><code>$ hexo clean #清除原有生成的相关文件
+$ hexo generate #重新生成静态页面
+$ hexo deploy #进行部署
+</code></pre><p>在运行部署命令时，会弹出ssh密码输入确认框，输入username.github.io仓库密码，点击OK即可进行顺利发布。</p>
+<p>然后就去访问你的个人站点吧。你会看到发布的文章。</p>
+<p> PS: 不同的主题可能在主题中还需要进行一定的配置，这个看个人喜好使用哪个主题，我使用的是yilia主题，其在初次查看所有文章时会发现展示的不是文章列表。那么按照主题作者提示进行配置后，重新部署就可以了。</p>
+<p>1.nodejs版本大于6.2（最新的nodejs肯定符合）。<br>2.在博客根目录下（不是yilia根目录下）执行如下命令： npm i hexo-<code>generator-json-content --save</code><br>3.在根目录_config.xml文件内配置：</p>
+<h1 id="查看yilia主题下所有文章配置"><a href="#查看yilia主题下所有文章配置" class="headerlink" title="查看yilia主题下所有文章配置"></a>查看yilia主题下所有文章配置</h1><pre><code> jsonContent:
+       meta: false
+       pages: false
+       posts:
+           title: true
+           date: true
+           path: true
+           text: false
+           raw: false
+           content: false
+           slug: false
+           updated: false
+           comments: false
+           link: false
+           permalink: false
+          excerpt: false
+           categories: false
+           tags: true
+</code></pre><p><strong>PS：设置个人头像注意的要点</strong></p>
+<pre><code>1.注意相对路径 绝对路径 根路径 的区别
+2.注意yilia主题对格式的严格要求，比如空格什么的;
+</code></pre><p>  具体配置步骤如下：<br>         1.将图片资源放置指定的文件夹下：<br>         <img src="http://img.blog.csdn.net/20170829103613535?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemoyMDE0MjIxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>         2.注意图片路径的格式：<br>         <img src="http://img.blog.csdn.net/20170829103743288?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemoyMDE0MjIxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://BigJun2017.github.io" class="b-link-green">Blog4Jun</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/" class="b-link-green">hexo+github搭建个人博客</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="使用jenkins+github+tomcat实现Springboot半自动化部署">
+                        
+                        <span class="card-title">使用jenkins+github+tomcat实现Springboot半自动化部署</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本文讲解的是使用jenkins+github+tomcat实现springboot项目的半自动化部署，为啥叫做半自动化部署？因为我没钱买服务器，webhook又无法访问本地服务器，因此没有使用webhook进行全自动的部署演示，并且我本人认</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="适配器模式">
+                        
+                        <span class="card-title">适配器模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">   适配器模式(Adapter Pattern)：将一个接口转换成客户希望的另一个接口，使接口不兼容的那些类可以一起工作，其别名为包装器(Wrapper)。适配器模式既可以作为类结构型模式，也可以作为对象结构型模式。适配器模式是一种常用设</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

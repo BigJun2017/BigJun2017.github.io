@@ -1,0 +1,791 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="ssm整合redis, Blog4Jun">
+    <meta name="description" content="说明   redis是一个nosql数据库，具有高速，数据结构对程序员透明【数据类型支持list、set等结构】等特点。
+redis的使用前提：
+  (1.)redis 是一个数据库，和mysql相似，使用redis首先得安装redis数据">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ssm整合redis | Blog4Jun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Blog4Jun</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Blog4Jun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        ssm整合redis
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-04
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong>说明</strong><br>   redis是一个nosql数据库，具有高速，数据结构对程序员透明【数据类型支持list、set等结构】等特点。</p>
+<p><strong>redis的使用前提：</strong></p>
+<p>  (1.)redis 是一个数据库，和mysql相似，使用redis首先得安装redis数据库;<br>  (2.)为应用程序添加必要的配置：例如mysql中的四要素;<br>  (3.)配置redis相关的AOP【基于方法拦截】;<br>  (4.)使用redis相关的API；</p>
+<p><strong>Spring整合redis的相关配置:</strong></p>
+<pre><code>&lt;!-- jedis 配置 --&gt;
+    &lt;bean id=&quot;poolConfig&quot; class=&quot;redis.clients.jedis.JedisPoolConfig&quot;&gt;
+        &lt;property name=&quot;maxIdle&quot; value=&quot;${redis.maxIdle}&quot; /&gt;
+        &lt;property name=&quot;maxWaitMillis&quot; value=&quot;${redis.maxWait}&quot; /&gt;
+        &lt;property name=&quot;testOnBorrow&quot; value=&quot;${redis.testOnBorrow}&quot; /&gt;
+    &lt;/bean&gt;
+    &lt;!-- redis服务器中心 --&gt;
+    &lt;bean id=&quot;connectionFactory&quot;
+        class=&quot;org.springframework.data.redis.connection.jedis.JedisConnectionFactory&quot;&gt;
+        &lt;property name=&quot;poolConfig&quot; ref=&quot;poolConfig&quot; /&gt;
+        &lt;property name=&quot;port&quot; value=&quot;${redis.port}&quot; /&gt;
+        &lt;property name=&quot;hostName&quot; value=&quot;${redis.host}&quot; /&gt;
+        &lt;property name=&quot;password&quot; value=&quot;${redis.password}&quot; /&gt;
+        &lt;property name=&quot;timeout&quot; value=&quot;${redis.timeout}&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;bean id=&quot;redisTemplate&quot; class=&quot;org.springframework.data.redis.core.RedisTemplate&quot;&gt;
+        &lt;property name=&quot;connectionFactory&quot; ref=&quot;connectionFactory&quot; /&gt;
+        &lt;property name=&quot;keySerializer&quot;&gt;
+            &lt;bean
+                class=&quot;org.springframework.data.redis.serializer.StringRedisSerializer&quot; /&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;valueSerializer&quot;&gt;
+            &lt;bean
+                class=&quot;org.springframework.data.redis.serializer.JdkSerializationRedisSerializer&quot; /&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- cache配置 --&gt;
+    &lt;bean id=&quot;methodCacheInterceptor&quot; class=&quot;com.crossoverJie.intercept.MethodCacheInterceptor&quot;&gt;
+        &lt;property name=&quot;redisUtil&quot; ref=&quot;redisUtil&quot; /&gt;
+    &lt;/bean&gt;
+    &lt;bean id=&quot;redisUtil&quot; class=&quot;com.crossoverJie.util.RedisUtil&quot;&gt;
+        &lt;property name=&quot;redisTemplate&quot; ref=&quot;redisTemplate&quot; /&gt;
+    &lt;/bean&gt;
+
+
+    &lt;bean id=&quot;dataSourceExchange&quot; class=&quot;com.crossoverJie.util.DataSourceExchange&quot; /&gt;
+    &lt;!--配置切面拦截方法 --&gt;
+    &lt;aop:config&gt;
+
+        &lt;!--将com.crossoverJie.service包下的所有select开头的方法加入拦截 去掉select则加入所有方法 --&gt;
+        &lt;aop:pointcut id=&quot;controllerMethodPointcut&quot;
+            expression=&quot;
+        execution(* com.crossoverJie.service.*.select*(..))&quot; /&gt;
+
+
+        &lt;aop:pointcut id=&quot;selectMethodPointcut&quot;
+            expression=&quot;
+        execution(* com.crossoverJie.dao..*Mapper.select*(..))&quot; /&gt;
+
+        &lt;aop:advisor advice-ref=&quot;methodCacheInterceptor&quot;
+            pointcut-ref=&quot;controllerMethodPointcut&quot; /&gt;
+
+        &lt;!--所有数据库操作的方法加入切面 --&gt;
+        &lt;aop:aspect ref=&quot;dataSourceExchange&quot;&gt;
+            &lt;aop:pointcut id=&quot;dataSourcePointcut&quot;
+                expression=&quot;execution(* com.crossoverJie.service.*.*(..))&quot; /&gt;
+            &lt;aop:before pointcut-ref=&quot;dataSourcePointcut&quot; method=&quot;before&quot; /&gt;
+            &lt;aop:after pointcut-ref=&quot;dataSourcePointcut&quot; method=&quot;after&quot; /&gt;
+        &lt;/aop:aspect&gt;
+
+    &lt;/aop:config&gt;
+</code></pre><p><strong>编码方法拦截器MethodInterceptor</strong></p>
+<pre><code> 方法拦截器在目标方法被调用的时候被触发，作为增强业务逻辑存在，方法拦截器主要任务是将需要加入redis中数据添加进redis中;
+</code></pre><pre><code>package com.crossoverJie.intercept;
+
+import com.crossoverJie.util.RedisUtil;
+import org.aopalliance.intercept.MethodInterceptor;
+import org.aopalliance.intercept.MethodInvocation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by chenjie on 2016/11/16.
+ */
+public class MethodCacheInterceptor implements MethodInterceptor {
+    private Logger logger = LoggerFactory.getLogger(MethodCacheInterceptor.class);
+    private RedisUtil redisUtil;
+    private List&lt;String&gt; targetNamesList; // 不加入缓存的service名称
+    private List&lt;String&gt; methodNamesList; // 不加入缓存的方法名称
+    private Long defaultCacheExpireTime; // 缓存默认的过期时间
+    private Long xxxRecordManagerTime; //
+    private Long xxxSetRecordManagerTime; //
+
+    /**
+     * 初始化读取不需要加入缓存的类名和方法名称
+     */
+    public MethodCacheInterceptor() {
+        try {
+            // 分割字符串 这里没有加入任何方法
+            //
+            String[] targetNames = {};
+            String[] methodNames = {};
+
+            // 加载过期时间设置
+            defaultCacheExpireTime = 3600L;
+            xxxRecordManagerTime = 60L;
+            xxxSetRecordManagerTime = 60L;
+            // 创建list
+            targetNamesList = new ArrayList&lt;String&gt;(targetNames.length);
+            methodNamesList = new ArrayList&lt;String&gt;(methodNames.length);
+            Integer maxLen = targetNames.length &gt; methodNames.length ? targetNames.length
+                    : methodNames.length;
+            // 将不需要缓存的类名和方法名添加到list中
+            for (int i = 0; i &lt; maxLen; i++) {
+                if (i &lt; targetNames.length) {
+                    targetNamesList.add(targetNames[i]);
+                }
+                if (i &lt; methodNames.length) {
+                    methodNamesList.add(methodNames[i]);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Object invoke(MethodInvocation invocation) throws Throwable {
+        Object value = null;
+
+        String targetName = invocation.getThis().getClass().getName();
+        String methodName = invocation.getMethod().getName();
+        // 不需要缓存的内容
+        //if (!isAddCache(StringUtil.subStrForLastDot(targetName), methodName)) {
+        if (!isAddCache(targetName, methodName)) {
+            // 执行方法返回结果
+            return invocation.proceed();
+        }
+        Object[] arguments = invocation.getArguments();
+        String key = getCacheKey(targetName, methodName, arguments);
+        logger.debug(&quot;redisKey: &quot; + key);
+        try {
+            // 判断是否有缓存
+            if (redisUtil.exists(key)) {
+                return redisUtil.get(key);
+            }
+            // 写入缓存
+            value = invocation.proceed();
+            if (value != null) {
+                final String tkey = key;
+                final Object tvalue = value;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (tkey.startsWith(&quot;com.service.impl.xxxRecordManager&quot;)) {
+                            redisUtil.set(tkey, tvalue, xxxRecordManagerTime);
+                        } else if (tkey.startsWith(&quot;com.service.impl.xxxSetRecordManager&quot;)) {
+                            redisUtil.set(tkey, tvalue, xxxSetRecordManagerTime);
+                        } else {
+                            redisUtil.set(tkey, tvalue, defaultCacheExpireTime);
+                        }
+                    }
+                }).start();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (value == null) {
+                return invocation.proceed();
+            }
+        }
+        return value;
+    }
+
+    /**
+     * 是否加入缓存
+     *
+     * @return
+     */
+    private boolean isAddCache(String targetName, String methodName) {
+        boolean flag = true;
+        if (targetNamesList.contains(targetName)
+                || methodNamesList.contains(methodName)) {
+            flag = false;
+        }
+        return flag;
+    }
+
+    /**
+     * 创建缓存key
+     *
+     * @param targetName
+     * @param methodName
+     * @param arguments
+     */
+    private String getCacheKey(String targetName, String methodName,
+                               Object[] arguments) {
+        StringBuffer sbu = new StringBuffer();
+        sbu.append(targetName).append(&quot;_&quot;).append(methodName);
+        if ((arguments != null) &amp;&amp; (arguments.length != 0)) {
+            for (int i = 0; i &lt; arguments.length; i++) {
+                sbu.append(&quot;_&quot;).append(arguments[i]);
+            }
+        }
+        return sbu.toString();
+    }
+
+    public void setRedisUtil(RedisUtil redisUtil) {
+        this.redisUtil = redisUtil;
+    }
+}
+
+</code></pre><p><a href="https://crossoverjie.top/2016/12/18/SSM7/" target="_blank" rel="noopener">参考博客</a></p>
+<p><a href="https://github.com/JunZhou2016/SSM" target="_blank" rel="noopener">案例代码，参考其中的SSM-WEB</a></p>
+<p><a href="https://crossoverjie.top/2016/12/18/SSM7/" target="_blank" rel="noopener">附加pageHelper使用案例</a></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://BigJun2017.github.io" class="b-link-green">Blog4Jun</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/04/lao-bo-ke/ssm-zheng-he-redis/" class="b-link-green">ssm整合redis</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/sso-dan-dian-deng-lu-tan-jiu-ji-yu-cookie-gong-xiang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="SSO单点登录探究【基于cookie共享】">
+                        
+                        <span class="card-title">SSO单点登录探究【基于cookie共享】</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">最近看到公司的需求里面有单点登录，就去了解了一下。下面将从SSO单点登录的原理、实现步骤以及实现demo几个方面来讲述自己的理解。
+
+   1、SSO根本原理:               登录状态的共享;            1)、登录</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/springmvc-ji-cheng-redis/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="SpringMVC集成redis">
+                        
+                        <span class="card-title">SpringMVC集成redis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+
+Redis 简介Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。 Redis 与其他 key -value 缓存产品有以下三个特点： Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

@@ -1,0 +1,831 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="分布式架构学习之如何将session信息存储到数据库中, Blog4Jun">
+    <meta name="description" content="最近实践了一把SpringCloud集成注册中心、网关、配置中心、微服务，恰好电脑上的redis出现了各种问题，索性不用redis，自己写了个中间件，将存储到了MySQL中。下面是期间遇到的各种问题总结。   手先介绍基实现的本原理。我请教">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>分布式架构学习之如何将session信息存储到数据库中 | Blog4Jun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Blog4Jun</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Blog4Jun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        分布式架构学习之如何将session信息存储到数据库中
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-04
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>最近实践了一把SpringCloud集成注册中心、网关、配置中心、微服务，恰好电脑上的redis出现了各种问题，索性不用redis，自己写了个中间件，将存储到了MySQL中。下面是期间遇到的各种问题总结。<br>   手先介绍基实现的本原理。我请教了下师傅，总结出了将Session持久化的几条要点。</p>
+<ol>
+<li>Http是无状态的协议；</li>
+</ol>
+<blockquote>
+<p> 所谓http是无状态协议，言外之意是说http协议没法保存客户机信息，也就没法区分每次请求的不同之处，服务器无法区分通过http发送的请求是来源于甲用户还是来源于乙用户的。关于http无状态阻碍了交互式应用程序的实现。比如记录用户浏览哪些网页、判断用户是否拥有权限访问等。于是，两种用于保持HTTP状态的技术就应运而生了，一个是Cookie，而另一个则是Session。</p>
+</blockquote>
+<p> 2.Fetch是默认不携带cookies的；</p>
+<pre><code>fetch默认是不携带cookie到后台的，想要携带cookie必须
+添加credentials: &quot;include&quot;这个设置；
+
+fetch(url, {
+              method: &#39;GET&#39;,
+              headers: myHeaders,
+              --&gt;credentials: &quot;include&quot;&lt;--
+            })
+
+这个时候服务端确实拿到了cookie，但是数据返回报错：
+ERROR :Fetch API cannot load http://localhost:8077/sonny/l... The value of the &#39;Access-Control-Allow-Origin&#39; header in the response must not be the wildcard &#39;*&#39; when the request&#39;s credentials mode is &#39;include&#39;. Origin &#39;http://localhost:8080&#39; is therefore not allowed access.
+这段鸟语翻译过来就是：当请求中的认证模式为‘include’时，响应的头部中的&#39;Access-Control-Allow-Origin&#39;不能设置为通配符“*”，这是因为cookie在设置的时候是不允许跨域的，如何在协达cookie的前后端分离项目中实现类似通配符”*“的功能将在下面讲述。因为报错了，因此得在后端添加：
+
+</code></pre><p>response.setHeader(“Access-Control-Allow-Credentials”,”true”);<br>  response.setHeader(“Access-Control-Allow-Origin”, “<a href="http://192.168.0.1&quot;)" target="_blank" rel="noopener">http://192.168.0.1&quot;)</a>;  </p>
+<pre><code>这样就解决了跨域传递session的问题。
+
+</code></pre><p>3.Cookis是不允许跨域的；</p>
+<blockquote>
+<p> Cookie一班是不允许跨域传递的，解决方案除了上面那种，还可以通过Nginx；<br> <a href="https://www.cnblogs.com/hujunzheng/p/5744755.html" target="_blank" rel="noopener">解决cookie跨域问题之nginx反向代理</a></p>
+</blockquote>
+<p> 4.浏览器是通过OPTION请求获取服务器对请求的支持信息；</p>
+<blockquote>
+<p>OPTIONS 方法比较少见，该方法用于请求服务器告知其支持哪些其他的功能和方法。通过 OPTIONS 方法，可以询问服务器具体支持哪些方法，或者服务器会使用什么样的方法来处理一些特殊资源。可以说这是一个探测性的方法，客户端通过该方法可以在不访问服务器上实际资源的情况下就知道处理该资源的最优方式。</p>
+</blockquote>
+<p>5.既然比较少见，什么情况下会使用OPTION这个方法呢？</p>
+<blockquote>
+</blockquote>
+<p>当发送的请求为简单请求的时候，服务器会自动在响应的头部添加添加一个Origin字段，其值将被自动设置为对应的请求域，<code>Origin: http://api.bob.com</code>因此可以说，对与简单请求是不存在跨域问题的。</p>
+<blockquote>
+<p>  A）、什么是简单请求呢？<br>浏览器将CORS请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request）。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>只要同时满足以下两大条件，就属于简单请求。<br>（1) 请求方法是以下三种方法之一：<br>HEAD<br>GET<br>POST<br>（2）HTTP的头信息不超出以下几种字段：<br>Accept<br>Accept-Language<br>Content-Language<br>Last-Event-ID<br>Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain<br>凡是不同时满足上面两个条件，就属于非简单请求。<br>浏览器对这两种请求的处理，是不一样的。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>凡是不同时满足上面两个条件，就属于非简单请求。 浏览器对这两种请求的处理，是不一样的。</p>
+</blockquote>
+<p>非简单请求是那种对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者Content-Type字段的类型是application/json。<br>非简单请求的CORS请求，会在正式通信之前，增加一次HTTP查询请求，称为”预检”请求（preflight）。<br>浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些HTTP动词和头信息字段。只有得到肯定答复，浏览器才会发出正式的XMLHttpRequest请求，否则就报错。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">跨域资源共享 CORS 详解</a></p>
+<p> 6.Session是通过Cookies中的信息来识别的；</p>
+<p> 当解决了跨域和cookie携带的问题，以后每次浏览器发送请求就会携带一个cookie的信息，那么Session和JSESessionId是如何产生联系的？</p>
+<blockquote>
+<p>首先我们需要知道Session在何时创建呢？<br><a href="https://www.cnblogs.com/woshimrf/p/5317776.html" target="_blank" rel="noopener">sessionid如何产生？由谁产生？保存在哪里？</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>当然还是在服务器端程序运行的过程中创建的，不同语言实现的应用程序有不同创建Session的方法，而在Java中是通过调用HttpServletRequest的getSession方法（使用true作为参数）创建的。在创建了Session的同时，服务器会为该Session生成唯一的Session id，而这个Session id在随后的请求中会被用来重新获得已经创建的Session；在Session被创建之后，就可以调用Session相关的方法往Session中增加内容了，而这些内容只会保存在服务器中，发到客户端的只有Session id；当客户端再次发送请求的时候，会将这个Session id带上。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>服务器上为每个用户都保存了一个session，那当用户请求过来的时候是怎么知道某一个用户应该对应哪个session呢？</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>这时jsessionid就派上用场了。每一个session都有一个id来作为标识，这个id会传到客户端，每次客户端请求都会把这个id传到服务器，服务器根据id来匹配这次请求应该使用哪个session。jsessionid就是客户端用来保存sessionid的变量，主要是针对j2ee实现的web容器，没有研究过其他语言是用什么变量来保存的。一般对于web应用来说，客户端变量都会保存在cookie中，jsessionid也不例外。不过与一般的cookie变量不同，jsessionid是保存在内存cookie中的，在一般的cookie文件中是看不到它的影子的。内存cookie在打开一个浏览器窗口的时候会创建，在关闭这个浏览器窗口的时候也同时销毁。这也就解释了为什么session变量不能跨窗口使用，要跨窗口使用就需要手动把jsessionid保存到cookie里面。</p>
+</blockquote>
+<hr>
+<p>下面看代码：</p>
+<pre><code>package com.spring.boot.gp4zj.util;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.context.ApplicationContext;
+
+import com.spring.boot.gp4zj.model.UserSession;
+import com.spring.boot.gp4zj.model.Worker;
+import com.spring.boot.gp4zj.service.AuthenticationService;
+import com.spring.boot.gp4zj.service.impl.AuthenticationServiceImpl;
+
+import cn.lz.cloud.common.service.ReqObject;
+
+/**
+ * 我自己封装的session工具类;
+ * @author xdsm
+ *
+ */
+public class MySession {
+     //私有的静态内部类保证了单例，并且是懒汉模式的;
+    private static class SingletonHolder{
+      private static final MySession INSTANCE = new MySession();
+    }
+    private MySession(){}
+
+    public static final MySession getInstance(){
+          return SingletonHolder.INSTANCE;
+    }
+    private ApplicationContext applicationContext = SpringUtils.getApplicationContext();
+    private AuthenticationService authenticationService = applicationContext.getBean(AuthenticationServiceImpl.class);
+    /**
+     * 根据请求中携带的session信息获取用‘session’中的用户户信息;
+     * @return
+     */
+  public Worker getAttributeOfUserInfo(HttpServletRequest request) {
+      //获取jseSessionId;
+      String jsessionid = HttpUtils.getJsessionidFromHeader(request);// 获取请求携带的sessioId;
+      //查询用户信息;
+      UserSession requestAttachmentInfo = new UserSession();
+      requestAttachmentInfo.setJsessionid(jsessionid);
+      ReqObject&lt;UserSession&gt; sessionSelecCondition = new ReqObject&lt;UserSession&gt;();
+      sessionSelecCondition.setObject(requestAttachmentInfo);
+      UserSession sessionVo = authenticationService.selectUserSessionBySessionID(sessionSelecCondition);
+      Worker workerInfo = new Worker();
+      String workerName = sessionVo.getWorkerName();
+      String workerPassword = sessionVo.getWorkerPassword();
+      workerInfo.setWorkerName(workerName);
+      workerInfo.setWorkerPassword(workerPassword);
+      Worker sessionAttruVO = authenticationService.doGetAuthenticationInfo(workerInfo);
+    return sessionAttruVO;
+  }
+
+}
+
+</code></pre><hr>
+<pre><code>package com.spring.boot.gp4zj.util;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.nio.charset.Charset;
+import java.util.Enumeration;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+public class HttpUtils {
+    public static void main(String[] args) {
+        HttpServletResponse response = null;
+        responseOutWithJson(response, null);
+    }
+
+    public static String getHostIp() {
+        InetAddress addr;
+        String currentIP = null;
+        try {
+            addr = InetAddress.getLocalHost();
+            currentIP = addr.getHostAddress().toString(); //获取本机ip
+        } catch (UnknownHostException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return currentIP;
+    }
+
+    public static void responseOutWithJson(HttpServletResponse response, Object responseObject) {
+        // Person person=new Person();
+        Gson gson = new Gson();
+        // Object stu = new Student(&quot;ShaHao&quot;, 21);
+        String objStrJson = gson.toJson(responseObject);
+        // System.out.println(objStrJson);
+        response.reset();
+        response.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setContentType(&quot;application/json; charset=utf-8&quot;);
+        PrintWriter out = null;
+        try {
+            out = response.getWriter();
+            out.print(objStrJson);
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (out != null) {
+                out.close();
+            }
+        }
+    }
+
+    /**
+     * 获取post请求中的Body
+     *
+     * @param request
+     * @return
+     */
+    public static String getBodyString(HttpServletRequest request) {
+        System.out.println(&quot;--------HttpUtils---------HttpUtils--------&quot;);
+        Enumeration&lt;?&gt; ele = request.getHeaderNames();
+        while (ele.hasMoreElements()) {
+            String name = (String) ele.nextElement();
+            String value = request.getHeader(name);
+            System.out.println(name + &quot; = &quot; + value);
+
+        }
+
+        StringBuilder sb = new StringBuilder();
+        InputStream inputStream = null;
+        BufferedReader reader = null;
+        try {
+            inputStream = request.getInputStream();
+            // 读取流并将流写出去,避免数据流中断;
+            reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName(&quot;UTF-8&quot;)));
+            String line = &quot;&quot;;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 从请求的头部获取用户的身份识别id;
+     * 
+     * @param request
+     * @return
+     */
+    public static String getJsessionidFromHeader(HttpServletRequest request) {
+        String jsessionid = null;// 识别用户身份的id;
+        Enumeration&lt;?&gt; e = request.getHeaderNames();
+        while (e.hasMoreElements()) {
+            String name = (String) e.nextElement();
+            String value = request.getHeader(name);
+            // cookie = JSESSIONID=B926F6024438D4C693A5E5881595160C;
+            // SESSION=458e80dc-e354-4af3-a501-74504a873e70
+            if (&quot;cookie&quot;.equals(name)) {
+                jsessionid = value.split(&quot;;&quot;)[0].split(&quot;=&quot;)[1];
+            }
+        }
+        return jsessionid;
+    }
+}
+
+</code></pre><p>其实所有的根本就是获取有效的SessionId就可以了。参考文章都在上面了，里面结合了我的理解和参考的内容，希望可以帮助到大家。</p>
+<p><img src="https://img-blog.csdn.net/20180415210950924?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pqMjAxNDIyMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>夏天了，又到了长肉的季节了。。。。。。</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://BigJun2017.github.io" class="b-link-green">Blog4Jun</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/04/lao-bo-ke/fen-bu-shi-jia-gou-xue-xi-zhi-ru-he-jiang-session-xin-xi-cun-chu-dao-shu-ju-ku-zhong/" class="b-link-green">分布式架构学习之如何将session信息存储到数据库中</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/fu-lei-he-zi-lei-de-xiang-hu-zhuan-huan-ji-fu-lei-diao-yong-zi-lei-de-fang-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="父类和子类的相互转换及父类调用子类的方法">
+                        
+                        <span class="card-title">父类和子类的相互转换及父类调用子类的方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">父类和子类的相互转换及父类调用子类的方法
+
+父类转换为子类的前提条件是：父类引用指向子类;Parent   p=new   Son()Son   s=(Son)p;  –正确Parent   p=new   Parent()Son   s=</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/dan-ye-mian-ying-yong-spa-he-duo-ye-mian-ying-yong-mpa-zhi-jian-de-qu-bie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="单页面应用【SPA】和多页面应用【MPA】之间的区别">
+                        
+                        <span class="card-title">单页面应用【SPA】和多页面应用【MPA】之间的区别</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
