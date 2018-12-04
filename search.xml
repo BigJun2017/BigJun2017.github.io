@@ -245,17 +245,6 @@
     </entry>
     
     <entry>
-      <title>单页面应用【SPA】和多页面应用【MPA】之间的区别</title>
-      <link href="/2018/12/04/lao-bo-ke/dan-ye-mian-ying-yong-spa-he-duo-ye-mian-ying-yong-mpa-zhi-jian-de-qu-bie/"/>
-      <url>/2018/12/04/lao-bo-ke/dan-ye-mian-ying-yong-spa-he-duo-ye-mian-ying-yong-mpa-zhi-jian-de-qu-bie/</url>
-      
-        <content type="html"><![CDATA[<p><img src="http://ouuy81imh.bkt.clouddn.com/spa&amp;mpa.png" alt="在这里插入图片描述"></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    <entry>
       <title>单例模式的几种实现方式</title>
       <link href="/2018/12/04/lao-bo-ke/dan-li-mo-shi-de-ji-chong-shi-xian-fang-shi/"/>
       <url>/2018/12/04/lao-bo-ke/dan-li-mo-shi-de-ji-chong-shi-xian-fang-shi/</url>
@@ -1147,57 +1136,25 @@
     </entry>
     
     <entry>
-      <title>CentOS 中 nginx 负载均衡和反向代理的搭建</title>
-      <link href="/2018/12/04/lao-bo-ke/centos-zhong-nginx-fu-zai-jun-heng-he-fan-xiang-dai-li-de-da-jian/"/>
-      <url>/2018/12/04/lao-bo-ke/centos-zhong-nginx-fu-zai-jun-heng-he-fan-xiang-dai-li-de-da-jian/</url>
-      
-        <content type="html"><![CDATA[<p>请参照博客：<br>      (1.) <a href="http://blog.csdn.net/zjx86320/article/details/51730388" target="_blank" rel="noopener">Nginx的好处和原理</a><br>       (2.)<a href="https://nginx.org/download/" target="_blank" rel="noopener">nginx下载</a><br>       (3.)<em><a href="https://juejin.im/entry/57763aa21532bc0060d96284" target="_blank" rel="noopener">CentOS 中 nginx 负载均衡和反向代理的搭建；</a></em><br>       (4.)<a href="https://junzhou2016.github.io/2017/09/05/Linux%20%E4%B8%8B%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%8B%E9%9A%86%E6%AD%A5%E9%AA%A4%EF%BC%88CentOS%EF%BC%89/" target="_blank" rel="noopener">修改hosts</a><br>       (5.)<a href="https://crossoverjie.top/2016/09/20/Linux-normal2/" target="_blank" rel="noopener">Linux（二）服务器运行环境配置 </a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    <entry>
-      <title>B/S和C/S的含义及其区别</title>
-      <link href="/2018/12/04/lao-bo-ke/b-s-he-c-s-de-han-yi-ji-qi-qu-bie/"/>
-      <url>/2018/12/04/lao-bo-ke/b-s-he-c-s-de-han-yi-ji-qi-qu-bie/</url>
-      
-        <content type="html"><![CDATA[<hr><p>B/S结构，即Browser/Server(浏览器/服务器)结构，是随着Internet技术的兴起，对C/S结构的一种变化或者改进的结构。在这种结构下，用户界面完全通过WWW浏览器实现，一部分事务逻辑在前端实现，但是主要事务逻辑在服务器端实现，节约了开发成本，便于软件维护。<br>区别</p><blockquote><p>1、C/S是建立在局域网的基础上的。B/S是建立在广域网的基础上的，但并不是说B/S结构不能在局域网上使用。<br>2、<strong>B/S业务扩展简单方便，通过增加页面即可增加服务器功能。C/S的客户端还需要安装专用的客户端软件，不利于扩展。</strong><br>3、<strong>B/S维护简单方便。开发、维护等几乎所有工作也都集中在服务器端，当企业对网络应用进行升级时，只需更新服务器端的软件就可以，这减轻了异地用户系统维护与升级的成本。</strong><br><strong>4、B/S响应速度不及C/S；</strong><br><strong>5、B/S用户体验效果不是很理想</strong></p></blockquote>]]></content>
-      
-      
-      
-    </entry>
-    
-    <entry>
-      <title>API扫描工具类的实现</title>
-      <link href="/2018/12/04/lao-bo-ke/api-sao-miao-gong-ju-lei-de-shi-xian/"/>
-      <url>/2018/12/04/lao-bo-ke/api-sao-miao-gong-ju-lei-de-shi-xian/</url>
-      
-        <content type="html"><![CDATA[<p>公司的架构师开发了一套接口扫描工具类，我想着，如果自己以后开公司了可能也用得着，所以研究了下，整理出了下面的开发思路和相关技术代码。<br>     API扫描工具类的主要开发思路如下：<br>     1、定义接口上的注解；<br>     2、引用注解<br>     3、扫描注解<br>     首先定义注解：</p><p>定义接口上的注解</p><pre><code>package com.fs.comment;import java.lang.annotation.Documented;import java.lang.annotation.ElementType;import java.lang.annotation.Retention;import java.lang.annotation.RetentionPolicy;import java.lang.annotation.Target;@Documented@Retention(RetentionPolicy.RUNTIME)@Target(value = {ElementType.METHOD, ElementType.FIELD,ElementType.LOCAL_VARIABLE,ElementType.PARAMETER})public @interface PersistenceContext {    String unitName();}</code></pre><p>关于注解：请参照下面的文章：<br><a href="https://blog.csdn.net/forezp/article/details/78026146" target="_blank" rel="noopener">Java注解详解</a><br><a href="https://blog.csdn.net/limj625/article/details/70242773" target="_blank" rel="noopener">Java注解之Retention、Documented、Target介绍</a><br><a href="https://blog.csdn.net/shao_zhiqiang/article/details/51764296" target="_blank" rel="noopener">实用的java注解工具类</a><br>如果想要动态的修改注解的值【如动态切换数据源】，一般看来注解的值是不能动态修改的，但是借助特殊工具还是可以的，参照下面的文章：<br><a href="https://blog.csdn.net/jly4758/article/details/44774217" target="_blank" rel="noopener">JAVAssist—动态修改注解</a></p><p>引用注解</p><pre><code>package com.fs.model.model2.model3.model4.model5;import com.fs.comment.PersistenceContext;import com.fs.model.EntityManager;public class CollectionBase{      /**      * 注入实体单元      */      @PersistenceContext(unitName=&quot;collection-entity&quot;)      protected EntityManager em;      /**EntityManger      * 实例化      */    @PersistenceContext(unitName=&quot;collection-entity-01-01-01-01-01-01&quot;)      public EntityManager getEntityManager() {                  return this.em;      }      @PersistenceContext(unitName=&quot;collection-entity-01-02-02-01-01-01&quot;)    public EntityManager getEntityManager2() {                  return this.em;      }  } </code></pre><p>扫描注解<br>扫描注解的工具类是参考了别人的代码写出来的。</p><pre><code>package com.fs.commentUtils;import java.io.File;import java.io.FileFilter;import java.io.IOException;import java.lang.reflect.Method;import java.net.URL;import java.net.URLDecoder;import java.util.ArrayList;import java.util.Enumeration;import java.util.List;import com.fs.comment.PersistenceContext;/** *  * 注解扫描工具类; * */public class CommentScanUtil {    /**           * getRequestMappingValue方法描述:         * 作者:JunJun       * 日期:2018年6月7日 下午5:41:00                * 异常对象:@param packageName       * 异常对象:@return     */        public static List&lt;String&gt; getRequestMappingValue(String packageName) {       // GetAnnotationValueUtil getAnnotationValueUtil = new GetAnnotationValueUtil();             //第一个class类的集合              List&lt;Class&lt;?&gt;&gt; classes = new ArrayList&lt;Class&lt;?&gt;&gt;();              //是否循环迭代              boolean recursive = true;              //获取包的名字 并进行替换              String packageDirName = packageName.replace(&#39;.&#39;, &#39;/&#39;);              //定义一个枚举的集合 并进行循环来处理这个目录下的文件             Enumeration&lt;URL&gt; dirs;            try {                  //读取指定package下的所有class                dirs = Thread.currentThread().getContextClassLoader().getResources(packageDirName);                 while (dirs.hasMoreElements()){                      URL url = dirs.nextElement();                      //得到协议的名称                      String protocol = url.getProtocol();                    //判断是否以文件的形式保存在服务器上                      if (&quot;file&quot;.equals(protocol)) {                        //获取包的物理路径                           String filePath = URLDecoder.decode(url.getFile(), &quot;UTF-8&quot;);                         filePath = filePath.substring(1);                        //以文件的方式扫描整个包下的文件 并添加到集合中                          findAndAddClassesInPackageByFile(packageName, filePath, recursive, classes);                    }                 }              } catch (IOException e) {                e.printStackTrace();              }             List&lt;String&gt; stringList = new ArrayList&lt;String&gt;();            for (Class&lt;?&gt; clazz : classes) {                //循环获取所有的类                Class&lt;?&gt; c = clazz;                //获取类的所有方法                Method[] methods = c.getMethods();                for (Method method : methods) {                    //获取RequestMapping注解                    PersistenceContext annotation = method.getAnnotation(PersistenceContext.class);                    if (annotation != null) {                        //获取注解的value值                        String value = annotation.unitName();                        System.out.println(&quot;-------anoValue--------&quot;+value);                    }                }            }            return stringList;        }        /**             * findAndAddClassesInPackageByFile方法描述:           * 作者:JunJun         * 日期:2018年6月7日 下午5:41:12                  * 异常对象:@param packageName         * 异常对象:@param packagePath         * 异常对象:@param recursive         * 异常对象:@param classes          */        public static void findAndAddClassesInPackageByFile(String packageName, String packagePath, final boolean recursive, List&lt;Class&lt;?&gt;&gt; classes){              //packagePath = packagePath.trim().substring(1);            //获取此包的目录 建立一个File              File dir = new File(packagePath);            //如果不存在或者 也不是目录就直接返回              if (!dir.exists() || !dir.isDirectory()) {                return;              }              //如果存在 就获取包下的所有文件 包括目录              File[] dirfiles = dir.listFiles(new FileFilter() {                    //自定义过滤规则 如果可以循环(包含子目录) 或则是以.class结尾的文件(编译好的java类文件)                    public boolean accept(File file) {                     return (recursive &amp;&amp; file.isDirectory()) || (file.getName().endsWith(&quot;.class&quot;));                    }            });             //循环所有文件             for (File file : dirfiles) {                 //如果是目录 则继续扫描                  if (file.isDirectory()) {                    findAndAddClassesInPackageByFile(packageName + &quot;.&quot; + file.getName(),                                            file.getAbsolutePath(),                                            recursive,                                            classes);                }                  else {                      //如果是java类文件 去掉后面的.class 只留下类名                      String className = file.getName().substring(0, file.getName().length() - 6);                     try {                          //添加到集合中去                          classes.add(Thread.currentThread().getContextClassLoader().loadClass(packageName + &quot;.&quot; + className));                      } catch (ClassNotFoundException e) {                          e.printStackTrace();                      }                  }              }         }}</code></pre><p>经过测试，证实这段代码对深层代码的递归扫描性能很高。测试的递归路径如下图所示：<br><img src="https://img-blog.csdn.net/20180607212933565?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pqMjAxNDIyMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p><p>另外在研究过程中尝试了自动解析API参数为JSON ，虽然最终以失败告终,失败的原因是写出来的代码无法适应参数中泛型以及泛型中属性名的动态匹配。下面是在尝试中总结出来的工具类：</p><p>扫描API中参数的类型工具类：</p><pre><code>package com.fs;import java.lang.reflect.Method;import java.lang.reflect.ParameterizedType;import java.lang.reflect.Type;import java.util.List;import com.fs.comment.NoNull;import com.fs.model.BlueChartProjectSearchFilter;import com.fs.model.ReqObject;import com.fs.model.ReqQuery;import com.fs.model.Student;import com.fs.model.Teacher;/** * 通过反射获取泛型信息 *  * @author Administrator * */public class Generic {    /**     * 方法一     *      * @param map     * @param list     */    public static void test01(@NoNull ReqObject&lt;ReqQuery&lt;BlueChartProjectSearchFilter&gt;&gt;  map, @NoNull List&lt;Student&gt; list,            @NoNull Teacher&lt;Student&gt; a) {        System.out.println(&quot;Generic.test01()&quot;);    }    public static void main(String[] args) {        try {            Method[] methods = Generic.class.getDeclaredMethods();            Class&lt;?&gt;[] parameterTypes2 = methods[1].getParameterTypes();            Method m = Generic.class.getMethod(&quot;test01&quot;, parameterTypes2);            Class&lt;?&gt;[] parameterTypes = m.getParameterTypes();            for (Class&lt;?&gt; class1 : parameterTypes) {                System.out.println(&quot;---------&gt;&lt;&gt;&lt;&gt;&lt;&gt;&quot; + class1);            }            Type[] t = m.getGenericParameterTypes();// 获取参数泛型            for (Type paramType : t) {                System.out.println(&quot;#&quot; + paramType);                if (paramType instanceof ParameterizedType) {                    Type[] genericTypes = ((ParameterizedType) paramType).getActualTypeArguments();                    for (@SuppressWarnings(&quot;unused&quot;) Type genericType : genericTypes) {                        System.out.println(&quot;#&quot;+paramType);                    }                }            }        } catch (NoSuchMethodException e) {            e.printStackTrace();        } catch (SecurityException e) {            e.printStackTrace();        }    }}</code></pre><p>字符串转化为JAVA代码的工具类:</p><pre><code>package com.fs.commentUtils;import java.util.Map;import org.apache.commons.jexl2.Expression;import org.apache.commons.jexl2.JexlContext;import org.apache.commons.jexl2.JexlEngine;import org.apache.commons.jexl2.MapContext;import com.fs.model.BlueChartProjectSearchFilter;import com.fs.model.ReqObject;import com.fs.model.ReqQuery;import net.sf.json.JSONObject;/** * 字符串转化为代码; *  * @author xdsm * */public class StringToCode {    /**     *      * @author: Longjun     * @Description: 使用commons的jexl可实现将字符串变成可执行代码的功能     * @date:2016年3月21日 下午1:45:13     */    public static Object convertToCode(String jexlExp, Map&lt;String, Object&gt; map) {        JexlEngine jexl = new JexlEngine();        Expression e = jexl.createExpression(jexlExp);        JexlContext jc = new MapContext();        for (String key : map.keySet()) {            jc.set(key, map.get(key));        }        if (null == e.evaluate(jc)) {            return &quot;&quot;;        }        return e.evaluate(jc);    }    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {          /*ReqObject req = (ReqObject) Class.forName(&quot;com.fs.model.ReqObject&quot;).newInstance();        ReqQuery reqq = (ReqQuery) Class.forName(&quot;com.fs.model.ReqQuery&quot;).newInstance();        BlueChartProjectSearchFilter bcsf = (BlueChartProjectSearchFilter) Class.forName(&quot;com.fs.model.BlueChartProjectSearchFilter&quot;).newInstance();        reqq.setObj(bcsf);        req.setObj(reqq);        JSONObject json = JSONObject.fromObject(req);*/        /*Object req = Class.forName(&quot;com.fs.model.ReqObject&quot;).cast(Class.forName(&quot;com.fs.model.ReqObject&quot;).newInstance());        Object reqq = Class.forName(&quot;com.fs.model.ReqQuery&quot;).cast(Class.forName(&quot;com.fs.model.ReqQuery&quot;).newInstance());        Object bcsf = Class.forName(&quot;com.fs.model.BlueChartProjectSearchFilter&quot;).cast(Class.forName(&quot;com.fs.model.BlueChartProjectSearchFilter&quot;).newInstance());        Field[] fields = req.getClass().getDeclaredFields();        for (Field field : fields) {            String fieldStr = field.toString();            String[] fieldPreStrArray = fieldStr.split(&quot; &quot;);            String fieldType = fieldPreStrArray[1];            String fieldName = fieldPreStrArray[2].substring(fieldPreStrArray[2].lastIndexOf(&quot;.&quot;) + 1);            System.out.println(&quot;----fieldType----&quot;+fieldType);            System.out.println(&quot;//----fieldName----&quot;+fieldName);        }*/        ReqObject&lt;ReqQuery&lt;BlueChartProjectSearchFilter&gt;&gt; req = new ReqObject&lt;ReqQuery&lt;BlueChartProjectSearchFilter&gt;&gt;();        JSONObject json = JSONObject.fromObject(req);        System.out.println(json);        /*try {              Map&lt;String,Object&gt; map=new HashMap&lt;String,Object&gt;();               map.put(&quot;money&quot;,2100);                String expression=&quot;money&gt;=2000&amp;&amp;money&lt;=4000&quot;;            Object code = convertToCode(expression,map);            System.out.println(code);        } catch (Exception e) {              // TODO Auto-generated catch block              e.printStackTrace();          }  */    }  }</code></pre><p>参考文章：<a href="https://blog.csdn.net/junlong750/article/details/50945883" target="_blank" rel="noopener">java将字符串转换成可执行代码</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    <entry>
       <title>AOP中的概念通知、切点、切面</title>
-      <link href="/2018/12/04/lao-bo-ke/aop-zhong-de-gai-nian-tong-zhi-qie-dian-qie-mian/"/>
-      <url>/2018/12/04/lao-bo-ke/aop-zhong-de-gai-nian-tong-zhi-qie-dian-qie-mian/</url>
+      <link href="/2018/12/04/sui-bi/zui-jin-you-dian-mang/"/>
+      <url>/2018/12/04/sui-bi/zui-jin-you-dian-mang/</url>
       
-        <content type="html"><![CDATA[<p><strong><strong>通知、增强处理（Advice）</strong></strong></p><hr><p>通知、增强处理（Advice） 就是你想要的功能，也就是上说的安全、事物、日子等。你给先定义好，然后再想用的地方用一下。包含Aspect的一段处理代码</p><p><strong><em>连接点（JoinPoint）</em></strong></p><hr><p>连接点（JoinPoint） 这个就更好解释了，就是spring允许你是通知（Advice）的地方，那可就真多了，基本每个方法的钱、后（两者都有也行），或抛出异常是时都可以是连接点，spring只支持方法连接点。其他如AspectJ还可以让你在构造器或属性注入时都行，不过那不是咱们关注的，只要记住，和方法有关的前前后后都是连接点。</p><p><strong><em>切入点（Pointcut）</em></strong> </p><hr><p>切入点（Pointcut） 上面说的连接点的基础上，来定义切入点，你的一个类里，有15个方法，那就有十几个连接点了对吧，但是你并不想在所有方法附件都使用通知（使用叫织入，下面再说），你只是想让其中几个，在调用这几个方法之前、之后或者抛出异常时干点什么，那么就用切入点来定义这几个方法，让切点来筛选连接点，选中那几个你想要的方法。</p><p><strong><em>切面（Aspect）</em></strong></p><hr><p>切面（Aspect） 切面是通知和切入点的结合。现在发现了吧，没连接点什么事，链接点就是为了让你好理解切点搞出来的，明白这个概念就行了。通知说明了干什么和什么时候干（什么时候通过方法名中的befor，after，around等就能知道），二切入点说明了在哪干（指定到底是哪个方法），这就是一个完整的切面定义。</p><hr><blockquote><p>引入（introduction）</p><p>引入（introduction） 允许我们向现有的类添加新方法属性。这不就是把切面（也就是新方法属性：通知定义的）用到目标类中吗</p></blockquote><hr><blockquote><p>目标（target）</p><p>目标（target）<br>引入中所提到的目标类，也就是要被通知的对象，也就是真正的业务逻辑，他可以在毫不知情的情况下，被咋们织入切面。二自己专注于业务本身的逻辑。</p></blockquote><hr><blockquote><p>代理（proxy）</p><p>代理（proxy） 怎么实现整套AOP机制的，都是通过代理，这个一会儿给细说。</p></blockquote><hr><blockquote><p>织入（weaving）</p><p>织入（weaving） 把切面应用到目标对象来创建新的代理对象的过程。</p></blockquote><pre><code>目标对象 – 项目原始的Java组件。</code></pre><pre><code>AOP代理  – 由AOP框架生成java对象。</code></pre><pre><code>AOP代理方法 = advice +　目标对象的方法。</code></pre><p>example :</p><pre><code>&lt;!-- 通知 --&gt;    &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;        &lt;tx:attributes&gt;            &lt;!-- 传播行为 --&gt;            &lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot; /&gt;            &lt;tx:method name=&quot;insert*&quot; propagation=&quot;REQUIRED&quot; /&gt;            &lt;tx:method name=&quot;delete*&quot; propagation=&quot;REQUIRED&quot; /&gt;            &lt;tx:method name=&quot;update*&quot; propagation=&quot;REQUIRED&quot; /&gt;            &lt;tx:method name=&quot;find*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;            &lt;tx:method name=&quot;get*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;            &lt;tx:method name=&quot;query*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;        &lt;/tx:attributes&gt;    &lt;/tx:advice&gt;    &lt;!-- 切面 --&gt;    &lt;aop:config&gt;        &lt;aop:advisor advice-ref=&quot;txAdvice&quot;[具体的增强逻辑，此处是事物，上面已经定义好了]            pointcut=&quot;execution(* cn.itcast.ssm.service.*.*(..))&quot; [增强逻辑的具体作用位置]/&gt;    &lt;/aop:config&gt;</code></pre>]]></content>
-      
-      
-      
-    </entry>
-    
-    <entry>
-      <title>springmvc与struts2不同</title>
-      <link href="/2018/12/04/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
-      <url>/2018/12/04/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
-      
-        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
+        <content type="html"><![CDATA[<p>最近到一个新的部门，听到一个讨厌的词“甩锅”。我不知道这个词这个部门的人如何理解，反正我是非常反感的。在我的心目中，每个人都应该是有担当的，遇到问题不逞能、不退缩，敢于承担自己的责任。通过这个词，我能预测到在这个部门里职责不清、领导混乱的一些情况，希望情况比我想象的要好。我相信我不会被他们所影响。<br><img src="https://img-blog.csdnimg.cn/2018120422521090.gif" alt="在这里插入图片描述"></p>]]></content>
       
       
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2487,6 +2444,121 @@
       <categories>
           
           <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>API扫描工具类的实现</title>
+      <link href="/2018/06/07/lao-bo-ke/api-sao-miao-gong-ju-lei-de-shi-xian/"/>
+      <url>/2018/06/07/lao-bo-ke/api-sao-miao-gong-ju-lei-de-shi-xian/</url>
+      
+        <content type="html"><![CDATA[<p>公司的架构师开发了一套接口扫描工具类，我想着，如果自己以后开公司了可能也用得着，所以研究了下，整理出了下面的开发思路和相关技术代码。<br>     API扫描工具类的主要开发思路如下：<br>     1、定义接口上的注解；<br>     2、引用注解<br>     3、扫描注解<br>     首先定义注解：</p><p>定义接口上的注解</p><pre><code>package com.fs.comment;import java.lang.annotation.Documented;import java.lang.annotation.ElementType;import java.lang.annotation.Retention;import java.lang.annotation.RetentionPolicy;import java.lang.annotation.Target;@Documented@Retention(RetentionPolicy.RUNTIME)@Target(value = {ElementType.METHOD, ElementType.FIELD,ElementType.LOCAL_VARIABLE,ElementType.PARAMETER})public @interface PersistenceContext {    String unitName();}</code></pre><p>关于注解：请参照下面的文章：<br><a href="https://blog.csdn.net/forezp/article/details/78026146" target="_blank" rel="noopener">Java注解详解</a><br><a href="https://blog.csdn.net/limj625/article/details/70242773" target="_blank" rel="noopener">Java注解之Retention、Documented、Target介绍</a><br><a href="https://blog.csdn.net/shao_zhiqiang/article/details/51764296" target="_blank" rel="noopener">实用的java注解工具类</a><br>如果想要动态的修改注解的值【如动态切换数据源】，一般看来注解的值是不能动态修改的，但是借助特殊工具还是可以的，参照下面的文章：<br><a href="https://blog.csdn.net/jly4758/article/details/44774217" target="_blank" rel="noopener">JAVAssist—动态修改注解</a></p><p>引用注解</p><pre><code>package com.fs.model.model2.model3.model4.model5;import com.fs.comment.PersistenceContext;import com.fs.model.EntityManager;public class CollectionBase{      /**      * 注入实体单元      */      @PersistenceContext(unitName=&quot;collection-entity&quot;)      protected EntityManager em;      /**EntityManger      * 实例化      */    @PersistenceContext(unitName=&quot;collection-entity-01-01-01-01-01-01&quot;)      public EntityManager getEntityManager() {                  return this.em;      }      @PersistenceContext(unitName=&quot;collection-entity-01-02-02-01-01-01&quot;)    public EntityManager getEntityManager2() {                  return this.em;      }  } </code></pre><p>扫描注解<br>扫描注解的工具类是参考了别人的代码写出来的。</p><pre><code>package com.fs.commentUtils;import java.io.File;import java.io.FileFilter;import java.io.IOException;import java.lang.reflect.Method;import java.net.URL;import java.net.URLDecoder;import java.util.ArrayList;import java.util.Enumeration;import java.util.List;import com.fs.comment.PersistenceContext;/** *  * 注解扫描工具类; * */public class CommentScanUtil {    /**           * getRequestMappingValue方法描述:         * 作者:JunJun       * 日期:2018年6月7日 下午5:41:00                * 异常对象:@param packageName       * 异常对象:@return     */        public static List&lt;String&gt; getRequestMappingValue(String packageName) {       // GetAnnotationValueUtil getAnnotationValueUtil = new GetAnnotationValueUtil();             //第一个class类的集合              List&lt;Class&lt;?&gt;&gt; classes = new ArrayList&lt;Class&lt;?&gt;&gt;();              //是否循环迭代              boolean recursive = true;              //获取包的名字 并进行替换              String packageDirName = packageName.replace(&#39;.&#39;, &#39;/&#39;);              //定义一个枚举的集合 并进行循环来处理这个目录下的文件             Enumeration&lt;URL&gt; dirs;            try {                  //读取指定package下的所有class                dirs = Thread.currentThread().getContextClassLoader().getResources(packageDirName);                 while (dirs.hasMoreElements()){                      URL url = dirs.nextElement();                      //得到协议的名称                      String protocol = url.getProtocol();                    //判断是否以文件的形式保存在服务器上                      if (&quot;file&quot;.equals(protocol)) {                        //获取包的物理路径                           String filePath = URLDecoder.decode(url.getFile(), &quot;UTF-8&quot;);                         filePath = filePath.substring(1);                        //以文件的方式扫描整个包下的文件 并添加到集合中                          findAndAddClassesInPackageByFile(packageName, filePath, recursive, classes);                    }                 }              } catch (IOException e) {                e.printStackTrace();              }             List&lt;String&gt; stringList = new ArrayList&lt;String&gt;();            for (Class&lt;?&gt; clazz : classes) {                //循环获取所有的类                Class&lt;?&gt; c = clazz;                //获取类的所有方法                Method[] methods = c.getMethods();                for (Method method : methods) {                    //获取RequestMapping注解                    PersistenceContext annotation = method.getAnnotation(PersistenceContext.class);                    if (annotation != null) {                        //获取注解的value值                        String value = annotation.unitName();                        System.out.println(&quot;-------anoValue--------&quot;+value);                    }                }            }            return stringList;        }        /**             * findAndAddClassesInPackageByFile方法描述:           * 作者:JunJun         * 日期:2018年6月7日 下午5:41:12                  * 异常对象:@param packageName         * 异常对象:@param packagePath         * 异常对象:@param recursive         * 异常对象:@param classes          */        public static void findAndAddClassesInPackageByFile(String packageName, String packagePath, final boolean recursive, List&lt;Class&lt;?&gt;&gt; classes){              //packagePath = packagePath.trim().substring(1);            //获取此包的目录 建立一个File              File dir = new File(packagePath);            //如果不存在或者 也不是目录就直接返回              if (!dir.exists() || !dir.isDirectory()) {                return;              }              //如果存在 就获取包下的所有文件 包括目录              File[] dirfiles = dir.listFiles(new FileFilter() {                    //自定义过滤规则 如果可以循环(包含子目录) 或则是以.class结尾的文件(编译好的java类文件)                    public boolean accept(File file) {                     return (recursive &amp;&amp; file.isDirectory()) || (file.getName().endsWith(&quot;.class&quot;));                    }            });             //循环所有文件             for (File file : dirfiles) {                 //如果是目录 则继续扫描                  if (file.isDirectory()) {                    findAndAddClassesInPackageByFile(packageName + &quot;.&quot; + file.getName(),                                            file.getAbsolutePath(),                                            recursive,                                            classes);                }                  else {                      //如果是java类文件 去掉后面的.class 只留下类名                      String className = file.getName().substring(0, file.getName().length() - 6);                     try {                          //添加到集合中去                          classes.add(Thread.currentThread().getContextClassLoader().loadClass(packageName + &quot;.&quot; + className));                      } catch (ClassNotFoundException e) {                          e.printStackTrace();                      }                  }              }         }}</code></pre><p>经过测试，证实这段代码对深层代码的递归扫描性能很高。测试的递归路径如下图所示：<br><img src="https://img-blog.csdn.net/20180607212933565?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pqMjAxNDIyMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p><p>另外在研究过程中尝试了自动解析API参数为JSON ，虽然最终以失败告终,失败的原因是写出来的代码无法适应参数中泛型以及泛型中属性名的动态匹配。下面是在尝试中总结出来的工具类：</p><p>扫描API中参数的类型工具类：</p><pre><code>package com.fs;import java.lang.reflect.Method;import java.lang.reflect.ParameterizedType;import java.lang.reflect.Type;import java.util.List;import com.fs.comment.NoNull;import com.fs.model.BlueChartProjectSearchFilter;import com.fs.model.ReqObject;import com.fs.model.ReqQuery;import com.fs.model.Student;import com.fs.model.Teacher;/** * 通过反射获取泛型信息 *  * @author Administrator * */public class Generic {    /**     * 方法一     *      * @param map     * @param list     */    public static void test01(@NoNull ReqObject&lt;ReqQuery&lt;BlueChartProjectSearchFilter&gt;&gt;  map, @NoNull List&lt;Student&gt; list,            @NoNull Teacher&lt;Student&gt; a) {        System.out.println(&quot;Generic.test01()&quot;);    }    public static void main(String[] args) {        try {            Method[] methods = Generic.class.getDeclaredMethods();            Class&lt;?&gt;[] parameterTypes2 = methods[1].getParameterTypes();            Method m = Generic.class.getMethod(&quot;test01&quot;, parameterTypes2);            Class&lt;?&gt;[] parameterTypes = m.getParameterTypes();            for (Class&lt;?&gt; class1 : parameterTypes) {                System.out.println(&quot;---------&gt;&lt;&gt;&lt;&gt;&lt;&gt;&quot; + class1);            }            Type[] t = m.getGenericParameterTypes();// 获取参数泛型            for (Type paramType : t) {                System.out.println(&quot;#&quot; + paramType);                if (paramType instanceof ParameterizedType) {                    Type[] genericTypes = ((ParameterizedType) paramType).getActualTypeArguments();                    for (@SuppressWarnings(&quot;unused&quot;) Type genericType : genericTypes) {                        System.out.println(&quot;#&quot;+paramType);                    }                }            }        } catch (NoSuchMethodException e) {            e.printStackTrace();        } catch (SecurityException e) {            e.printStackTrace();        }    }}</code></pre><p>字符串转化为JAVA代码的工具类:</p><pre><code>package com.fs.commentUtils;import java.util.Map;import org.apache.commons.jexl2.Expression;import org.apache.commons.jexl2.JexlContext;import org.apache.commons.jexl2.JexlEngine;import org.apache.commons.jexl2.MapContext;import com.fs.model.BlueChartProjectSearchFilter;import com.fs.model.ReqObject;import com.fs.model.ReqQuery;import net.sf.json.JSONObject;/** * 字符串转化为代码; *  * @author xdsm * */public class StringToCode {    /**     *      * @author: Longjun     * @Description: 使用commons的jexl可实现将字符串变成可执行代码的功能     * @date:2016年3月21日 下午1:45:13     */    public static Object convertToCode(String jexlExp, Map&lt;String, Object&gt; map) {        JexlEngine jexl = new JexlEngine();        Expression e = jexl.createExpression(jexlExp);        JexlContext jc = new MapContext();        for (String key : map.keySet()) {            jc.set(key, map.get(key));        }        if (null == e.evaluate(jc)) {            return &quot;&quot;;        }        return e.evaluate(jc);    }    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {          /*ReqObject req = (ReqObject) Class.forName(&quot;com.fs.model.ReqObject&quot;).newInstance();        ReqQuery reqq = (ReqQuery) Class.forName(&quot;com.fs.model.ReqQuery&quot;).newInstance();        BlueChartProjectSearchFilter bcsf = (BlueChartProjectSearchFilter) Class.forName(&quot;com.fs.model.BlueChartProjectSearchFilter&quot;).newInstance();        reqq.setObj(bcsf);        req.setObj(reqq);        JSONObject json = JSONObject.fromObject(req);*/        /*Object req = Class.forName(&quot;com.fs.model.ReqObject&quot;).cast(Class.forName(&quot;com.fs.model.ReqObject&quot;).newInstance());        Object reqq = Class.forName(&quot;com.fs.model.ReqQuery&quot;).cast(Class.forName(&quot;com.fs.model.ReqQuery&quot;).newInstance());        Object bcsf = Class.forName(&quot;com.fs.model.BlueChartProjectSearchFilter&quot;).cast(Class.forName(&quot;com.fs.model.BlueChartProjectSearchFilter&quot;).newInstance());        Field[] fields = req.getClass().getDeclaredFields();        for (Field field : fields) {            String fieldStr = field.toString();            String[] fieldPreStrArray = fieldStr.split(&quot; &quot;);            String fieldType = fieldPreStrArray[1];            String fieldName = fieldPreStrArray[2].substring(fieldPreStrArray[2].lastIndexOf(&quot;.&quot;) + 1);            System.out.println(&quot;----fieldType----&quot;+fieldType);            System.out.println(&quot;//----fieldName----&quot;+fieldName);        }*/        ReqObject&lt;ReqQuery&lt;BlueChartProjectSearchFilter&gt;&gt; req = new ReqObject&lt;ReqQuery&lt;BlueChartProjectSearchFilter&gt;&gt;();        JSONObject json = JSONObject.fromObject(req);        System.out.println(json);        /*try {              Map&lt;String,Object&gt; map=new HashMap&lt;String,Object&gt;();               map.put(&quot;money&quot;,2100);                String expression=&quot;money&gt;=2000&amp;&amp;money&lt;=4000&quot;;            Object code = convertToCode(expression,map);            System.out.println(code);        } catch (Exception e) {              // TODO Auto-generated catch block              e.printStackTrace();          }  */    }  }</code></pre><p>参考文章：<a href="https://blog.csdn.net/junlong750/article/details/50945883" target="_blank" rel="noopener">java将字符串转换成可执行代码</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 老博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>AOP中的概念通知、切点、切面</title>
+      <link href="/2017/11/07/lao-bo-ke/aop-zhong-de-gai-nian-tong-zhi-qie-dian-qie-mian/"/>
+      <url>/2017/11/07/lao-bo-ke/aop-zhong-de-gai-nian-tong-zhi-qie-dian-qie-mian/</url>
+      
+        <content type="html"><![CDATA[<p><strong><strong>通知、增强处理（Advice）</strong></strong></p><hr><p>通知、增强处理（Advice） 就是你想要的功能，也就是上说的安全、事物、日子等。你给先定义好，然后再想用的地方用一下。包含Aspect的一段处理代码</p><p><strong><em>连接点（JoinPoint）</em></strong></p><hr><p>连接点（JoinPoint） 这个就更好解释了，就是spring允许你是通知（Advice）的地方，那可就真多了，基本每个方法的钱、后（两者都有也行），或抛出异常是时都可以是连接点，spring只支持方法连接点。其他如AspectJ还可以让你在构造器或属性注入时都行，不过那不是咱们关注的，只要记住，和方法有关的前前后后都是连接点。</p><p><strong><em>切入点（Pointcut）</em></strong> </p><hr><p>切入点（Pointcut） 上面说的连接点的基础上，来定义切入点，你的一个类里，有15个方法，那就有十几个连接点了对吧，但是你并不想在所有方法附件都使用通知（使用叫织入，下面再说），你只是想让其中几个，在调用这几个方法之前、之后或者抛出异常时干点什么，那么就用切入点来定义这几个方法，让切点来筛选连接点，选中那几个你想要的方法。</p><p><strong><em>切面（Aspect）</em></strong></p><hr><p>切面（Aspect） 切面是通知和切入点的结合。现在发现了吧，没连接点什么事，链接点就是为了让你好理解切点搞出来的，明白这个概念就行了。通知说明了干什么和什么时候干（什么时候通过方法名中的befor，after，around等就能知道），二切入点说明了在哪干（指定到底是哪个方法），这就是一个完整的切面定义。</p><hr><blockquote><p>引入（introduction）</p><p>引入（introduction） 允许我们向现有的类添加新方法属性。这不就是把切面（也就是新方法属性：通知定义的）用到目标类中吗</p></blockquote><hr><blockquote><p>目标（target）</p><p>目标（target）<br>引入中所提到的目标类，也就是要被通知的对象，也就是真正的业务逻辑，他可以在毫不知情的情况下，被咋们织入切面。二自己专注于业务本身的逻辑。</p></blockquote><hr><blockquote><p>代理（proxy）</p><p>代理（proxy） 怎么实现整套AOP机制的，都是通过代理，这个一会儿给细说。</p></blockquote><hr><blockquote><p>织入（weaving）</p><p>织入（weaving） 把切面应用到目标对象来创建新的代理对象的过程。</p></blockquote><pre><code>目标对象 – 项目原始的Java组件。</code></pre><pre><code>AOP代理  – 由AOP框架生成java对象。</code></pre><pre><code>AOP代理方法 = advice +　目标对象的方法。</code></pre><p>example :</p><pre><code>&lt;!-- 通知 --&gt;    &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;        &lt;tx:attributes&gt;            &lt;!-- 传播行为 --&gt;            &lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot; /&gt;            &lt;tx:method name=&quot;insert*&quot; propagation=&quot;REQUIRED&quot; /&gt;            &lt;tx:method name=&quot;delete*&quot; propagation=&quot;REQUIRED&quot; /&gt;            &lt;tx:method name=&quot;update*&quot; propagation=&quot;REQUIRED&quot; /&gt;            &lt;tx:method name=&quot;find*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;            &lt;tx:method name=&quot;get*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;            &lt;tx:method name=&quot;query*&quot; propagation=&quot;SUPPORTS&quot; read-only=&quot;true&quot; /&gt;        &lt;/tx:attributes&gt;    &lt;/tx:advice&gt;    &lt;!-- 切面 --&gt;    &lt;aop:config&gt;        &lt;aop:advisor advice-ref=&quot;txAdvice&quot;[具体的增强逻辑，此处是事物，上面已经定义好了]            pointcut=&quot;execution(* cn.itcast.ssm.service.*.*(..))&quot; [增强逻辑的具体作用位置]/&gt;    &lt;/aop:config&gt;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 老博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>B/S和C/S的含义及其区别</title>
+      <link href="/2017/09/10/lao-bo-ke/b-s-he-c-s-de-han-yi-ji-qi-qu-bie/"/>
+      <url>/2017/09/10/lao-bo-ke/b-s-he-c-s-de-han-yi-ji-qi-qu-bie/</url>
+      
+        <content type="html"><![CDATA[<hr><p>B/S结构，即Browser/Server(浏览器/服务器)结构，是随着Internet技术的兴起，对C/S结构的一种变化或者改进的结构。在这种结构下，用户界面完全通过WWW浏览器实现，一部分事务逻辑在前端实现，但是主要事务逻辑在服务器端实现，节约了开发成本，便于软件维护。<br>区别</p><blockquote><p>1、C/S是建立在局域网的基础上的。B/S是建立在广域网的基础上的，但并不是说B/S结构不能在局域网上使用。<br>2、<strong>B/S业务扩展简单方便，通过增加页面即可增加服务器功能。C/S的客户端还需要安装专用的客户端软件，不利于扩展。</strong><br>3、<strong>B/S维护简单方便。开发、维护等几乎所有工作也都集中在服务器端，当企业对网络应用进行升级时，只需更新服务器端的软件就可以，这减轻了异地用户系统维护与升级的成本。</strong><br><strong>4、B/S响应速度不及C/S；</strong><br><strong>5、B/S用户体验效果不是很理想</strong></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 老博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>CentOS 中 nginx 负载均衡和反向代理的搭建</title>
+      <link href="/2017/09/07/lao-bo-ke/centos-zhong-nginx-fu-zai-jun-heng-he-fan-xiang-dai-li-de-da-jian/"/>
+      <url>/2017/09/07/lao-bo-ke/centos-zhong-nginx-fu-zai-jun-heng-he-fan-xiang-dai-li-de-da-jian/</url>
+      
+        <content type="html"><![CDATA[<p>请参照博客：<br>      (1.) <a href="http://blog.csdn.net/zjx86320/article/details/51730388" target="_blank" rel="noopener">Nginx的好处和原理</a><br>       (2.)<a href="https://nginx.org/download/" target="_blank" rel="noopener">nginx下载</a><br>       (3.)<em><a href="https://juejin.im/entry/57763aa21532bc0060d96284" target="_blank" rel="noopener">CentOS 中 nginx 负载均衡和反向代理的搭建；</a></em><br>       (4.)<a href="https://junzhou2016.github.io/2017/09/05/Linux%20%E4%B8%8B%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%8B%E9%9A%86%E6%AD%A5%E9%AA%A4%EF%BC%88CentOS%EF%BC%89/" target="_blank" rel="noopener">修改hosts</a><br>       (5.)<a href="https://crossoverjie.top/2016/09/20/Linux-normal2/" target="_blank" rel="noopener">Linux（二）服务器运行环境配置 </a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 老博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>springmvc与struts2不同</title>
+      <link href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
+      <url>/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
+      
+        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 老博客 </category>
           
       </categories>
       
