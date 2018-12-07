@@ -5,9 +5,9 @@
   <subtitle>Doraemon</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://BigJun2017.github.io/"/>
+  <link href="https://junzhou2016.github.io/"/>
   <updated>2017-12-24T09:16:14.000Z</updated>
-  <id>https://BigJun2017.github.io/</id>
+  <id>https://junzhou2016.github.io/</id>
   
   <author>
     <name>Pursue</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>自己对react中flux框架部分底层原理的理解</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/</id>
     <published>2018-12-04T12:35:56.459Z</published>
     <updated>2017-12-24T09:16:14.000Z</updated>
     
@@ -42,8 +42,8 @@
   
   <entry>
     <title>运行时异常-RunTimeExcepption</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/</id>
     <published>2018-12-04T12:35:56.457Z</published>
     <updated>2018-04-19T14:39:52.000Z</updated>
     
@@ -67,8 +67,8 @@ package
   
   <entry>
     <title>用JAVA判断一个URL是否有效</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</id>
     <published>2018-12-04T12:35:56.456Z</published>
     <updated>2017-08-29T00:59:26.000Z</updated>
     
@@ -89,8 +89,8 @@ package
   
   <entry>
     <title>移动端学习之初始化-angular4的学习</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/</id>
     <published>2018-12-04T12:35:56.454Z</published>
     <updated>2018-01-07T14:00:12.000Z</updated>
     
@@ -111,8 +111,8 @@ package
   
   <entry>
     <title>使用七牛上传图片的demo</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-qi-niu-shang-chuan-tu-pian-de-demo/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-qi-niu-shang-chuan-tu-pian-de-demo/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-qi-niu-shang-chuan-tu-pian-de-demo/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-qi-niu-shang-chuan-tu-pian-de-demo/</id>
     <published>2018-12-04T12:35:56.453Z</published>
     <updated>2018-02-01T00:46:02.000Z</updated>
     
@@ -140,8 +140,8 @@ import
   
   <entry>
     <title>使用XShell部署SpringBoot的jar文件到Linux服务器上</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-xshell-bu-shu-springboot-de-jar-wen-jian-dao-linux-fu-wu-qi-shang/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-xshell-bu-shu-springboot-de-jar-wen-jian-dao-linux-fu-wu-qi-shang/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-xshell-bu-shu-springboot-de-jar-wen-jian-dao-linux-fu-wu-qi-shang/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-xshell-bu-shu-springboot-de-jar-wen-jian-dao-linux-fu-wu-qi-shang/</id>
     <published>2018-12-04T12:35:56.451Z</published>
     <updated>2018-04-15T14:15:50.000Z</updated>
     
@@ -164,8 +164,8 @@ import
   
   <entry>
     <title>使用JSOUP爬取国家统计局的地理位置数据</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jsoup-pa-qu-guo-jia-tong-ji-ju-de-di-li-wei-zhi-shu-ju/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jsoup-pa-qu-guo-jia-tong-ji-ju-de-di-li-wei-zhi-shu-ju/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jsoup-pa-qu-guo-jia-tong-ji-ju-de-di-li-wei-zhi-shu-ju/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jsoup-pa-qu-guo-jia-tong-ji-ju-de-di-li-wei-zhi-shu-ju/</id>
     <published>2018-12-04T12:35:56.449Z</published>
     <updated>2018-09-02T09:04:02.000Z</updated>
     
@@ -189,8 +189,8 @@ import
   
   <entry>
     <title>使用Jenkins配置Git+Maven的自动化构建</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-pei-zhi-git-maven-de-zi-dong-hua-gou-jian/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-pei-zhi-git-maven-de-zi-dong-hua-gou-jian/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-pei-zhi-git-maven-de-zi-dong-hua-gou-jian/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-pei-zhi-git-maven-de-zi-dong-hua-gou-jian/</id>
     <published>2018-12-04T12:35:56.448Z</published>
     <updated>2017-09-06T08:53:16.000Z</updated>
     
@@ -213,8 +213,8 @@ import
   
   <entry>
     <title>使用jenkins+github+tomcat实现Springboot半自动化部署</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/</id>
     <published>2018-12-04T12:35:56.446Z</published>
     <updated>2018-02-05T13:00:02.000Z</updated>
     
@@ -235,8 +235,8 @@ import
   
   <entry>
     <title>hexo+github搭建个人博客</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/</id>
     <published>2018-12-04T12:35:56.444Z</published>
     <updated>2017-08-29T09:39:02.000Z</updated>
     
@@ -257,8 +257,8 @@ import
   
   <entry>
     <title>适配器模式</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/</id>
     <published>2018-12-04T12:35:56.443Z</published>
     <updated>2017-09-08T10:53:44.000Z</updated>
     
@@ -279,8 +279,8 @@ import
   
   <entry>
     <title>明天就要学转前端了，收集了一些资料放这里了</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ming-tian-jiu-yao-xue-zhuan-qian-duan-liao-shou-ji-liao-yi-xie-zi-liao-fang-zhe-li-liao/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ming-tian-jiu-yao-xue-zhuan-qian-duan-liao-shou-ji-liao-yi-xie-zi-liao-fang-zhe-li-liao/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ming-tian-jiu-yao-xue-zhuan-qian-duan-liao-shou-ji-liao-yi-xie-zi-liao-fang-zhe-li-liao/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ming-tian-jiu-yao-xue-zhuan-qian-duan-liao-shou-ji-liao-yi-xie-zi-liao-fang-zhe-li-liao/</id>
     <published>2018-12-04T12:35:56.441Z</published>
     <updated>2017-12-03T13:33:18.000Z</updated>
     
@@ -303,8 +303,8 @@ import
   
   <entry>
     <title>面向对象程序设计原则</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mian-xiang-dui-xiang-cheng-xu-she-ji-liu-da-yuan-ze/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mian-xiang-dui-xiang-cheng-xu-she-ji-liu-da-yuan-ze/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/mian-xiang-dui-xiang-cheng-xu-she-ji-liu-da-yuan-ze/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/mian-xiang-dui-xiang-cheng-xu-she-ji-liu-da-yuan-ze/</id>
     <published>2018-12-04T12:35:56.440Z</published>
     <updated>2017-08-29T09:50:52.000Z</updated>
     
@@ -327,8 +327,8 @@ import
   
   <entry>
     <title>幂等性[或者http幂等性]的理解</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mi-deng-xing-huo-zhe-http-mi-deng-xing-de-li-jie/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mi-deng-xing-huo-zhe-http-mi-deng-xing-de-li-jie/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/mi-deng-xing-huo-zhe-http-mi-deng-xing-de-li-jie/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/mi-deng-xing-huo-zhe-http-mi-deng-xing-de-li-jie/</id>
     <published>2018-12-04T12:35:56.438Z</published>
     <updated>2018-01-10T14:33:54.000Z</updated>
     
@@ -349,8 +349,8 @@ import
   
   <entry>
     <title>梦想是一个天真的词，实现梦想是一个残酷的词</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/meng-xiang-shi-yi-ge-tian-zhen-de-ci-shi-xian-meng-xiang-shi-yi-ge-can-ku-de-ci/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/meng-xiang-shi-yi-ge-tian-zhen-de-ci-shi-xian-meng-xiang-shi-yi-ge-can-ku-de-ci/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/meng-xiang-shi-yi-ge-tian-zhen-de-ci-shi-xian-meng-xiang-shi-yi-ge-can-ku-de-ci/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/meng-xiang-shi-yi-ge-tian-zhen-de-ci-shi-xian-meng-xiang-shi-yi-ge-can-ku-de-ci/</id>
     <published>2018-12-04T12:35:56.436Z</published>
     <updated>2018-05-18T02:10:02.000Z</updated>
     
@@ -371,8 +371,8 @@ import
   
   <entry>
     <title>枚举实现单例的原理</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mei-ju-shi-xian-dan-li-yuan-li/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/mei-ju-shi-xian-dan-li-yuan-li/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/mei-ju-shi-xian-dan-li-yuan-li/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/mei-ju-shi-xian-dan-li-yuan-li/</id>
     <published>2018-12-04T12:35:56.434Z</published>
     <updated>2018-08-06T14:01:20.000Z</updated>
     
@@ -393,8 +393,8 @@ import
   
   <entry>
     <title>码农进化之Oracle学习篇</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/</id>
     <published>2018-12-04T12:35:56.432Z</published>
     <updated>2017-08-29T10:22:48.000Z</updated>
     
@@ -417,8 +417,8 @@ import
   
   <entry>
     <title>react-motion动画库</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/</id>
     <published>2018-12-04T12:35:56.431Z</published>
     <updated>2018-03-03T02:07:36.000Z</updated>
     
@@ -439,8 +439,8 @@ import
   
   <entry>
     <title>基于Vue2.x的自定义博客</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/</id>
     <published>2018-12-04T12:35:56.429Z</published>
     <updated>2018-09-18T09:16:32.000Z</updated>
     
@@ -461,8 +461,8 @@ import
   
   <entry>
     <title>国内优秀npm镜像推荐使用</title>
-    <link href="https://BigJun2017.github.io/2018/12/04/lao-bo-ke/guo-nei-you-xiu-npm-jing-xiang-tui-jian-shi-yong/"/>
-    <id>https://BigJun2017.github.io/2018/12/04/lao-bo-ke/guo-nei-you-xiu-npm-jing-xiang-tui-jian-shi-yong/</id>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/guo-nei-you-xiu-npm-jing-xiang-tui-jian-shi-yong/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/guo-nei-you-xiu-npm-jing-xiang-tui-jian-shi-yong/</id>
     <published>2018-12-04T12:35:56.427Z</published>
     <updated>2017-12-13T09:25:14.000Z</updated>
     
