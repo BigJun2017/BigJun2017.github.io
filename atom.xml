@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2017-12-24T09:16:14.000Z</updated>
+  <updated>2018-12-08T10:15:21.980Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>好开心，七牛外链失效的图片找回来了</title>
+    <link href="https://junzhou2016.github.io/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/"/>
+    <id>https://junzhou2016.github.io/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/</id>
+    <published>2018-12-07T16:00:00.000Z</published>
+    <updated>2018-12-08T10:15:21.980Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今天吧我存在七牛云上的图片找回来了，好开心。&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://junzhou2016.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>自己对react中flux框架部分底层原理的理解</title>
@@ -451,32 +477,6 @@ import
         
         
           &lt;p&gt;最近闲来无事，就用Vue2.x模仿着自己的github博客手撸了一个博客，主要用到的技术有：VueX、Vue2.x、axios、iView、Router。最终的博客成果如下图：&lt;br&gt;      &lt;img
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>国内优秀npm镜像推荐使用</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/guo-nei-you-xiu-npm-jing-xiang-tui-jian-shi-yong/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/guo-nei-you-xiu-npm-jing-xiang-tui-jian-shi-yong/</id>
-    <published>2018-12-04T12:35:56.427Z</published>
-    <updated>2017-12-13T09:25:14.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;/p&gt;&lt;h2 id=&quot;国内优秀npm镜像&quot;&gt;国内优秀npm镜像&lt;/h2&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;hr&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;&lt;h3 id=&quot;淘宝npm镜像&quot;&gt;淘宝npm镜像&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;ul&gt;&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;&lt;li&gt;搜索地址：&lt;a
         
       
     
