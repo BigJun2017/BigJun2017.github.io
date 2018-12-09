@@ -134,77 +134,6 @@
   </entry>
   
   <entry>
-    <title>自己对react中flux框架部分底层原理的理解</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/</id>
-    <published>2018-12-04T12:35:56.459Z</published>
-    <updated>2018-12-09T12:35:47.983Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;这是我在学习react框架时的个人理解，包含个人总结和案例中代码的分析，对于react中部分与内存分配相关的原理还是不是很懂:&lt;br&gt;1.个人总结：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;flux架构的理解：&lt;br&gt;    flux架构中数据是单向流动的；&lt;br&gt;   
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>运行时异常-RunTimeExcepption</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/</id>
-    <published>2018-12-04T12:35:56.457Z</published>
-    <updated>2018-12-09T12:35:39.014Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;前几天写代码的时候，遇到一个需求，保存的时候如果重名则不执行保存，并抛出异常。但是当我抛出的不是运行时异常的时候，这个异常就需要一层层的捕获。就像下面这样：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ExceptionTest .java
-
-package
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>用JAVA判断一个URL是否有效</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</id>
-    <published>2018-12-04T12:35:56.456Z</published>
-    <updated>2018-12-09T12:35:33.783Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>移动端学习之初始化-angular4的学习</title>
     <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/"/>
     <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/</id>
@@ -500,6 +429,74 @@ import
         
         
           &lt;p&gt;最近因为工作需要需要实现单例模式，考虑到单例模式最简单的实现方式是枚举实现，因此研究了下枚举实现单例模式的原理，下面将从原理、详解两个步骤说明：&lt;br&gt;             一：原理&lt;br&gt;        1、单例模式利用了“&lt;clinit&gt;()”
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>码农进化之Oracle学习篇</title>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/</id>
+    <published>2018-12-04T12:35:56.432Z</published>
+    <updated>2017-08-29T10:22:48.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;pre&gt;&lt;code&gt;1.oracle-c/s
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;C/S结构：&lt;br&gt;client/server   客户端
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>react-motion动画库</title>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/</id>
+    <published>2018-12-04T12:35:56.431Z</published>
+    <updated>2018-03-03T02:07:36.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div class=&quot;preview&quot;&gt;&lt;br&gt;                &lt;div class=&quot;show-content&quot;&gt;&lt;br&gt;                   
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基于Vue2.x的自定义博客</title>
+    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/"/>
+    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/</id>
+    <published>2018-12-04T12:35:56.429Z</published>
+    <updated>2018-09-18T09:16:32.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近闲来无事，就用Vue2.x模仿着自己的github博客手撸了一个博客，主要用到的技术有：VueX、Vue2.x、axios、iView、Router。最终的博客成果如下图：&lt;br&gt;      &lt;img
         
       
     

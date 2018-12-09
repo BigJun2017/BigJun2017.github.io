@@ -5,8 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="用JAVA判断一个URL是否有效, Blog4Jun">
-    <meta name="description" content="最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了U">
+    <meta name="keywords" content="react中flux框架部分底层原理的初步理解, Blog4Jun">
+    <meta name="description" content="这是我在学习react框架时的个人理解，包含个人总结和案例中代码的分析，对于react中部分与内存分配相关的原理还是不是很懂:1.个人总结：
+
+flux架构的理解：    flux架构中数据是单向流动的；    view[component">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>用JAVA判断一个URL是否有效 | Blog4Jun</title>
+    <title>react中flux框架部分底层原理的初步理解 | Blog4Jun</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +266,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/34.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/28.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        用JAVA判断一个URL是否有效
+                        react中flux框架部分底层原理的初步理解
                     </div>
                 </div>
             </div>
@@ -288,39 +290,196 @@
     <div class="card">
         <div class="card-content article-info">
             
+            <div class="article-tag">
+                
+                <a href="/tags/Java/" target="_blank">
+                    <span class="chip bg-color">Java</span>
+                </a>
+                
+            </div>
+            
             <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/老博客/" class="post-category" target="_blank">
+                        老博客
+                    </a>
+                    
+                </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-04
+                    <i class="fa fa-clock-o fa-fw"></i>2017-12-24
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p>
+                <p>这是我在学习react框架时的个人理解，包含个人总结和案例中代码的分析，对于react中部分与内存分配相关的原理还是不是很懂:<br>1.个人总结：</p>
+<blockquote>
+<p>flux架构的理解：<br>    flux架构中数据是单向流动的；<br>    view[components]经过出发产生action，action通过转发器dispatchet转发至store中，在store中action被注册在action中的回调函数接收和解析，通过计算store会更新store中的数据【存放组件状态的对象】，同时发送事件信号，发送的事件信号将被添加了事件监听对象的组件监听，<br>    当组件监听事件成功后会调用组件的this.setState()函数更新组件的状态,从而驱动组件的重新渲染过程.<br>flux中各种model推荐的构建的顺序:<br>    1.Dispatch在整个应用中是全局唯一的，可以通过 new Dispatcher()创建，用于转发action;<br>    2.创建每个组件【每类】组件对应的action,在action中接收来在组件的数据并创建action对象，通过dispatcher转发到store中，之后会调用在store中注册的回调函数，解析action更新storez中的相关数据;<br>    3.创建组件的store，在store中存储组件的初始状态，在store中完成的工作是生成新的数据并发送更新信号；<br>    4.创建对应的组件，在组件类中首先应该获取初始值，并添加监听函数，动作响应函数。<br>    以上flux构建项目的步骤只是本人总结归纳的，具体的步骤以实际开发为准;<br>A.flux中应该注意的问题：action为一个纯函数，多次引用在每个引用model的存储空间中初始化了多分实例，但是其产出只依赖于输入，所以无论整个应用中生成的实例是唯一的还是多个对整个应用功能的实现是不影响的;<br>B.Dispatcher对象在多次的引用过过程中不会生成多个实例，其底层只用的是单例模式实现的，因此在flxu应用中，我们使用的dispatcher对象是全局唯一并且是所有的模块共享的;只有这样我们才能保证在Action中调用了Dispatcher.dispatch(action);之后会去调用在store中注册的回调函数计算出新的数据[一般认为这个回调函数的调用时自动完成的]。<br>C：每个组件对应的store在全局范围内是唯一的，这样可以办证在不同的地方进行引用时可以获得同步的数据,这是通过浅复制的原理实现的;</p>
+</blockquote>
 <hr>
-<p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p>
-<p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p>
-<hr>
-<p>[java] view plain copy<br>/** </p>
-<ul>
-<li>文件名称为：URLAvailability.java </li>
-<li>文件功能简述： 描述一个URL地址是否有效 </li>
-<li>@author Jason </li>
-<li>@time   2010-9-14  </li>
-<li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li>
-</ul>
-<p>/** </p>
-<ul>
-<li>功能：检测当前URL是否可连接或是否有效, </li>
-<li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li>
-<li>@param urlStr 指定URL网络地址 </li>
-<li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li>
-</ul>
-<p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>
+<p>2.案例代码分心<br><strong>action：</strong></p>
+<pre><code>//action描述了组件发出的请求，包含了请求的类型和请求传递的数据;
+//action是一个纯函数，其产出只依赖与输入；
+//在实际的操作中，counterCasption相当于组件的ID,当组件产生动作的同时如果携带了数据，那么还可以添加对应的数据项；
+import * as ActionTypes from &#39;./ActionTypes.js&#39;;
+import AppDispatcher from &#39;../dispatchers/Appdispatcher.js&#39;;
+//定义action构造器;
+export const increment = (counterCaption)=&gt;{
+  AppDispatcher.dispatch(
+    {
+      type:ActionTypes.INCREMENT,
+      counterCaption:counterCaption
+    }
+  );
+};
 
+export const decrement = (counterCaption)=&gt;{
+  AppDispatcher.dispatch(
+    {
+      type:ActionTypes.DECREMENT,
+      counterCaption:counterCaption
+    }
+  );
+}
+
+</code></pre><p><strong>store</strong></p>
+<pre><code>//CounterStore相当于一类组件的数据中心，它是单例的共享的；
+//Store中包含了组件是无状态model,其中包含了组件的初始状态值,以普通对象的形式存在;
+//一般在store中应该提供一个get方法，用于组件获取初始状态的值;
+//store中应该为Dispatcher注册状态计算函数，用于更新计算出新的数据，当组件同步这些数据后，组件的状态会更新，渲染被驱动进行;
+import AppDispatcher from &#39;../dispatchers/Appdispatcher.js&#39;;
+import * as ActionTypes from &#39;../actions/ActionTypes&#39;;
+import {EventEmitter} from &#39;events&#39;;
+//定义监听事件;
+const CHANGE_EVENT = &#39;changed&#39;;
+//定义组件的初始值，当组件加载的时候会在声明周期函数中同步这些值到组件的状态或者属性上去;
+const counterValues = {
+  &#39;First&#39;: 0,
+  &#39;Second&#39;: 10,
+  &#39;Third&#39;: 30
+};
+//定义组件的store对象;
+const CounterStore = Object.assign({},EventEmitter.prototype,{
+  //定义getter函数，方便数据的同步;
+  getCounterValues:function(){
+    return counterValues;
+  },
+  //定义事件发射函数,store中的数据发生改变的时候通知对应的组件更新数据[是否会造成所有监听到该事件的组件都去调用getter函数同步数据呢？
+//会不会造成应用运行效率的降低呢];
+emitChange:function(){
+  this.emit(CHANGE_EVENT);
+},
+//定义事件监听器添加函数，当组件挂载成功的时候添加监听函数;
+//callbacek函数由调用者传入，用于指明监听到事件后的行为，
+//通常callback函数的作用是更新组件的内部状态;
+addChangeListener:function(callback){
+  this.on(CHANGE_EVENT,callback);
+},
+//监听函数移除函数;
+removeChangeListener:function(callback){
+  this.removeListener(CHANGE_EVENT,callback);
+}
+
+});
+
+//为store注册回调函数;
+CounterStore.dispatchToken = AppDispatcher.register(
+  (action)=&gt;{
+    if(action.type===ActionTypes.INCREMENT){
+      counterValues[action.counterCaption]++;
+      CounterStore.emitChange();
+    }else if(action.type===ActionTypes.DECREMENT){
+      counterValues[action.counterCaption]--;
+      CounterStore.emitChange();
+    }
+  }
+);
+//定义导出接口;
+export default CounterStore;
+
+</code></pre><p><strong>dispatcher</strong></p>
+<pre><code>import {Dispatcher} from  &#39;flux&#39;;
+//创建flux中的dispatcher,由flux框架控制为单例模式的;
+export default new Dispatcher();
+
+</code></pre><p><strong>components</strong></p>
+<pre><code>//定义组件;
+import React, {Component, PropTypes} from &#39;react&#39;;
+import * as Actions from &#39;../actions/Actions&#39;;
+import CounterStore from &#39;../stores/CounterStore&#39;;
+const buttonStyle = {
+  margin: &#39;10px&#39;
+};
+
+//定义组件的主体部分;
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    //绑定this到成员函数;
+    this.onChange = this.onChange.bind(this);
+    this.onClickIncrementButton = this.onClickIncrementButton.bind(this);
+    this.onClickDecrementButton = this.onClickDecrementButton.bind(this);
+    //获取组件的初始状态;
+    this.state = {
+      count: CounterStore.getCounterValues()[props.caption]
+    }
+  }
+
+  //使用shouldComponentUpdate函数增加组件的渲染速度;
+  //因为当事件发射器发射事件后，所有监听该事件的组件中的主句或者状态将被更新，this.setState函数将被调用,采用shouldComponentUpdate
+  //函数进行判断可以提高组件的渲染效率;
+  shouldComponentUpdate(nextProps, nextState) {
+    return (nextProps.caption !== this.props.caption) || (nextState.count !== this.state.count);
+  }
+  //组件成功挂载到dom上之后添加事件的监听;
+  componentDidMount() {
+    CounterStore.addChangeListener(this.onChange);
+  }
+  //组件被移除后对应的监听也应该被移除;
+  componentWillUnmount(callback) {
+    CounterStore.removeChangeListener(this.onChange);
+  }
+  //更新组件的状态;
+  onChange() {
+    //同步store中的数据到组件中;
+    const newCount = CounterStore.getCounterValues()[this.props.caption];
+    this.setState({count: newCount});
+  }
+
+  onClickIncrementButton() {
+    Actions.increment(this.props.caption);
+  }
+
+  onClickDecrementButton() {
+    Actions.decrement(this.props.caption);
+  }
+
+  render() {
+    const {caption} = this.props;
+    return (&lt;div&gt;
+      &lt;span&gt;JunJun的计算器&lt;/span&gt;
+      &lt;button style={buttonStyle} onClick={this.onClickIncrementButton}&gt;+&lt;/button&gt;
+      &lt;button style={buttonStyle} onClick={this.onClickDecrementButton}&gt;-&lt;/button&gt;
+      &lt;span&gt;{caption}count:{this.state.count}&lt;/span&gt;
+    &lt;/div&gt;);
+  }
+
+}
+
+//约束组件的属性类型;
+Counter.propTypes = {
+  caption: PropTypes.string.isRequired
+};
+//声明组件的引用接口;
+export default Counter;
+
+</code></pre>
             </div>
             <hr>
 
@@ -458,7 +617,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="https://junzhou2016.github.io" class="b-link-green">Blog4Jun</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/" class="b-link-green">用JAVA判断一个URL是否有效</a>
+                    <a href="/2017/12/24/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/" class="b-link-green">react中flux框架部分底层原理的初步理解</a>
                 </p>
             </div>
         </div>
@@ -482,31 +641,42 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/">
+                <a href="/2017/12/31/xiang-ce/zong-you-ren-zai-xiang-zhao-ni-nian-hua-si-shui-he-bu-hao-hao-nu-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="运行时异常-RunTimeExcepption">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="总有人在想着你，年华似水，何不好好努力">
                         
-                        <span class="card-title">运行时异常-RunTimeExcepption</span>
+                        <span class="card-title">总有人在想着你，年华似水，何不好好努力</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">前几天写代码的时候，遇到一个需求，保存的时候如果重名则不执行保存，并抛出异常。但是当我抛出的不是运行时异常的时候，这个异常就需要一层层的捕获。就像下面这样：
-ExceptionTest .java
-
-package com.lz.utils</div>
+                    <div class="summary">
+总有人在想着你，年华似水，何不好好努力，不辜负你爱的人和爱你的人。话说本想送她一本书的，送啥好呢？
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-12-31
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Pursue
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/相册/" class="post-category" target="_blank">
+                                    相册
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -516,29 +686,42 @@ package com.lz.utils</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/">
+                <a href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="移动端学习之初始化-angular4的学习">
+                        <img src="/medias/featureimages/32.jpg" class="responsive-img" alt="会不会因为这个错过一段美好的爱情？">
                         
-                        <span class="card-title">移动端学习之初始化-angular4的学习</span>
+                        <span class="card-title">会不会因为这个错过一段美好的爱情？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">最近在学习angular4感觉也没有那么难啦，好奇移动端到底可以做出啥，继续学习中……
+                    <div class="summary">
+会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。
 </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-12-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Pursue
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/相册/" class="post-category" target="_blank">
+                                    相册
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                 </div>
                 
             </div>
