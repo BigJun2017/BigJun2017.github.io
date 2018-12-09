@@ -5,8 +5,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="用JAVA判断一个URL是否有效, Blog4Jun">
-    <meta name="description" content="最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了U">
+    <meta name="keywords" content="运行时异常-RunTimeExcepption, Blog4Jun">
+    <meta name="description" content="前几天写代码的时候，遇到一个需求，保存的时候如果重名则不执行保存，并抛出异常。但是当我抛出的不是运行时异常的时候，这个异常就需要一层层的捕获。就像下面这样：
+ExceptionTest .java
+
+package com.lz.utils">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>用JAVA判断一个URL是否有效 | Blog4Jun</title>
+    <title>运行时异常-RunTimeExcepption | Blog4Jun</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -270,7 +273,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        用JAVA判断一个URL是否有效
+                        运行时异常-RunTimeExcepption
                     </div>
                 </div>
             </div>
@@ -288,38 +291,117 @@
     <div class="card">
         <div class="card-content article-info">
             
+            <div class="article-tag">
+                
+                <a href="/tags/Java/" target="_blank">
+                    <span class="chip bg-color">Java</span>
+                </a>
+                
+            </div>
+            
             <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/后端/" class="post-category" target="_blank">
+                        后端
+                    </a>
+                    
+                </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-04
+                    <i class="fa fa-clock-o fa-fw"></i>2018-04-19
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p>
-<hr>
-<p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p>
-<p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p>
-<hr>
-<p>[java] view plain copy<br>/** </p>
+                <p>前几天写代码的时候，遇到一个需求，保存的时候如果重名则不执行保存，并抛出异常。但是当我抛出的不是运行时异常的时候，这个异常就需要一层层的捕获。就像下面这样：</p>
+<pre><code>ExceptionTest .java
+
+package com.lz.utils;
+
+public class ExceptionTest {
+   public static void testRunTimeException() throws Exception {
+      //throw new MyRunTimeException(&quot;运行时的异常！&quot;);
+       throw new Exception();
+   }
+}
+
+Test.java
+
+package com.lz;
+
+import com.lz.utils.ExceptionTest;
+import com.lz.utils.GetDBPhysicDesignTxt;
+
+public class Test {
+public static void main(String[] args) throws Exception {
+    ExceptionTest.testRunTimeException();
+}
+}
+
+
+</code></pre><p>或者这样</p>
+<pre><code>ExceptionTest.java
+package com.lz.utils;
+
+public class ExceptionTest {
+   public static void testRunTimeException() {
+      //throw new MyRunTimeException(&quot;运行时的异常！&quot;);
+       try {
+        throw new Exception();
+    } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+   }
+}
+
+</code></pre><p>但是从一个程序员的角度，考虑，重名属于运行后进行操作才产生的异常，正常情况下应该抛出运行时异常，并且公司我最膜拜的架构师【据说是离神最近的男人】是已经封装好了异常，自定义运行时异常，因此就使用了运行时异常实现：<br>代码如下：</p>
+<pre><code>MyRunTimeException.java
+自定义的运行时异常类：
+
+package com.lz.utils;
+
+public class MyRunTimeException extends RuntimeException {
+    public MyRunTimeException(String info) {
+        super(info);
+    }
+
+}
+
+ExceptionTest.java
+
+package com.lz.utils;
+
+public class ExceptionTest {
+   public static void testRunTimeException() {
+      throw new MyRunTimeException(&quot;运行时的异常！&quot;);
+   }
+}
+
+
+</code></pre><p>使用自定义运行时异常后，发现省事好多，异常并不需要一级一级的向上抛出或者在当前类捕获。</p>
+<p>借助这个案例分析了下运行时异常的特点：</p>
+<blockquote>
 <ul>
-<li>文件名称为：URLAvailability.java </li>
-<li>文件功能简述： 描述一个URL地址是否有效 </li>
-<li>@author Jason </li>
-<li>@time   2010-9-14  </li>
-<li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li>
+<li>A: 运行时期异常的概述: <ul>
+<li>RuntimeException和他的所有子类异常,都属于运行时期异常。<br>  NullPointerException,ArrayIndexOutOfBoundsException等都属于运行时期异常.</li>
 </ul>
-<p>/** </p>
-<ul>
-<li>功能：检测当前URL是否可连接或是否有效, </li>
-<li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li>
-<li>@param urlStr 指定URL网络地址 </li>
-<li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li>
+</li>
+<li>B：运行时期异常的特点<ul>
+<li>a：方法中抛出运行时期异常,方法定义中无需throws声明,调用者也无需处理此异常。</li>
+<li>b：运行时期异常一旦发生,需要程序人员修改源代码。<br>设计原因:<br>  运行异常,不能发生,但是如果发生了,程序人员停止程序修改源代码<br>  运行异常: 一旦发生,不要处理,请你修改源代码,运行异常一旦发生,后面的代码没有执行的意义</li>
 </ul>
-<p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>
+</li>
+</ul>
+</blockquote>
+<hr>
+<p>这就是运行时异常的总结，就问还有谁。</p>
 
             </div>
             <hr>
@@ -458,7 +540,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="https://junzhou2016.github.io" class="b-link-green">Blog4Jun</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/04/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/" class="b-link-green">用JAVA判断一个URL是否有效</a>
+                    <a href="/2018/04/19/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/" class="b-link-green">运行时异常-RunTimeExcepption</a>
                 </p>
             </div>
         </div>
@@ -482,31 +564,42 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/12/04/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/">
+                <a href="/2018/05/25/xiang-ce/zhe-ge-gua-wa-zi-jing-ran-tou-pai-wo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="运行时异常-RunTimeExcepption">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="这个瓜娃子，竟然偷拍我。。。。。。">
                         
-                        <span class="card-title">运行时异常-RunTimeExcepption</span>
+                        <span class="card-title">这个瓜娃子，竟然偷拍我。。。。。。</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">前几天写代码的时候，遇到一个需求，保存的时候如果重名则不执行保存，并抛出异常。但是当我抛出的不是运行时异常的时候，这个异常就需要一层层的捕获。就像下面这样：
-ExceptionTest .java
-
-package com.lz.utils</div>
+                    <div class="summary">
+这个瓜娃子，竟然偷拍我。。。。。。，祝前程似锦，无问西东。
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-25
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Pursue
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/相册/" class="post-category" target="_blank">
+                                    相册
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -516,29 +609,42 @@ package com.lz.utils</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/">
+                <a href="/2018/04/17/xiang-ce/ni-ceng-shi-shao-nian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="移动端学习之初始化-angular4的学习">
+                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="你曾是少年！">
                         
-                        <span class="card-title">移动端学习之初始化-angular4的学习</span>
+                        <span class="card-title">你曾是少年！</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">最近在学习angular4感觉也没有那么难啦，好奇移动端到底可以做出啥，继续学习中……
+                    <div class="summary">
+你曾是少年！
 </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-17
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Pursue
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/相册/" class="post-category" target="_blank">
+                                    相册
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                 </div>
                 
             </div>
