@@ -48,6 +48,66 @@
   </entry>
   
   <entry>
+    <title>Alibaba开源组件-分布式流量控制框架sentinel初探</title>
+    <link href="https://junzhou2016.github.io/2018/12/09/hou-duan/fen-bu-shi-kuang-jia/alibaba-kai-yuan-zu-jian-fen-bu-shi-liu-liang-kong-zhi-kuang-jia-sentinel-chu-tan/"/>
+    <id>https://junzhou2016.github.io/2018/12/09/hou-duan/fen-bu-shi-kuang-jia/alibaba-kai-yuan-zu-jian-fen-bu-shi-liu-liang-kong-zhi-kuang-jia-sentinel-chu-tan/</id>
+    <published>2018-12-09T10:47:00.000Z</published>
+    <updated>2018-12-09T10:30:12.593Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Sentinel 是什么？&lt;br&gt;还是皮一下吧详细的介绍在Alibaba已经介绍的很详细了。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/alibaba/Sentinel/wiki/%E4%BB%8B%E7%BB%8D&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="分布式" scheme="https://junzhou2016.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+      <category term="Sentinel" scheme="https://junzhou2016.github.io/tags/Sentinel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MYSQL线上审核规范</title>
+    <link href="https://junzhou2016.github.io/2018/12/09/shu-ju-ku/mysql-xian-shang-shen-he-gui-fan/"/>
+    <id>https://junzhou2016.github.io/2018/12/09/shu-ju-ku/mysql-xian-shang-shen-he-gui-fan/</id>
+    <published>2018-12-09T10:27:00.000Z</published>
+    <updated>2018-12-09T10:28:11.649Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;命名规范&lt;/strong&gt;&lt;br&gt;Ø库名、表名、字段名，使用小写字母&lt;/p&gt;
+&lt;p&gt;Ø库名、表名、字段名，不要超过30个字符&lt;/p&gt;
+&lt;p&gt;Ø库名、表名、字段名，尽量见名知意，使用下划线分割&lt;/p&gt;
+&lt;p&gt;Ø库名、表名、字段名，禁止使用MySQL保留字&lt;/p
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://junzhou2016.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="MYSQL" scheme="https://junzhou2016.github.io/tags/MYSQL/"/>
+    
+      <category term="数据库" scheme="https://junzhou2016.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>好开心，七牛外链失效的图片找回来了</title>
     <link href="https://junzhou2016.github.io/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/"/>
     <id>https://junzhou2016.github.io/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/</id>
@@ -440,52 +500,6 @@ import
         
         
           &lt;p&gt;最近因为工作需要需要实现单例模式，考虑到单例模式最简单的实现方式是枚举实现，因此研究了下枚举实现单例模式的原理，下面将从原理、详解两个步骤说明：&lt;br&gt;             一：原理&lt;br&gt;        1、单例模式利用了“&lt;clinit&gt;()”
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>码农进化之Oracle学习篇</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/</id>
-    <published>2018-12-04T12:35:56.432Z</published>
-    <updated>2017-08-29T10:22:48.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;pre&gt;&lt;code&gt;1.oracle-c/s
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;C/S结构：&lt;br&gt;client/server   客户端
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>react-motion动画库</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/</id>
-    <published>2018-12-04T12:35:56.431Z</published>
-    <updated>2018-03-03T02:07:36.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;div class=&quot;preview&quot;&gt;&lt;br&gt;                &lt;div class=&quot;show-content&quot;&gt;&lt;br&gt;                   
         
       
     

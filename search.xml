@@ -26,6 +26,56 @@
     </entry>
     
     <entry>
+      <title>Alibaba开源组件-分布式流量控制框架sentinel初探</title>
+      <link href="/2018/12/09/hou-duan/fen-bu-shi-kuang-jia/alibaba-kai-yuan-zu-jian-fen-bu-shi-liu-liang-kong-zhi-kuang-jia-sentinel-chu-tan/"/>
+      <url>/2018/12/09/hou-duan/fen-bu-shi-kuang-jia/alibaba-kai-yuan-zu-jian-fen-bu-shi-liu-liang-kong-zhi-kuang-jia-sentinel-chu-tan/</url>
+      
+        <content type="html"><![CDATA[<p>Sentinel 是什么？<br>还是皮一下吧详细的介绍在Alibaba已经介绍的很详细了。</p><p><a href="https://github.com/alibaba/Sentinel/wiki/%E4%BB%8B%E7%BB%8D" target="_blank" rel="noopener">Sentinel: 分布式系统的流量防卫兵</a></p><p>如何使用：<br>   其实也就三个步骤：<br>    <strong>1、添加依赖</strong><br>目前的最新的版本是0.2</p><pre><code>&lt;dependency&gt;    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;    &lt;artifactId&gt;sentinel-core&lt;/artifactId&gt;    &lt;version&gt;0.2.0&lt;/version&gt;&lt;/dependency&gt;</code></pre><p><strong>2、初始化资源</strong><br>需要使用如下的代码块将 你自己的代码块给包围起来。</p><pre><code>Entry entry = null;try {    entry = SphU.entry(resource);    //我的代码块    doSomething();  } catch (BlockException e1) {    //怎么处理那些被阻塞的请求} finally {    if (entry != null) {        entry.exit();    }}</code></pre><p>在Sentinel中，对那些被阻塞的请求，都是用catch到BlockException异常的方式进行处理的。</p><p>3、定义流量控制规则</p><p>Sentinel定义了三种规则对象，分别是：</p><pre><code>FlowRule：流量控制规则DegradeRule：熔断降级规则SystemRule：系统负载规则</code></pre><p>我们需要定义的规则的参数都是对应这些类的属性。这三个规则分别对应者三个RuleManager来加载规则。比如对于流量控制规则，使用FlowRuleManager.loadRules(List rules)来加载定义好的流控规则，从API可以看出，定义的规则可以不止一个。</p><p>定义流量控制规则一个demo如下：</p><pre><code>publicp  static void initFlowRules(String resource){        List rules = new ArrayList();        FlowRule rule = new FlowRule();        rule.setResource(resource); //资源名        rule.setGrade(RuleConstant.FLOW_GRADE_QPS); //限流阈值类型，此处为    qps类型        rule.setCount(5);   //限流阈值，表示每秒钟通过5次请求        rules.add(rule);    //将定义好的rule放在List中        FlowRuleManager.loadRules(rules);    }</code></pre><p><strong><em>详细demo如下：</em></strong></p><pre><code>package com.alibaba.alibabaSentinel.test;/** * * Copyright: Copyright (c) 2018 Jun_Zhou* * @ClassName: SentinelTest.java* @Description: 分布式流量框架sentinel测试程序;* * @version: v1.0.0* @author: JunZhou* @Email: 1769676159@qq.com* @Site: CERNO* @date: 2018年12月9日 下午5:57:51 */import java.util.ArrayList;import java.util.List;import org.junit.Test;import com.alibaba.csp.sentinel.Entry;import com.alibaba.csp.sentinel.SphU;import com.alibaba.csp.sentinel.slots.block.BlockException;import com.alibaba.csp.sentinel.slots.block.RuleConstant;import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;public class SentinelTest{    static int executedNumber = 0;    @Test    public void test01()    {        String resourceName = &quot;qpsSentinel&quot;;        initFlowRules(resourceName);    //上面定义的规则        for (int i = 0; i &lt; 10; i++)        {            Entry entry = null;            try            {                entry = SphU.entry(resourceName);                //我的代码块                doSomething();            }            catch (BlockException e1)            {                e1.printStackTrace();   //直接将异常打出来            }            finally            {                if (entry != null)                {                    entry.exit();                }            }        }    }    public static void doSomething()    {        // TODO Auto-generated method stub        executedNumber++;        System.out.print(&quot;-------CurrentExecutedNumber-------&quot; + executedNumber);    }    @SuppressWarnings({ &quot;rawtypes&quot;, &quot;unchecked&quot; })    static void initFlowRules(String resource)    {        List rules = new ArrayList();        FlowRule rule = new FlowRule();        rule.setResource(resource); //资源名        rule.setGrade(RuleConstant.FLOW_GRADE_QPS); //限流阈值类型，此处为qps类型        rule.setCount(5);   //限流阈值，表示每秒钟通过5次请求        rules.add(rule);    //将定义好的rule放在List中        FlowRuleManager.loadRules(rules);    }}</code></pre><p>  运行结果：<br>  <img src="https://user-images.githubusercontent.com/25767073/49696055-2f05fb00-fbdf-11e8-9d07-567b342f8dd4.gif" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分布式 </tag>
+            
+            <tag> Sentinel </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>MYSQL线上审核规范</title>
+      <link href="/2018/12/09/shu-ju-ku/mysql-xian-shang-shen-he-gui-fan/"/>
+      <url>/2018/12/09/shu-ju-ku/mysql-xian-shang-shen-he-gui-fan/</url>
+      
+        <content type="html"><![CDATA[<p><strong>命名规范</strong><br>Ø库名、表名、字段名，使用小写字母</p><p>Ø库名、表名、字段名，不要超过30个字符</p><p>Ø库名、表名、字段名，尽量见名知意，使用下划线分割</p><p>Ø库名、表名、字段名，禁止使用MySQL保留字</p><p>Ø临时库、表名，必须以tmp为前缀，以日期为后缀，例如tmp_product_20151229</p><p>Ø备份表、表名，必须以日期为后缀，例如produce_bak_20151229</p><p><strong>库表设计</strong><br>Ø表必须有主键，使用bigint unsigned类型auto_increment属性</p><p>Ø除主键外的其他字段都必须有注释，所有表都必须有说明</p><p>Ø最多更改和查询的字段放在基础表内，方便完整载入内存</p><p>Ø访问频率低的或大字段放到扩展表里，分离冷热数据</p><p>Ø多张关联表之间，适当的冗余字段，可以减少JOIN查询</p><p>Ø如果预计数据量较大，预先制定分表策略，如按日期拆分或按某键值取模分表</p><p>Ø尽量不用分区表，如需使用请与DBA沟通</p><p><strong>字段设计</strong><br>Ø只有主键使用UNSIGNED属性，其他数值列不要使用，因为计算出现负数时会报错</p><p>Ø当字符串较短，或数据频繁更新时，可以使用CHAR(N)，N表示字符数而非字节数</p><p>Ø当字符串长度可预见时，可以使用VARCHAR(N)，N表示字符数而非字节数</p><p>Ø使用DECIMAL代替FLOAT和DOUBLE，以存储精确浮点数，例如支付相关数据</p><p>Ø使用INT系类型代替ENUM类型，前者只要自己定义，后者却要修改表</p><p>Ø使用INT UNSIGNED存储IPV4，inet_aton()和inet_ntoa()用于IPV4与INT互转</p><p>Ø尽可能不使用TEXT类型，禁止使用BLOB类型</p><p>Ø所有字段必须定义为NOT NULL，定义为default 0或default ‘’，NULL可能在计数(count)和匹配(is null)时引起歧义</p><p><strong>索引设计</strong><br>Ø如多个字段组合有唯一性需要，可以创建唯一索引</p><p>Ø不在低基数(低筛选度)的列上建立索引，例如“性别”</p><p>Ø一条SQL只会用到一个索引，无用的索引越多，写入性能越差</p><p>Ø禁止冗余索引，如已有(a,b)索引，可以删除(a)索引</p><p>Ø合理创建组合索引，(a,b,c)相当于(a)、(a,b)、(a,b,c)</p><p>Ø组合索引的组成字段数尽量不超过3个</p><p>Ø组合索引中，区分度大(高筛选度)的字段放在最前</p><p>Ø尽可能利用索引完成排序，即排序的字段在索引里，且不使用降序排序</p><p>Ø适度将组合索引提升为覆盖索引，避免回表，减少IO</p><p>Ø对较长字符串可使用前缀索引，前缀索引长度由数据区分度确定</p><p>Ø禁止使用外键，防止死锁，避免隐藏的数据逻辑</p><p>Ø数据扫描过多，如所有索引的过虑性不佳，会放弃使用索引</p><p>Ø仅使用最有效的过滤条件，索引不是越长越好，where条件并不是越多越好</p><p>Ø普通索引按照“idx_表名_字段名称”进行命名，例如idx_table1_name</p><p>Ø唯一索引按照“uniq_表名_字段名称”进行命名，例如uniq_table1_name</p><p>Ø索引名必须全部使用小写，过长的字段名可以采⽤缩写形式，例如idx_t1_name_age<br><strong>SQL编写</strong></p><p>Ø尽量使用主键，且不要修改主键的值</p><p>Ø只select需要的字段，禁止使用select *</p><p>Ø分批获取大量数据时，禁止大偏移量的limit M,N语句，使用主键游标 where PK&gt;… limit N</p><p>Ø同字段OR条件，用IN代替，包含的值个数应少于300个</p><p>Ø禁止隐式转换，数值类型禁止加引号，字符和日期类型必须加引号</p><p>Ø减少与数据库交互次数，尽量采用批量递交、块插入和缓存(memcache)</p><p>Ø使用prepared statement批量递交语句，可以提升性能，且避免SQL注⼊</p><p>Ø注意UNION ALL和UNION的区别，UNION默认有去重效果</p><p>Ø统计行数时，使用COUNT(*)或COUNT(1)，不要使用count(字段名)，会忽略值为NULL的行</p><p>Ø写入语句中禁止出现结果不确定的函数，如sysdate()、rand()、current_user()等</p><p>ØINSERT语句必须指定字段列表，禁止使用 INSERT INTO xxx values()</p><p>Ø执行频率高的SQL和重要功能的SQL，都必须能有索引可用</p><p>Ø禁止使用左%模糊匹配，例如like ‘%abc’，无法用到索引</p><p>Ø禁止使用反向匹配，例如 not in、!=、not like，无法用到索引</p><p>Ø禁止在SQL中进行算术和函数计算，应放置到应用服务器端</p><p>Ø保证每张表的JOIN列的数据类型相同，并且都建立了索引</p><p>Ø禁止使用order by rand()实现乱序效果，会导致CPU过高</p><p>Ø禁止JOIN和子查询，如无法避免，应尽可能进行优化</p><p>Ø适当增加冗余字段，避免关联JOIN查询</p><p>Ø可以拆分复杂的JOIN为多个小SQL，避免大语句</p><p>Ø尽可能减少Join语句中的循环总次数，就是让驱动表的结果集尽可能的小，永远用小结果集驱动大的结果集</p><p>Ø优先优化内层循环，内层循环是循环中执行次数最多的，每次循环节约很小的资源，在整个循环中就能节约很大的资源</p><p>Ø子查询只允许返回主键和必须的字段，不允许select *</p><p>Ø禁止单条SQL语句同时更新多个表，拆分成多条SQL，放在一个事务里</p><p>Ø程序应有捕获SQL异常的处理机制，必要时通过rollback显式回滚</p><p>Ø严禁大事务，会锁住更多的资源，引发更多的等待和竞争</p><p>Ø不同事务对同一批表的操作，要前后顺序一致</p><p><strong>QA：</strong>Mysql中的联合索引、前缀索引、覆盖索引的区别和联系？<br><a href="https://blog.csdn.net/air_hjj/article/details/70194985" target="_blank" rel="noopener">Mysql中的联合索引、前缀索引、覆盖索引</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MYSQL </tag>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>好开心，七牛外链失效的图片找回来了</title>
       <link href="/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/"/>
       <url>/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/</url>
@@ -2200,9 +2250,9 @@
       
         <tags>
             
-            <tag> PostgreSQL </tag>
-            
             <tag> 数据库 </tag>
+            
+            <tag> PostgreSQL </tag>
             
         </tags>
       
@@ -2825,11 +2875,11 @@
     </entry>
     
     <entry>
-      <title>今天平安夜，公司发了平安果，好贴心</title>
-      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
-      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
+      <title>会不会因为这个错过一段美好的爱情？</title>
+      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
+      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
       
       
       <categories>
@@ -2848,11 +2898,11 @@
     </entry>
     
     <entry>
-      <title>会不会因为这个错过一段美好的爱情？</title>
-      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
-      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
+      <title>今天平安夜，公司发了平安果，好贴心</title>
+      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
+      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
       
       
       <categories>
