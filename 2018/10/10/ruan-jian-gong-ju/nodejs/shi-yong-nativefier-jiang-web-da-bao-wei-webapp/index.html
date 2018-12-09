@@ -5,8 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Category: 数据库, Blog4Jun">
-    <meta name="description" content="Category: 数据库 | Blog4Jun">
+    <meta name="keywords" content="使用nativefier将web打包为WebApp, Blog4Jun">
+    <meta name="description" content="在github上浪的时候发现一款开源库，可以直接将任意的网站打包为webapp。具体的操作步骤如下：
+
+安装node.js环境
+使用npm安装nativefier库；
+
+npm install nativefier -g
+3.使用nativ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Category: 数据库 | Blog4Jun</title>
+    <title>使用nativefier将web打包为WebApp | Blog4Jun</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -247,179 +253,338 @@
     </nav>
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请哆啦A梦吃铜锣烧吧！请扫码获取访问密码。')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+            <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="title center-align">
-                    
-                        Doraemon
-                    
-                    </div>
-
-                    <div class="description center-align">
-                    
-                        爱你所爱，无问西东
-                    
+                    <div class="description center-align post-title">
+                        使用nativefier将web打包为WebApp
                     </div>
                 </div>
             </div>
         </div>
-        
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/NodeJs/" target="_blank">
+                    <span class="chip bg-color">NodeJs</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/软件工具/" class="post-category" target="_blank">
+                        软件工具
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-10
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>在github上浪的时候发现一款开源库，可以直接将任意的网站打包为webapp。具体的操作步骤如下：</p>
+<ol>
+<li>安装node.js环境</li>
+<li>使用npm安装nativefier库；</li>
+</ol>
+<pre><code>npm install nativefier -g
+</code></pre><p>3.使用nativefier将你的网站封装为webapp。</p>
+<pre><code>nativefier &quot;https://bigjun2017.github.io/&quot;
+</code></pre><p><a href="https://github.com/jiahaog/nativefier" target="_blank" rel="noopener">nativefier的github地址</a></p>
+<p>4.最终的执行成果如下：<br><img src="https://user-images.githubusercontent.com/25767073/49694824-51dae400-fbcc-11e8-81d4-f13db2424120.png" alt="在这里插入图片描述"></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
 
-<main class="content">
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
+<div id="article-share">
     
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
 
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">Post Categories</div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/前端/" title="前端: 5">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F9EBEA;">前端
-                        <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/相册/" title="相册: 17">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F5EEF8;">相册
-                        <span class="tag-length">17</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/软件设计/" title="软件设计: 14">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #D5F5E3;">软件设计
-                        <span class="tag-length">14</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/随笔/" title="随笔: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #E8F8F5;">随笔
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/数据库/" title="数据库: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active " style="background-color: #FEF9E7;">数据库
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/编程之道/" title="编程之道: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F8F9F9;">编程之道
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/老博客/" title="老博客: 6">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #82E0AA;">老博客
-                        <span class="tag-length">6</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/软件工具/" title="软件工具: 9">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #D7BDE2;">软件工具
-                        <span class="tag-length">9</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/后端/" title="后端: 21">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #A3E4D7;">后端
-                        <span class="tag-length">21</span>
-                    </span>
-                </a>
-                
-                
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://junzhou2016.github.io" class="b-link-green">Blog4Jun</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/10/10/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/" class="b-link-green">使用nativefier将web打包为WebApp</a>
+                </p>
             </div>
         </div>
     </div>
-</div>
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/09/25/shu-ju-ku/postgresql-ji-chu-zhi-shi-zheng-li/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="http://static.blinkfox.com/hexoblog_20180925_sql.jpg" class="responsive-img" alt="PostgreSQL基础知识整理">
-                            
-                            <span class="card-title">PostgreSQL基础知识整理</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary">数据库操作DMLCREATE TABLECREATE TABLE语句用于创建数据库中的表。语法是：
-CREATE TABLE 表名称 (
-列</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据库/" class="post-category" target="_blank">
-                                    数据库
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+    
 
-                    
-                    <div class="card-action article-tags">
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/10/10/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-cao-zuo-wen-jian-he-mu-lu/">
+                    <div class="card-image">
                         
-                        <a href="/tags/PostgreSQL/" target="_blank">
-                            <span class="chip bg-color">PostgreSQL</span>
-                        </a>
                         
-                        <a href="/tags/数据库/" target="_blank">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="常用Bash命令整理之操作文件和目录">
                         
+                        <span class="card-title">常用Bash命令整理之操作文件和目录</span>
                     </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">1. touch - 创建文件touch命令就可用于创建、变更和修改文件的时间戳。它是 Linux 操作系统的标准程序。touch命令又如下选项：
+-a: 只改变访问时间 
+-c: 不创建任何文件
+-m: 只改变修改时间
+-r: 使用指定文</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/软件工具/" class="post-category" target="_blank">
+                                    软件工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
                     
                 </div>
+                
             </div>
-            
         </div>
-    </article>
-</main>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/10/09/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-cha-kan-wen-jian-he-mu-lu/">
+                    <div class="card-image">
+                        
+                        <img src="http://static.blinkfox.com/20181009_linux.jpg" class="responsive-img" alt="常用Bash命令整理之查看文件和目录">
+                        
+                        <span class="card-title">常用Bash命令整理之查看文件和目录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">1. ls - 列出文件名和目录ls命令是Linux中最常用的命令之一，其作用就是列出文件名和目录。在命令行提示符下，直接输入ls命令，不带任何选项，将列出当前目录下所有文件和目录，但不会显示详细的信息，比如，文件类型、大小、修改日期和时间</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/软件工具/" class="post-category" target="_blank">
+                                    软件工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
 
+</main>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
