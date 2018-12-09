@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>使用nativefier将web打包为WebApp</title>
+      <link href="/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/"/>
+      <url>/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/</url>
+      
+        <content type="html"><![CDATA[<p>在github上浪的时候发现一款开源库，可以直接将任意的网站打包为webapp。具体的操作步骤如下：</p><ol><li>安装node.js环境</li><li>使用npm安装nativefier库；</li></ol><pre><code>npm install nativefier -g</code></pre><p>3.使用nativefier将你的网站封装为webapp。</p><pre><code>nativefier &quot;https://bigjun2017.github.io/&quot;</code></pre><p><a href="https://github.com/jiahaog/nativefier" target="_blank" rel="noopener">nativefier的github地址</a></p><p>4.最终的执行成果如下：<br><img src="https://user-images.githubusercontent.com/25767073/49694824-51dae400-fbcc-11e8-81d4-f13db2424120.png" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NodeJs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>好开心，七牛外链失效的图片找回来了</title>
       <link href="/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/"/>
       <url>/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/</url>
@@ -1940,29 +1963,6 @@
         <tags>
             
             <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>使用nativefier将web打包为WebApp</title>
-      <link href="/2018/10/10/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/"/>
-      <url>/2018/10/10/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/</url>
-      
-        <content type="html"><![CDATA[<p>在github上浪的时候发现一款开源库，可以直接将任意的网站打包为webapp。具体的操作步骤如下：</p><ol><li>安装node.js环境</li><li>使用npm安装nativefier库；</li></ol><pre><code>npm install nativefier -g</code></pre><p>3.使用nativefier将你的网站封装为webapp。</p><pre><code>nativefier &quot;https://bigjun2017.github.io/&quot;</code></pre><p><a href="https://github.com/jiahaog/nativefier" target="_blank" rel="noopener">nativefier的github地址</a></p><p>4.最终的执行成果如下：<br><img src="https://user-images.githubusercontent.com/25767073/49694824-51dae400-fbcc-11e8-81d4-f13db2424120.png" alt="在这里插入图片描述"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件工具 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> NodeJs </tag>
             
         </tags>
       

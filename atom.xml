@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2018-12-08T10:17:45.838Z</updated>
+  <updated>2018-12-09T08:13:48.302Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用nativefier将web打包为WebApp</title>
+    <link href="https://junzhou2016.github.io/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/"/>
+    <id>https://junzhou2016.github.io/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/</id>
+    <published>2018-12-09T15:10:00.000Z</published>
+    <updated>2018-12-09T08:13:48.302Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在github上浪的时候发现一款开源库，可以直接将任意的网站打包为webapp。具体的操作步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装node.js环境&lt;/li&gt;
+&lt;li&gt;使用npm安装nativefier库；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;npm
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="NodeJs" scheme="https://junzhou2016.github.io/tags/NodeJs/"/>
+    
+  </entry>
   
   <entry>
     <title>好开心，七牛外链失效的图片找回来了</title>
@@ -455,28 +486,6 @@ import
         
         
           &lt;div class=&quot;preview&quot;&gt;&lt;br&gt;                &lt;div class=&quot;show-content&quot;&gt;&lt;br&gt;                   
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>基于Vue2.x的自定义博客</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/</id>
-    <published>2018-12-04T12:35:56.429Z</published>
-    <updated>2018-09-18T09:16:32.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近闲来无事，就用Vue2.x模仿着自己的github博客手撸了一个博客，主要用到的技术有：VueX、Vue2.x、axios、iView、Router。最终的博客成果如下图：&lt;br&gt;      &lt;img
         
       
     
