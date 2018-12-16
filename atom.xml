@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2018-12-09T08:13:48.302Z</updated>
+  <updated>2018-12-16T07:56:48.766Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我还没强到可以掌控自己命运，何去何从？唯有不负韶华</title>
+    <link href="https://junzhou2016.github.io/2018/12/16/xiang-ce/wo-huan-mei-qiang-dao-ke-yi-zhang-kong-zi-ji-ming-yun-he-qu-he-cong-wei-you-bu-fu-shao-hua/"/>
+    <id>https://junzhou2016.github.io/2018/12/16/xiang-ce/wo-huan-mei-qiang-dao-ke-yi-zhang-kong-zi-ji-ming-yun-he-qu-he-cong-wei-you-bu-fu-shao-hua/</id>
+    <published>2018-12-15T16:00:00.000Z</published>
+    <updated>2018-12-16T07:56:48.766Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;朋友半年前一个人来到无锡，稍后就要离开了。感觉有点小失落，不知道何时才能再见面，预祝他一番风顺。何去何从，我们现在还不能做主，唯有不负韶华，好好努力吧。&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="相册" scheme="https://junzhou2016.github.io/categories/%E7%9B%B8%E5%86%8C/"/>
+    
+    
+      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>使用nativefier将web打包为WebApp</title>
@@ -475,28 +501,6 @@ import
         
         
           &lt;div class=&quot;preview&quot;&gt;&lt;br&gt;                &lt;div class=&quot;show-content&quot;&gt;&lt;br&gt;                   
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>基于Vue2.x的自定义博客</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/</id>
-    <published>2018-12-04T12:35:56.429Z</published>
-    <updated>2018-09-18T09:16:32.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近闲来无事，就用Vue2.x模仿着自己的github博客手撸了一个博客，主要用到的技术有：VueX、Vue2.x、axios、iView、Router。最终的博客成果如下图：&lt;br&gt;      &lt;img
         
       
     
