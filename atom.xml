@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2018-12-16T08:00:47.189Z</updated>
+  <updated>2018-12-18T15:33:29.205Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RestTemplate工具类的使用</title>
+    <link href="https://junzhou2016.github.io/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/"/>
+    <id>https://junzhou2016.github.io/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/</id>
+    <published>2018-12-18T14:32:00.000Z</published>
+    <updated>2018-12-18T15:33:29.205Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt; Rest,即 Representtational state
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
+    
+      <category term="Spring" scheme="https://junzhou2016.github.io/tags/Spring/"/>
+    
+  </entry>
   
   <entry>
     <title>我还没强到可以掌控自己命运，何去何从？唯有不负韶华</title>
@@ -479,28 +507,6 @@ import
           &lt;hr&gt;
 &lt;pre&gt;&lt;code&gt;1.oracle-c/s
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;C/S结构：&lt;br&gt;client/server   客户端
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>react-motion动画库</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/</id>
-    <published>2018-12-04T12:35:56.431Z</published>
-    <updated>2018-03-03T02:07:36.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;div class=&quot;preview&quot;&gt;&lt;br&gt;                &lt;div class=&quot;show-content&quot;&gt;&lt;br&gt;                   
         
       
     

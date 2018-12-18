@@ -5,8 +5,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="CentOS 中 nginx 负载均衡和反向代理的搭建, Blog4Jun">
-    <meta name="description" content="请参照博客：      (1.) Nginx的好处和原理       (2.)nginx下载       (3.)CentOS 中 nginx 负载均衡和反向代理的搭建；       (4.)修改hosts       (5.)Linux（">
+    <meta name="keywords" content="RestTemplate工具类的使用, Blog4Jun">
+    <meta name="description" content=" Rest,即 Representtational state Transfer,翻译为:“表现层状态转化”.
+常用HTTP动词如下：
+
+GET（SELECT）：从服务器取出资源（一项或多项）。POST（CREATE）：在服务器新建一个资源">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CentOS 中 nginx 负载均衡和反向代理的搭建 | Blog4Jun</title>
+    <title>RestTemplate工具类的使用 | Blog4Jun</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +267,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/38.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        CentOS 中 nginx 负载均衡和反向代理的搭建
+                        RestTemplate工具类的使用
                     </div>
                 </div>
             </div>
@@ -294,6 +297,10 @@
                     <span class="chip bg-color">Java</span>
                 </a>
                 
+                <a href="/tags/Spring/" target="_blank">
+                    <span class="chip bg-color">Spring</span>
+                </a>
+                
             </div>
             
             <div class="post-info">
@@ -301,23 +308,89 @@
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/老博客/" class="post-category" target="_blank">
-                        老博客
+                    <a href="/categories/后端/" class="post-category" target="_blank">
+                        后端
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2017-09-07
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-18
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>请参照博客：<br>      (1.) <a href="http://blog.csdn.net/zjx86320/article/details/51730388" target="_blank" rel="noopener">Nginx的好处和原理</a><br>       (2.)<a href="https://nginx.org/download/" target="_blank" rel="noopener">nginx下载</a><br>       (3.)<em><a href="https://juejin.im/entry/57763aa21532bc0060d96284" target="_blank" rel="noopener">CentOS 中 nginx 负载均衡和反向代理的搭建；</a></em><br>       (4.)<a href="https://junzhou2016.github.io/2017/09/05/Linux%20%E4%B8%8B%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%8B%E9%9A%86%E6%AD%A5%E9%AA%A4%EF%BC%88CentOS%EF%BC%89/">修改hosts</a><br>       (5.)<a href="https://crossoverjie.top/2016/09/20/Linux-normal2/" target="_blank" rel="noopener">Linux（二）服务器运行环境配置 </a></p>
+                <p> Rest,即 Representtational state Transfer,翻译为:“表现层状态转化”.</p>
+<p>常用HTTP动词如下：</p>
+<blockquote>
+<p>GET（SELECT）：从服务器取出资源（一项或多项）。<br>POST（CREATE）：在服务器新建一个资源。<br>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。<br>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。<br>DELETE（DELETE）：从服务器删除资源。</p>
+</blockquote>
+<pre><code>还有两个不常用的HTTP动词。
 
+HEAD：获取资源的元数据。
+OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的
+</code></pre><hr>
+<p>作者：PostTruth<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/itguangit/article/details/80198895" target="_blank" rel="noopener">https://blog.csdn.net/itguangit/article/details/80198895</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+<p> rest详解参考文章：<br> <a href="https://blog.csdn.net/itguangit/article/details/80198895" target="_blank" rel="noopener">Restful API 设计指南</a></p>
+<p>简单的使用示例子：</p>
+<pre><code>package cn.lz.platform.dh_pipeline_task.utils;
+
+import org.springframework.web.client.RestTemplate;
+/**
+ * 
+* Copyright: Copyright (c) 2018 Jun_Zhou
+* 
+* @ClassName: GitlabApiTest.java
+* @Description: RestTemplate使用的小例子；
+* 
+* Attention:建议使用URL直接编码参数的方式执行请求，采用媒介例如Map等在特定第三方资源服务其上可能会响应错误;
+* 
+* @version: v1.0.0
+* @author: JunZhou
+* @Email: 1769676159@qq.com
+* @Site: CERNO
+* @date: 2018年12月18日
+ */
+public class GitlabApiTest
+{ 
+
+    static RestTemplate restTemplate = new RestTemplate();
+    public static void main(String[] args) throws Exception
+    {    
+        //发送post请求,删除指定的分支;
+        /*1、 delete
+        String url = &quot;http://gitlab.example.com/api/v4/projects/797/repository/branches/branch4?private_token=currentUserPrivateToken&quot;;
+        restTemplate.delete(url);//发送delete请求;
+         */        
+        //发送post请求创建指定的分支;
+
+        //2、post
+        /*
+        String url = &quot;http://gitlab.example.com/api/v4/projects/797/repository/branches?branch=branch7&amp;ref=master&amp;private_token=currentUserPrivateToken&quot;;
+        String request = null;
+        Object postForObject = restTemplate.postForObject(url, request, String.class);
+        System.out.println(&quot;postForObject---------&gt;&quot;+postForObject);
+        */
+
+        //3、get
+        /*
+        String url = &quot;http://gitlab.example.com/api/v4/projects/797/repository/branches?branch=branch8&amp;ref=master&amp;private_token=currentUserPrivateToken&quot;;
+        Object postForObject = restTemplate.getForObject(url,String.class);
+        System.out.println(&quot;postForObject---------&gt;&quot;+postForObject);
+        */
+
+        //4、put
+
+        /*String url = &quot;http://gitlab.example.com/api/v4/projects/797/repository/branches/branch7/protect?developers_can_push=true&amp;developers_can_merge=true&amp;private_token=currentUserPrivateToken&quot;;
+        restTemplate.put(url, null);*/
+
+    }
+}
+
+</code></pre>
             </div>
             <hr>
 
@@ -455,7 +528,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="https://junzhou2016.github.io" class="b-link-green">Blog4Jun</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2017/09/07/lao-bo-ke/centos-zhong-nginx-fu-zai-jun-heng-he-fan-xiang-dai-li-de-da-jian/" class="b-link-green">CentOS 中 nginx 负载均衡和反向代理的搭建</a>
+                    <a href="/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/" class="b-link-green">RestTemplate工具类的使用</a>
                 </p>
             </div>
         </div>
@@ -477,41 +550,48 @@
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="article-badge left-badge text-color">Current</div>
             <div class="card">
-                <a href="/2017/09/10/lao-bo-ke/b-s-he-c-s-de-han-yi-ji-qi-qu-bie/">
+                <a href="/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="B/S和C/S的含义及其区别">
+                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="RestTemplate工具类的使用">
                         
-                        <span class="card-title">B/S和C/S的含义及其区别</span>
+                        <span class="card-title">RestTemplate工具类的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-B/S结构，即Browser/Server(浏览器/服务器)结构，是随着Internet技术的兴起，对C/S结构的一种变化或者改进的结构。在这种结构下，用户界面完全通过WWW浏览器实现，一部分事务逻辑在前端实现，但是主要事务逻辑在服务器端</div>
+                    <div class="summary"> Rest,即 Representtational state Transfer,翻译为:“表现层状态转化”.
+常用HTTP动词如下：
+
+GET（SELECT）：从服务器取出资源（一项或多项）。POST（CREATE）：在服务器新建一个资源</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-09-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/老博客/" class="post-category" target="_blank">
-                                    老博客
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/Java/" target="_blank">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Spring/" target="_blank">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>
@@ -523,27 +603,29 @@ B/S结构，即Browser/Server(浏览器/服务器)结构，是随着Internet技�
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/">
+                <a href="/2018/12/16/xiang-ce/wo-huan-mei-qiang-dao-ke-yi-zhang-kong-zi-ji-ming-yun-he-qu-he-cong-wei-you-bu-fu-shao-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="JAVA判断一个URL是否有效">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="我还没强到可以掌控自己命运，何去何从？唯有不负韶华">
                         
-                        <span class="card-title">JAVA判断一个URL是否有效</span>
+                        <span class="card-title">我还没强到可以掌控自己命运，何去何从？唯有不负韶华</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了U</div>
+                    <div class="summary">朋友半年前一个人来到无锡，稍后就要离开了。感觉有点小失落，不知道何时才能再见面，预祝他一番风顺。何去何从，我们现在还不能做主，唯有不负韶华，好好努力吧。
+——有时，友情是真正存在的，抛开所谓的情商不谈。有些人，遇见或许就是缘分。
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/老博客/" class="post-category" target="_blank">
-                                    老博客
+                            <a href="/categories/相册/" class="post-category" target="_blank">
+                                    相册
                                 </a>
                             
                             
