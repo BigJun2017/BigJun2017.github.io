@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2018-12-18T15:38:10.396Z</updated>
+  <updated>2018-12-19T15:14:16.961Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理</title>
+    <link href="https://junzhou2016.github.io/2018/12/19/hou-duan/fen-bu-shi-kuang-jia/springboot-zhong-shi-yong-value-du-qu-pei-zhi-wen-jian-tong-guo-jing-tai-bian-liang-shi-xian-fei-qin-ru-shi-ji-zhong-guan-li/"/>
+    <id>https://junzhou2016.github.io/2018/12/19/hou-duan/fen-bu-shi-kuang-jia/springboot-zhong-shi-yong-value-du-qu-pei-zhi-wen-jian-tong-guo-jing-tai-bian-liang-shi-xian-fei-qin-ru-shi-ji-zhong-guan-li/</id>
+    <published>2018-12-19T10:47:00.000Z</published>
+    <updated>2018-12-19T15:14:16.961Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在SpringBoot中读取XXX.properties等配置文件有许多方法，常见的方法有：@ConfigurationProperties方式、使用@Value注解方式、使用Environment、以及使用PropertiesLoaderUtils这四种方式。本文中主要讲
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://junzhou2016.github.io/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>RestTemplate工具类的使用</title>
@@ -483,30 +509,6 @@ import
         
         
           &lt;p&gt;最近因为工作需要需要实现单例模式，考虑到单例模式最简单的实现方式是枚举实现，因此研究了下枚举实现单例模式的原理，下面将从原理、详解两个步骤说明：&lt;br&gt;             一：原理&lt;br&gt;        1、单例模式利用了“&lt;clinit&gt;()”
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>码农进化之Oracle学习篇</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/</id>
-    <published>2018-12-04T12:35:56.432Z</published>
-    <updated>2017-08-29T10:22:48.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;pre&gt;&lt;code&gt;1.oracle-c/s
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;C/S结构：&lt;br&gt;client/server   客户端
         
       
     
