@@ -5,8 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理, Blog4Jun">
-    <meta name="description" content="在SpringBoot中读取XXX.properties等配置文件有许多方法，常见的方法有：@ConfigurationProperties方式、使用@Value注解方式、使用Environment、以及使用PropertiesLoader">
+    <meta name="keywords" content="Java中内存数据流的使用, Blog4Jun">
+    <meta name="description" content="内存流存在的意义：
+    当我们不需要持久化存储数据，而仅仅是需要进行数据中转的时候，就可以使用内存流。
+内存流的使用场景：
+         1.代码中需要交换的数据，读写的数据，仅仅是代码之间需要交换，就没必要
+    内存 ==》 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理 | Blog4Jun</title>
+    <title>Java中内存数据流的使用 | Blog4Jun</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +268,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/36.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/38.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理
+                        Java中内存数据流的使用
                     </div>
                 </div>
             </div>
@@ -290,8 +294,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/SpringBoot/" target="_blank">
-                    <span class="chip bg-color">SpringBoot</span>
+                <a href="/tags/Java/" target="_blank">
+                    <span class="chip bg-color">Java</span>
                 </a>
                 
             </div>
@@ -309,169 +313,229 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-19
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-29
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在SpringBoot中读取XXX.properties等配置文件有许多方法，常见的方法有：@ConfigurationProperties方式、使用@Value注解方式、使用Environment、以及使用PropertiesLoaderUtils这四种方式。本文中主要讲述通过@Value注解方式读取配置文件进行静态变量初始化，从而进行集中式配置文件管理。</p>
-<p>一般的，使用@Value注解方式需要在使用的地方进行侵入式编码,即哪里使用需要属性值就要在哪里使用该注解，从SpringCloud配置中心中取值也是如此，一旦变量名发生了变化，则需要进行多处调整，如：</p>
-<pre><code>package com.icerno.spring.controller;
+                <p><strong>内存流存在的意义：</strong></p>
+<pre><code>    当我们不需要持久化存储数据，而仅仅是需要进行数据中转的时候，就可以使用内存流。
+</code></pre><p><strong>内存流的使用场景：</strong></p>
+<pre><code>         1.代码中需要交换的数据，读写的数据，仅仅是代码之间需要交换，就没必要
+    内存 ==》 磁盘   磁盘 ==》内存 【可以在内存读写上提高了效率】
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+          2.好处：提高了读写的效率，即数据处理的效率 。
+</code></pre><p><strong>内存流的具体实现类：</strong></p>
+<blockquote>
+<p> <em>ByteArrayInputStream</em> ：<code>ByteArrayInputStream extends InputStream</code>，包含一个内部缓冲区，该缓冲区包含从流中读取的字节。内部计数器跟踪 read 方法要提供的下一个字节。</p>
+</blockquote>
+<blockquote>
+<p> *<em>ByteArrayOutputStream</em> ：<code>ByteArrayOutputStream extends OutputStream</code>， 此类实现了一个输出流，其中的数据被写入一个 byte 数组。缓冲区会随着数据的不断写入而自动增长。可使用 toByteArray() 和 toString() 获取数据。</p>
+</blockquote>
+<blockquote>
+<p> <em>CharArrayReader:</em> <code>CharArrayReader extends Reader</code>，此类实现一个可用作字符输入流的字符缓冲区。 </p>
+</blockquote>
+<blockquote>
+<p> <em>CharArrayWriter</em>：<code>CharArrayWriter extends Writer</code>，此类实现一个可用作 Writer 的字符缓冲区。缓冲区会随向流中写入数据而自动增长。可使用 toCharArray() 和 toString() 获取数据。</p>
+</blockquote>
+<p> 测试代码：<br> StrRes.java</p>
+<pre><code>package com.icerno.cloud.model;
 /**
  * 
 * Copyright: Copyright (c) 2018 Jun_Zhou
 * 
-* @ClassName: PropertyController.java
-* @Description: 属性文件控制类;
+* @ClassName: StrRes.java
+* @Description: 字符串数据源;
 * 
 * @version: v1.0.0
 * @author: JunZhou
 * @Email: 1769676159@qq.com
 * @Site: CERNO
-* @date: 2018年12月19日 下午9:38:28
-* 
+* @date: 2018年12月28日 上午11:30:54
  */
-@RestController
-@RequestMapping(&quot;/property/&quot;)
-public class PropertyController
-{   
-    @Value(&quot;${my.name}&quot;)
-    public String myName;//侵入式编码,倘若使用较多，则不便更新；
-
-    @RequestMapping(&quot;getStaticProperty&quot;)
-    public String getStaticProperty() {
-        return myName;
-    }
+public class StrRes
+{
+    public static String resStr = &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\r\n&quot; + 
+            &quot;&lt;project xmlns=\&quot;http://maven.apache.org/POM/4.0.0\&quot;\r\n&quot; + 
+            &quot;    xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot;\r\n&quot; + 
+            &quot;    xsi:schemaLocation=\&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\&quot;&gt;\r\n&quot; + 
+            &quot;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;\r\n&quot; + 
+            &quot;    &lt;parent&gt;\r\n&quot; + 
+            &quot;        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;\r\n&quot; + 
+            &quot;        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;        &lt;version&gt;2.1.1.RELEASE&lt;/version&gt;\r\n&quot; + 
+            &quot;        &lt;relativePath /&gt; &lt;!-- lookup parent from repository --&gt;\r\n&quot; + 
+            &quot;    &lt;/parent&gt;\r\n&quot; + 
+            &quot;    &lt;groupId&gt;com.icerno&lt;/groupId&gt;\r\n&quot; + 
+            &quot;    &lt;artifactId&gt;SpringCloudUtils&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;\r\n&quot; + 
+            &quot;    &lt;name&gt;SpringCloudUtils&lt;/name&gt;\r\n&quot; + 
+            &quot;    &lt;description&gt;Utils for Spring Cloud&lt;/description&gt;\r\n&quot; + 
+            &quot;\r\n&quot; + 
+            &quot;    &lt;properties&gt;\r\n&quot; + 
+            &quot;        &lt;java.version&gt;1.8&lt;/java.version&gt;\r\n&quot; + 
+            &quot;    &lt;/properties&gt;\r\n&quot; + 
+            &quot;\r\n&quot; + 
+            &quot;    &lt;dependencies&gt;\r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt;\r\n&quot; + 
+            &quot;\r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;scope&gt;test&lt;/scope&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt;\r\n&quot; + 
+            &quot;\r\n&quot; + 
+            &quot;        &lt;!-- jgit相关的依赖 --&gt;\r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;org.eclipse.jgit&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;org.eclipse.jgit&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;version&gt;4.8.0.201706111038-r&lt;/version&gt;&lt;!--$NO-MVN-MAN-VER$ --&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt;\r\n&quot; + 
+            &quot;        &lt;!-- gitLab4j相关的依赖 --&gt;\r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;org.gitlab4j&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;gitlab4j-api&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;version&gt;4.8.7&lt;/version&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt;\r\n&quot; + 
+            &quot;        &lt;!-- HuTool相关的依赖 --&gt;\r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;cn.hutool&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;hutool-all&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;version&gt;4.1.19&lt;/version&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt;\r\n&quot; + 
+            &quot;        &lt;!-- Json-Web——Token相关的依赖 --&gt;\r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;jjwt&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;version&gt;0.7.0&lt;/version&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt;\r\n&quot; + 
+            &quot;        &lt;!-- 文本比较的工具类 --&gt;\r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;com.googlecode.java-diff-utils&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;diffutils&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;version&gt;1.2.1&lt;/version&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt;\r\n&quot; + 
+            &quot;        &lt;!-- https://mvnrepository.com/artifact/org.apache.directory.studio/org.apache.commons.io --&gt;\r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;org.apache.directory.studio&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;org.apache.commons.io&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;version&gt;2.4&lt;/version&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt;\r\n&quot; + 
+            &quot;        &lt;!-- \r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;com.googlecode.java-diff-utils&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;diffutils&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;version&gt;1.3.0&lt;/version&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt; --&gt;\r\n&quot; + 
+            &quot;        &lt;!-- 工具类 --&gt;\r\n&quot; + 
+            &quot;        &lt;dependency&gt;\r\n&quot; + 
+            &quot;            &lt;groupId&gt;lz.cloud&lt;/groupId&gt;\r\n&quot; + 
+            &quot;            &lt;artifactId&gt;lz-common-tools&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;version&gt;1.0.0&lt;/version&gt;\r\n&quot; + 
+            &quot;            &lt;exclusions&gt;\r\n&quot; + 
+            &quot;                &lt;exclusion&gt;\r\n&quot; + 
+            &quot;                    &lt;groupId&gt;QRCode&lt;/groupId&gt;\r\n&quot; + 
+            &quot;                    &lt;artifactId&gt;QRCode&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;                &lt;/exclusion&gt;\r\n&quot; + 
+            &quot;                &lt;exclusion&gt;\r\n&quot; + 
+            &quot;                    &lt;groupId&gt;javax.mail&lt;/groupId&gt;\r\n&quot; + 
+            &quot;                    &lt;artifactId&gt;mail&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;                &lt;/exclusion&gt;\r\n&quot; + 
+            &quot;                &lt;exclusion&gt;\r\n&quot; + 
+            &quot;                    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;\r\n&quot; + 
+            &quot;                    &lt;artifactId&gt;poi&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;                &lt;/exclusion&gt;\r\n&quot; + 
+            &quot;                &lt;exclusion&gt;\r\n&quot; + 
+            &quot;                    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;\r\n&quot; + 
+            &quot;                    &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;                &lt;/exclusion&gt;\r\n&quot; + 
+            &quot;            &lt;/exclusions&gt;\r\n&quot; + 
+            &quot;        &lt;/dependency&gt;\r\n&quot; + 
+            &quot;    &lt;/dependencies&gt;\r\n&quot; + 
+            &quot;\r\n&quot; + 
+            &quot;    &lt;build&gt;\r\n&quot; + 
+            &quot;        &lt;plugins&gt;\r\n&quot; + 
+            &quot;            &lt;plugin&gt;\r\n&quot; + 
+            &quot;                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;\r\n&quot; + 
+            &quot;                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;\r\n&quot; + 
+            &quot;            &lt;/plugin&gt;\r\n&quot; + 
+            &quot;        &lt;/plugins&gt;\r\n&quot; + 
+            &quot;    &lt;/build&gt;\r\n&quot; + 
+            &quot;\r\n&quot; + 
+            &quot;&lt;/project&gt;\r\n&quot; + 
+            &quot;&quot;;
 }
 
-</code></pre><p>为了解决侵入式编码带来的不便，建议使用静态变量统一管理配置属性，如：</p>
-<p>application.properties</p>
-<pre><code>server.port=9090
-my.name=j......u
-gitlab.gitLabUrl=http://10.10.10.101
-gitlab.serverIP = 10.10.10.101
-gitlab.passWord=z......2017
-gitlab.adminToken=iJ......BV72y
+</code></pre><p>MemoryStreamDemo.java</p>
+<p>package com.icerno.cloud.test;</p>
+<p>import java.io.ByteArrayInputStream;<br>import java.io.ByteArrayOutputStream;<br>import java.io.CharArrayReader;<br>import java.io.CharArrayWriter;<br>import java.io.IOException;<br>import java.io.LineNumberReader;</p>
+<p>import com.icerno.cloud.model.StrRes;</p>
+<p>/** Copyright: Copyright (c) 2018 Jun_Zhou</p>
+<ul>
+<li></li>
+<li>@ClassName: MemoryStreamDemo.java</li>
+<li>@Description: 该类的功能描述</li>
+<li>@version: v1.0.0</li>
+<li>@author: JunZhou</li>
+<li>@Email: <a href="mailto:1769676159@qq.com" target="_blank" rel="noopener">1769676159@qq.com</a></li>
+<li>@Site: CERNO</li>
+<li><p>@date: 2018年12月29日 下午8:53:20 */<br>public class MemoryStreamDemo<br>{</p>
+<p> public static void main(String[] args) throws IOException<br> {</p>
+<pre><code> //内存字节流=====================================================================
+ ByteArrayOutputStream baos = new ByteArrayOutputStream();//不需要路径，写入内存，跟磁盘无需关联
 
-</code></pre><p>GitlabConfig.java</p>
-<pre><code>
-package com.icerno.spring.utils;
+ baos.write(&quot;这是要写入内存流的数据&quot;.getBytes());//将字符串变成字节数组，写入内存
+ baos.close();//此处关闭内存流无效 下面的数据也可写入
+ baos.write(&quot;helloworld&quot;.getBytes());//注意：之前的IO流都是跟磁盘文件建立了连接，需要关闭连接即关闭流！ 而关闭内存流跟连接无关
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+ byte[] byteArray = baos.toByteArray();//获取内存中存数据的数组
 
+ //使用内存输入流 读取获得内存中的保存数据的数组
+ ByteArrayInputStream bais = new ByteArrayInputStream(byteArray);//ByteArrayInputStream(byte[] buf):创建一个 ByteArrayInputStream，使用 buf 作为其缓冲区数组。
 
-/** Copyright: Copyright (c) 2018 Jun_Zhou
- * 
- * @ClassName: GitlabConfig.java
- * @Description: gitlab相关的配置信息;
- * @version: v1.0.0
- * @author: JunZhou
- * @Email: 1769676159@qq.com
- * @Site: CERNO
- * @date: 2018年11月6日 下午3:32:54 */
-@Configuration
-public class GitlabConfig
-{   
+ //读
+ int len;
+ byte[] b = new byte[1024];
+ while ((len = bais.read(b)) != -1)
+ {
+     System.out.println(new String(b, 0, len));
+ }
 
-    public static String        SERVER_IP;//gitlab服务器的Ip;
-    @Value(&quot;${gitlab.serverIP}&quot;)
-    public  void setSERVER_IP(String sERVER_IP)
-    {
-        GitlabConfig.SERVER_IP = sERVER_IP;
-    }
+ //内存字符流============================================================================
+ CharArrayWriter caw = new CharArrayWriter();
+ caw.write(StrRes.resStr);
 
-    public static String        GITLAB_URL;//gitlab服务器的URL;
-    @Value(&quot;${gitlab.gitLabUrl}&quot;)
-    public  void setGITLAB_URL(String gITLAB_URL)
-    {
-        GitlabConfig.GITLAB_URL = gITLAB_URL;
-    }
+ char[] ch = caw.toCharArray();
 
-    public static String        GITLAB_PSW;// gitlab密码;
-    @Value(&quot;${gitlab.passWord}&quot;)
-    public  void setGITLAB_PSW(String gITLAB_PSW)
-    {
-        GitlabConfig.GITLAB_PSW = gITLAB_PSW;
-    }
+ //使用内存输入流 读取获得内存中的保存数据的数组
+ CharArrayReader car = new CharArrayReader(ch);
+ //读
+ int len2;
+ char[] c = new char[10];
+ while ((len2 = car.read(c)) != -1)
+ {
+     System.out.print(new String(c, 0, len2));
+ }
 
+ //因为CharArrayReader extends Reader 因此可以很方便的将其转化为LineNumberReader、BufferedReader;
+ LineNumberReader propFileBr = new LineNumberReader(car);
+ String lineProp = null;
+ while ((lineProp = propFileBr.readLine()) != null)
+ {
 
-    public static String        GITLAB_ADMIN_TOKEN;//gitlab管理员的token信息;
-    @Value(&quot;${gitlab.adminToken}&quot;)
-    public  void setGITLAB_ADMIN_TOKEN(String gITLAB_ADMIN_TOKEN)
-    {
-        GitlabConfig.GITLAB_ADMIN_TOKEN = gITLAB_ADMIN_TOKEN;
-    }
-
-}
-
-</code></pre><p><strong>在使用@Value注解给静态变量注入属性值的时候需要注意：</strong></p>
-<p>1、为静态变量注入属性值和非静态变量不同，需要提供setXXX方法，该方法有参，且类型和属性类型一致，必须为非静态，在方法体内为静态属性变量赋值；</p>
-<p>2、@Value必须添加在setXXX的方法上;</p>
-<p>3、静态属性所在类必须使用@Component注解或者@Configuration修饰;</p>
-<p>4、setXXX方法的方法名和静态属性变量无必要联系，但是在方法体内必须进行变量的赋值操作。</p>
-<p>否则将注入失败，取值为空;</p>
-<p>参考代码如下：</p>
-<pre><code>
-package com.icerno.spring.utils;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-
-
-/** Copyright: Copyright (c) 2018 Jun_Zhou
- * 
- * @ClassName: GitlabConfig.java
- * @Description: gitlab相关的配置信息;
- * @version: v1.0.0
- * @author: JunZhou
- * @Email: 1769676159@qq.com
- * @Site: CERNO
- * @date: 2018年11月6日 下午3:32:54 */
-@Configuration
-public class GitlabConfig
-{   
-
-    public static String        SERVER_IP;//gitlab服务器的Ip;
-    @Value(&quot;${gitlab.serverIP}&quot;)
-    public  void setSERVER_IP(String sERVER_IP)
-    {
-        GitlabConfig.SERVER_IP = sERVER_IP;//方法的方法名和静态属性变量无必要联系，但是在方法体内必须进行变量的赋值操作。
-    }
-
-    public static String        GITLAB_URL;//gitlab服务器的URL;
-    @Value(&quot;${gitlab.gitLabUrl}&quot;)
-    public  void setGITLAB_URL(String gITLAB_URL)
-    {
-        GitlabConfig.GITLAB_URL = gITLAB_URL;
-    }
-
-    public static String        GITLAB_PSW;// gitlab密码;
-    @Value(&quot;${gitlab.passWord}&quot;)
-    public  void setGITLAB_PSW(String gITLAB_PSW)
-    {
-        GitlabConfig.GITLAB_PSW = gITLAB_PSW;
-    }
-
-
-    public static String        GITLAB_ADMIN_TOKEN;//gitlab管理员的token信息;
-    @Value(&quot;${gitlab.adminToken}&quot;)
-    public  void setGITLAB_ADMIN_TOKEN(String gITLAB_ADMIN_TOKEN)
-    {
-        GitlabConfig.GITLAB_ADMIN_TOKEN = gITLAB_ADMIN_TOKEN;
-    }
-
-}
-
-</code></pre><p>参考文章:<br><a href="https://blog.csdn.net/thc1987/article/details/78789426" target="_blank" rel="noopener">SpringBoot四种读取properties文件的方式</a> </p>
-<p><a href="https://blog.csdn.net/mononoke111/article/details/81088472" target="_blank" rel="noopener">SpringBoot使用@Value给静态变量注入值</a></p>
+     String propKeyValuePair = lineProp.trim();
+     System.out.println(propFileBr.getLineNumber() + &quot;------\t&quot; + propKeyValuePair + &quot;\t------&quot;);
+ }
+</code></pre><p> }</p>
+</li>
+</ul>
+<p>}</p>
+<p>执行结果如下所示：<br><img src="https://user-images.githubusercontent.com/25767073/50538652-58e28a00-0bad-11e9-87c9-e6fc00643200.png" alt="在这里插入图片描述"></p>
 
             </div>
             <hr>
@@ -610,7 +674,7 @@ public class GitlabConfig
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="https://junzhou2016.github.io" class="b-link-green">Blog4Jun</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/19/hou-duan/fen-bu-shi-kuang-jia/springboot-zhong-shi-yong-value-du-qu-pei-zhi-wen-jian-tong-guo-jing-tai-bian-liang-shi-xian-fei-qin-ru-shi-ji-zhong-guan-li/" class="b-link-green">springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理</a>
+                    <a href="/2018/12/29/hou-duan/java/java-zhong-nei-cun-shu-ju-liu-de-shi-yong/" class="b-link-green">Java中内存数据流的使用</a>
                 </p>
             </div>
         </div>
@@ -632,7 +696,7 @@ public class GitlabConfig
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="article-badge left-badge text-color">Current</div>
             <div class="card">
                 <a href="/2018/12/29/hou-duan/java/java-zhong-nei-cun-shu-ju-liu-de-shi-yong/">
                     <div class="card-image">
@@ -650,9 +714,9 @@ public class GitlabConfig
          1.代码中需要交换的数据，读写的数据，仅仅是代码之间需要交换，就没必要
     内存 ==》 </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -665,6 +729,7 @@ public class GitlabConfig
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -681,23 +746,20 @@ public class GitlabConfig
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/">
+                <a href="/2018/12/19/hou-duan/fen-bu-shi-kuang-jia/springboot-zhong-shi-yong-value-du-qu-pei-zhi-wen-jian-tong-guo-jing-tai-bian-liang-shi-xian-fei-qin-ru-shi-ji-zhong-guan-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="RestTemplate工具类的使用">
+                        <img src="/medias/featureimages/36.jpg" class="responsive-img" alt="springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理">
                         
-                        <span class="card-title">RestTemplate工具类的使用</span>
+                        <span class="card-title">springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"> Rest,即 Representtational state Transfer,翻译为:“表现层状态转化”.
-常用HTTP动词如下：
-
-GET（SELECT）：从服务器取出资源（一项或多项）。POST（CREATE）：在服务器新建一个资源</div>
+                    <div class="summary">在SpringBoot中读取XXX.properties等配置文件有许多方法，常见的方法有：@ConfigurationProperties方式、使用@Value注解方式、使用Environment、以及使用PropertiesLoader</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-18
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-19
                             </span>
                         <span class="publish-author">
                             
@@ -714,12 +776,8 @@ GET（SELECT）：从服务器取出资源（一项或多项）。POST（CREATE�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/" target="_blank">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Spring/" target="_blank">
-                        <span class="chip bg-color">Spring</span>
+                    <a href="/tags/SpringBoot/" target="_blank">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>
