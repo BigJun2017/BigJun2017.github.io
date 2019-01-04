@@ -472,70 +472,83 @@ public class StrRes
 }
 
 </code></pre><p>MemoryStreamDemo.java</p>
-<p>package com.icerno.cloud.test;</p>
-<p>import java.io.ByteArrayInputStream;<br>import java.io.ByteArrayOutputStream;<br>import java.io.CharArrayReader;<br>import java.io.CharArrayWriter;<br>import java.io.IOException;<br>import java.io.LineNumberReader;</p>
-<p>import com.icerno.cloud.model.StrRes;</p>
-<p>/** Copyright: Copyright (c) 2018 Jun_Zhou</p>
-<ul>
-<li></li>
-<li>@ClassName: MemoryStreamDemo.java</li>
-<li>@Description: 该类的功能描述</li>
-<li>@version: v1.0.0</li>
-<li>@author: JunZhou</li>
-<li>@Email: <a href="mailto:1769676159@qq.com" target="_blank" rel="noopener">1769676159@qq.com</a></li>
-<li>@Site: CERNO</li>
-<li><p>@date: 2018年12月29日 下午8:53:20 */<br>public class MemoryStreamDemo<br>{</p>
-<p> public static void main(String[] args) throws IOException<br> {</p>
-<pre><code> //内存字节流=====================================================================
- ByteArrayOutputStream baos = new ByteArrayOutputStream();//不需要路径，写入内存，跟磁盘无需关联
+<pre><code>package com.icerno.cloud.test;
 
- baos.write(&quot;这是要写入内存流的数据&quot;.getBytes());//将字符串变成字节数组，写入内存
- baos.close();//此处关闭内存流无效 下面的数据也可写入
- baos.write(&quot;helloworld&quot;.getBytes());//注意：之前的IO流都是跟磁盘文件建立了连接，需要关闭连接即关闭流！ 而关闭内存流跟连接无关
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.CharArrayReader;
+import java.io.CharArrayWriter;
+import java.io.IOException;
+import java.io.LineNumberReader;
 
- byte[] byteArray = baos.toByteArray();//获取内存中存数据的数组
+import com.icerno.cloud.model.StrRes;
 
- //使用内存输入流 读取获得内存中的保存数据的数组
- ByteArrayInputStream bais = new ByteArrayInputStream(byteArray);//ByteArrayInputStream(byte[] buf):创建一个 ByteArrayInputStream，使用 buf 作为其缓冲区数组。
 
- //读
- int len;
- byte[] b = new byte[1024];
- while ((len = bais.read(b)) != -1)
- {
-     System.out.println(new String(b, 0, len));
- }
+/**
+ Copyright: Copyright (c) 2018 Jun_Zhou
+ @ClassName: MemoryStreamDemo.java
+ @Description: 该类的功能描述
+ @version: v1.0.0
+ @author: JunZhou
+ @Email: 1769676159@qq.com
+ @Site: CERNO
+ @date: 2018年12月29日 下午8:53:20 
+*/
+public class MemoryStreamDemo
+{
 
- //内存字符流============================================================================
- CharArrayWriter caw = new CharArrayWriter();
- caw.write(StrRes.resStr);
+    public static void main(String[] args) throws IOException
+    {
+        //内存字节流=====================================================================
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();//不需要路径，写入内存，跟磁盘无需关联
 
- char[] ch = caw.toCharArray();
+        baos.write(&quot;这是要写入内存流的数据&quot;.getBytes());//将字符串变成字节数组，写入内存
+        baos.close();//此处关闭内存流无效 下面的数据也可写入
+        baos.write(&quot;helloworld&quot;.getBytes());//注意：之前的IO流都是跟磁盘文件建立了连接，需要关闭连接即关闭流！ 而关闭内存流跟连接无关
 
- //使用内存输入流 读取获得内存中的保存数据的数组
- CharArrayReader car = new CharArrayReader(ch);
- //读
- int len2;
- char[] c = new char[10];
- while ((len2 = car.read(c)) != -1)
- {
-     System.out.print(new String(c, 0, len2));
- }
+        byte[] byteArray = baos.toByteArray();//获取内存中存数据的数组
 
- //因为CharArrayReader extends Reader 因此可以很方便的将其转化为LineNumberReader、BufferedReader;
- LineNumberReader propFileBr = new LineNumberReader(car);
- String lineProp = null;
- while ((lineProp = propFileBr.readLine()) != null)
- {
+        //使用内存输入流 读取获得内存中的保存数据的数组
+        ByteArrayInputStream bais = new ByteArrayInputStream(byteArray);//ByteArrayInputStream(byte[] buf):创建一个 ByteArrayInputStream，使用 buf 作为其缓冲区数组。
 
-     String propKeyValuePair = lineProp.trim();
-     System.out.println(propFileBr.getLineNumber() + &quot;------\t&quot; + propKeyValuePair + &quot;\t------&quot;);
- }
-</code></pre><p> }</p>
-</li>
-</ul>
-<p>}</p>
-<p>执行结果如下所示：<br><img src="https://user-images.githubusercontent.com/25767073/50538652-58e28a00-0bad-11e9-87c9-e6fc00643200.png" alt="在这里插入图片描述"></p>
+        //读
+        int len;
+        byte[] b = new byte[1024];
+        while ((len = bais.read(b)) != -1)
+        {
+            System.out.println(new String(b, 0, len));
+        }
+
+        //内存字符流============================================================================
+        CharArrayWriter caw = new CharArrayWriter();
+        caw.write(StrRes.resStr);
+
+        char[] ch = caw.toCharArray();
+
+        //使用内存输入流 读取获得内存中的保存数据的数组
+        CharArrayReader car = new CharArrayReader(ch);
+        //读
+        int len2;
+        char[] c = new char[10];
+        while ((len2 = car.read(c)) != -1)
+        {
+            System.out.print(new String(c, 0, len2));
+        }
+
+        //因为CharArrayReader extends Reader 因此可以很方便的将其转化为LineNumberReader、BufferedReader;
+        LineNumberReader propFileBr = new LineNumberReader(car);
+        String lineProp = null;
+        while ((lineProp = propFileBr.readLine()) != null)
+        {
+
+            String propKeyValuePair = lineProp.trim();
+            System.out.println(propFileBr.getLineNumber() + &quot;------\t&quot; + propKeyValuePair + &quot;\t------&quot;);
+        }
+
+    }
+
+}
+</code></pre><p>执行结果如下所示：<br><img src="https://user-images.githubusercontent.com/25767073/50538652-58e28a00-0bad-11e9-87c9-e6fc00643200.png" alt="在这里插入图片描述"></p>
 
             </div>
             <hr>
