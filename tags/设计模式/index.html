@@ -1,992 +1,3528 @@
-<!DOCTYPE HTML>
-<html lang="">
-<head>
-    
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
 
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Tag: 设计模式, Blog4Jun">
-    <meta name="description" content="Tag: 设计模式 | Blog4Jun">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Tag: 设计模式 | Blog4Jun</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      tag: 设计模式 | Blog4Jun
+    
+  </title>
+  <meta name="author" content="Pursue">
+  <meta name="keywords" content="">
+  <meta name="description" content="Doraemon">
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+	<body>
+		<!-- Preloader -->
 
-</head>
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
 
-<body>
 
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">Blog4Jun</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>Index</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>Tags</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>Categories</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-archive"></i>
-            
-            <span>Archives</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>About</span>
-        </a>
-    </li>
-    
-    <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
-        </a>
-    </li>
+<!-- header -->
+<header class="fixbackground" data-img-mode="random" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						<img src="/img/logo.png" alt="Logo">
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
 
-</ul>
+					
+				</ul>			
+			</div>				
+		</div>
 
-<div class="side-nav" id="mobile-nav">
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
 
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Blog4Jun</div>
-        <div class="logo-desc">
-            
-            爱你所爱，无问西东
-            
-        </div>
-    </div>
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						标签
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
 
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                Index
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                Tags
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                Categories
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-archive"></i>
-                
-                Archives
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                About
-            </a>
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="waves-effect waves-light" target="_blank">
-                <i class="fa fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
-    </ul>
-
-    <div class="social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-
-<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-    <i class="fa fa-rss"></i>
-</a>
-</div>
-</div>
-
-            </div>
-        </div>
-
-        
-        <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
+				</li>
+				<li>
+					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
+				</li>
+				<li>
+					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
 </style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+</div></header>
 
-<a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewbox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
-    </svg>
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
 </a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-08
+	描述：The archive module refers to 'https://1984n.win/archives-post/' & 'http://1900.live/one-theme/', include js、css. Relevant rights reserved by them! 
+-->
+<div class="layout-archive">
+    <div class="i-container">
+        <i class="fa fa-book">
+			
+				设计模式 12 篇
+			
+		</i>
+    </div>
+
+    <!-- Archive by year, display in page( archive ) -->
+    <div 2019="" id="layout-archive-year" style="display: 
         
-    </nav>
-</header>
-
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
+        
+        <ul>
+            
+                <li>
+                    <a href=" 01="" 03="" hou-duan="" fen-bu-shi-kuang-jia="" apollo-pei-zhi-zhong-xin-he-springcloud-zhong-zuul-jie-he-shi-yong-chuang-jian-pei-zhi-wang-guan="" "="">
+            			<em year="2019">
+                            01-03
+                        </em>
+        			    <span itemprop="name">
+                            Apollo配置中心和SpringCloud中Zuul结合使用创建配置网关
+                        </span>
+        			    
+                			<a href="/tags/分布式/" class="tag">
+                				分布式
+                			</a>
+                        
+                			<a href="/tags/Apollo/" class="tag">
+                				Apollo
+                			</a>
+                        
                     
-                        Doraemon
-                    
-                    </div>
-
-                    <div class="description center-align">
-                    
-                        爱你所爱，无问西东
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
+                
+            
+                <li>
+                    <a href="/2018/12/29/hou-duan/java/java-zhong-nei-cun-shu-ju-liu-de-shi-yong/">
+            			<em year="2018">
+                            12-29
+                        </em>
+        			    <span itemprop="name">
+                            Java中内存数据流的使用
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/19/hou-duan/fen-bu-shi-kuang-jia/springboot-zhong-shi-yong-value-du-qu-pei-zhi-wen-jian-tong-guo-jing-tai-bian-liang-shi-xian-fei-qin-ru-shi-ji-zhong-guan-li/">
+            			<em year="2018">
+                            12-19
+                        </em>
+        			    <span itemprop="name">
+                            springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理
+                        </span>
+        			    
+                			<a href="/tags/SpringBoot/" class="tag">
+                				SpringBoot
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/">
+            			<em year="2018">
+                            12-18
+                        </em>
+        			    <span itemprop="name">
+                            RestTemplate工具类的使用
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/Spring/" class="tag">
+                				Spring
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/16/xiang-ce/wo-huan-mei-qiang-dao-ke-yi-zhang-kong-zi-ji-ming-yun-he-qu-he-cong-wei-you-bu-fu-shao-hua/">
+            			<em year="2018">
+                            12-16
+                        </em>
+        			    <span itemprop="name">
+                            我还没强到可以掌控自己命运，何去何从？唯有不负韶华
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/">
+            			<em year="2018">
+                            12-09
+                        </em>
+        			    <span itemprop="name">
+                            使用nativefier将web打包为WebApp
+                        </span>
+        			    
+                			<a href="/tags/NodeJs/" class="tag">
+                				NodeJs
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/09/hou-duan/fen-bu-shi-kuang-jia/alibaba-kai-yuan-zu-jian-fen-bu-shi-liu-liang-kong-zhi-kuang-jia-sentinel-chu-tan/">
+            			<em year="2018">
+                            12-09
+                        </em>
+        			    <span itemprop="name">
+                            Alibaba开源组件-分布式流量控制框架sentinel初探
+                        </span>
+        			    
+                			<a href="/tags/分布式/" class="tag">
+                				分布式
+                			</a>
+                        
+                			<a href="/tags/Sentinel/" class="tag">
+                				Sentinel
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/09/shu-ju-ku/mysql-xian-shang-shen-he-gui-fan/">
+            			<em year="2018">
+                            12-09
+                        </em>
+        			    <span itemprop="name">
+                            MYSQL线上审核规范
+                        </span>
+        			    
+                			<a href="/tags/MYSQL/" class="tag">
+                				MYSQL
+                			</a>
+                        
+                			<a href="/tags/数据库/" class="tag">
+                				数据库
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/">
+            			<em year="2018">
+                            12-08
+                        </em>
+        			    <span itemprop="name">
+                            好开心，七牛外链失效的图片找回来了
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            移动端学习之初始化-angular4的学习
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/shi-yong-qi-niu-shang-chuan-tu-pian-de-demo/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            使用七牛上传图片的demo
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/shi-yong-xshell-bu-shu-springboot-de-jar-wen-jian-dao-linux-fu-wu-qi-shang/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            使用XShell部署SpringBoot的jar文件到Linux服务器上
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/shi-yong-jsoup-pa-qu-guo-jia-tong-ji-ju-de-di-li-wei-zhi-shu-ju/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            使用JSOUP爬取国家统计局的地理位置数据
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/shi-yong-jenkins-pei-zhi-git-maven-de-zi-dong-hua-gou-jian/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            使用Jenkins配置Git+Maven的自动化构建
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            使用jenkins+github+tomcat实现Springboot半自动化部署
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            hexo+github搭建个人博客
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            适配器模式
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/ming-tian-jiu-yao-xue-zhuan-qian-duan-liao-shou-ji-liao-yi-xie-zi-liao-fang-zhe-li-liao/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            明天就要学转前端了，收集了一些资料放这里了
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/mian-xiang-dui-xiang-cheng-xu-she-ji-liu-da-yuan-ze/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            面向对象程序设计原则
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/mi-deng-xing-huo-zhe-http-mi-deng-xing-de-li-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            幂等性[或者http幂等性]的理解
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/meng-xiang-shi-yi-ge-tian-zhen-de-ci-shi-xian-meng-xiang-shi-yi-ge-can-ku-de-ci/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            梦想是一个天真的词，实现梦想是一个残酷的词
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/mei-ju-shi-xian-dan-li-yuan-li/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            枚举实现单例的原理
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/ma-nong-jin-hua-zhi-oracle-xue-xi-pian/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            码农进化之Oracle学习篇
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/kuai-su-zhang-wo-react-motion-dong-hua-ku-zhuan-zai/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            react-motion动画库
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/ji-yu-vue2.x-de-zi-ding-yi-bo-ke/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            基于Vue2.x的自定义博客
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/guo-nei-you-xiu-npm-jing-xiang-tui-jian-shi-yong/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            国内优秀npm镜像推荐使用
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/fu-lei-he-zi-lei-de-xiang-hu-zhuan-huan-ji-fu-lei-diao-yong-zi-lei-de-fang-fa/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            父类和子类的相互转换及父类调用子类的方法
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/fen-bu-shi-jia-gou-xue-xi-zhi-ru-he-jiang-session-xin-xi-cun-chu-dao-shu-ju-ku-zhong/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            分布式架构学习之如何将session信息存储到数据库中
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/dan-li-mo-shi-de-ji-chong-shi-xian-fang-shi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            单例模式的几种实现方式
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/windows-fu-wu-qi-duan-ruan-jian-de-an-zhuang/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Windows服务器端软件的安装
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/vue-zhong-v-if-yu-v-show-de-qu-bie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Vue中v-if 与 v-show 的区别？
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/tomcat-pei-zhi-wai-bu-jing-tai-zi-yuan-ying-she-lu-jing/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            tomcat配置外部静态资源映射路径
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/struts2-zhong-jie-shou-biao-dan-shu-ju-de-san-chong-qu-dong-fang-shi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Struts2中接收表单数据的三种驱动方式
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/sso-dan-dian-deng-lu-tan-jiu-ji-yu-cookie-gong-xiang/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            SSO单点登录探究【基于cookie共享】
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/ssm-zheng-he-redis/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            ssm整合redis
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springmvc-ji-cheng-redis/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            SpringMVC集成redis
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springcloud-shang-chuan-wen-jian-jing-guo-zuul-zhong-wen-wen-jian-ming-luan-ma-jie-jue-ban-fa/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            SpringCloud上传文件，经过Zuul，中文文件名乱码解决办法
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springboot-zhong-ding-shi-ren-wu-de-shi-xian/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Springboot中定时任务的实现
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springboot-zhong-de-lan-jie-qi-de-shi-yong-he-pei-zhi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            SpringBoot中的拦截器的使用和配置
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springboot-zhong-session-jian-ting-qi-de-shi-yong/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            SpringBoot中Session监听器的使用
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springboot-zhong-rabbitmq-de-shi-yong-xiang-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            SpringBoot中RabbitMQ的使用详解
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springboot-zhong-aop-de-jian-dan-shi-xian/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            SpringBoot中AOP的简单实现。
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springboot-pei-zhi-wen-jian-de-du-qu-fang-shi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            springboot配置文件的读取方式
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springboot-react-qian-hou-duan-fen-chi-xiang-mu-zhong-kua-yu-wen-ti-de-wan-mei-jie-jue-fang-an/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            SpringBoot+React前后端分离项目中跨域问题的完美解决方案
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/springboot-mybatis-duo-shu-ju-yuan-zui-jian-jie-jue-fang-an/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            springboot+mybatis多数据源最简解决方案
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/spring-quartz-shi-xian-ren-wu-diao-du-de-xiao-li-zi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Spring+quartz实现任务调度的小例子
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/shiro-de-xue-xi-helloworld/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Shiro的学习Helloworld
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/servlet-de-sheng-ming-zhou-qi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Servlet的生命周期
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/request-de-bao-zhuang-lei-httpservletrequestwrapper-de-shi-yong/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Request的包装类HttpServletRequestWrapper的使用
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            reflux中一个小error[error-linstenner is no a function]总结
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            学习reflux的总结
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            redis启动出错
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/redis-ji-qun-pi-liang-shan-chu-zhi-ding-de-key/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            redis集群批量删除指定的key
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/react-zu-jian-sheng-ming-zhou-qi-xiao-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            React组件生命周期小结
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/react-zhong-shen-ceng-yuan-li-jie-xi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            react中router底层原理结合参考资料的分析
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/react-zhong-chang-jian-wen-ti-de-hui-zong-shou-cang-bie-ren-de/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            react中常见问题的汇总，收藏别人的
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/react-zhong-xxx-is-not-an-absolute-path/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            React中常见的坑 之 React中XXX is not an absolute  path!
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/react-zhong-es5-yu-es6-xie-fa-dui-bi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            React中es5与es6写法对比
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/react-zhong-create-react-app-bu-shi-nei-bu-huo-zhe-wai-bu-ming-ling...jie-jue-fang-an/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            react中“create-react-app”不是内部或者外部命令也不是可运行程序的解决办法
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/react-jie-he-d3.js-he-svg-hui-zhi-tiao-xing-tong-ji-tu/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            react结合d3.js和svg绘制条形统计图
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/react-he-springboot-qian-hou-duan-fen-chi-kai-fa-mo-shi-xia-cai-yong-websocket-shi-xian-dan-she-bei-deng-lu/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            React和SpringBoot前后端分离开发模式下采用WebSocket实现单设备登录
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/react-gao-pin-xun-wen/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            react中的常见问题
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/poi-shi-xian-excel-de-dao-ru-dao-chu-wei-cai-yong-fan-she-shi-xian-de-ban-ben/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            POI实现excel的导入导出-[未采用反射实现的版本]
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/poi-shi-xian-excel-de-dao-ru-dao-chu-cai-yong-fan-she-shi-xian-de-ban-ben/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            POI实现excel的导入导出-[采用反射实现的版本]
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/poi-de-ji-ben-shi-yong/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            POI的基本使用
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/object.assign-fang-fa-xiang-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Object.assign() 方法详解
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/nodejs-npm-install-g-quan-ju-an-zhuang-he-fei-quan-ju-an-zhuang-de-qu-bie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            nodejs npm install -g 全局安装和非全局安装的区别
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/nginx-shi-xian-wen-jian-xia-zai-de-xian-su-gong-neng/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Nginx实现文件下载限速的功能
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/nginx-jie-jue-kua-yu-wen-ti-xiang-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            nginx跨域详解
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/nginx-fan-xiang-dai-li-ji-zhi-jie-jue-kua-yu-wen-ti-xiang-jie-windows-shang-de/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            nginx反向代理机制解决跨域问题详解【windows上的】
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/mysql-zhong-wen-luan-ma-de-jie-jue-fang-fa/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            mysql中文乱码的解决方法
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/mysql-zhong-shi-yong-di-gui-shi-xian-fu-ji-bu-men-suo-you-zi-ji-xin-xi-de-cha-xun/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            mysql中使用递归实现父级部门所有子级信息的查询
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-yuan-li/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            MySQL优化之------索引原理
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-lei-xing/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Mysql优化之索引
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            mybatis中#{}【占位符】和${}【字符串】拼接的区别
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            linux运维常用命令
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Linux部署Java web项目
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/linux-centos-zhi-an-zhuang-tomcat-bing-qie-bu-shu-java-web-xiang-mu/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Linux(Centos)之安装tomcat并且部署Java Web项目
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/linux-xia-xu-ni-ji-ke-long-bu-zou-centos/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Linux 下虚拟机克隆步骤（CentOS）
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/js-zhong-chang-yong-fang-fa-de-feng-zhuang-zhuan-zai/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            JS中常用方法的封装【转载】
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/js-zhong-this-de-li-jie-he-shi-jian-bao-han-jian-tou-han-shu-zhong-de-this/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            js中this的理解和实践【包含箭头函数中的this】
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/jrebel-re-bu-shu-cha-jian-de-an-zhuang-po-jie-he-shi-yong/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Jrebel热部署插件的安装、破解和使用
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-zhong-mei-ju-lei-lue-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            java中枚举类略解
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-zhong-lei-he-lei-zhi-jian-de-guan-xi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            java中类和类之间的关系
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-zhong-huo-qu-map-de-key-he-value-de-fang-fa/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            java中获取map的key和value的方法
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-zhong-dui-list-zhong-de-cun-chu-dui-xiang-gen-ju-shu-xing-jin-xing-pai-xu-de-ban-fa/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Java中对List中的存储对象根据属性进行排序的办法
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-xue-xi-zhong-shou-cang-de-da-shen-de-bo-ke/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            JAVA学习中收藏的大神的博客
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-shi-xian-er-cha-shu-de-qian-xu-zhong-xu-hou-xu-yi-ji-ceng-ci-bian-li/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            建立一颗二叉排序树，并输出它的前序、中序、后序以及层次遍历结
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-shi-xian-dui-bao-han-shu-zi-zi-mu-zhong-wen-de-zi-fu-chuan-an-shou-zi-mu-pai-xu/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            JAVA实现对包含数字、字母、中文的字符串按首字母排序
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-qu-chu-list-zhong-chong-fu-de-shu-ju-distinct/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            java去除list中重复的数据【distinct】
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-luan-ma-jie-jue-zhi-dao/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            java乱码解决之道
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-fan-she/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            JAVA反射
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-de-san-chong-dai-li-mo-shi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Java的三种代理模式
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/javascript-jie-liu-he-fang-dou-zhuan-zai/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Javascript节流和防抖
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java8-zhi-lambda-biao-da-shi-lue-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Java8之lambda表达式略解
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/java-dui-xiang-de-cun-chu-qu-yu/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Java 对象的存储区域
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/j2ee-zhong-lian-jie-chi-de-shen-ru-li-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            J2EE中连接池的深入理解
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/j2ee-zhong-session-de-shen-ru-li-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            J2EE中session的深入理解
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/intellij-idea-chuang-jian-web-xiang-mu-ru-men-fei-maven-xiang-mu/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Intellij Idea 创建Web项目入门(非Maven项目)
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/http-zhuang-tai-ma-xiang-jie/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Http状态码详解
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/html-wen-ben-kuang-onfocus-huo-de-jiao-dian-zhi-xing-liao-duo-ci-yuan-yin/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            html 文本框onfocus（获得焦点） 执行了多次原因
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/hello-world/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Hello World
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/flux-dispatch.dispatch-cannot-dispatch-in-the-middle-of-a-dispatch/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            flux中Cannot dispatch in the middle of a dispatch问题的解决方案
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/firstblog/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Hello JunZhou
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/des-jia-mi-zhong-cuo-wu-input-length-not-multiple-of-8-bytes-de-jie-jue-ban-fa/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            Des加密中错误Input length not multiple of 8 bytes的解决办法
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/des-jia-mi-suan-fa-tan-jiu-java-ban-ben/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            DES加密算法探究【Java版本】
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/css-zhong-margin-bian-jie-die-jia-wen-ti-ji-jie-jue-fang-an-zhuan-zai/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            CSS中margin边界叠加问题及解决方案【转载】
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/create-reate-app-xiang-mu-zhong-proxy-dai-li-de-pei-zhi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            create-reate-app项目中proxy代理的配置
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/lao-bo-ke/cookie-localstorage-he-sessionstorage-san-zhe-zhi-jian-de-qu-bie-yi-ji-cun-chu-huo-qu-shan-chu-deng-shi-yong-fang-shi/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            cookie、localStorage和sessionStorage 三者之间的区别以及存储、获取、删除等使用方式
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/04/sui-bi/zui-jin-gong-zuo-zhong-de-gan-wu/">
+            			<em year="2018">
+                            12-04
+                        </em>
+        			    <span itemprop="name">
+                            最近工作中的感悟
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/02/lao-bo-ke/dan-ye-mian-mian-ying-yong-spa-he-duo-ye-mian-ying-yong-mpa-zhi-jian-de-qu-bie/">
+            			<em year="2018">
+                            12-02
+                        </em>
+        			    <span itemprop="name">
+                            单页面面应用【SPA】和多页面应用【MPA】之间的区别
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/12/02/hello-world/">
+            			<em year="2018">
+                            12-02
+                        </em>
+        			    <span itemprop="name">
+                            Hello World
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/">
+            			<em year="2018">
+                            11-24
+                        </em>
+        			    <span itemprop="name">
+                            软件程序设计原则
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/面向对象编程/" class="tag">
+                				面向对象编程
+                			</a>
+                        
+                			<a href="/tags/设计原则/" class="tag">
+                				设计原则
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/">
+            			<em year="2018">
+                            11-22
+                        </em>
+        			    <span itemprop="name">
+                            GitLab CI/CD 介绍和使用
+                        </span>
+        			    
+                			<a href="/tags/GitLab-CI/" class="tag">
+                				GitLab CI
+                			</a>
+                        
+                			<a href="/tags/DevOps/" class="tag">
+                				DevOps
+                			</a>
+                        
+                			<a href="/tags/Jenkins/" class="tag">
+                				Jenkins
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/">
+            			<em year="2018">
+                            11-19
+                        </em>
+        			    <span itemprop="name">
+                            Vue 文档风格的 Typora 主题
+                        </span>
+        			    
+                			<a href="/tags/Typora/" class="tag">
+                				Typora
+                			</a>
+                        
+                			<a href="/tags/Markdown/" class="tag">
+                				Markdown
+                			</a>
+                        
+                			<a href="/tags/Vue/" class="tag">
+                				Vue
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/18/ruan-jian-gong-ju/cpu-duo-ji-huan-cun/">
+            			<em year="2018">
+                            11-18
+                        </em>
+        			    <span itemprop="name">
+                            CPU多级缓存
+                        </span>
+        			    
+                			<a href="/tags/CPU缓存/" class="tag">
+                				CPU缓存
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/15/hou-duan/java/dan-yuan-ce-shi-zhi-nan/">
+            			<em year="2018">
+                            11-15
+                        </em>
+        			    <span itemprop="name">
+                            单元测试指南
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/单元测试/" class="tag">
+                				单元测试
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/14/hou-duan/java/java8-xin-te-xing-ji-shi-yong-er/">
+            			<em year="2018">
+                            11-14
+                        </em>
+        			    <span itemprop="name">
+                            Java8新特性及使用(二)
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/13/hou-duan/java/java8-xin-te-xing-ji-shi-yong-yi/">
+            			<em year="2018">
+                            11-13
+                        </em>
+        			    <span itemprop="name">
+                            Java8新特性及使用(一)
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/12/hou-duan/java/java7-xin-te-xing-ji-shi-yong/">
+            			<em year="2018">
+                            11-12
+                        </em>
+        			    <span itemprop="name">
+                            Java7新特性及使用
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/11/hou-duan/java/java6-xin-te-xing-ji-shi-yong/">
+            			<em year="2018">
+                            11-11
+                        </em>
+        			    <span itemprop="name">
+                            Java6新特性及使用
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/09/hou-duan/java/java5-xin-te-xing-ji-shi-yong/">
+            			<em year="2018">
+                            11-09
+                        </em>
+        			    <span itemprop="name">
+                            Java5新特性及使用
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/08/hou-duan/java/java-zhu-jie-de-li-jie-he-ying-yong/">
+            			<em year="2018">
+                            11-08
+                        </em>
+        			    <span itemprop="name">
+                            Java注解的理解和应用
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/07/hou-duan/java/java-fan-she-ji-chu/">
+            			<em year="2018">
+                            11-07
+                        </em>
+        			    <span itemprop="name">
+                            Java反射基础
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/05/hou-duan/java/java-io-zhi-shi-zheng-li/">
+            			<em year="2018">
+                            11-05
+                        </em>
+        			    <span itemprop="name">
+                            Java IO 知识整理
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/11/04/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ze-ren-lian-mo-shi/">
+            			<em year="2018">
+                            11-04
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之责任链模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/30/qian-duan/javascript-zhi-zai-xue-xi/">
+            			<em year="2018">
+                            10-30
+                        </em>
+        			    <span itemprop="name">
+                            JavaScript之再学习
+                        </span>
+        			    
+                			<a href="/tags/JavaScript/" class="tag">
+                				JavaScript
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/29/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dan-li-mo-shi/">
+            			<em year="2018">
+                            10-29
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之单例模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/28/hou-duan/java/java-yi-chang-zhi-shi-hui-zong/">
+            			<em year="2018">
+                            10-28
+                        </em>
+        			    <span itemprop="name">
+                            Java异常知识汇总
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/27/hou-duan/java/ni-xu-yao-zhi-dao-de-java-mei-ju-zhi-shi/">
+            			<em year="2018">
+                            10-27
+                        </em>
+        			    <span itemprop="name">
+                            你需要知道的Java枚举知识
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/24/hou-duan/java/java-ji-he-kuang-jia-zhi-shi-zheng-li/">
+            			<em year="2018">
+                            10-24
+                        </em>
+        			    <span itemprop="name">
+                            Java集合框架知识整理
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/UML/" class="tag">
+                				UML
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/22/ruan-jian-she-ji/uml-ge-lei-guan-xi-jie-shao/">
+            			<em year="2018">
+                            10-22
+                        </em>
+        			    <span itemprop="name">
+                            UML各类关系介绍
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/面向对象编程/" class="tag">
+                				面向对象编程
+                			</a>
+                        
+                			<a href="/tags/UML/" class="tag">
+                				UML
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/21/bian-cheng-zhi-dao/mian-xiang-dui-xiang-bian-cheng-de-li-jie/">
+            			<em year="2018">
+                            10-21
+                        </em>
+        			    <span itemprop="name">
+                            面向对象编程的理解
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/面向对象编程/" class="tag">
+                				面向对象编程
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/20/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-jian-zao-zhe-mo-shi/">
+            			<em year="2018">
+                            10-20
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之建造者模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/18/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-wai-guan-mo-shi/">
+            			<em year="2018">
+                            10-18
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之外观模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/17/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhong-jie-zhe-mo-shi/">
+            			<em year="2018">
+                            10-17
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之中介者模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/16/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ming-ling-mo-shi/">
+            			<em year="2018">
+                            10-16
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之命令模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/15/bian-cheng-zhi-dao/dai-ma-zheng-ji-zhi-dao-nei-rong-gai-yao/">
+            			<em year="2018">
+                            10-15
+                        </em>
+        			    <span itemprop="name">
+                            代码整洁之道内容概要
+                        </span>
+        			    
+                			<a href="/tags/整洁代码/" class="tag">
+                				整洁代码
+                			</a>
+                        
+                			<a href="/tags/重构/" class="tag">
+                				重构
+                			</a>
+                        
+                			<a href="/tags/测试/" class="tag">
+                				测试
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-guan-cha-zhe-mo-shi/">
+            			<em year="2018">
+                            10-14
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之观察者模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/13/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-qi-ta-chang-yong-ming-ling/">
+            			<em year="2018">
+                            10-13
+                        </em>
+        			    <span itemprop="name">
+                            常用Bash命令整理之其他常用命令
+                        </span>
+        			    
+                			<a href="/tags/Linux/" class="tag">
+                				Linux
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/11/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-wen-ben-chu-li/">
+            			<em year="2018">
+                            10-11
+                        </em>
+        			    <span itemprop="name">
+                            常用Bash命令整理之文本处理
+                        </span>
+        			    
+                			<a href="/tags/Linux/" class="tag">
+                				Linux
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/10/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-cao-zuo-wen-jian-he-mu-lu/">
+            			<em year="2018">
+                            10-10
+                        </em>
+        			    <span itemprop="name">
+                            常用Bash命令整理之操作文件和目录
+                        </span>
+        			    
+                			<a href="/tags/Linux/" class="tag">
+                				Linux
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/09/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-cha-kan-wen-jian-he-mu-lu/">
+            			<em year="2018">
+                            10-09
+                        </em>
+        			    <span itemprop="name">
+                            常用Bash命令整理之查看文件和目录
+                        </span>
+        			    
+                			<a href="/tags/Linux/" class="tag">
+                				Linux
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/08/qian-duan/qing-liang-ji-gun-dong-dong-hua-javascript-ku-aos.js/">
+            			<em year="2018">
+                            10-08
+                        </em>
+        			    <span itemprop="name">
+                            轻量级滚动动画JavaScript库aos.js
+                        </span>
+        			    
+                			<a href="/tags/JavaScript/" class="tag">
+                				JavaScript
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/06/qian-duan/quan-gong-neng-javascript-deng-xiang-hua-lang-cha-jian-lightgallery.js/">
+            			<em year="2018">
+                            10-06
+                        </em>
+        			    <span itemprop="name">
+                            全功能JavaScript灯箱画廊插件lightgallery.js
+                        </span>
+        			    
+                			<a href="/tags/JavaScript/" class="tag">
+                				JavaScript
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/05/bian-cheng-zhi-dao/google-java-bian-cheng-feng-ge-zhi-nan/">
+            			<em year="2018">
+                            10-05
+                        </em>
+        			    <span itemprop="name">
+                            Google Java编程风格指南
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/Google/" class="tag">
+                				Google
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/10/01/hou-duan/java/shi-yong-java-diao-yong-phantomjs-dong-tai-dao-chu-echarts-tu-pian-dao-word-wen-jian-zhong/">
+            			<em year="2018">
+                            10-01
+                        </em>
+        			    <span itemprop="name">
+                            使用Java调用PhantomJS动态导出ECharts图片到Word文件中
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/29/hou-duan/java/commons/apache-commons-lang-zhi-ri-qi-shi-jian-gong-ju-lei/">
+            			<em year="2018">
+                            09-29
+                        </em>
+        			    <span itemprop="name">
+                            Apache Commons Lang之日期时间工具类
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/Apache/" class="tag">
+                				Apache
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/28/hou-duan/java/commons/apache-commons-lang-zhi-arrayutils/">
+            			<em year="2018">
+                            09-28
+                        </em>
+        			    <span itemprop="name">
+                            Apache Commons Lang之ArrayUtils
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/Apache/" class="tag">
+                				Apache
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/">
+            			<em year="2018">
+                            09-28
+                        </em>
+        			    <span itemprop="name">
+                            Hexo博客主题之hexo-theme-matery的介绍
+                        </span>
+        			    
+                			<a href="/tags/Hexo/" class="tag">
+                				Hexo
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/27/hou-duan/java/commons/apache-commons-lang-zhi-stringutils/">
+            			<em year="2018">
+                            09-27
+                        </em>
+        			    <span itemprop="name">
+                            Apache Commons Lang之StringUtils
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/Apache/" class="tag">
+                				Apache
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/25/shu-ju-ku/postgresql-ji-chu-zhi-shi-zheng-li/">
+            			<em year="2018">
+                            09-25
+                        </em>
+        			    <span itemprop="name">
+                            PostgreSQL基础知识整理
+                        </span>
+        			    
+                			<a href="/tags/数据库/" class="tag">
+                				数据库
+                			</a>
+                        
+                			<a href="/tags/PostgreSQL/" class="tag">
+                				PostgreSQL
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/24/ruan-jian-gong-ju/git/git-zhi-shi-dian-zheng-li/">
+            			<em year="2018">
+                            09-24
+                        </em>
+        			    <span itemprop="name">
+                            Git知识点整理
+                        </span>
+        			    
+                			<a href="/tags/Git/" class="tag">
+                				Git
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/21/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhuang-tai-mo-shi/">
+            			<em year="2018">
+                            09-21
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之状态模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/20/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dai-li-mo-shi/">
+            			<em year="2018">
+                            09-20
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之代理模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/19/hou-duan/java/mvel2.x-mo-ban-zhi-nan/">
+            			<em year="2018">
+                            09-19
+                        </em>
+        			    <span itemprop="name">
+                            MVEL2.x模板指南
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/MVEL/" class="tag">
+                				MVEL
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/18/hou-duan/java/mvel2.x-yu-fa-zhi-nan/">
+            			<em year="2018">
+                            09-18
+                        </em>
+        			    <span itemprop="name">
+                            MVEL 2.x语法指南
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/MVEL/" class="tag">
+                				MVEL
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/17/hou-duan/java/spring-ji-chu-jie-shao/">
+            			<em year="2018">
+                            09-17
+                        </em>
+        			    <span itemprop="name">
+                            Spring基础介绍
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/Spring/" class="tag">
+                				Spring
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-gong-han-fang-fa-mo-shi/">
+            			<em year="2018">
+                            09-14
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之工厂方法模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhuang-shi-mo-shi/">
+            			<em year="2018">
+                            09-14
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之装饰模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ce-lue-mo-shi/">
+            			<em year="2018">
+                            09-14
+                        </em>
+        			    <span itemprop="name">
+                            Java面向对象设计之策略模式
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/设计模式/" class="tag">
+                				设计模式
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/14/qian-duan/javascript-ji-chu-jiao-cheng/">
+            			<em year="2018">
+                            09-14
+                        </em>
+        			    <span itemprop="name">
+                            JavaScript基础教程
+                        </span>
+        			    
+                			<a href="/tags/JavaScript/" class="tag">
+                				JavaScript
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/13/hou-duan/java/commons/commons-collections-bao-he-jian-jie/">
+            			<em year="2018">
+                            09-13
+                        </em>
+        			    <span itemprop="name">
+                            Apache Commons Collections包和简介
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                			<a href="/tags/Apache/" class="tag">
+                				Apache
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/13/hou-duan/java/java-8-zhong-guan-yu-ri-qi-he-shi-jian-api-de-20-ge-shi-yong-shi-li/">
+            			<em year="2018">
+                            09-13
+                        </em>
+        			    <span itemprop="name">
+                            Java8中关于日期和时间API的20个使用示例
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/09/02/xiang-ce/wo-dui-wo-de-bu-fen-tong-xue-fei-chang-shi-wang-lan-duo-yu-chun-shua-xiao-xin-ji/">
+            			<em year="2018">
+                            09-02
+                        </em>
+        			    <span itemprop="name">
+                            我对我的部分同学非常失望！懒惰、愚蠢、耍小心机
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/08/26/xiang-ce/shang-zhou-chi-pi-liao-du/">
+            			<em year="2018">
+                            08-26
+                        </em>
+        			    <span itemprop="name">
+                            上周吃坏了肚子。
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/07/12/xiang-ce/jin-tian-wo-xuan-ze-liu-xia-xi-wang-bu-fu-shao-hua/">
+            			<em year="2018">
+                            07-12
+                        </em>
+        			    <span itemprop="name">
+                            智慧布局人生，无惧小人
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/06/07/lao-bo-ke/api-sao-miao-gong-ju-lei-de-shi-xian/">
+            			<em year="2018">
+                            06-07
+                        </em>
+        			    <span itemprop="name">
+                            API扫描工具类的实现
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/06/02/xiang-ce/wo-xiang-wo-bu-neng-wei-liao-rang-bie-ren-xi-huan-wo-er-bian-cheng-wo-tao-yan-de-yang-zi-ba/">
+            			<em year="2018">
+                            06-02
+                        </em>
+        			    <span itemprop="name">
+                            我想，我不能为了让别人喜欢我而变成我讨厌的样子吧?
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/05/27/xiang-ce/bie-ren-wen-wo-men-lia-zha-ren-shi-de-ni-shuo-ni-ye-bu-zhi-dao/">
+            			<em year="2018">
+                            05-27
+                        </em>
+        			    <span itemprop="name">
+                            别人问我们俩咋认识的，你说你也不知道
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/05/25/xiang-ce/zhe-ge-gua-wa-zi-jing-ran-tou-pai-wo/">
+            			<em year="2018">
+                            05-25
+                        </em>
+        			    <span itemprop="name">
+                            这个瓜娃子，竟然偷拍我。。。。。。
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/04/19/lao-bo-ke/yun-xing-shi-yi-chang-runtimeexcepption/">
+            			<em year="2018">
+                            04-19
+                        </em>
+        			    <span itemprop="name">
+                            运行时异常RunTimeExcepption
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/04/17/xiang-ce/ni-ceng-shi-shao-nian/">
+            			<em year="2018">
+                            04-17
+                        </em>
+        			    <span itemprop="name">
+                            你曾是少年！
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/03/17/xiang-ce/zhi-hui-bu-ju-ren-sheng-wu-ju-xiao-ren/">
+            			<em year="2018">
+                            03-17
+                        </em>
+        			    <span itemprop="name">
+                            智慧布局人生，无惧小人
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/03/10/xiang-ce/sheng-huo-bu-zhi-yuan-fang-de-meng-xiang-huan-you-zui-li-de-you-yan-jiang-cu-cha/">
+            			<em year="2018">
+                            03-10
+                        </em>
+        			    <span itemprop="name">
+                            生活不只远方的梦想，还有嘴里的油盐酱醋茶。
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/02/09/xiang-ce/suo-wei-de-ming-yun-bu-guo-jiu-shi-yi-ge-ge-xuan-ze-de-lian-xian/">
+            			<em year="2018">
+                            02-09
+                        </em>
+        			    <span itemprop="name">
+                            所谓的命运不过就是一个个选择的连线
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/01/27/xiang-ce/qi-shi-wo-yu-dao-de-she-hui-ren-ye-ting-hao-de/">
+            			<em year="2018">
+                            01-27
+                        </em>
+        			    <span itemprop="name">
+                            其实我遇到的社会人也挺好的
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2018/01/24/xiang-ce/xia-xue-liao-tian-hen-leng/">
+            			<em year="2018">
+                            01-24
+                        </em>
+        			    <span itemprop="name">
+                            下雪了天很冷
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/12/31/xiang-ce/zong-you-ren-zai-xiang-zhao-ni-nian-hua-si-shui-he-bu-hao-hao-nu-li/">
+            			<em year="2017">
+                            12-31
+                        </em>
+        			    <span itemprop="name">
+                            总有人在想着你，年华似水，何不好好努力
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/12/24/lao-bo-ke/zi-ji-dui-react-zhong-flux-kuang-jia-bu-fen-di-ceng-yuan-li-de-li-jie/">
+            			<em year="2017">
+                            12-24
+                        </em>
+        			    <span itemprop="name">
+                            react中flux框架部分底层原理的初步理解
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/">
+            			<em year="2017">
+                            12-22
+                        </em>
+        			    <span itemprop="name">
+                            会不会因为这个错过一段美好的爱情？
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/">
+            			<em year="2017">
+                            12-22
+                        </em>
+        			    <span itemprop="name">
+                            今天平安夜，公司发了平安果，好贴心
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/11/15/xiang-ce/hao-mei-de-du-juan-hua/">
+            			<em year="2017">
+                            11-15
+                        </em>
+        			    <span itemprop="name">
+                            好美的杜鹃花
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/11/07/lao-bo-ke/aop-zhong-de-gai-nian-tong-zhi-qie-dian-qie-mian/">
+            			<em year="2017">
+                            11-07
+                        </em>
+        			    <span itemprop="name">
+                            AOP中的概念通知、切点、切面
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/09/10/lao-bo-ke/b-s-he-c-s-de-han-yi-ji-qi-qu-bie/">
+            			<em year="2017">
+                            09-10
+                        </em>
+        			    <span itemprop="name">
+                            B/S和C/S的含义及其区别
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/09/07/lao-bo-ke/centos-zhong-nginx-fu-zai-jun-heng-he-fan-xiang-dai-li-de-da-jian/">
+            			<em year="2017">
+                            09-07
+                        </em>
+        			    <span itemprop="name">
+                            CentOS 中 nginx 负载均衡和反向代理的搭建
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/">
+            			<em year="2017">
+                            08-29
+                        </em>
+        			    <span itemprop="name">
+                            JAVA判断一个URL是否有效
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/">
+            			<em year="2017">
+                            08-29
+                        </em>
+        			    <span itemprop="name">
+                            springmvc与struts2不同
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2017/06/20/xiang-ce/da-xue-qi-jian-di-yi-ci-chu-chai/">
+            			<em year="2017">
+                            06-20
+                        </em>
+        			    <span itemprop="name">
+                            大学期间第一次出差
+                        </span>
+        			    
+                			<a href="/tags/Java/" class="tag">
+                				Java
+                			</a>
+                        
+                    </a>
+                </li>
+            
         
     </div>
-</div>
 
-<script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
-</script>
+     <!-- Archive by month, called by page( categories, tags... ) -->
+    <div id="layout-archive-month" style="display: 
+         
+            block"> 
+        
 
-<main class="content">
+        
+        
+            
+
+            
+                
+                <h3 class="archive-year">
+                    <!-- <a href="/archives/2018/11"> -->
+                    <a>
+                        2018 - 11
+                    </a>
+                </h3>
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/11/04/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ze-ren-lian-mo-shi/">
+                        <em>
+                            11-04
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之责任链模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+                
+                <h3 class="archive-year">
+                    <!-- <a href="/archives/2018/10"> -->
+                    <a>
+                        2018 - 10
+                    </a>
+                </h3>
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/10/29/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dan-li-mo-shi/">
+                        <em>
+                            10-29
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之单例模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/10/20/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-jian-zao-zhe-mo-shi/">
+                        <em>
+                            10-20
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之建造者模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/10/18/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-wai-guan-mo-shi/">
+                        <em>
+                            10-18
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之外观模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/10/17/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhong-jie-zhe-mo-shi/">
+                        <em>
+                            10-17
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之中介者模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/10/16/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ming-ling-mo-shi/">
+                        <em>
+                            10-16
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之命令模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/10/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-guan-cha-zhe-mo-shi/">
+                        <em>
+                            10-14
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之观察者模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+                
+                <h3 class="archive-year">
+                    <!-- <a href="/archives/2018/09"> -->
+                    <a>
+                        2018 - 09
+                    </a>
+                </h3>
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/09/21/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhuang-tai-mo-shi/">
+                        <em>
+                            09-21
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之状态模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/09/20/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dai-li-mo-shi/">
+                        <em>
+                            09-20
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之代理模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-gong-han-fang-fa-mo-shi/">
+                        <em>
+                            09-14
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之工厂方法模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhuang-shi-mo-shi/">
+                        <em>
+                            09-14
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之装饰模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ce-lue-mo-shi/">
+                        <em>
+                            09-14
+                        </em>
+                        <span itemprop="name">
+                            Java面向对象设计之策略模式
+                        </span>
+                        
+                            <a href="/tags/Java/" class="tag">
+                                Java
+                            </a>
+                        
+                            <a href="/tags/设计模式/" class="tag">
+                                设计模式
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+    </div>
 
     
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">Post Tags</div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/MYSQL/" title="MYSQL: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="MYSQL" style="background-color: #F9EBEA;">MYSQL
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/数据库/" title="数据库: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="数据库" style="background-color: #F5EEF8;">数据库
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Java/" title="Java: 68">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Java" style="background-color: #D5F5E3;">Java
-                        <span class="tag-length">68</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/面向对象编程/" title="面向对象编程: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="面向对象编程" style="background-color: #E8F8F5;">面向对象编程
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/JavaScript/" title="JavaScript: 4">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="JavaScript" style="background-color: #FEF9E7;">JavaScript
-                        <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/UML/" title="UML: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="UML" style="background-color: #F8F9F9;">UML
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/PostgreSQL/" title="PostgreSQL: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="PostgreSQL" style="background-color: #82E0AA;">PostgreSQL
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Hexo/" title="Hexo: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Hexo" style="background-color: #D7BDE2;">Hexo
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/CPU缓存/" title="CPU缓存: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="CPU缓存" style="background-color: #A3E4D7;">CPU缓存
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/MVEL/" title="MVEL: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="MVEL" style="background-color: #85C1E9;">MVEL
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Spring/" title="Spring: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Spring" style="background-color: #F8C471;">Spring
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/分布式/" title="分布式: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="分布式" style="background-color: #F9E79F;">分布式
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Apollo/" title="Apollo: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Apollo" style="background-color: #85C1E9;">Apollo
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/整洁代码/" title="整洁代码: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="整洁代码" style="background-color: #85C1E9;">整洁代码
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/重构/" title="重构: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="重构" style="background-color: #E8F8F5;">重构
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/测试/" title="测试: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="测试" style="background-color: #F8C471;">测试
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Sentinel/" title="Sentinel: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Sentinel" style="background-color: #F9EBEA;">Sentinel
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/SpringBoot/" title="SpringBoot: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="SpringBoot" style="background-color: #F9E79F;">SpringBoot
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Linux/" title="Linux: 4">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Linux" style="background-color: #E8F8F5;">Linux
-                        <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Typora/" title="Typora: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Typora" style="background-color: #F8F9F9;">Typora
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Markdown/" title="Markdown: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Markdown" style="background-color: #F8F9F9;">Markdown
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Vue/" title="Vue: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Vue" style="background-color: #D5F5E3;">Vue
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/NodeJs/" title="NodeJs: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="NodeJs" style="background-color: #F5EEF8;">NodeJs
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/设计模式/" title="设计模式: 12">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active " data-tagname="设计模式" style="background-color: #85C1E9;">设计模式
-                        <span class="tag-length">12</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Google/" title="Google: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Google" style="background-color: #D7BDE2;">Google
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/设计原则/" title="设计原则: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="设计原则" style="background-color: #FEF9E7;">设计原则
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Git/" title="Git: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Git" style="background-color: #F9E79F;">Git
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Apache/" title="Apache: 4">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Apache" style="background-color: #82E0AA;">Apache
-                        <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/GitLab-CI/" title="GitLab CI: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="GitLab CI" style="background-color: #85C1E9;">GitLab CI
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/DevOps/" title="DevOps: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="DevOps" style="background-color: #F8F9F9;">DevOps
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Jenkins/" title="Jenkins: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Jenkins" style="background-color: #D7BDE2;">Jenkins
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/单元测试/" title="单元测试: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="单元测试" style="background-color: #D7BDE2;">单元测试
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-    <div class="container">
         
+	
 
-        <article>
-            <div class="row tags-posts">
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/11/04/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ze-ren-lian-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/20181104-chain.jpg" class="responsive-img" alt="Java面向对象设计之责任链模式">
-                                
-                                <span class="card-title">Java面向对象设计之责任链模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-04
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/10/29/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dan-li-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                
-                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Java面向对象设计之单例模式">
-                                
-                                <span class="card-title">Java面向对象设计之单例模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-29
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/10/20/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-jian-zao-zhe-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/20181020-builder.jpg" class="responsive-img" alt="Java面向对象设计之建造者模式">
-                                
-                                <span class="card-title">Java面向对象设计之建造者模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-20
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/10/18/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-wai-guan-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/20181018_facade.jpg" class="responsive-img" alt="Java面向对象设计之外观模式">
-                                
-                                <span class="card-title">Java面向对象设计之外观模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-18
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/10/17/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhong-jie-zhe-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                
-                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Java面向对象设计之中介者模式">
-                                
-                                <span class="card-title">Java面向对象设计之中介者模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-17
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/10/16/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ming-ling-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/20181016_command.jpg" class="responsive-img" alt="Java面向对象设计之命令模式">
-                                
-                                <span class="card-title">Java面向对象设计之命令模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-16
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/10/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-guan-cha-zhe-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/20181014_observer.jpg" class="responsive-img" alt="Java面向对象设计之观察者模式">
-                                
-                                <span class="card-title">Java面向对象设计之观察者模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-14
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/09/21/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhuang-tai-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/hexoblog_20180921_state.jpg" class="responsive-img" alt="Java面向对象设计之状态模式">
-                                
-                                <span class="card-title">Java面向对象设计之状态模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-21
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/09/20/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dai-li-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/hexoblog_20180920_proxy.jpg" class="responsive-img" alt="Java面向对象设计之代理模式">
-                                
-                                <span class="card-title">Java面向对象设计之代理模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-20
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-gong-han-fang-fa-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/hexoblog_20180914_factory.jpg" class="responsive-img" alt="Java面向对象设计之工厂方法模式">
-                                
-                                <span class="card-title">Java面向对象设计之工厂方法模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-14
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhuang-shi-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/hexoblog_20180914_decorator.jpg" class="responsive-img" alt="Java面向对象设计之装饰模式">
-                                
-                                <span class="card-title">Java面向对象设计之装饰模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-14
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="Java, 设计模式" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ce-lue-mo-shi/">
-                            <div class="card-image tag-image">
-                                
-                                <img src="http://static.blinkfox.com/hexoblog_20140914_strategy.jpg" class="responsive-img" alt="Java面向对象设计之策略模式">
-                                
-                                <span class="card-title">Java面向对象设计之策略模式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-14
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/软件设计/" class="post-category" target="_blank">
-                                    软件设计
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    </div>
-</main>
-
-
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://junzhou2016.github.io/" target="_blank">JunZhou</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
-            <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">hexo-theme-yilia</a>的主题搭建.
-        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-
-<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-    <i class="fa fa-rss"></i>
-</a>
+    
 </div>
-    </div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Pursue. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_site_pv">
+	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+
+		<span id="busuanzi_container_site_uv">
+	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+		</span>
+		
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
 </footer>
+		
+    <!-- set '1' to show motto in all pages! -->
 
-<div class="progress-bar"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title">Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-</script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
-</div>
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-</body>
-</html>
+
+
+
+
+    <script src="/js/love.js"></script>
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>

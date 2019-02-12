@@ -1,783 +1,1382 @@
-<!DOCTYPE HTML>
-<html lang="">
-<head>
-    
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
 
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Blog4Jun">
-    <meta name="description" content="Blog4Jun">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Blog4Jun</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Blog4Jun
+    
+  </title>
+  <meta name="author" content="Pursue">
+  <meta name="keywords" content="">
+  <meta name="description" content="Doraemon">
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+	<body>
+		<!-- Preloader -->
 
-</head>
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
 
-<body>
 
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">Blog4Jun</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>Index</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>Tags</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>Categories</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-archive"></i>
-            
-            <span>Archives</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>About</span>
-        </a>
-    </li>
-    
-    <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
-        </a>
-    </li>
+<!-- header -->
+<header class="fixbackground" data-img-mode="random" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						<img src="/img/logo.png" alt="Logo">
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
 
-</ul>
+					
+				</ul>			
+			</div>				
+		</div>
 
-<div class="side-nav" id="mobile-nav">
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
 
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Blog4Jun</div>
-        <div class="logo-desc">
-            
-            爱你所爱，无问西东
-            
-        </div>
-    </div>
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						主页
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
 
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                Index
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                Tags
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                Categories
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-archive"></i>
-                
-                Archives
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                About
-            </a>
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="waves-effect waves-light" target="_blank">
-                <i class="fa fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
-    </ul>
-
-    <div class="social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-
-<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-    <i class="fa fa-rss"></i>
-</a>
-</div>
-</div>
-
-            </div>
-        </div>
-
-        
-        <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewbox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
-    </svg>
-</a>
-        
-    </nav>
-</header>
-
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
+				</li>
+				<li>
+					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
+				</li>
+				<li>
+					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
 <style type="text/css">
-    /* don't remove. */
-    .index-cover {
-        height: 100vh;
-    }
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
 </style>
-
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                    
-                        Doraemon
-                    
-                    </div>
-
-                    <div class="description center-align">
-                    
-                        爱你所爱，无问西东
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
 </div>
-
+<script src="//widget.time.is/zh.js"></script>
 <script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
 </script>
+</div></header>
 
-<main class="content">
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
 
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			
+
+
+
+	<!--cart style-->
+	<div class="layout-cart">
+	<div id="layout-cart">
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-yuan-li/" title=" MySQL优化之------索引原理 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-yuan-li/" title="MySQL优化之------索引原理">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-yuan-li/" itemprop="url">
+		MySQL优化之------索引原理
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							最近大佬优化了一条SQL，讲100万条的数据查询速度从27s降低到了0.8S,因此研究了下MySQL优化的原理和方式。下面将从Mysql中索引的本质，原理...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-yuan-li/_visitors" data-url="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-yuan-li/" data-title="MySQL优化之------索引原理">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
     
-    <div class="container notice">
-        <div class="card">
-            <div class="card-content">
-                <i class="fa fa-volume-up fa-lg fa-fw text-color"></i>最痛苦的事，不是失败，而是,我本可以!
-            </div>
-        </div>
-    </div>
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-yuan-li/_likes" data-url="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-yuan-li/" data-title="MySQL优化之------索引原理" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
     
 
-    <div id="recommend-sections">
-    
-    </div>
 
-    
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-lei-xing/" title=" Mysql优化之索引 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
 
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-yuan-li/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MySQL优化之------索引原理">
-                            
-                            <span class="card-title">MySQL优化之------索引原理</span>
-                        </div>
-                    </a>
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-lei-xing/" title="Mysql优化之索引">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-lei-xing/" itemprop="url">
+		Mysql优化之索引
+	</a>
 
-                    <div class="card-content article-content">
-                        <div class="summary">最近大佬优化了一条SQL，讲100万条的数据查询速度从27s降低到了0.8S,因此研究了下MySQL优化的原理和方式。下面将从Mysql中索</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-lei-xing/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Mysql优化之索引">
-                            
-                            <span class="card-title">Mysql优化之索引</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">     Mysql中索引的类型：
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							     Mysql中索引的类型：
   Mysql中的索引分为三种类型：
 
-        1.Normal:该类型的索引对建立索引的字段基</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+        1.Normal:该类型的索引对建立索引的字段基本不做特殊要求...
+						
+					
+				</p>
+				<p class="post-meta">
+					
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="mybatis中#{}【占位符】和${}【字符串】拼接的区别">
-                            
-                            <span class="card-title">mybatis中#{}【占位符】和${}【字符串】拼接的区别</span>
-                        </div>
-                    </a>
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-lei-xing/_visitors" data-url="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-lei-xing/" data-title="Mysql优化之索引">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
 
-                    <div class="card-content article-content">
-                        <div class="summary">
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-lei-xing/_likes" data-url="/2018/12/04/lao-bo-ke/mysql-you-hua-zhi-suo-yin-lei-xing/" data-title="Mysql优化之索引" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/" title=" mybatis中#{}【占位符】和${}【字符串】拼接的区别 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/" title="mybatis中#{}【占位符】和${}【字符串】拼接的区别">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/" itemprop="url">
+		mybatis中#{}【占位符】和${}【字符串】拼接的区别
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							
 #{}
 
-表示一个占位符号，通过#{}可以实现 preparedStatement 向占      位符中设置值， 自动进行 java类型</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+表示一个占位符号，通过#{}可以实现 preparedStatement 向占      位符中设置值， 自动进行 java类型和 jdbc ...
+						
+					
+				</p>
+				<p class="post-meta">
+					
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="linux运维常用命令">
-                            
-                            <span class="card-title">linux运维常用命令</span>
-                        </div>
-                    </a>
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/_visitors" data-url="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/" data-title="mybatis中#{}【占位符】和${}【字符串】拼接的区别">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
 
-                    <div class="card-content article-content">
-                        <div class="summary">1.目录操作
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/_likes" data-url="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/" data-title="mybatis中#{}【占位符】和${}【字符串】拼接的区别" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" title=" linux运维常用命令 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" title="linux运维常用命令">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" itemprop="url">
+		linux运维常用命令
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							1.目录操作
 使用 mkdir 命令创建目录
 mkdir $HOME/testFolder
 切换目录
 使用 cd 命令切换目录
 
-cd $H</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+cd $HOME/tes...
+						
+					
+				</p>
+				<p class="post-meta">
+					
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/36.jpg" class="responsive-img" alt="Linux部署Java web项目">
-                            
-                            <span class="card-title">Linux部署Java web项目</span>
-                        </div>
-                    </a>
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/_visitors" data-url="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" data-title="linux运维常用命令">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
 
-                    <div class="card-content article-content">
-                        <div class="summary">详情请参照下面的博客https://juejin.im/post/5847cac461ff4b006bae5a12
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/_likes" data-url="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" data-title="linux运维常用命令" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/" title=" Linux部署Java web项目 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/" title="Linux部署Java web项目">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/" itemprop="url">
+		Linux部署Java web项目
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							详情请参照下面的博客https://juejin.im/post/5847cac461ff4b006bae5a12
+
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/_visitors" data-url="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/" data-title="Linux部署Java web项目">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/_likes" data-url="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/" data-title="Linux部署Java web项目" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/linux-centos-zhi-an-zhuang-tomcat-bing-qie-bu-shu-java-web-xiang-mu/" title=" Linux(Centos)之安装tomcat并且部署Java Web项目 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/linux-centos-zhi-an-zhuang-tomcat-bing-qie-bu-shu-java-web-xiang-mu/" title="Linux(Centos)之安装tomcat并且部署Java Web项目">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/linux-centos-zhi-an-zhuang-tomcat-bing-qie-bu-shu-java-web-xiang-mu/" itemprop="url">
+		Linux(Centos)之安装tomcat并且部署Java Web项目
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							阅读目录
+
+1.准备工作    2.在Linux下安装Tomcat8.0    3.Linux中设置tomcat的服务器启动和关闭    4.Linux中...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/linux-centos-zhi-an-zhuang-tomcat-bing-qie-bu-shu-java-web-xiang-mu/_visitors" data-url="/2018/12/04/lao-bo-ke/linux-centos-zhi-an-zhuang-tomcat-bing-qie-bu-shu-java-web-xiang-mu/" data-title="Linux(Centos)之安装tomcat并且部署Java Web项目">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/linux-centos-zhi-an-zhuang-tomcat-bing-qie-bu-shu-java-web-xiang-mu/_likes" data-url="/2018/12/04/lao-bo-ke/linux-centos-zhi-an-zhuang-tomcat-bing-qie-bu-shu-java-web-xiang-mu/" data-title="Linux(Centos)之安装tomcat并且部署Java Web项目" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/linux-xia-xu-ni-ji-ke-long-bu-zou-centos/" title=" Linux 下虚拟机克隆步骤（CentOS） ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/linux-xia-xu-ni-ji-ke-long-bu-zou-centos/" title="Linux 下虚拟机克隆步骤（CentOS）">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/linux-xia-xu-ni-ji-ke-long-bu-zou-centos/" itemprop="url">
+		Linux 下虚拟机克隆步骤（CentOS）
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							当一个Linux完全设置完成以后，就可以使用克隆的方式来在短时间内创建出多个Linux来；   linux虚拟机克隆主要涉及网络方面的问题：
+1.关闭要克...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/linux-xia-xu-ni-ji-ke-long-bu-zou-centos/_visitors" data-url="/2018/12/04/lao-bo-ke/linux-xia-xu-ni-ji-ke-long-bu-zou-centos/" data-title="Linux 下虚拟机克隆步骤（CentOS）">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/linux-xia-xu-ni-ji-ke-long-bu-zou-centos/_likes" data-url="/2018/12/04/lao-bo-ke/linux-xia-xu-ni-ji-ke-long-bu-zou-centos/" data-title="Linux 下虚拟机克隆步骤（CentOS）" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/js-zhong-chang-yong-fang-fa-de-feng-zhuang-zhuan-zai/" title=" JS中常用方法的封装【转载】 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/js-zhong-chang-yong-fang-fa-de-feng-zhuang-zhuan-zai/" title="JS中常用方法的封装【转载】">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/js-zhong-chang-yong-fang-fa-de-feng-zhuang-zhuan-zai/" itemprop="url">
+		JS中常用方法的封装【转载】
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							JS中常用方法的封装【转载】转载理由：我想这么好的内容，有些方法连lodash 和 ramda上都没有，可不能因为作者的博客倒闭了就没了，所以就Fork了...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/js-zhong-chang-yong-fang-fa-de-feng-zhuang-zhuan-zai/_visitors" data-url="/2018/12/04/lao-bo-ke/js-zhong-chang-yong-fang-fa-de-feng-zhuang-zhuan-zai/" data-title="JS中常用方法的封装【转载】">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/js-zhong-chang-yong-fang-fa-de-feng-zhuang-zhuan-zai/_likes" data-url="/2018/12/04/lao-bo-ke/js-zhong-chang-yong-fang-fa-de-feng-zhuang-zhuan-zai/" data-title="JS中常用方法的封装【转载】" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/js-zhong-this-de-li-jie-he-shi-jian-bao-han-jian-tou-han-shu-zhong-de-this/" title=" js中this的理解和实践【包含箭头函数中的this】 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/js-zhong-this-de-li-jie-he-shi-jian-bao-han-jian-tou-han-shu-zhong-de-this/" title="js中this的理解和实践【包含箭头函数中的this】">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/js-zhong-this-de-li-jie-he-shi-jian-bao-han-jian-tou-han-shu-zhong-de-this/" itemprop="url">
+		js中this的理解和实践【包含箭头函数中的this】
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							最近在做项目的时候，因为对this的理解不清楚，导致了不清不楚的bug,因此抽出时间进行了js中this的学习。1、js中this的理解要点。
+
+(1、)...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/js-zhong-this-de-li-jie-he-shi-jian-bao-han-jian-tou-han-shu-zhong-de-this/_visitors" data-url="/2018/12/04/lao-bo-ke/js-zhong-this-de-li-jie-he-shi-jian-bao-han-jian-tou-han-shu-zhong-de-this/" data-title="js中this的理解和实践【包含箭头函数中的this】">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/js-zhong-this-de-li-jie-he-shi-jian-bao-han-jian-tou-han-shu-zhong-de-this/_likes" data-url="/2018/12/04/lao-bo-ke/js-zhong-this-de-li-jie-he-shi-jian-bao-han-jian-tou-han-shu-zhong-de-this/" data-title="js中this的理解和实践【包含箭头函数中的this】" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/jrebel-re-bu-shu-cha-jian-de-an-zhuang-po-jie-he-shi-yong/" title=" Jrebel热部署插件的安装、破解和使用 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/jrebel-re-bu-shu-cha-jian-de-an-zhuang-po-jie-he-shi-yong/" title="Jrebel热部署插件的安装、破解和使用">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/jrebel-re-bu-shu-cha-jian-de-an-zhuang-po-jie-he-shi-yong/" itemprop="url">
+		Jrebel热部署插件的安装、破解和使用
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							1、什么是jrebel？Jrebel是一款热部署插件，用于提高开发效率。一般我们在开发j2ee项目的时候，每次代码跟新就得重启服务，这样效率很低，尤其是对...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/jrebel-re-bu-shu-cha-jian-de-an-zhuang-po-jie-he-shi-yong/_visitors" data-url="/2018/12/04/lao-bo-ke/jrebel-re-bu-shu-cha-jian-de-an-zhuang-po-jie-he-shi-yong/" data-title="Jrebel热部署插件的安装、破解和使用">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/jrebel-re-bu-shu-cha-jian-de-an-zhuang-po-jie-he-shi-yong/_likes" data-url="/2018/12/04/lao-bo-ke/jrebel-re-bu-shu-cha-jian-de-an-zhuang-po-jie-he-shi-yong/" data-title="Jrebel热部署插件的安装、破解和使用" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/java-zhong-mei-ju-lei-lue-jie/" title=" java中枚举类略解 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/java-zhong-mei-ju-lei-lue-jie/" title="java中枚举类略解">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/java-zhong-mei-ju-lei-lue-jie/" itemprop="url">
+		java中枚举类略解
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							为什么在java中要用枚举类呢?我的理解：如果不用枚举类，而用传统的方法，那么如果要定义三个常量:
+[{0,&quot;服务订单&quot;},{1,&q...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/java-zhong-mei-ju-lei-lue-jie/_visitors" data-url="/2018/12/04/lao-bo-ke/java-zhong-mei-ju-lei-lue-jie/" data-title="java中枚举类略解">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/java-zhong-mei-ju-lei-lue-jie/_likes" data-url="/2018/12/04/lao-bo-ke/java-zhong-mei-ju-lei-lue-jie/" data-title="java中枚举类略解" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/java-zhong-lei-he-lei-zhi-jian-de-guan-xi/" title=" java中类和类之间的关系 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/java-zhong-lei-he-lei-zhi-jian-de-guan-xi/" title="java中类和类之间的关系">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/java-zhong-lei-he-lei-zhi-jian-de-guan-xi/" itemprop="url">
+		java中类和类之间的关系
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							java中类和类之间的关系       (如下图所示)：       
+
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/java-zhong-lei-he-lei-zhi-jian-de-guan-xi/_visitors" data-url="/2018/12/04/lao-bo-ke/java-zhong-lei-he-lei-zhi-jian-de-guan-xi/" data-title="java中类和类之间的关系">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/java-zhong-lei-he-lei-zhi-jian-de-guan-xi/_likes" data-url="/2018/12/04/lao-bo-ke/java-zhong-lei-he-lei-zhi-jian-de-guan-xi/" data-title="java中类和类之间的关系" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	<div id="pagination">
+		
+			<a href="/page/8/" data-title="加载更多" data-status="没有了">加载更多</a>
+		
+	</div>
+
 </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+	
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/linux-centos-zhi-an-zhuang-tomcat-bing-qie-bu-shu-java-web-xiang-mu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="Linux(Centos)之安装tomcat并且部署Java Web项目">
-                            
-                            <span class="card-title">Linux(Centos)之安装tomcat并且部署Java Web项目</span>
-                        </div>
-                    </a>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
 
-                    <div class="card-content article-content">
-                        <div class="summary">阅读目录
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Pursue. All Rights Reserved.
+			
+			
+			
 
-1.准备工作    2.在Linux下安装Tomcat8.0    3.Linux中设置tomcat的服务器启动和关闭    4</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+	<!-- busuanzi -->
+	<!-- busuanzi -->
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/linux-xia-xu-ni-ji-ke-long-bu-zou-centos/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Linux 下虚拟机克隆步骤（CentOS）">
-                            
-                            <span class="card-title">Linux 下虚拟机克隆步骤（CentOS）</span>
-                        </div>
-                    </a>
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 
-                    <div class="card-content article-content">
-                        <div class="summary">当一个Linux完全设置完成以后，就可以使用克隆的方式来在短时间内创建出多个Linux来；   linux虚拟机克隆主要涉及网络方面的问题：</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+		<span id="busuanzi_container_site_pv">
+	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/js-zhong-chang-yong-fang-fa-de-feng-zhuang-zhuan-zai/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="JS中常用方法的封装【转载】">
-                            
-                            <span class="card-title">JS中常用方法的封装【转载】</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">JS中常用方法的封装【转载】转载理由：我想这么好的内容，有些方法连lodash 和 ramda上都没有，可不能因为作者的博客倒闭了就没了，所</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/js-zhong-this-de-li-jie-he-shi-jian-bao-han-jian-tou-han-shu-zhong-de-this/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="js中this的理解和实践【包含箭头函数中的this】">
-                            
-                            <span class="card-title">js中this的理解和实践【包含箭头函数中的this】</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">最近在做项目的时候，因为对this的理解不清楚，导致了不清不楚的bug,因此抽出时间进行了js中this的学习。1、js中this的理解要点</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/jrebel-re-bu-shu-cha-jian-de-an-zhuang-po-jie-he-shi-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/36.jpg" class="responsive-img" alt="Jrebel热部署插件的安装、破解和使用">
-                            
-                            <span class="card-title">Jrebel热部署插件的安装、破解和使用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">1、什么是jrebel？Jrebel是一款热部署插件，用于提高开发效率。一般我们在开发j2ee项目的时候，每次代码跟新就得重启服务，这样效率</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/java-zhong-mei-ju-lei-lue-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="java中枚举类略解">
-                            
-                            <span class="card-title">java中枚举类略解</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">为什么在java中要用枚举类呢?我的理解：如果不用枚举类，而用传统的方法，那么如果要定义三个常量:
-[{0,&quot;服务订单&quot;</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/java-zhong-lei-he-lei-zhi-jian-de-guan-xi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="java中类和类之间的关系">
-                            
-                            <span class="card-title">java中类和类之间的关系</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">java中类和类之间的关系       (如下图所示)：       
-</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
-
-</main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/6/" class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fa fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">7 / 16</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/8/" class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fa fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
+		<span id="busuanzi_container_site_uv">
+	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+		</span>
+		
+	
 
 
 
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://junzhou2016.github.io/" target="_blank">JunZhou</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
-            <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">hexo-theme-yilia</a>的主题搭建.
-        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
 
-<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-    <i class="fa fa-rss"></i>
-</a>
-</div>
-    </div>
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
 </footer>
+		
+    <!-- set '1' to show motto in all pages! -->
 
-<div class="progress-bar"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title">Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-</script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
-</div>
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-</body>
-</html>
+
+
+
+
+    <script src="/js/love.js"></script>
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>
