@@ -1,326 +1,316 @@
-<!--
-	作者：Sariay
-	时间：2018-09-25
-	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
--->
-
-	<!DOCTYPE html>
-	<html class="scrollbar">
-		
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
 
 <head><meta name="generator" content="Hexo 3.8.0">
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      linux运维常用命令 | Blog4Jun
-    
-  </title>
-  <meta name="author" content="Pursue">
-  <meta name="keywords" content="">
-  <meta name="description" content="Doraemon">
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/favicon.ico">
+    <meta charset="utf-8">
+    <meta name="keywords" content="linux运维常用命令, Blog4Jun">
+    <meta name="description" content="1.目录操作
+使用 mkdir 命令创建目录
+mkdir $HOME/testFolder
+切换目录
+使用 cd 命令切换目录
 
-  <!-- css -->
-  <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+cd $HOME/testFolder
+使用 cd ../ 命令切换到上一级目录
 
-    <!-- jquery -->
-	<script src="/js/jquery-2.1.1.min.js"></script>
+cd ../
+移动目录
+使">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>linux运维常用命令 | Blog4Jun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-  <!-- leancloud -->
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script src="/js/leancloud.js"></script>
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
-	<body>
-		<!-- Preloader -->
 
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="transition">
-					<div class="three-bounce1"></div>
-					<div class="three-bounce2"></div>
-					<div class="three-bounce3"></div>
-				</div>
-						
-		</div>
-	</div>
+</head>
 
+<body>
 
-<!-- header -->
-<header class="fixbackground" data-img-mode="random" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
-	<div class="mask">
-		<div class="h-header">
-			<div id="logo-S">
-				
-					<a href="/">
-						<img src="/img/logo.png" alt="Logo">
-					</a>
-				
-			</div>
-			<!-- Navigation in header(id="navigation-S") -->
-			<div id="navigation-S">
-				<ul>
-					
-						<li class="menu-home">
-							<a href="/" class="menu-item-home">主页</a>
-						</li>
-					
-						<li class="menu-archive">
-							<a href="/archives" class="menu-item-archive">归档</a>
-						</li>
-					
-						<li class="menu-categories">
-							<a href="/categories" class="menu-item-categories">分类</a>
-						</li>
-					
-						<li class="menu-tags">
-							<a href="/tags" class="menu-item-tags">标签</a>
-						</li>
-					
-						<li class="menu-about">
-							<a href="/about" class="menu-item-about">关于</a>
-						</li>
-					
-						<li class="menu-gallery">
-							<a href="/gallery" class="menu-item-gallery">相册</a>
-						</li>
-					
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Blog4Jun</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
 
-					
-				</ul>			
-			</div>				
-		</div>
+</ul>
 
-		<div class="h-body">	
-			<!-- motto -->
-			
-				<div id="page-motto">
-					<p class="motto">
-						
-					</p>
-				</div>
-			
+<div class="side-nav" id="mobile-nav">
 
-			<div id="navigation-H">
-				<!-- Page title -->
-				<p>
-					
-						当前文章&nbsp;:&nbsp;《linux运维常用命令》
-					
-				</p>
-				<!-- Progress bar -->
-				<div id="progress-bar"></div>
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Blog4Jun</div>
+        <div class="logo-desc">
+            
+            爱你所爱，无问西东
+            
+        </div>
+    </div>
 
-				<!-- Progress percent -->
-				<div id="progress-percentage">
-					<h1>0.0%</h1>
-				</div>
-			</div>
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<ul>
-				<li>
-					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
-				</li>
-				<li>
-					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
-				</li>
-				<li>
-					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
-				</li>
-			</ul>
-		</div>
-		
-		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
-<style type="text/css">
-	.header-date {
-		position: absolute;
-		left: 40px;
-		bottom: 30px;
-		writing-mode: tb-rl;
-		font-size: 36px;
-	}	
-	.header-date a {
-		border-bottom: none;
-	}
-	@media only screen and (max-width: 768 ) {
-		.header-date {
-			position: absolute;
-			left: 40px;
-			bottom: 30px;
-			writing-mode: tb-rl;
-			font-size: 20px;
-		}			
-	}
-</style>
-<div class="header-date">
-	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
-	<span id="Beijing_z43d"></span>
-</div>
-<script src="//widget.time.is/zh.js"></script>
-<script>
-	time_is_widget.init({
-		Beijing_z43d:{
-			template:"DATE", 
-			date_format:"year年 monthname dnum日"
-		}
-	});
-</script>
-</div></header>
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
 
-<!-- Navigation in div(id="navigation-H") -->
-<a class="nav-trigger">
-	<span></span>
+    <div class="social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
 </a>
 
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<h3>Navigation</h3>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	<div class="nav-body">
-		<ul>
-			
-				<li class="menu-home">
-					<a href="/" class="menu-item-home">主页</a>
-				</li>
-			
-				<li class="menu-archive">
-					<a href="/archives" class="menu-item-archive">归档</a>
-				</li>
-			
-				<li class="menu-categories">
-					<a href="/categories" class="menu-item-categories">分类</a>
-				</li>
-			
-				<li class="menu-tags">
-					<a href="/tags" class="menu-item-tags">标签</a>
-				</li>
-			
-				<li class="menu-about">
-					<a href="/about" class="menu-item-about">关于</a>
-				</li>
-			
-				<li class="menu-gallery">
-					<a href="/gallery" class="menu-item-gallery">相册</a>
-				</li>
-			
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
 
-			
-		</ul>
-	</div>
+            </div>
+        </div>
 
-	<div class="nav-footer">
-		<ul>
-	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
 
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
-</ul>
-	</div>
-</nav>
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
 
-		
-		<!--main-->
-		<main>
-			<div class="layout-post">
-	
-	
-	<div class="article-title">
-		
-	<a href="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" itemprop="url">
-		linux运维常用命令
-	</a>
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
 
-	</div>
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
 
-	<div class="article-meta">
-		<span>
-			
-	发布于
-	<a href="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" itemprop="url">
-		<time datetime="2018-12-04T12:35:56.282Z" itemprop="datePublished">
-	  		2018-12-04
-	  </time>
-	</a> 
+    .github-corner .octo-arm {
+        animation: none;
+    }
 
-	/
-	更新于
-	<a href="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" itemprop="url">
-		<time datetime="2018-12-04T12:35:56.282Z" itemprop="dateUpdated">
-	  		2017-09-05
-	  </time>
-	</a> 	
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
 
-		</span>
-		/
-		<span>
-			<i class="fa fa-tags"></i>
-					
-		</span>
-		/
-		
+<a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
 
-    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/_visitors" data-url="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" data-title="linux运维常用命令">
-        热度
-        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-    </span>
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请哆啦A梦吃铜锣烧吧！请扫码获取访问密码。')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        linux运维常用命令
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
     
-    /
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="post-info">
+                
 
-
-
-    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/_likes" data-url="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" data-title="linux运维常用命令" rel="unlike">
-        喜欢
-        <i class="fa fa-heart"></i>
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-
-	</div>
-
-	<div class="article-content" id="article-content">
-		<p><strong>1.目录操作</strong></p>
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-04
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong>1.目录操作</strong></p>
 <p><em>使用 mkdir 命令创建目录</em></p>
 <pre><code>mkdir $HOME/testFolder
 </code></pre><p><em>切换目录</em></p>
@@ -424,430 +414,292 @@ ps -aux | grep &#39;ssh&#39;
 <p>重启sshd服务：</p>
 <p>service sshd restart</p>
 </blockquote>
-	
-	</div>
-	
-	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
 
-	<!-- relate post, comment...-->
-	<div class="investment-container">
-		<div class="investment-header">
-			<div class="investment-title-1">
-				<div class="on">相关文章</div>
-				<div>评论</div>
-			</div>
-			<div class="investment-title-2">	            
-				
-	<span>
-		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
-		
-			<a href="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/" title="mybatis中#{}【占位符】和${}【字符串】拼接的区别" rel="prev">
-				&laquo;上一篇
-			</a>
-		
-		
-			<a href="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/" title="Linux部署Java web项目" rel="next">
-				下一篇&raquo;
-			</a>
-			
-	</span>
-      		
-			</div>	
-		</div>
-		
-		<div class="investment-content">
-			<div class="investment-content-list">
-				
+            </div>
+            <hr>
 
-<div class="relate-post">
-	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/01/03/hou-duan/fen-bu-shi-kuang-jia/apollo-pei-zhi-zhong-xin-he-springcloud-zhong-zuul-jie-he-shi-yong-chuang-jian-pei-zhi-wang-guan/" title="Apollo配置中心和SpringCloud中Zuul结合使用创建配置网关">
-							Apollo配置中心和SpringCloud中Zuul结合使用创建配置网关
-						</a>
-						<p>
-							当配置中心要求高可用的时候，集群是一种不错的解决办法。当配置中心进行集群的时候，Zuul就派上了用场。并且Apollo和SpringCloud中zuul结合非常的方便，此处只解释在结合网关中路由刷新的部分原理：
-  前提：在Apoll...
-						</p>
-					</div>
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
 
-					<a href="/2019/01/03/hou-duan/fen-bu-shi-kuang-jia/apollo-pei-zhi-zhong-xin-he-springcloud-zhong-zuul-jie-he-shi-yong-chuang-jian-pei-zhi-wang-guan/" title="Apollo配置中心和SpringCloud中Zuul结合使用创建配置网关">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="Apollo配置中心和SpringCloud中Zuul结合使用创建配置网关">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/12/29/hou-duan/java/java-zhong-nei-cun-shu-ju-liu-de-shi-yong/" title="Java中内存数据流的使用">
-							Java中内存数据流的使用
-						</a>
-						<p>
-							内存流存在的意义：
-    当我们不需要持久化存储数据，而仅仅是需要进行数据中转的时候，就可以使用内存流。
-内存流的使用场景：
-         1.代码中需要交换的数据，读写的数据，仅仅是代码之间需要交换，就没必要
-    内存 =...
-						</p>
-					</div>
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
-					<a href="/2018/12/29/hou-duan/java/java-zhong-nei-cun-shu-ju-liu-de-shi-yong/" title="Java中内存数据流的使用">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="Java中内存数据流的使用">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/12/19/hou-duan/fen-bu-shi-kuang-jia/springboot-zhong-shi-yong-value-du-qu-pei-zhi-wen-jian-tong-guo-jing-tai-bian-liang-shi-xian-fei-qin-ru-shi-ji-zhong-guan-li/" title="springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理">
-							springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理
-						</a>
-						<p>
-							在SpringBoot中读取XXX.properties等配置文件有许多方法，常见的方法有：@ConfigurationProperties方式、使用@Value注解方式、使用Environment、以及使用PropertiesLoa...
-						</p>
-					</div>
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-					<a href="/2018/12/19/hou-duan/fen-bu-shi-kuang-jia/springboot-zhong-shi-yong-value-du-qu-pei-zhi-wen-jian-tong-guo-jing-tai-bian-liang-shi-xian-fei-qin-ru-shi-ji-zhong-guan-li/" title="springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/" title="RestTemplate工具类的使用">
-							RestTemplate工具类的使用
-						</a>
-						<p>
-							 Rest,即 Representtational state Transfer,翻译为:“表现层状态转化”.
-常用HTTP动词如下：
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-GET（SELECT）：从服务器取出资源（一项或多项）。POST（CREATE）：在服务器新建一...
-						</p>
-					</div>
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-					<a href="/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/" title="RestTemplate工具类的使用">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="RestTemplate工具类的使用">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/12/16/xiang-ce/wo-huan-mei-qiang-dao-ke-yi-zhang-kong-zi-ji-ming-yun-he-qu-he-cong-wei-you-bu-fu-shao-hua/" title="我还没强到可以掌控自己命运，何去何从？唯有不负韶华">
-							我还没强到可以掌控自己命运，何去何从？唯有不负韶华
-						</a>
-						<p>
-							朋友半年前一个人来到无锡，稍后就要离开了。感觉有点小失落，不知道何时才能再见面，预祝他一番风顺。何去何从，我们现在还不能做主，唯有不负韶华，好好努力吧。
-——有时，友情是真正存在的，抛开所谓的情商不谈。有些人，遇见或许就是缘分。
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
 
-						</p>
-					</div>
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
 
-					<a href="/2018/12/16/xiang-ce/wo-huan-mei-qiang-dao-ke-yi-zhang-kong-zi-ji-ming-yun-he-qu-he-cong-wei-you-bu-fu-shao-hua/" title="我还没强到可以掌控自己命运，何去何从？唯有不负韶华">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="我还没强到可以掌控自己命运，何去何从？唯有不负韶华">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/" title="使用nativefier将web打包为WebApp">
-							使用nativefier将web打包为WebApp
-						</a>
-						<p>
-							在github上浪的时候发现一款开源库，可以直接将任意的网站打包为webapp。具体的操作步骤如下：
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
 
-安装node.js环境
-使用npm安装nativefier库；
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
 
-npm install nativefier -g
-3.使用na...
-						</p>
-					</div>
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
 
-					<a href="/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/" title="使用nativefier将web打包为WebApp">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="使用nativefier将web打包为WebApp">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/12/09/hou-duan/fen-bu-shi-kuang-jia/alibaba-kai-yuan-zu-jian-fen-bu-shi-liu-liang-kong-zhi-kuang-jia-sentinel-chu-tan/" title="Alibaba开源组件-分布式流量控制框架sentinel初探">
-							Alibaba开源组件-分布式流量控制框架sentinel初探
-						</a>
-						<p>
-							Sentinel 是什么？还是皮一下吧详细的介绍在Alibaba已经介绍的很详细了。
-Sentinel: 分布式系统的流量防卫兵
-如何使用：   其实也就三个步骤：    1、添加依赖目前的最新的版本是0.2
-&lt;dependen...
-						</p>
-					</div>
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
 
-					<a href="/2018/12/09/hou-duan/fen-bu-shi-kuang-jia/alibaba-kai-yuan-zu-jian-fen-bu-shi-liu-liang-kong-zhi-kuang-jia-sentinel-chu-tan/" title="Alibaba开源组件-分布式流量控制框架sentinel初探">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="Alibaba开源组件-分布式流量控制框架sentinel初探">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/12/09/shu-ju-ku/mysql-xian-shang-shen-he-gui-fan/" title="MYSQL线上审核规范">
-							MYSQL线上审核规范
-						</a>
-						<p>
-							命名规范Ø库名、表名、字段名，使用小写字母
-Ø库名、表名、字段名，不要超过30个字符
-Ø库名、表名、字段名，尽量见名知意，使用下划线分割
-Ø库名、表名、字段名，禁止使用MySQL保留字
-Ø临时库、表名，必须以tmp为前缀，以日期为后缀...
-						</p>
-					</div>
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
 
-					<a href="/2018/12/09/shu-ju-ku/mysql-xian-shang-shen-he-gui-fan/" title="MYSQL线上审核规范">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="MYSQL线上审核规范">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/" title="好开心，七牛外链失效的图片找回来了">
-							好开心，七牛外链失效的图片找回来了
-						</a>
-						<p>
-							今天把我存在七牛云上的图片找回来了，好开心。
-找回七牛云存储失效文件的思路：七牛云测试域名失效导致图片外链失效的解决办法
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
 
-						</p>
-					</div>
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
 
-					<a href="/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/" title="好开心，七牛外链失效的图片找回来了">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="好开心，七牛外链失效的图片找回来了">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/" title="移动端学习之初始化-angular4的学习">
-							移动端学习之初始化-angular4的学习
-						</a>
-						<p>
-							最近在学习angular4感觉也没有那么难啦，好奇移动端到底可以做出啥，继续学习中……
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
 
-						</p>
-					</div>
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
 
-					<a href="/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/" title="移动端学习之初始化-angular4的学习">				
-						<img src="/img/cart_cover.jpg" class="relateImg" alt="移动端学习之初始化-angular4的学习">
-					</a>
-				</li>											
-		
-		
-	</ul>
-</div>	
-			</div>
-			<div class="investment-content-list">
-				<div class="layout-comment">
-
-	
-
-		
-
-			<!-- I don't know 【表情】-->
-			
-		
-		
-	
-
-</div>
-			</div>
-		</div>	
-	</div>
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
 
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-
-	<script>
-		var appid = 'dX--',
-            appkey = 'dx--';	  
-        AnnieLeancloud(appid, appkey);         
-	</script>
-    
-
-
- 
-
-<!-- show math formula -->
-
-
-
-
-<!-- TODO: There seems to be a bug when you close the post gallery! -->
-<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
-<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
-<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
-
-<script type="text/javascript">
-	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
-	$('.article-content img').each(function() {
-		var imgPath = $(this).attr('src'),
-			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
-	});
-
-	$('.article-content').lightGallery({
-		mode: 'lg-slide',
-		selector: '.img-responsive',
-		share: false,
-		zoom: false,
-		download: false
-	});
-	//TODO：支持video
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
 
-<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-	
-		</main>
-		
-		<!--footer-->
-		<footer>
-	<div class="social">
-		<ul>
-	
-		
-			<li>
-				<a href="http://github.com/" title="Github" target="_blank">
-					<i class="fa fa-github"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Weibo" target="_blank">
-					<i class="fa fa-weibo"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="mailto:http://github.com/" title="Email" target="_blank">
-					<i class="fa fa-envelope-o"></i>
-				</a>
-			</li>
-		
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
-		
-			<li>
-				<a href="http://github.com/" title="QQ" target="_blank">
-					<i class="fa fa-qq"></i>
-				</a>
-			</li>
-		
-		
-			<li>
-				<a href="http://github.com/" title="Twitter" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</li>
-		
-	 
-</ul>
-	</div>
-		
-	<div class="copyright">
-		<p>
-			 
-				&copy;2017 - 2019, content by Pursue. All Rights Reserved.
-			
-			
-			
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
 
-	<!-- busuanzi -->
-	<!-- busuanzi -->
+<script src="/libs/share/js/social-share.min.js"></script>
 
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
-
-		<span id="busuanzi_container_page_pv">
-	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-		</span>
-
-	
-
-
-
-
-		</p>
-		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
-		</p>
-	</div>		
-</footer>
-		
-    <!-- set '1' to show motto in all pages! -->
-
-	<script src="/js/motto.js"></script>
-	<script type="text/javascript">
-		$(".motto").html( getMingYanContent() );
-	</script>	
-
-
-
-
-
-
-    <script src="/js/love.js"></script>
-
-
-<!--back to top-->
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://junzhou2016.github.io" class="b-link-green">Blog4Jun</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/04/lao-bo-ke/linux-yun-wei-chang-yong-ming-ling/" class="b-link-green">linux运维常用命令</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
     
-	<div id="totop">
-  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
-	</div>
-	<div id="tobuttom">
-		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
-	</div>
- 
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/mybatis-zhong-zhan-wei-fu-he-zi-fu-chuan-pin-jie-de-qu-bie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="mybatis中#{}【占位符】和${}【字符串】拼接的区别">
+                        
+                        <span class="card-title">mybatis中#{}【占位符】和${}【字符串】拼接的区别</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+#{}
+
+表示一个占位符号，通过#{}可以实现 preparedStatement 向占      位符中设置值， 自动进行 java类型和 jdbc 类型转换。#{}可以有效防止 sql 注入。 #{}可以接 收简单类型值或 pojo </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/04/lao-bo-ke/linux-bu-shu-java-web-xiang-mu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/36.jpg" class="responsive-img" alt="Linux部署Java web项目">
+                        
+                        <span class="card-title">Linux部署Java web项目</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">详情请参照下面的博客https://juejin.im/post/5847cac461ff4b006bae5a12
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Pursue
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://junzhou2016.github.io/" target="_blank">JunZhou</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">hexo-theme-yilia</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
- 
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<script src="/js/vibrant.js"></script>
-<script src="/js/chinese.js"></script>
-<script src="/js/main.js"></script>
-	</body>
-	</html>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
