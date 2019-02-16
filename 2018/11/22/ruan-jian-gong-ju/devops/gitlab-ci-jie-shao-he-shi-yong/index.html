@@ -935,6 +935,7 @@ shell
 </code></pre>
 <p>更多内容请查看<a href="https://docs.gitlab.com/ce/user/project/pages/index.html" target="_blank" rel="noopener">GitLab Pages用户文档</a>。</p>
 <h3 id="6-跳过-jobs"><a href="#6-跳过-jobs" class="headerlink" title="6 跳过 jobs"></a>6 跳过 jobs</h3><p>如果你的<code>commit</code>信息中包含<code>[ci skip]</code>或者<code>[skip ci]</code>，不论大小写，那么这个<code>commit</code>将会创建但是 jobs 也会跳过。</p>
+<h3 id="7-runner配置注意点"><a href="#7-runner配置注意点" class="headerlink" title="7 runner配置注意点"></a>7 runner配置注意点</h3><p>有些版本的gitlab在注册的时候不会提示设置“Can run untagged jobs    为 Yes/no”,那么在后面运行流水线job的时候可能会出现“This job is stuck, because you don’t have any active runners that can run this job.”,参考解决方案：<br>    1）<a href="https://www.jianshu.com/p/d91387b9a79b【针对安装有提示的版本】" target="_blank" rel="noopener">https://www.jianshu.com/p/d91387b9a79b【针对安装有提示的版本】</a><br>    2）<a href="https://user-images.githubusercontent.com/25767073/52898304-10436680-3217-11e9-8fdc-f1baa1ec5a35.gif【针对安装无提示的版本】" target="_blank" rel="noopener">https://user-images.githubusercontent.com/25767073/52898304-10436680-3217-11e9-8fdc-f1baa1ec5a35.gif【针对安装无提示的版本】</a></p>
 <hr>
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
 <li><a href="https://docs.gitlab.com/ce/ci/yaml/README.html" target="_blank" rel="noopener">官方文档地址</a></li>
