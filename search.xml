@@ -7,7 +7,7 @@
       <link href="/2019/02/17/ruan-jian-gong-ju/git/li-yong-github-hexo-da-jian-ge-ren-bo-ke-bing-chuang-jian-tu-chuang-dai-shi-pin-jiao-cheng/"/>
       <url>/2019/02/17/ruan-jian-gong-ju/git/li-yong-github-hexo-da-jian-ge-ren-bo-ke-bing-chuang-jian-tu-chuang-dai-shi-pin-jiao-cheng/</url>
       
-        <content type="html"><![CDATA[<h2 id="Git-hexo-搭建个人博客的步骤和要点"><a href="#Git-hexo-搭建个人博客的步骤和要点" class="headerlink" title="Git+hexo 搭建个人博客的步骤和要点"></a>Git+hexo 搭建个人博客的步骤和要点</h2><p>步骤：<br>1、    安装nodejs+git+tortoisegit<br>2、    注册github账号，并创建个人独立主页仓库，就是那个username.github.io仓库;<br>3、    安装和初始化hexo博客脚手架;<br>4、    去hexo选择适合自己的博客主题;<br>5、    发布本地博客到github；<br>6、    创建github图床【有自己图片服务器的可以不用，建议不要使用七牛】；<br>建议：<br>    个人书写.md文件的博客不太好控制样式，建议利用csdn的markdow编辑器。</p><p>参考文章：<br>    <a href="https://www.cnblogs.com/trista222/p/8017300.html" target="_blank" rel="noopener">https://www.cnblogs.com/trista222/p/8017300.html</a><br>视频教程：</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="Git-hexo-搭建个人博客的步骤和要点"><a href="#Git-hexo-搭建个人博客的步骤和要点" class="headerlink" title="Git+hexo 搭建个人博客的步骤和要点"></a>Git+hexo 搭建个人博客的步骤和要点</h2><p>步骤：<br>1、    安装nodejs+git+tortoisegit<br>2、    注册github账号，并创建个人独立主页仓库，就是那个username.github.io仓库;<br>3、    安装和初始化hexo博客脚手架;<br>4、    去hexo选择适合自己的博客主题;<br>5、    发布本地博客到github；<br>6、    创建github图床【有自己图片服务器的可以不用，建议不要使用七牛】；<br>建议：<br>    个人书写.md文件的博客不太好控制样式，建议利用csdn的markdow编辑器。</p><p>参考文章：<br>    <a href="https://www.cnblogs.com/trista222/p/8017300.html" target="_blank" rel="noopener">https://www.cnblogs.com/trista222/p/8017300.html</a><br>    <a href="https://blog.csdn.net/zj20142213/article/details/87557548" target="_blank" rel="noopener">https://blog.csdn.net/zj20142213/article/details/87557548</a><br>视频教程：<br>   <a href="https://pan.baidu.com/s/120YMAMaqmVFtr6_WD6rYDQ" target="_blank" rel="noopener">https://pan.baidu.com/s/120YMAMaqmVFtr6_WD6rYDQ</a></p>]]></content>
       
       
       <categories>
@@ -3030,11 +3030,11 @@
     </entry>
     
     <entry>
-      <title>会不会因为这个错过一段美好的爱情？</title>
-      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
-      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
+      <title>今天平安夜，公司发了平安果，好贴心</title>
+      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
+      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
       
       
       <categories>
@@ -3053,11 +3053,11 @@
     </entry>
     
     <entry>
-      <title>今天平安夜，公司发了平安果，好贴心</title>
-      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
-      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
+      <title>会不会因为这个错过一段美好的爱情？</title>
+      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
+      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
       
       
       <categories>
@@ -3168,11 +3168,11 @@
     </entry>
     
     <entry>
-      <title>JAVA判断一个URL是否有效</title>
-      <link href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
-      <url>/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</url>
+      <title>springmvc与struts2不同</title>
+      <link href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
+      <url>/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
       
-        <content type="html"><![CDATA[<p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p><hr><p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p><p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p><hr><p>[java] view plain copy<br>/** </p><ul><li>文件名称为：URLAvailability.java </li><li>文件功能简述： 描述一个URL地址是否有效 </li><li>@author Jason </li><li>@time   2010-9-14  </li><li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li></ul><p>/** </p><ul><li>功能：检测当前URL是否可连接或是否有效, </li><li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li><li>@param urlStr 指定URL网络地址 </li><li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li></ul><p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
       
       
       <categories>
@@ -3191,11 +3191,11 @@
     </entry>
     
     <entry>
-      <title>springmvc与struts2不同</title>
-      <link href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
-      <url>/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
+      <title>JAVA判断一个URL是否有效</title>
+      <link href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
+      <url>/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</url>
       
-        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
+        <content type="html"><![CDATA[<p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p><hr><p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p><p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p><hr><p>[java] view plain copy<br>/** </p><ul><li>文件名称为：URLAvailability.java </li><li>文件功能简述： 描述一个URL地址是否有效 </li><li>@author Jason </li><li>@time   2010-9-14  </li><li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li></ul><p>/** </p><ul><li>功能：检测当前URL是否可连接或是否有效, </li><li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li><li>@param urlStr 指定URL网络地址 </li><li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li></ul><p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>]]></content>
       
       
       <categories>
