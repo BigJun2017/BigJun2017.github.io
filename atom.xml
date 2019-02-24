@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-02-18T01:32:18.012Z</updated>
+  <updated>2019-02-24T14:37:56.107Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker学习笔记（二）基本软件的Docker安装【基本安装，可能不适用于生产环境】</title>
+    <link href="https://junzhou2016.github.io/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-er-ji-ben-ruan-jian-de-docker-an-zhuang-ji-ben-an-zhuang-ke-neng-bu-gua-yong-yu-sheng-chan-huan-jing/"/>
+    <id>https://junzhou2016.github.io/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-er-ji-ben-ruan-jian-de-docker-an-zhuang-ji-ben-an-zhuang-ke-neng-bu-gua-yong-yu-sheng-chan-huan-jing/</id>
+    <published>2019-02-24T14:37:05.000Z</published>
+    <updated>2019-02-24T14:37:56.107Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;通过Docker安装常用软件，包产Mysql、Redis等。。。。。。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Mysql安装&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;docker run --name mysql_server -e MYSQL_ROOT_PASSWORD=123
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Docker" scheme="https://junzhou2016.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker学习笔记（一）什么是docker</title>
+    <link href="https://junzhou2016.github.io/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-yi-shi-me-shi-docker/"/>
+    <id>https://junzhou2016.github.io/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-yi-shi-me-shi-docker/</id>
+    <published>2019-02-24T14:36:00.000Z</published>
+    <updated>2019-02-24T14:37:22.752Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;什么是Docker?&lt;br&gt;       理解Docker首先需要理解Docker的三大核心概念。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;   1、镜像【Image】   
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Docker" scheme="https://junzhou2016.github.io/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>利用github+hexo搭建个人博客并创建图床【带视频教程】</title>
@@ -477,54 +536,6 @@ import
         
         
           &lt;pre&gt;&lt;code&gt;   适配器模式(Adapter
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>明天就要学转前端了，收集了一些资料放这里了</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ming-tian-jiu-yao-xue-zhuan-qian-duan-liao-shou-ji-liao-yi-xie-zi-liao-fang-zhe-li-liao/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/ming-tian-jiu-yao-xue-zhuan-qian-duan-liao-shou-ji-liao-yi-xie-zi-liao-fang-zhe-li-liao/</id>
-    <published>2018-12-04T12:35:56.441Z</published>
-    <updated>2017-12-03T13:33:18.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;#下面是资料的链接，请尊重资料的作者，不要随意转发。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;1.react相关的学习资料&lt;br&gt;&lt;a href=&quot;http://it-ebooks.flygon.net/&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象程序设计原则</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/mian-xiang-dui-xiang-cheng-xu-she-ji-liu-da-yuan-ze/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/mian-xiang-dui-xiang-cheng-xu-she-ji-liu-da-yuan-ze/</id>
-    <published>2018-12-04T12:35:56.440Z</published>
-    <updated>2017-08-29T09:50:52.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;面向对象程序设计原则&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;一、单一职责原则：
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;全称：“Single-Responsibility
         
       
     
