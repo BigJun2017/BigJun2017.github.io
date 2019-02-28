@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-02-24T14:42:33.741Z</updated>
+  <updated>2019-02-28T15:12:55.908Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker的概念和相关属性</title>
+    <link href="https://junzhou2016.github.io/2019/02/28/ruan-jian-gong-ju/docker/docker-de-gai-nian-he-xiang-guan-shu-xing/"/>
+    <id>https://junzhou2016.github.io/2019/02/28/ruan-jian-gong-ju/docker/docker-de-gai-nian-he-xiang-guan-shu-xing/</id>
+    <published>2019-02-28T14:37:08.000Z</published>
+    <updated>2019-02-28T15:12:55.908Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;第一章-Docker的核心概念&quot;&gt;&lt;a href=&quot;#第一章-Docker的核心概念&quot; class=&quot;headerlink&quot; title=&quot;第一章 Docker的核心概念&quot;&gt;&lt;/a&gt;第一章
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Docker" scheme="https://junzhou2016.github.io/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker学习笔记（二）基本软件的Docker安装【基本安装，可能不适用于生产环境】</title>
@@ -514,28 +540,6 @@ import
         
         
           &lt;p&gt;   &lt;strong&gt;使用hexo+github搭建博客的步骤为：&lt;/strong&gt;&lt;br&gt;       1.软件的安装；&lt;br&gt;                 (1.)安装Node；&lt;br&gt;                 (2.)安装Hexo;&lt;br&gt;       
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>适配器模式</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/she-ji-mo-shi-zhi-gua-pei-qi-mo-shi/</id>
-    <published>2018-12-04T12:35:56.443Z</published>
-    <updated>2017-09-08T10:53:44.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;pre&gt;&lt;code&gt;   适配器模式(Adapter
         
       
     

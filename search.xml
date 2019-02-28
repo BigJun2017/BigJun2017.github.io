@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>Docker的概念和相关属性</title>
+      <link href="/2019/02/28/ruan-jian-gong-ju/docker/docker-de-gai-nian-he-xiang-guan-shu-xing/"/>
+      <url>/2019/02/28/ruan-jian-gong-ju/docker/docker-de-gai-nian-he-xiang-guan-shu-xing/</url>
+      
+        <content type="html"><![CDATA[<h2 id="第一章-Docker的核心概念"><a href="#第一章-Docker的核心概念" class="headerlink" title="第一章 Docker的核心概念"></a>第一章 Docker的核心概念</h2><blockquote><p>1.1Docker镜像 Docker镜像类似于虚拟机镜像，可以将其理解为一个只读的模板。例如，一个镜像可以包含一个基本的操作系统【Ubuntu、Centos、Alpine、BusyBox】环境，里面仅安装了Jenkins应用程序，那么这个文件就可以被称为Jenkins镜像。<br>镜像是创建Docker容器的基础，通过版本管理和增量的文件系统控制，用户可以十分方便的获取Docker镜像.<br>1.2Docker容器 Docker容器是Docker镜像运行的实例。Docker容器类似Linux系统环境（包括root用户权限、进程空间、用户空间和网络等）。</p></blockquote><h2 id="第二章-镜像的基本属性"><a href="#第二章-镜像的基本属性" class="headerlink" title="第二章 镜像的基本属性"></a>第二章 镜像的基本属性</h2><blockquote><p>2.1 Docker镜像的基本属性 Docker镜像包含五个基本属性和一个不常用的属性。</p><ol><li>REPOSITORY:描述当前镜像来自于那个镜像仓库;</li><li>TAG：镜像的标签信息，比如14.04、latest用来标注不同的版本信息。    TAG信息用来标记来自同一个仓库的不同镜像，例如ubuntu仓库中有多个镜像，可以通过TAG信息来区分发行版本。</li><li>IMAGE ID：镜像的ID(镜像的唯一标识)；</li><li>CREATED:镜像的创建时间;</li><li>SIZE：镜像的大小</li><li>DIGEST:镜像的数字摘要信息，用来判断镜像是否变更[非常见属性]。 图1、镜像的基本属性</li></ol><p>图2、镜像TAG属性图示</p><p>Docker镜像的详细信息如文本所示：<br>参照文章：<a href="http://www.ityouknow.com/docker/2018/03/15/docker-dockerfile-command-introduction.html" target="_blank" rel="noopener">http://www.ityouknow.com/docker/2018/03/15/docker-dockerfile-command-introduction.html</a></p></blockquote><h2 id="第三章-容器的基本属性"><a href="#第三章-容器的基本属性" class="headerlink" title="第三章 容器的基本属性"></a>第三章 容器的基本属性</h2><blockquote><p>Docker镜像包含五个基本属性和一个不常用的属性。</p><ol><li>CONTAINER_ID：表示容器ID;</li><li>IMAGE：表示镜像名称。</li><li>COMMAND：表示启动容器时运行的命令。</li><li>CREATED：表示容器的创建时间。</li><li>STATUS：表示容器运行的状态。Up表示运行中，Exited表示已停止。</li><li>表示容器对外的端口号。</li><li>NAMES：表示容器名称。该名称默认由Docker自动生成，也可使用docker run命令的–name选项自行指定。</li></ol></blockquote><p> <a href="https://pan.baidu.com/s/19BjgIeAB3IogzDmwrl23rw" target="_blank" rel="noopener">配套文档</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Docker学习笔记（二）基本软件的Docker安装【基本安装，可能不适用于生产环境】</title>
       <link href="/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-er-ji-ben-ruan-jian-de-docker-an-zhuang-ji-ben-an-zhuang-ke-neng-bu-gua-yong-yu-sheng-chan-huan-jing/"/>
       <url>/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-er-ji-ben-ruan-jian-de-docker-an-zhuang-ji-ben-an-zhuang-ke-neng-bu-gua-yong-yu-sheng-chan-huan-jing/</url>
