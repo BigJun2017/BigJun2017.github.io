@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-02-28T15:24:53.779Z</updated>
+  <updated>2019-03-23T14:03:42.695Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>纯Java后台实现区分数据的新增、修改、删除操作</title>
+    <link href="https://junzhou2016.github.io/2019/03/23/hou-duan/java/chun-java-hou-tai-shi-xian-qu-fen-shu-ju-de-xin-zeng-xiu-gai-shan-chu-cao-zuo/"/>
+    <id>https://junzhou2016.github.io/2019/03/23/hou-duan/java/chun-java-hou-tai-shi-xian-qu-fen-shu-ju-de-xin-zeng-xiu-gai-shan-chu-cao-zuo/</id>
+    <published>2019-03-23T14:03:00.000Z</published>
+    <updated>2019-03-23T14:03:42.695Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;近期遇到一个问题，就是当 添加、修改、删除
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker的概念和相关属性</title>
@@ -518,28 +544,6 @@ import
         
         
           &lt;p&gt;本文讲解的是使用jenkins+github+tomcat实现springboot项目的半自动化部署，为啥叫做半自动化部署？因为我没钱买服务器，webhook又无法访问本地服务器，因此没有使用webhook进行全自动的部署演示，并且我本人认为，全自动的部署是没有必要的，因为
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>hexo+github搭建个人博客</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-hexo-github-da-jian-ge-ren-wei-bo/</id>
-    <published>2018-12-04T12:35:56.444Z</published>
-    <updated>2017-08-29T09:39:02.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;   &lt;strong&gt;使用hexo+github搭建博客的步骤为：&lt;/strong&gt;&lt;br&gt;       1.软件的安装；&lt;br&gt;                 (1.)安装Node；&lt;br&gt;                 (2.)安装Hexo;&lt;br&gt;       
         
       
     
