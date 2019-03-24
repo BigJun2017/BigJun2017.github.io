@@ -5,8 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Category: 随笔, Blog4Jun">
-    <meta name="description" content="Category: 随笔 | Blog4Jun">
+    <meta name="keywords" content="纯Java后台实现区分数据的新增、修改、删除操作, Blog4Jun">
+    <meta name="description" content="参考文章：Spring Boot中使用@Async实现异步调用                  Spring Boot使用@Async实现异步调用：自定义线程池                  Spring Boot使用@Async实现">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Category: 随笔 | Blog4Jun</title>
+    <title>纯Java后台实现区分数据的新增、修改、删除操作 | Blog4Jun</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -247,218 +247,338 @@
     </nav>
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请哆啦A梦吃铜锣烧吧！请扫码获取访问密码。')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+            <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="title center-align">
-                    
-                        Doraemon
-                    
-                    </div>
-
-                    <div class="description center-align">
-                    
-                        爱你所爱，无问西东
-                    
+                    <div class="description center-align post-title">
+                        纯Java后台实现区分数据的新增、修改、删除操作
                     </div>
                 </div>
             </div>
         </div>
-        
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Java/" target="_blank">
+                    <span class="chip bg-color">Java</span>
+                </a>
+                
+                <a href="/tags/SpringBoot/" target="_blank">
+                    <span class="chip bg-color">SpringBoot</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/后端/" class="post-category" target="_blank">
+                        后端
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-03-24
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>参考文章：<br><a href="http://blog.didispace.com/springbootasync/" target="_blank" rel="noopener">Spring Boot中使用@Async实现异步调用</a><br>                  <a href="http://blog.didispace.com/springbootasync-2/" target="_blank" rel="noopener">Spring Boot使用@Async实现异步调用：自定义线程池</a><br>                  <a href="http://blog.didispace.com/springbootasync-3/" target="_blank" rel="noopener">Spring Boot使用@Async实现异步调用：ThreadPoolTaskScheduler线程池的优雅关闭</a><br>                  <a href="http://blog.didispace.com/springbootasync-4/" target="_blank" rel="noopener">Spring Boot使用@Async实现异步调用：使用Future以及定义超时</a></p>
+<pre><code>注意事项：web服务作为主程序，一般不会停止，因此通过@Async标记的子线程相当于在后台执行，和在main函数中测试执行的有所区别。
+</code></pre>
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
 
-<main class="content">
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
+<div id="article-share">
     
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
 
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">Post Categories</div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/前端/" title="前端: 5">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F9EBEA;">前端
-                        <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/相册/" title="相册: 18">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F5EEF8;">相册
-                        <span class="tag-length">18</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/数据库/" title="数据库: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #D5F5E3;">数据库
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/编程之道/" title="编程之道: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #E8F8F5;">编程之道
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/随笔/" title="随笔: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active " style="background-color: #FEF9E7;">随笔
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/老博客/" title="老博客: 9">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F8F9F9;">老博客
-                        <span class="tag-length">9</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/软件设计/" title="软件设计: 14">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #82E0AA;">软件设计
-                        <span class="tag-length">14</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/软件工具/" title="软件工具: 13">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #D7BDE2;">软件工具
-                        <span class="tag-length">13</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/后端/" title="后端: 28">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #A3E4D7;">后端
-                        <span class="tag-length">28</span>
-                    </span>
-                </a>
-                
-                
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://junzhou2016.github.io" class="b-link-green">Blog4Jun</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/03/24/hou-duan/java/spring-boot-zhong-shi-yong-async-shi-xian-yi-bu-diao-yong/" class="b-link-green">纯Java后台实现区分数据的新增、修改、删除操作</a>
+                </p>
             </div>
         </div>
     </div>
-</div>
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="好开心，七牛外链失效的图片找回来了">
-                            
-                            <span class="card-title">好开心，七牛外链失效的图片找回来了</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary">今天把我存在七牛云上的图片找回来了，好开心。
-找回七牛云存储失效文件的思路：七牛云测试域名失效导致图片外链失效的解决办法
-</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+    
 
-                    
-                    <div class="card-action article-tags">
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Current</div>
+            <div class="card">
+                <a href="/2019/03/24/hou-duan/java/spring-boot-zhong-shi-yong-async-shi-xian-yi-bu-diao-yong/">
+                    <div class="card-image">
                         
-                        <a href="/tags/Java/" target="_blank">
-                            <span class="chip bg-color">Java</span>
-                        </a>
                         
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="纯Java后台实现区分数据的新增、修改、删除操作">
+                        
+                        <span class="card-title">纯Java后台实现区分数据的新增、修改、删除操作</span>
                     </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">参考文章：Spring Boot中使用@Async实现异步调用                  Spring Boot使用@Async实现异步调用：自定义线程池                  Spring Boot使用@Async实现</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/SpringBoot/" target="_blank">
+                        <span class="chip bg-color">SpringBoot</span>
+                    </a>
                     
                 </div>
+                
             </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/sui-bi/zui-jin-gong-zuo-zhong-de-gan-wu/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/32.jpg" class="responsive-img" alt="最近工作中的感悟">
-                            
-                            <span class="card-title">最近工作中的感悟</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary">最近到一个新的部门，听到一个讨厌的词“甩锅”。我不知道这个词这个部门的人如何理解，反正我是非常反感的。在我的心目中，每个人都应该是有担当的，</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java/" target="_blank">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
-    </article>
-</main>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/03/23/hou-duan/java/chun-java-hou-tai-shi-xian-qu-fen-shu-ju-de-xin-zeng-xiu-gai-shan-chu-cao-zuo/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="纯Java后台实现区分数据的新增、修改、删除操作">
+                        
+                        <span class="card-title">纯Java后台实现区分数据的新增、修改、删除操作</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">近期遇到一个问题，就是当 添加、修改、删除 三个业务，都写入controller(控制层)同一个方法时，该怎么区分呢？虽然前端可以加上操作类型，但是后台还得做遍历，效率不高而且比较麻烦。于是乎，我就想了一个方法，在这里跟大家分享一下。
 
+原</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-03-23T14:03:42.695Z</updated>
+  <updated>2019-03-24T03:55:48.704Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>纯Java后台实现区分数据的新增、修改、删除操作</title>
+    <link href="https://junzhou2016.github.io/2019/03/24/hou-duan/java/spring-boot-zhong-shi-yong-async-shi-xian-yi-bu-diao-yong/"/>
+    <id>https://junzhou2016.github.io/2019/03/24/hou-duan/java/spring-boot-zhong-shi-yong-async-shi-xian-yi-bu-diao-yong/</id>
+    <published>2019-03-24T03:55:00.000Z</published>
+    <updated>2019-03-24T03:55:48.704Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;参考文章：&lt;br&gt;&lt;a href=&quot;http://blog.didispace.com/springbootasync/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Spring Boot中使用@Async实现异步调用&lt;/a&gt;&lt;br&gt;         
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
+    
+      <category term="SpringBoot" scheme="https://junzhou2016.github.io/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>纯Java后台实现区分数据的新增、修改、删除操作</title>
@@ -522,28 +550,6 @@ import
           &lt;hr&gt;
 &lt;p&gt;最近安装Jenkins，参照网上的各种资料进行尝试，折腾了好久，但是查找了这么多资料，相似度在90%以上！！！，相同的安装过程，测试了几台机器，未曾成功，不得不感慨自己能力有限，最终慢慢摸索，形成思路，现分享给大家，希望大家在安装的时候少走弯路。&lt;/p&gt;
 &lt;p&gt;P
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用jenkins+github+tomcat实现Springboot半自动化部署</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-github-tomcat-shi-xian-springboot-ban-zi-dong-hua-bu-shu/</id>
-    <published>2018-12-04T12:35:56.446Z</published>
-    <updated>2018-02-05T13:00:02.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本文讲解的是使用jenkins+github+tomcat实现springboot项目的半自动化部署，为啥叫做半自动化部署？因为我没钱买服务器，webhook又无法访问本地服务器，因此没有使用webhook进行全自动的部署演示，并且我本人认为，全自动的部署是没有必要的，因为
         
       
     

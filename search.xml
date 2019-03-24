@@ -4,6 +4,31 @@
     
     <entry>
       <title>纯Java后台实现区分数据的新增、修改、删除操作</title>
+      <link href="/2019/03/24/hou-duan/java/spring-boot-zhong-shi-yong-async-shi-xian-yi-bu-diao-yong/"/>
+      <url>/2019/03/24/hou-duan/java/spring-boot-zhong-shi-yong-async-shi-xian-yi-bu-diao-yong/</url>
+      
+        <content type="html"><![CDATA[<p>参考文章：<br><a href="http://blog.didispace.com/springbootasync/" target="_blank" rel="noopener">Spring Boot中使用@Async实现异步调用</a><br>                  <a href="http://blog.didispace.com/springbootasync-2/" target="_blank" rel="noopener">Spring Boot使用@Async实现异步调用：自定义线程池</a><br>                  <a href="http://blog.didispace.com/springbootasync-3/" target="_blank" rel="noopener">Spring Boot使用@Async实现异步调用：ThreadPoolTaskScheduler线程池的优雅关闭</a><br>                  <a href="http://blog.didispace.com/springbootasync-4/" target="_blank" rel="noopener">Spring Boot使用@Async实现异步调用：使用Future以及定义超时</a></p><pre><code>注意事项：web服务作为主程序，一般不会停止，因此通过@Async标记的子线程相当于在后台执行，和在main函数中测试执行的有所区别。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> SpringBoot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>纯Java后台实现区分数据的新增、修改、删除操作</title>
       <link href="/2019/03/23/hou-duan/java/chun-java-hou-tai-shi-xian-qu-fen-shu-ju-de-xin-zeng-xiu-gai-shan-chu-cao-zuo/"/>
       <url>/2019/03/23/hou-duan/java/chun-java-hou-tai-shi-xian-qu-fen-shu-ju-de-xin-zeng-xiu-gai-shan-chu-cao-zuo/</url>
       
@@ -3260,11 +3285,11 @@
     </entry>
     
     <entry>
-      <title>JAVA判断一个URL是否有效</title>
-      <link href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
-      <url>/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</url>
+      <title>springmvc与struts2不同</title>
+      <link href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
+      <url>/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
       
-        <content type="html"><![CDATA[<p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p><hr><p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p><p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p><hr><p>[java] view plain copy<br>/** </p><ul><li>文件名称为：URLAvailability.java </li><li>文件功能简述： 描述一个URL地址是否有效 </li><li>@author Jason </li><li>@time   2010-9-14  </li><li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li></ul><p>/** </p><ul><li>功能：检测当前URL是否可连接或是否有效, </li><li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li><li>@param urlStr 指定URL网络地址 </li><li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li></ul><p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
       
       
       <categories>
@@ -3283,11 +3308,11 @@
     </entry>
     
     <entry>
-      <title>springmvc与struts2不同</title>
-      <link href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
-      <url>/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
+      <title>JAVA判断一个URL是否有效</title>
+      <link href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
+      <url>/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</url>
       
-        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
+        <content type="html"><![CDATA[<p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p><hr><p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p><p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p><hr><p>[java] view plain copy<br>/** </p><ul><li>文件名称为：URLAvailability.java </li><li>文件功能简述： 描述一个URL地址是否有效 </li><li>@author Jason </li><li>@time   2010-9-14  </li><li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li></ul><p>/** </p><ul><li>功能：检测当前URL是否可连接或是否有效, </li><li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li><li>@param urlStr 指定URL网络地址 </li><li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li></ul><p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>]]></content>
       
       
       <categories>
