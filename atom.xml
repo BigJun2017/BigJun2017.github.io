@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-03-24T03:55:48.704Z</updated>
+  <updated>2019-03-24T07:10:15.552Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>纯Java后台实现区分数据的新增、修改、删除操作</title>
+    <title>Spring Boot中使用@Async实现异步调用</title>
     <link href="https://junzhou2016.github.io/2019/03/24/hou-duan/java/spring-boot-zhong-shi-yong-async-shi-xian-yi-bu-diao-yong/"/>
     <id>https://junzhou2016.github.io/2019/03/24/hou-duan/java/spring-boot-zhong-shi-yong-async-shi-xian-yi-bu-diao-yong/</id>
     <published>2019-03-24T03:55:00.000Z</published>
-    <updated>2019-03-24T03:55:48.704Z</updated>
+    <updated>2019-03-24T07:10:15.552Z</updated>
     
     <summary type="html">
     
