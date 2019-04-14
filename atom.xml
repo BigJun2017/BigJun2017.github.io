@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-03-24T07:10:15.552Z</updated>
+  <updated>2019-04-14T12:58:34.567Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件开发中会用到的图</title>
+    <link href="https://junzhou2016.github.io/2019/04/14/bian-cheng-zhi-dao/ruan-jian-kai-fa-zhong-hui-yong-dao-de-tu/"/>
+    <id>https://junzhou2016.github.io/2019/04/14/bian-cheng-zhi-dao/ruan-jian-kai-fa-zhong-hui-yong-dao-de-tu/</id>
+    <published>2019-04-14T12:58:00.000Z</published>
+    <updated>2019-04-14T12:58:34.567Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://www.cnblogs.com/Zachary-Fan/p/developdiagram.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;转载&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div
+        
+      
+    
+    </summary>
+    
+      <category term="编程之道" scheme="https://junzhou2016.github.io/categories/%E7%BC%96%E7%A8%8B%E4%B9%8B%E9%81%93/"/>
+    
+    
+      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
+    
+      <category term="面向对象编程" scheme="https://junzhou2016.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Boot中使用@Async实现异步调用</title>
@@ -526,30 +555,6 @@ import
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用Jenkins配置Git+Maven的自动化构建</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-pei-zhi-git-maven-de-zi-dong-hua-gou-jian/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jenkins-pei-zhi-git-maven-de-zi-dong-hua-gou-jian/</id>
-    <published>2018-12-04T12:35:56.448Z</published>
-    <updated>2017-09-06T08:53:16.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;p&gt;最近安装Jenkins，参照网上的各种资料进行尝试，折腾了好久，但是查找了这么多资料，相似度在90%以上！！！，相同的安装过程，测试了几台机器，未曾成功，不得不感慨自己能力有限，最终慢慢摸索，形成思路，现分享给大家，希望大家在安装的时候少走弯路。&lt;/p&gt;
-&lt;p&gt;P
         
       
     
