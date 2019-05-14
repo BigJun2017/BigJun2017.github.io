@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-05-14T13:10:23.115Z</updated>
+  <updated>2019-05-14T13:14:26.145Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理</title>
+    <title>Springboot拦截器无法注入redisTemplate操作工具类问题</title>
     <link href="https://junzhou2016.github.io/2019/05/14/hou-duan/fen-bu-shi-kuang-jia/springboot-lan-jie-qi-wu-fa-zhu-ru-redistemplate-cao-zuo-gong-ju-lei-wen-ti/"/>
     <id>https://junzhou2016.github.io/2019/05/14/hou-duan/fen-bu-shi-kuang-jia/springboot-lan-jie-qi-wu-fa-zhu-ru-redistemplate-cao-zuo-gong-ju-lei-wen-ti/</id>
     <published>2019-05-14T10:47:00.000Z</published>
-    <updated>2019-05-14T13:10:23.115Z</updated>
+    <updated>2019-05-14T13:14:26.145Z</updated>
     
     <summary type="html">
     
