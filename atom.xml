@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-04-16T12:12:18.397Z</updated>
+  <updated>2019-05-14T13:10:23.115Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理</title>
+    <link href="https://junzhou2016.github.io/2019/05/14/hou-duan/fen-bu-shi-kuang-jia/springboot-lan-jie-qi-wu-fa-zhu-ru-redistemplate-cao-zuo-gong-ju-lei-wen-ti/"/>
+    <id>https://junzhou2016.github.io/2019/05/14/hou-duan/fen-bu-shi-kuang-jia/springboot-lan-jie-qi-wu-fa-zhu-ru-redistemplate-cao-zuo-gong-ju-lei-wen-ti/</id>
+    <published>2019-05-14T10:47:00.000Z</published>
+    <updated>2019-05-14T13:10:23.115Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近在做微服务间用户权限打通的时候，由于当初设计的问题，用户的信息没有存在Redis中，而是由请求头携带的，因此需要在用户首次访问的时候缓存用户信息到Redis中，但是redisTemplate却无法注入到拦截其中，核心代码如下所示：&lt;br&gt;SessionIntercept
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://junzhou2016.github.io/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>软件开发中会用到的图</title>
@@ -530,31 +556,6 @@ import
           &lt;p&gt;最近师傅教我了通过jenkins发布项目，但是发现公司的Maven出了点问题，因此就用XShell进行项目的发布操作。发布的步骤如下：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在eclipse中通过Maven命令Clean–&amp;gt;Install生成jar文件；&lt;br&gt;clean:清楚t
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用JSOUP爬取国家统计局的地理位置数据</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jsoup-pa-qu-guo-jia-tong-ji-ju-de-di-li-wei-zhi-shu-ju/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-jsoup-pa-qu-guo-jia-tong-ji-ju-de-di-li-wei-zhi-shu-ju/</id>
-    <published>2018-12-04T12:35:56.449Z</published>
-    <updated>2018-09-02T09:04:02.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近因工作需要，我需要爬取国家统计局的最新统计数据。因此参照网上的例子使用JSOUP爬取了国家统计局的省、市、县、镇、村的数据。因为要爬取的数据较多，因此在里面使用了多线程的相关技术。下面首先讲解下多线程相关的东西。&lt;/p&gt;
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
         
       
     

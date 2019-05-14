@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理</title>
+      <link href="/2019/05/14/hou-duan/fen-bu-shi-kuang-jia/springboot-lan-jie-qi-wu-fa-zhu-ru-redistemplate-cao-zuo-gong-ju-lei-wen-ti/"/>
+      <url>/2019/05/14/hou-duan/fen-bu-shi-kuang-jia/springboot-lan-jie-qi-wu-fa-zhu-ru-redistemplate-cao-zuo-gong-ju-lei-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<p>最近在做微服务间用户权限打通的时候，由于当初设计的问题，用户的信息没有存在Redis中，而是由请求头携带的，因此需要在用户首次访问的时候缓存用户信息到Redis中，但是redisTemplate却无法注入到拦截其中，核心代码如下所示：<br>SessionInterceptor.java</p><pre><code>package cn.lz.conf.auth;import java.util.concurrent.TimeUnit;import javax.servlet.http.HttpServletRequest;import javax.servlet.http.HttpServletResponse;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.data.redis.core.RedisTemplate;import org.springframework.data.redis.core.ValueOperations;import org.springframework.web.servlet.HandlerInterceptor;import org.springframework.web.servlet.ModelAndView;import cn.hutool.json.JSONUtil;import cn.lz.dh.common.utils.effi.PipelineUtil;import cn.lz.dh.feign.dragon.dto.User;/** * * Copyright: Copyright (c) 2019 Jun_Zhou* * @ClassName: SessionInterceptor.java* @Description: Session拦截器，当用户首次访问的时候，*                 根据用户名或者Id查询用户详情并缓存于Redis中[k（用户Id）-&gt;V(用户详情)];* * @version: v1.0.0* @author: JunZhou* @Email: 1769676159@qq.com* @Site: CERNO* @date: 2019年5月14日 上午10:25:38 */public class SessionInterceptor implements HandlerInterceptor{    @Autowired    RedisTemplate&lt;String, String&gt;    redisTemplate;    //设置默认的额过期时间为15分钟;    private Long                    timeout                = (long) (15 * 60);    //缓存空间名称;    private static final String        CACHE_NAME_SPACE    = &quot;efffi:user:&quot;;    @Override    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception    {        //当前服务不存在登陆请求，因此不用考虑登陆请求造成的死循环问题;        String userId = request.getHeader(&quot;userid&quot;);        String userName = request.getHeader(&quot;userName&quot;);        Boolean hadCachedCurrentUserInfo = hadCachedCurrentUserInfo(userName, userId);        if (!hadCachedCurrentUserInfo)        {            //当没有缓存当前用户详情的时候调用第三方服务查询用户详情;            User userDetail = PipelineUtil.parseUserInfoFromResEntity(userId);            ValueOperations&lt;String, String&gt; opsForValue = getValueOperations();            if (userDetail != null)            {                String jsonPrettyStr = JSONUtil.toJsonPrettyStr(userDetail);                //缓存用户信息到redis中;                opsForValue.set(CACHE_NAME_SPACE + userId, jsonPrettyStr, timeout, TimeUnit.SECONDS);            }        }        return true;    }    /**     * 该方法将在Controller执行之后，返回视图之前执行，modelAndView表示请求Controller处理之后返回的Model和View对象，所以可以在     * 这个方法中修改modelAndView的属性，从而达到改变返回的模型和视图的效果。     */    @Override    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception    {}    @Override    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception    {}    /**     *  判断当前用户信息是否被缓存,用于加快访问效率;     * @param userName:用户名;     * @param userid : 用户Id;     * @return:用户信息是否被缓存的标志【true/false】;     */    public Boolean hadCachedCurrentUserInfo(String userName, String userid)    {        Boolean hadCachedCurrentUserInfo = true;        //从Redis中获取指定key的值;        ValueOperations&lt;String, String&gt; opsForValue = getValueOperations();        Object object = opsForValue.get(CACHE_NAME_SPACE + userid);        //根据请求头信息中的用户信息判断session中是否存在有效的用户信息;        if (null == object)        {            hadCachedCurrentUserInfo = false;        }        return hadCachedCurrentUserInfo;    }    /**     * 获取redis中的对象操作句柄;     * @return     */    public ValueOperations&lt;String, String&gt; getValueOperations()    {        ValueOperations&lt;String, String&gt; opsForValue = redisTemplate.opsForValue();        return opsForValue;    }}</code></pre><p>SessionConfiguration.java</p><pre><code>package cn.lz.conf.auth;import org.springframework.context.annotation.Bean;import org.springframework.context.annotation.Configuration;import org.springframework.web.servlet.config.annotation.InterceptorRegistry;import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;/** * * Copyright: Copyright (c) 2019 Jun_Zhou* * @ClassName: SessionConfiguration.java* @Description: 用户信息Redis缓存相关的配置类;* * @version: v1.0.0* @author: JunZhou* @Email: 1769676159@qq.com* @Site: CERNO* @date: 2019年5月14日 下午12:38:53*/@Configurationpublic class SessionConfiguration extends WebMvcConfigurerAdapter{  【--&gt;        @Bean        public SessionInterceptor getSessionInterceptor()        {            return new SessionInterceptor();        }    &lt;--】    @Override    public void addInterceptors(InterceptorRegistry registry)    {        registry.addInterceptor(getSessionInterceptor()).addPathPatterns(&quot;/**&quot;);    }}</code></pre><p>最终调试发现，由于拦截器加载的时间点在springcontext之前，所以在拦截器中注入自然为null 。<br>因此解决方法在配置拦截器链的类中先注入这个拦截器，代码如下：</p><pre><code>【--&gt;        @Bean        public SessionInterceptor getSessionInterceptor()        {            return new SessionInterceptor();        }    &lt;--】</code></pre><p>这样，就相当于将当前拦截器交给了Spring的IOC容器管理，因此拦截器中的属性注入自然就不会发生问题了。</p><p>参考文章：<br><a href="https://blog.csdn.net/weixin_34192732/article/details/88476602" target="_blank" rel="noopener">记录解决一个springboot拦截器无法注入redisTemplate操作工具类问题</a><br>                  <a href="https://blog.csdn.net/liuyang1835189/article/details/81056162" target="_blank" rel="noopener">Spring boot整合redis过程中，发现自定义的拦截器注入不了redis接口service。</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SpringBoot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>软件开发中会用到的图</title>
       <link href="/2019/04/14/bian-cheng-zhi-dao/ruan-jian-kai-fa-zhong-hui-yong-dao-de-tu/"/>
       <url>/2019/04/14/bian-cheng-zhi-dao/ruan-jian-kai-fa-zhong-hui-yong-dao-de-tu/</url>
@@ -3172,11 +3195,11 @@
     </entry>
     
     <entry>
-      <title>今天平安夜，公司发了平安果，好贴心</title>
-      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
-      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
+      <title>会不会因为这个错过一段美好的爱情？</title>
+      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
+      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
       
       
       <categories>
@@ -3195,11 +3218,11 @@
     </entry>
     
     <entry>
-      <title>会不会因为这个错过一段美好的爱情？</title>
-      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
-      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
+      <title>今天平安夜，公司发了平安果，好贴心</title>
+      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
+      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
       
       
       <categories>
@@ -3310,11 +3333,11 @@
     </entry>
     
     <entry>
-      <title>springmvc与struts2不同</title>
-      <link href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
-      <url>/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
+      <title>JAVA判断一个URL是否有效</title>
+      <link href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
+      <url>/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</url>
       
-        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
+        <content type="html"><![CDATA[<p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p><hr><p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p><p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p><hr><p>[java] view plain copy<br>/** </p><ul><li>文件名称为：URLAvailability.java </li><li>文件功能简述： 描述一个URL地址是否有效 </li><li>@author Jason </li><li>@time   2010-9-14  </li><li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li></ul><p>/** </p><ul><li>功能：检测当前URL是否可连接或是否有效, </li><li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li><li>@param urlStr 指定URL网络地址 </li><li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li></ul><p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>]]></content>
       
       
       <categories>
@@ -3333,11 +3356,11 @@
     </entry>
     
     <entry>
-      <title>JAVA判断一个URL是否有效</title>
-      <link href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
-      <url>/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</url>
+      <title>springmvc与struts2不同</title>
+      <link href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
+      <url>/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
       
-        <content type="html"><![CDATA[<p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p><hr><p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p><p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p><hr><p>[java] view plain copy<br>/** </p><ul><li>文件名称为：URLAvailability.java </li><li>文件功能简述： 描述一个URL地址是否有效 </li><li>@author Jason </li><li>@time   2010-9-14  </li><li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li></ul><p>/** </p><ul><li>功能：检测当前URL是否可连接或是否有效, </li><li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li><li>@param urlStr 指定URL网络地址 </li><li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li></ul><p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
       
       
       <categories>
