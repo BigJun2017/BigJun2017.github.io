@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>带权重的随机数算法的实现</title>
+      <link href="/2019/05/19/hou-duan/java/dai-quan-chong-de-sui-ji-shu-suan-fa-de-shi-xian/"/>
+      <url>/2019/05/19/hou-duan/java/dai-quan-chong-de-sui-ji-shu-suan-fa-de-shi-xian/</url>
+      
+        <content type="html"><![CDATA[<p>在做一个银行的网页游戏的时候，涉及到一个随机抽奖的模块。具体的需求是：当用户的积分可以抽奖的时候，点击抽奖则消耗指定的积分随机抽取奖品，各种奖品的概率如下：笔记本（10%），手机（20%），充值卡（30%），积分（40%）。因为，奖品的概率是可以设置的，因此考虑Java容器中的TreeMap集合实现该算法。<br><strong>核心逻辑：</strong></p><blockquote><p>累加每个物品的权重笔记本(10%)-手机(30%)-充值卡(60%)-积分(100%)，则4个物品的的权重有效长度区间分别为（0,10]、(10,30]、(30,60]、(60,100]。然后随机出一个[0,10)之间的随机数。落在哪个区间，则该区间之后的元素即为按权重命中的元素。</p></blockquote><p><strong>为什么用TreeMap？</strong></p><blockquote><p> 因为TreeMap底层用红黑树实现，TreeMap中的key是唯一且有序的，因此TreeMap提供了如下方法：</p></blockquote><pre><code>NavigableMap&lt;K,V&gt;    tailMap(K fromKey, boolean inclusive)              返回此映射的部分视图，其键大于（或等于，如果 inclusive 为 true）fromKey。K    lastKey()             返回映射中当前最后一个（最高）键。K    firstKey()           返回此映射中当前第一个（最低）键。</code></pre><blockquote><p>试想，当我们用普通的不可动态扩展的方法如if/switch方法实现时，必然是产生一个随机数，然后判断该随机数在哪个概率区间。TreeMap因为有序，因此刚好提供了两个方法tailMap，firstKey用于实现落点区间判断的逻辑，简洁又高效，并且方便动态扩展。<br>具体的代码实现：</p></blockquote><pre><code>package icerno.com.weightRandom;import java.util.ArrayList;import java.util.List;import java.util.SortedMap;import java.util.TreeMap;import org.apache.commons.math3.util.Pair;import com.cookingfox.guava_preconditions.Preconditions;public class WeightRandom&lt;K,V extends Number&gt; {    private TreeMap&lt;Double, K&gt; weightMap = new TreeMap&lt;Double, K&gt;();    public WeightRandom(List&lt;Pair&lt;K, V&gt;&gt; list) {        Preconditions.checkNotNull(list, &quot;list can NOT be null!&quot;);        for (Pair&lt;K, V&gt; pair : list) {            double lastWeight = this.weightMap.size() == 0 ? 0 : this.weightMap.lastKey().doubleValue();//统一转为double            this.weightMap.put(pair.getValue().doubleValue() + lastWeight, pair.getKey());//权重累加        }        System.out.println(&quot;------Tree init OK!--------&quot;);    }    public K random() {        double randomWeight = this.weightMap.lastKey() * Math.random();        SortedMap&lt;Double, K&gt; tailMap = this.weightMap.tailMap(randomWeight, true);        return this.weightMap.get(tailMap.firstKey());    }    @SuppressWarnings({ &quot;rawtypes&quot;, &quot;unchecked&quot; })    public static void main(String[] args)    {        List&lt;Pair&lt;String,Double&gt;&gt; list = new ArrayList&lt;Pair&lt;String,Double&gt;&gt;();        list.add(new Pair&lt;String,Double&gt;(&quot;A&quot;,0.20));        list.add(new Pair&lt;String,Double&gt;(&quot;C&quot;,0.50));        list.add(new Pair&lt;String,Double&gt;(&quot;B&quot;,0.30));        WeightRandom weightRandom = new WeightRandom(list);        Object random = weightRandom.random();        System.out.println(&quot;----Key----&quot;+random);    }}</code></pre><p>注意：TreeMap为异步的非线程安全的，因此在并发要求高时，可以使用如下代码加锁。</p><pre><code>public static Map&lt;Double, K&gt; treemap = Collections.synchronizedMap(new TreeMap&lt;Double, K&gt;());</code></pre><p>参考文章：<br>          <a href="https://www.cnblogs.com/waterystone/p/5708063.html" target="_blank" rel="noopener">权重随机算法的java实现</a><br>         <a href="https://blog.csdn.net/x_i_y_u_e/article/details/46372023" target="_blank" rel="noopener">Java TreeMap 介绍和使用</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Springboot拦截器无法注入redisTemplate操作工具类问题</title>
       <link href="/2019/05/14/hou-duan/fen-bu-shi-kuang-jia/springboot-lan-jie-qi-wu-fa-zhu-ru-redistemplate-cao-zuo-gong-ju-lei-wen-ti/"/>
       <url>/2019/05/14/hou-duan/fen-bu-shi-kuang-jia/springboot-lan-jie-qi-wu-fa-zhu-ru-redistemplate-cao-zuo-gong-ju-lei-wen-ti/</url>
@@ -3333,11 +3356,11 @@
     </entry>
     
     <entry>
-      <title>JAVA判断一个URL是否有效</title>
-      <link href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
-      <url>/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</url>
+      <title>springmvc与struts2不同</title>
+      <link href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
+      <url>/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
       
-        <content type="html"><![CDATA[<p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p><hr><p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p><p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p><hr><p>[java] view plain copy<br>/** </p><ul><li>文件名称为：URLAvailability.java </li><li>文件功能简述： 描述一个URL地址是否有效 </li><li>@author Jason </li><li>@time   2010-9-14  </li><li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li></ul><p>/** </p><ul><li>功能：检测当前URL是否可连接或是否有效, </li><li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li><li>@param urlStr 指定URL网络地址 </li><li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li></ul><p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
       
       
       <categories>
@@ -3356,11 +3379,11 @@
     </entry>
     
     <entry>
-      <title>springmvc与struts2不同</title>
-      <link href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/"/>
-      <url>/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/</url>
+      <title>JAVA判断一个URL是否有效</title>
+      <link href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/"/>
+      <url>/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/</url>
       
-        <content type="html"><![CDATA[<h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p><p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p><p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>]]></content>
+        <content type="html"><![CDATA[<p>最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了URL中的的openStream()方法，这样使用倒是可以，但是速度慢，代码如下：</p><hr><p>[java] view plain copy<br>try {<br>     url = new URL(“<a href="http://127.0.0.1/sj/user/getUser&quot;)" target="_blank" rel="noopener">http://127.0.0.1/sj/user/getUser&quot;)</a>;<br>     in = url.openStream();<br>} catch (Exception e1) {<br>     System.out.println(“连接打不开!”);<br>     url = null;<br>}  </p><p>下面判断url是不是null就可以了，速度慢<br>最后使用了HttpURLConnection 中的 getResponseCode（）；方法，HttpURLConnection ： 通常一个HttpURLConnection 的实例可以生成一个请求，它有个方法 getResponseCode（）；可以得到请求的响应状态，该方法返回一个 int 分别是 200 and 404 如无法从响应中识别任何代码则返回 -1，代码如下：</p><hr><p>[java] view plain copy<br>/** </p><ul><li>文件名称为：URLAvailability.java </li><li>文件功能简述： 描述一个URL地址是否有效 </li><li>@author Jason </li><li>@time   2010-9-14  </li><li>*/<br>public class URLAvailability {<br>private static URL url;<br>private static HttpURLConnection con;<br>private static int state = -1;  </li></ul><p>/** </p><ul><li>功能：检测当前URL是否可连接或是否有效, </li><li>描述：最多连接网络 5 次, 如果 5 次都不成功，视为该地址不可用 </li><li>@param urlStr 指定URL网络地址 </li><li>@return URL<br>*/<br>public synchronized URL isConnect(String urlStr) {<br>int counts = 0;<br>if (urlStr == null || urlStr.length() &lt;= 0) {<br>return null;<br>}<br>while (counts &lt; 5) {<br>try {<br>url = new URL(urlStr);<br>con = (HttpURLConnection) url.openConnection();<br>state = con.getResponseCode();<br>System.out.println(counts +”= “+state);<br>if (state == 200) {<br> System.out.println(“URL可用！”);<br>}<br>break;<br>}catch (Exception ex) {<br>counts++;<br>System.out.println(“URL不可用，连接第 “+counts+” 次”);<br>urlStr = null;<br>continue;<br>}<br>}<br>return url;<br>}<br>}  </li></ul><p>第二种方法速度很快，如果想返回json结果也是很容易的。</p>]]></content>
       
       
       <categories>

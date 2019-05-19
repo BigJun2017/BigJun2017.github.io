@@ -5,9 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="springmvc与struts2不同, Blog4Jun">
-    <meta name="description" content="springmvc与struts2不同1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。
-2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可">
+    <meta name="keywords" content="带权重的随机数算法的实现, Blog4Jun">
+    <meta name="description" content="在做一个银行的网页游戏的时候，涉及到一个随机抽奖的模块。具体的需求是：当用户的积分可以抽奖的时候，点击抽奖则消耗指定的积分随机抽取奖品，各种奖品的概率如下：笔记本（10%），手机（20%），充值卡（30%），积分（40%）。因为，奖品的概率">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>springmvc与struts2不同 | Blog4Jun</title>
+    <title>带权重的随机数算法的实现 | Blog4Jun</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -265,13 +264,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('http://static.blinkfox.com/20181115.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        springmvc与struts2不同
+                        带权重的随机数算法的实现
                     </div>
                 </div>
             </div>
@@ -302,24 +301,86 @@
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/老博客/" class="post-category" target="_blank">
-                        老博客
+                    <a href="/categories/后端/" class="post-category" target="_blank">
+                        后端
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2017-08-29
+                    <i class="fa fa-clock-o fa-fw"></i>2019-05-19
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="springmvc与struts2不同"><a href="#springmvc与struts2不同" class="headerlink" title="springmvc与struts2不同"></a>springmvc与struts2不同</h2><p>1、springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过滤器。</p>
-<p>2、springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p>
-<p>3.Struts采用值栈存储请求和响应的数据，通过OGNL存取数据， springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。</p>
+                <p>在做一个银行的网页游戏的时候，涉及到一个随机抽奖的模块。具体的需求是：当用户的积分可以抽奖的时候，点击抽奖则消耗指定的积分随机抽取奖品，各种奖品的概率如下：笔记本（10%），手机（20%），充值卡（30%），积分（40%）。因为，奖品的概率是可以设置的，因此考虑Java容器中的TreeMap集合实现该算法。<br><strong>核心逻辑：</strong></p>
+<blockquote>
+<p>累加每个物品的权重笔记本(10%)-手机(30%)-充值卡(60%)-积分(100%)，则4个物品的的权重有效长度区间分别为（0,10]、(10,30]、(30,60]、(60,100]。然后随机出一个[0,10)之间的随机数。落在哪个区间，则该区间之后的元素即为按权重命中的元素。</p>
+</blockquote>
+<p><strong>为什么用TreeMap？</strong></p>
+<blockquote>
+<p> 因为TreeMap底层用红黑树实现，TreeMap中的key是唯一且有序的，因此TreeMap提供了如下方法：</p>
+</blockquote>
+<pre><code>NavigableMap&lt;K,V&gt;    tailMap(K fromKey, boolean inclusive) 
+             返回此映射的部分视图，其键大于（或等于，如果 inclusive 为 true）fromKey。
+
+K    lastKey() 
+            返回映射中当前最后一个（最高）键。
+
+K    firstKey() 
+          返回此映射中当前第一个（最低）键。
+</code></pre><blockquote>
+<p>试想，当我们用普通的不可动态扩展的方法如if/switch方法实现时，必然是产生一个随机数，然后判断该随机数在哪个概率区间。TreeMap因为有序，因此刚好提供了两个方法tailMap，firstKey用于实现落点区间判断的逻辑，简洁又高效，并且方便动态扩展。<br>具体的代码实现：</p>
+</blockquote>
+<pre><code>package icerno.com.weightRandom;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+import org.apache.commons.math3.util.Pair;
+
+import com.cookingfox.guava_preconditions.Preconditions;
+
+public class WeightRandom&lt;K,V extends Number&gt; {
+    private TreeMap&lt;Double, K&gt; weightMap = new TreeMap&lt;Double, K&gt;();
+    public WeightRandom(List&lt;Pair&lt;K, V&gt;&gt; list) {
+        Preconditions.checkNotNull(list, &quot;list can NOT be null!&quot;);
+        for (Pair&lt;K, V&gt; pair : list) {
+            double lastWeight = this.weightMap.size() == 0 ? 0 : this.weightMap.lastKey().doubleValue();//统一转为double
+            this.weightMap.put(pair.getValue().doubleValue() + lastWeight, pair.getKey());//权重累加
+        }
+
+        System.out.println(&quot;------Tree init OK!--------&quot;);
+    }
+
+    public K random() {
+        double randomWeight = this.weightMap.lastKey() * Math.random();
+        SortedMap&lt;Double, K&gt; tailMap = this.weightMap.tailMap(randomWeight, true);
+        return this.weightMap.get(tailMap.firstKey());
+    }
+
+    @SuppressWarnings({ &quot;rawtypes&quot;, &quot;unchecked&quot; })
+    public static void main(String[] args)
+    {
+        List&lt;Pair&lt;String,Double&gt;&gt; list = new ArrayList&lt;Pair&lt;String,Double&gt;&gt;();
+        list.add(new Pair&lt;String,Double&gt;(&quot;A&quot;,0.20));
+        list.add(new Pair&lt;String,Double&gt;(&quot;C&quot;,0.50));
+        list.add(new Pair&lt;String,Double&gt;(&quot;B&quot;,0.30));
+
+        WeightRandom weightRandom = new WeightRandom(list);
+        Object random = weightRandom.random();
+        System.out.println(&quot;----Key----&quot;+random);
+
+    }
+}
+</code></pre><p>注意：TreeMap为异步的非线程安全的，因此在并发要求高时，可以使用如下代码加锁。</p>
+<pre><code>public static Map&lt;Double, K&gt; treemap = Collections.synchronizedMap(new TreeMap&lt;Double, K&gt;());
+</code></pre><p>参考文章：<br>          <a href="https://www.cnblogs.com/waterystone/p/5708063.html" target="_blank" rel="noopener">权重随机算法的java实现</a><br>         <a href="https://blog.csdn.net/x_i_y_u_e/article/details/46372023" target="_blank" rel="noopener">Java TreeMap 介绍和使用</a></p>
 
             </div>
             <hr>
@@ -458,7 +519,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="https://junzhou2016.github.io" class="b-link-green">Blog4Jun</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2017/08/29/lao-bo-ke/7.springmvc-yu-struts2-bu-tong/" class="b-link-green">springmvc与struts2不同</a>
+                    <a href="/2019/05/19/hou-duan/java/dai-quan-chong-de-sui-ji-shu-suan-fa-de-shi-xian/" class="b-link-green">带权重的随机数算法的实现</a>
                 </p>
             </div>
         </div>
@@ -480,35 +541,35 @@
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="article-badge left-badge text-color">Current</div>
             <div class="card">
-                <a href="/2017/09/07/lao-bo-ke/centos-zhong-nginx-fu-zai-jun-heng-he-fan-xiang-dai-li-de-da-jian/">
+                <a href="/2019/05/19/hou-duan/java/dai-quan-chong-de-sui-ji-shu-suan-fa-de-shi-xian/">
                     <div class="card-image">
                         
+                        <img src="http://static.blinkfox.com/20181115.jpg" class="responsive-img" alt="带权重的随机数算法的实现">
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="CentOS 中 nginx 负载均衡和反向代理的搭建">
-                        
-                        <span class="card-title">CentOS 中 nginx 负载均衡和反向代理的搭建</span>
+                        <span class="card-title">带权重的随机数算法的实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">请参照博客：      (1.) Nginx的好处和原理       (2.)nginx下载       (3.)CentOS 中 nginx 负载均衡和反向代理的搭建；       (4.)修改hosts       (5.)Linux（</div>
+                    <div class="summary">在做一个银行的网页游戏的时候，涉及到一个随机抽奖的模块。具体的需求是：当用户的积分可以抽奖的时候，点击抽奖则消耗指定的积分随机抽取奖品，各种奖品的概率如下：笔记本（10%），手机（20%），充值卡（30%），积分（40%）。因为，奖品的概率</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-09-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/老博客/" class="post-category" target="_blank">
-                                    老博客
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -525,27 +586,27 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2017/08/29/lao-bo-ke/yong-java-pan-duan-yi-ge-url-shi-fou-you-xiao/">
+                <a href="/2019/05/14/hou-duan/fen-bu-shi-kuang-jia/springboot-lan-jie-qi-wu-fa-zhu-ru-redistemplate-cao-zuo-gong-ju-lei-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="JAVA判断一个URL是否有效">
+                        <img src="/medias/featureimages/36.jpg" class="responsive-img" alt="Springboot拦截器无法注入redisTemplate操作工具类问题">
                         
-                        <span class="card-title">JAVA判断一个URL是否有效</span>
+                        <span class="card-title">Springboot拦截器无法注入redisTemplate操作工具类问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">最近因项目需求，需要针对一些URL地址进行检测是否可用，使用Java.NET 下的类来实现，主要用到了 URL和HttpURLConnection 二个类 ，URL 是统一资源标识符的引用，一个URL实例代表着一个url的引用，开始使用了U</div>
+                    <div class="summary">最近在做微服务间用户权限打通的时候，由于当初设计的问题，用户的信息没有存在Redis中，而是由请求头携带的，因此需要在用户首次访问的时候缓存用户信息到Redis中，但是redisTemplate却无法注入到拦截其中，核心代码如下所示：Ses</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/老博客/" class="post-category" target="_blank">
-                                    老博客
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
                                 </a>
                             
                             
@@ -555,8 +616,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/" target="_blank">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/SpringBoot/" target="_blank">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>

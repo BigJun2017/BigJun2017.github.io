@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-05-14T13:14:26.145Z</updated>
+  <updated>2019-05-19T08:57:38.987Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>带权重的随机数算法的实现</title>
+    <link href="https://junzhou2016.github.io/2019/05/19/hou-duan/java/dai-quan-chong-de-sui-ji-shu-suan-fa-de-shi-xian/"/>
+    <id>https://junzhou2016.github.io/2019/05/19/hou-duan/java/dai-quan-chong-de-sui-ji-shu-suan-fa-de-shi-xian/</id>
+    <published>2019-05-19T08:57:00.000Z</published>
+    <updated>2019-05-19T08:57:38.987Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在做一个银行的网页游戏的时候，涉及到一个随机抽奖的模块。具体的需求是：当用户的积分可以抽奖的时候，点击抽奖则消耗指定的积分随机抽取奖品，各种奖品的概率如下：笔记本（10%），手机（20%），充值卡（30%），积分（40%）。因为，奖品的概率是可以设置的，因此考虑Java容器
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Springboot拦截器无法注入redisTemplate操作工具类问题</title>
@@ -532,30 +558,6 @@
 package com.qiniu.up;
 
 import
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用XShell部署SpringBoot的jar文件到Linux服务器上</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-xshell-bu-shu-springboot-de-jar-wen-jian-dao-linux-fu-wu-qi-shang/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-xshell-bu-shu-springboot-de-jar-wen-jian-dao-linux-fu-wu-qi-shang/</id>
-    <published>2018-12-04T12:35:56.451Z</published>
-    <updated>2018-04-15T14:15:50.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近师傅教我了通过jenkins发布项目，但是发现公司的Maven出了点问题，因此就用XShell进行项目的发布操作。发布的步骤如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在eclipse中通过Maven命令Clean–&amp;gt;Install生成jar文件；&lt;br&gt;clean:清楚t
         
       
     
