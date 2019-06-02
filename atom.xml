@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-05-19T08:57:38.987Z</updated>
+  <updated>2019-06-02T12:56:36.364Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MYSQL线上审核规范</title>
+    <link href="https://junzhou2016.github.io/2019/06/02/shu-ju-ku/bei-guan-suo-he-le-guan-suo-xue-xi/"/>
+    <id>https://junzhou2016.github.io/2019/06/02/shu-ju-ku/bei-guan-suo-he-le-guan-suo-xue-xi/</id>
+    <published>2019-06-02T12:56:00.000Z</published>
+    <updated>2019-06-02T12:56:36.364Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近线上数据库出现了慢查询的问题，因此研究下了下数据库锁相关的东西,参考的比较好的文章如下，方便后面查看。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/L_BestCoder/article/details/79298417&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://junzhou2016.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="MYSQL" scheme="https://junzhou2016.github.io/tags/MYSQL/"/>
+    
+      <category term="数据库" scheme="https://junzhou2016.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>带权重的随机数算法的实现</title>
@@ -529,35 +558,6 @@
         
         
           &lt;p&gt;最近在学习angular4感觉也没有那么难啦，好奇移动端到底可以做出啥，继续学习中……&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用七牛上传图片的demo</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-qi-niu-shang-chuan-tu-pian-de-demo/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/shi-yong-qi-niu-shang-chuan-tu-pian-de-demo/</id>
-    <published>2018-12-04T12:35:56.453Z</published>
-    <updated>2018-02-01T00:46:02.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;七牛是一个很好的第三方的图片服务器,下面介绍一下使用七牛上传图片的demo.&lt;br&gt;1、直接上代码:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;UploadDemo.java
-
-
-----------
-package com.qiniu.up;
-
-import
         
       
     
