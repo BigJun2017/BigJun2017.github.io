@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>linux开启某个端口防火墙的命令</title>
+      <link href="/2019/08/04/linux-yun-wei/linux-kai-qi-mou-ge-duan-kou-fang-huo-qiang-de-ming-ling/"/>
+      <url>/2019/08/04/linux-yun-wei/linux-kai-qi-mou-ge-duan-kou-fang-huo-qiang-de-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<p>在linux服务器上安装服务后，可能因为端口未开放暂时不能访问，此时需要开放特定的端口，相关的命令如下所示：</p><h2 id="A、防火墙状态操控"><a href="#A、防火墙状态操控" class="headerlink" title="A、防火墙状态操控"></a>A、防火墙状态操控</h2><ol><li>查看防火墙的状态</li></ol><pre><code>systemctl status firewalld</code></pre><ol><li>开启防火墙<pre><code>systemctl start firewalld</code></pre></li><li>关闭防火墙<pre><code>systemctl stop firewalld</code></pre><h2 id="B、防火墙状态操控"><a href="#B、防火墙状态操控" class="headerlink" title="B、防火墙状态操控"></a>B、防火墙状态操控</h2></li><li>查看已开放的端口</li></ol><pre><code> firewall-cmd --list-ports</code></pre><ol start="2"><li>开启80的端口号</li></ol><pre><code> firewall-cmd --zone=public --add-port=80/tcp --permanent</code></pre><ol start="2"><li>刷新防火墙</li></ol><pre><code>firewall-cmd --reload   </code></pre><blockquote><p>命令详解：<br>–zone #作用域<br>–add-port=80/tcp  #添加端口，格式为：端口/通讯协议<br>–permanent  #永久生效，没有此参数重启后失效</p></blockquote><p>参考文章：<br>       <a href="https://www.csdn.net/gather_24/MtjaUg5sNjk5NC1ibG9n.html" target="_blank" rel="noopener">Linux防火墙相关的命令</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>悲观锁和乐观锁学习</title>
       <link href="/2019/06/02/shu-ju-ku/bei-guan-suo-he-le-guan-suo-xue-xi/"/>
       <url>/2019/06/02/shu-ju-ku/bei-guan-suo-he-le-guan-suo-xue-xi/</url>
@@ -3243,11 +3266,11 @@
     </entry>
     
     <entry>
-      <title>会不会因为这个错过一段美好的爱情？</title>
-      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
-      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
+      <title>今天平安夜，公司发了平安果，好贴心</title>
+      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
+      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
       
       
       <categories>
@@ -3266,11 +3289,11 @@
     </entry>
     
     <entry>
-      <title>今天平安夜，公司发了平安果，好贴心</title>
-      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
-      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
+      <title>会不会因为这个错过一段美好的爱情？</title>
+      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
+      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
       
       
       <categories>

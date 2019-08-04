@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-06-02T13:01:06.317Z</updated>
+  <updated>2019-08-04T06:36:06.313Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux开启某个端口防火墙的命令</title>
+    <link href="https://junzhou2016.github.io/2019/08/04/linux-yun-wei/linux-kai-qi-mou-ge-duan-kou-fang-huo-qiang-de-ming-ling/"/>
+    <id>https://junzhou2016.github.io/2019/08/04/linux-yun-wei/linux-kai-qi-mou-ge-duan-kou-fang-huo-qiang-de-ming-ling/</id>
+    <published>2019-08-04T06:35:00.000Z</published>
+    <updated>2019-08-04T06:36:06.313Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在linux服务器上安装服务后，可能因为端口未开放暂时不能访问，此时需要开放特定的端口，相关的命令如下所示：&lt;/p&gt;
+&lt;h2 id=&quot;A、防火墙状态操控&quot;&gt;&lt;a href=&quot;#A、防火墙状态操控&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux运维" scheme="https://junzhou2016.github.io/categories/Linux%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="Linux运维" scheme="https://junzhou2016.github.io/tags/Linux%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>悲观锁和乐观锁学习</title>
@@ -541,28 +568,6 @@
     
     
       <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>移动端学习之初始化-angular4的学习</title>
-    <link href="https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/"/>
-    <id>https://junzhou2016.github.io/2018/12/04/lao-bo-ke/yi-dong-duan-xue-xi-zhi-chu-shi-hua-angular4-de-xue-xi/</id>
-    <published>2018-12-04T12:35:56.454Z</published>
-    <updated>2018-01-07T14:00:12.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近在学习angular4感觉也没有那么难啦，好奇移动端到底可以做出啥，继续学习中……&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
     
   </entry>
   
