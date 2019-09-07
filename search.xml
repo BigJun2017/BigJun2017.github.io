@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装</title>
+      <link href="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/"/>
+      <url>/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/</url>
+      
+        <content type="html"><![CDATA[<p><strong>背景：</strong></p><blockquote><p>最近公司要做用户行为日志的可视化展示，因为Elasticsearch对数据的可视化展示提供了初步支撑所以决定使用Elasticsearch。<br>个人理解：<br>            Elasticsearch相当于提供数据存储功能的应用系统，提送数据的存储【包含数据分片和存储】功能并对外开放接口/API;<br>    Kibana提供数据的可视化展示功能，其数据源为Elasticsearch；<br>    总之，用起来挺简单的，但是安装和适配的过程会比较烦。</p></blockquote><p><strong>相关资源：</strong><br>             <a href="https://pan.baidu.com/s/1fj5B2WV7axJSdfCEBaR97g" target="_blank" rel="noopener"><br>                     elasticsearch-7.3.1-linux-x86_64.tar.gz、<br>                      kibana-7.3.1-linux-x86_64.tar.gz、<br>                      logstash-7.3.1.tar.gz、<br>                     node-v12.9.1-linux-x64.tar.xz、<br>                   openjdk-11.0.1_linux-x64_bin.tar.gz              </a></p><p> <strong>安装</strong></p><ol><li>elasticsearch 安装</li></ol><blockquote><p>Elasticsearch的安装实际就是下载解压[<strong><em>假设解压目录为/opt</em></strong>]然后进入bin目录执行可执可执行文件就好了，但是在执行<br><code>./elasticsearch</code>命令时可能会出现如下错误：</p></blockquote><p><strong>异常和解决方案</strong></p><p>a、<code>Exception in thread &quot;main&quot; java.lang.RuntimeException: don&#39;t run elasticsearch as root.</code> </p><p><strong>解决方案：</strong><br>          创建普通用户和普通用户组，如：elsearch用户组及elsearch用户</p><blockquote><p>1、新增用户组<br>    groupadd elsearch</p></blockquote><blockquote><p>2、新增用户并将其加入新增的用户组中<br>    useradd elsearch -g elsearch -p /opt/elasticsearch-7.3.1</p></blockquote><blockquote><p>3、更改elasticsearch文件夹及内部文件的所属用户及组为elsearch:elsearch<br>    cd elasticsearch-7.3.1<br>    chown -R elsearch:elsearch  /opt/elasticsearch-7.3.1</p></blockquote><blockquote><p>4、切换到新增的普通用户启动/后台启动<br>    su elsearch cd /opt/elasticsearch/bin<br>    ./elasticsearch<br>        或者后台启动<br>     ./elasticsearch -d<br>(注：ElasticSearch后台启动命令):  ./elasticsearch -d</p></blockquote><p>参考文章：<br><a href="https://blog.csdn.net/lahand/article/details/78954112" target="_blank" rel="noopener">ElasticSearch Root身份运行异常解决方案</a><br><a href="https://blog.csdn.net/u011311291/article/details/100041912" target="_blank" rel="noopener">elasticsearch 7.2.0安装</a></p><p>b、<code>future versions of Elasticsearch will require Java 11; your Java version from [/opt/jdk1.8.0_211/jre] does not meet this requirement</code></p><p><strong>解决方案：</strong><br>                <a href="https://www.jianshu.com/p/6ddeae547f45" target="_blank" rel="noopener">Elasticsearch7.2启动指定JDK11</a></p><p>c、<code>Error: Could not find or load main class org.elasticsearch.tools.java_version_checker.JavaVersionChecker</code></p><p><strong>原因：</strong></p><blockquote><p>因为elasticsearch安装目录放在了root的家目录下，新用户是不能访问到的，所以即使新增的elasticsearch属于新用户了，但目录权限原因访问不到lib里的jar包，所以找不到Java类。</p></blockquote><p><strong>解决方案：</strong></p><blockquote><p> 把ES搬到新用户的家目录以内即可。eg:<code>mv elasticsearch-7.3.1 /home/elasticsearch</code></p></blockquote><p>参考文章：<br><a href="https://segmentfault.com/a/1190000019413175?utm_source=coffeephp.com" target="_blank" rel="noopener">Elasticsearch启动问题小记</a><br><a href="https://zhidao.baidu.com/question/129876177.html" target="_blank" rel="noopener">Linux系统里的家目录是什么意思</a></p><p>d:    <code>[1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65536]</code></p><p><strong>解决方案：</strong></p><blockquote><p>切换到root用户，编辑limits.conf添加如下内容，注意*不是注释，后面有空格的；<br>    vi /etc/security/limits.conf</p><pre><code>*     soft nofile 65536*     hard nofile 65536</code></pre></blockquote><p>参考文章：<br>    <a href="https://www.jianshu.com/p/2285f1f8ec21" target="_blank" rel="noopener">elasticsearch启动常见的几个报错</a></p><p>e:    <code>max number of threads [3818] for user [es] is too low, increase to at least [4096]</code></p><p><strong>解决方案：</strong></p><blockquote><p>修改配置文件etc/security/limits.conf，增加配置,注意*不是注释，后面有空格的；</p><pre><code>*     soft nproc 4096*     hard nproc 4096</code></pre></blockquote><p>参考文章：<br>    <a href="https://www.jianshu.com/p/2285f1f8ec21" target="_blank" rel="noopener">elasticsearch启动常见的几个报错</a></p><p>2、安装Kibana可视化工具:<br>    和Kibana一样，下载，解压，然后去bin目录下执行<code>./kibana --allow-root</code>，因为使用root用户启动会提示不允许使用root用户启动，所以命令后面加上<code>--allow-root</code><br>    a、<code>Running Elastic without the Trial License</code></p><p><strong>解决方案：</strong></p><blockquote><p>原因：kibana和elasticsearch整合的时候需要elasticsearch安全控制信息<br>解决：再elasticsearch的配置文件elasticsearch.yml中添加<code>xpack.license.self_generated.type: basic</code>指定只提供基础认证信息，因为高级的认证要收费的，好像还有点贵。</p></blockquote><p>参考文章：<br><a href="https://stackoverflow.com/questions/54079501/running-elastic-without-the-trial-license" target="_blank" rel="noopener">Running Elastic without the Trial License</a></p><p>参考文档：<br>       <a href="https://blog.csdn.net/weixin_44026528/article/details/94375810" target="_blank" rel="noopener">Elasticsearch中ik_max_word和ik_smart的区别</a><br>       <a href="https://blog.csdn.net/u014082714/article/details/89963046" target="_blank" rel="noopener">windows下安装Elasticsearch7.X，IK分词器</a><br>       <a href="https://blog.csdn.net/weixin_30595035/article/details/99871248" target="_blank" rel="noopener">springboot整合elasticsearch7.2(基于官方high level client)</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> elk </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>linux开启某个端口防火墙的命令</title>
       <link href="/2019/08/04/linux-yun-wei/linux-kai-qi-mou-ge-duan-kou-fang-huo-qiang-de-ming-ling/"/>
       <url>/2019/08/04/linux-yun-wei/linux-kai-qi-mou-ge-duan-kou-fang-huo-qiang-de-ming-ling/</url>
@@ -3266,11 +3289,11 @@
     </entry>
     
     <entry>
-      <title>今天平安夜，公司发了平安果，好贴心</title>
-      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
-      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
+      <title>会不会因为这个错过一段美好的爱情？</title>
+      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
+      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
       
       
       <categories>
@@ -3289,11 +3312,11 @@
     </entry>
     
     <entry>
-      <title>会不会因为这个错过一段美好的爱情？</title>
-      <link href="/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/"/>
-      <url>/2017/12/22/xiang-ce/hui-bu-hui-yin-wei-zhe-ge-cuo-guo-yi-duan-mei-hao-de-ai-qing/</url>
+      <title>今天平安夜，公司发了平安果，好贴心</title>
+      <link href="/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/"/>
+      <url>/2017/12/22/xiang-ce/jin-tian-ping-an-ye-gong-si-fa-liao-ping-an-guo-hao-tie-xin/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686961-20fc9f80-fb37-11e8-9c00-1d6e240cbf5a.jpg" alt="在这里插入图片描述"></p><p>会不会因为这个错过一段美好的爱情,如果不努力，有什么资格谈论爱情呢。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/25767073/49686930-bfd4cc00-fb36-11e8-9a70-9cac84af3c93.png" alt="在这里插入图片描述"></p><p>今天平安夜，公司发了平安果，好贴心。</p>]]></content>
       
       
       <categories>

@@ -1,775 +1,1370 @@
-<!DOCTYPE HTML>
-<html lang="">
-<head>
-    
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
 
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Blog4Jun">
-    <meta name="description" content="Blog4Jun">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Blog4Jun</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Blog4Jun
+    
+  </title>
+  <meta name="author" content="Pursue">
+  <meta name="keywords" content="">
+  <meta name="description" content="Doraemon">
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+	<body>
+		<!-- Preloader -->
 
-</head>
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
 
-<body>
 
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">Blog4Jun</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>Index</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>Tags</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>Categories</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-archive"></i>
-            
-            <span>Archives</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>About</span>
-        </a>
-    </li>
-    
-    <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
-        </a>
-    </li>
+<!-- header -->
+<header class="fixbackground" data-img-mode="random" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						<img src="/img/logo.png" alt="Logo">
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
 
-</ul>
+					
+				</ul>			
+			</div>				
+		</div>
 
-<div class="side-nav" id="mobile-nav">
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
 
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Blog4Jun</div>
-        <div class="logo-desc">
-            
-            爱你所爱，无问西东
-            
-        </div>
-    </div>
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						主页
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
 
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                Index
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                Tags
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                Categories
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-archive"></i>
-                
-                Archives
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                About
-            </a>
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="waves-effect waves-light" target="_blank">
-                <i class="fa fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
-    </ul>
-
-    <div class="social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-
-<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-    <i class="fa fa-rss"></i>
-</a>
-</div>
-</div>
-
-            </div>
-        </div>
-
-        
-        <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewbox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
-    </svg>
-</a>
-        
-    </nav>
-</header>
-
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
+				</li>
+				<li>
+					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
+				</li>
+				<li>
+					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
 <style type="text/css">
-    /* don't remove. */
-    .index-cover {
-        height: 100vh;
-    }
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
 </style>
-
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                    
-                        Doraemon
-                    
-                    </div>
-
-                    <div class="description center-align">
-                    
-                        爱你所爱，无问西东
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
 </div>
-
+<script src="//widget.time.is/zh.js"></script>
 <script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
 </script>
+</div></header>
 
-<main class="content">
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
 
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			
+
+
+
+	<!--cart style-->
+	<div class="layout-cart">
+	<div id="layout-cart">
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/request-de-bao-zhuang-lei-httpservletrequestwrapper-de-shi-yong/" title=" Request的包装类HttpServletRequestWrapper的使用 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/request-de-bao-zhuang-lei-httpservletrequestwrapper-de-shi-yong/" title="Request的包装类HttpServletRequestWrapper的使用">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/request-de-bao-zhuang-lei-httpservletrequestwrapper-de-shi-yong/" itemprop="url">
+		Request的包装类HttpServletRequestWrapper的使用
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							在使用zuul进行鉴权的时候，我们希望从请求Request中获取输入流，解析里面的内容，奈何InputStream只能被读取一次。为啥呢？源码里是这样说的...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/request-de-bao-zhuang-lei-httpservletrequestwrapper-de-shi-yong/_visitors" data-url="/2018/12/04/lao-bo-ke/request-de-bao-zhuang-lei-httpservletrequestwrapper-de-shi-yong/" data-title="Request的包装类HttpServletRequestWrapper的使用">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
     
-    <div class="container notice">
-        <div class="card">
-            <div class="card-content">
-                <i class="fa fa-volume-up fa-lg fa-fw text-color"></i>最痛苦的事，不是失败，而是,我本可以!
-            </div>
-        </div>
-    </div>
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/request-de-bao-zhuang-lei-httpservletrequestwrapper-de-shi-yong/_likes" data-url="/2018/12/04/lao-bo-ke/request-de-bao-zhuang-lei-httpservletrequestwrapper-de-shi-yong/" data-title="Request的包装类HttpServletRequestWrapper的使用" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
     
 
-    <div id="recommend-sections">
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/" title=" reflux中一个小error[error-linstenner is no a function]总结 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/" title="reflux中一个小error[error-linstenner is no a function]总结">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/" itemprop="url">
+		reflux中一个小error[error-linstenner is no a function]总结
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							最近在使用reflux的时候，我想为事件监听的callback函数添加参数，如下所示:
+1、ContentStore.removeChangeListen...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/_visitors" data-url="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/" data-title="reflux中一个小error[error-linstenner is no a function]总结">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
     
-    </div>
+    /
 
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/_likes" data-url="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/" data-title="reflux中一个小error[error-linstenner is no a function]总结" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
     
 
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/reflux-zhong-yi-ge-xiao-error-error-linstenner-is-no-a-function-zong-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="reflux中一个小error[error-linstenner is no a function]总结">
-                            
-                            <span class="card-title">reflux中一个小error[error-linstenner is no a function]总结</span>
-                        </div>
-                    </a>
 
-                    <div class="card-content article-content">
-                        <div class="summary">最近在使用reflux的时候，我想为事件监听的callback函数添加参数，如下所示:
-1、ContentStore.removeChang</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/" title=" 学习reflux的总结 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="学习reflux的总结">
-                            
-                            <span class="card-title">学习reflux的总结</span>
-                        </div>
-                    </a>
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/" title="学习reflux的总结">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/" itemprop="url">
+		学习reflux的总结
+	</a>
 
-                    <div class="card-content article-content">
-                        <div class="summary">最近学习reflux,总结一下，方便以后回顾.参考资料,我觉得这个是极品，但是demo无法正常运行.1.reflux的原理:   1.1re</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							最近学习reflux,总结一下，方便以后回顾.参考资料,我觉得这个是极品，但是demo无法正常运行.1.reflux的原理:   1.1reflux是对f...
+						
+					
+				</p>
+				<p class="post-meta">
+					
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="redis启动出错">
-                            
-                            <span class="card-title">redis启动出错</span>
-                        </div>
-                    </a>
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/_visitors" data-url="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/" data-title="学习reflux的总结">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
 
-                    <div class="card-content article-content">
-                        <div class="summary">   windows下安装redis第一次启动报错：
-[2368] 21 Apr 02:57:05.611 # Creating Serve</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/redis-ji-qun-pi-liang-shan-chu-zhi-ding-de-key/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="redis集群批量删除指定的key">
-                            
-                            <span class="card-title">redis集群批量删除指定的key</span>
-                        </div>
-                    </a>
 
-                    <div class="card-content article-content">
-                        <div class="summary">工作中遇到一个问题,redis中存储了大量的key,而且没有设置时效,其中很大一部分后来都没用了,导致redis体积庞大,查询缓慢。服务器版</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/_likes" data-url="/2018/12/04/lao-bo-ke/reflux-de-xue-xi-zong-jie/" data-title="学习reflux的总结" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/react-zu-jian-sheng-ming-zhou-qi-xiao-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="React组件生命周期小结">
-                            
-                            <span class="card-title">React组件生命周期小结</span>
-                        </div>
-                    </a>
+					
 
-                    <div class="card-content article-content">
-                        <div class="summary">
-这篇博客是我在简书上看到的，写的实在是太好了，这是原文地址。          下面所写的，只适合前端的React。（React也支持后端</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/react-zhong-shen-ceng-yuan-li-jie-xi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="react中router底层原理结合参考资料的分析">
-                            
-                            <span class="card-title">react中router底层原理结合参考资料的分析</span>
-                        </div>
-                    </a>
 
-                    <div class="card-content article-content">
-                        <div class="summary">本文为我对react中router底层原理结合参考资料的分析:1.路由是什么       个人理解:路由是访问各个组件的转发器;      </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/react-zhong-chang-jian-wen-ti-de-hui-zong-shou-cang-bie-ren-de/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="react中常见问题的汇总，收藏别人的">
-                            
-                            <span class="card-title">react中常见问题的汇总，收藏别人的</span>
-                        </div>
-                    </a>
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
 
-                    <div class="card-content article-content">
-                        <div class="summary">这是我在看视频学习react过程中发现的讲师的博客，写的非常的好，所以收藏起来了作为学习的工具，供自己工作和学习方便，原文网址为。
-文章中我</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/react-zhong-xxx-is-not-an-absolute-path/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/36.jpg" class="responsive-img" alt="React中常见的坑 之 React中XXX is not an absolute  path!">
-                            
-                            <span class="card-title">React中常见的坑 之 React中XXX is not an absolute  path!</span>
-                        </div>
-                    </a>
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/" title=" redis启动出错 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
 
-                    <div class="card-content article-content">
-                        <div class="summary">
-本周学习react中遇到了如下问题:            根据提示，The provided value  &quot;node_mod</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/" title="redis启动出错">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/" itemprop="url">
+		redis启动出错
+	</a>
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/react-zhong-es5-yu-es6-xie-fa-dui-bi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="React中es5与es6写法对比">
-                            
-                            <span class="card-title">React中es5与es6写法对比</span>
-                        </div>
-                    </a>
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							   windows下安装redis第一次启动报错：
+[2368] 21 Apr 02:57:05.611 # Creating Server TCP l...
+						
+					
+				</p>
+				<p class="post-meta">
+					
 
-                    <div class="card-content article-content">
-                        <div class="summary">
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/_visitors" data-url="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/" data-title="redis启动出错">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/_likes" data-url="/2018/12/04/lao-bo-ke/redis-qi-dong-chu-cuo-creating-server-tcp-listening-socket-127.0.0.1-6379-bind-no-error/" data-title="redis启动出错" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/redis-ji-qun-pi-liang-shan-chu-zhi-ding-de-key/" title=" redis集群批量删除指定的key ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/redis-ji-qun-pi-liang-shan-chu-zhi-ding-de-key/" title="redis集群批量删除指定的key">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/redis-ji-qun-pi-liang-shan-chu-zhi-ding-de-key/" itemprop="url">
+		redis集群批量删除指定的key
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							工作中遇到一个问题,redis中存储了大量的key,而且没有设置时效,其中很大一部分后来都没用了,导致redis体积庞大,查询缓慢。服务器版本为windo...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/redis-ji-qun-pi-liang-shan-chu-zhi-ding-de-key/_visitors" data-url="/2018/12/04/lao-bo-ke/redis-ji-qun-pi-liang-shan-chu-zhi-ding-de-key/" data-title="redis集群批量删除指定的key">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/redis-ji-qun-pi-liang-shan-chu-zhi-ding-de-key/_likes" data-url="/2018/12/04/lao-bo-ke/redis-ji-qun-pi-liang-shan-chu-zhi-ding-de-key/" data-title="redis集群批量删除指定的key" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/react-zu-jian-sheng-ming-zhou-qi-xiao-jie/" title=" React组件生命周期小结 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/react-zu-jian-sheng-ming-zhou-qi-xiao-jie/" title="React组件生命周期小结">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/react-zu-jian-sheng-ming-zhou-qi-xiao-jie/" itemprop="url">
+		React组件生命周期小结
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							
+这篇博客是我在简书上看到的，写的实在是太好了，这是原文地址。          下面所写的，只适合前端的React。（React也支持后端渲染，而且和前...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/react-zu-jian-sheng-ming-zhou-qi-xiao-jie/_visitors" data-url="/2018/12/04/lao-bo-ke/react-zu-jian-sheng-ming-zhou-qi-xiao-jie/" data-title="React组件生命周期小结">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/react-zu-jian-sheng-ming-zhou-qi-xiao-jie/_likes" data-url="/2018/12/04/lao-bo-ke/react-zu-jian-sheng-ming-zhou-qi-xiao-jie/" data-title="React组件生命周期小结" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/react-zhong-shen-ceng-yuan-li-jie-xi/" title=" react中router底层原理结合参考资料的分析 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/react-zhong-shen-ceng-yuan-li-jie-xi/" title="react中router底层原理结合参考资料的分析">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/react-zhong-shen-ceng-yuan-li-jie-xi/" itemprop="url">
+		react中router底层原理结合参考资料的分析
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							本文为我对react中router底层原理结合参考资料的分析:1.路由是什么       个人理解:路由是访问各个组件的转发器;        路由的分类...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/react-zhong-shen-ceng-yuan-li-jie-xi/_visitors" data-url="/2018/12/04/lao-bo-ke/react-zhong-shen-ceng-yuan-li-jie-xi/" data-title="react中router底层原理结合参考资料的分析">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/react-zhong-shen-ceng-yuan-li-jie-xi/_likes" data-url="/2018/12/04/lao-bo-ke/react-zhong-shen-ceng-yuan-li-jie-xi/" data-title="react中router底层原理结合参考资料的分析" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/react-zhong-chang-jian-wen-ti-de-hui-zong-shou-cang-bie-ren-de/" title=" react中常见问题的汇总，收藏别人的 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/react-zhong-chang-jian-wen-ti-de-hui-zong-shou-cang-bie-ren-de/" title="react中常见问题的汇总，收藏别人的">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/react-zhong-chang-jian-wen-ti-de-hui-zong-shou-cang-bie-ren-de/" itemprop="url">
+		react中常见问题的汇总，收藏别人的
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							这是我在看视频学习react过程中发现的讲师的博客，写的非常的好，所以收藏起来了作为学习的工具，供自己工作和学习方便，原文网址为。
+文章中我整理了 Rea...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/react-zhong-chang-jian-wen-ti-de-hui-zong-shou-cang-bie-ren-de/_visitors" data-url="/2018/12/04/lao-bo-ke/react-zhong-chang-jian-wen-ti-de-hui-zong-shou-cang-bie-ren-de/" data-title="react中常见问题的汇总，收藏别人的">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/react-zhong-chang-jian-wen-ti-de-hui-zong-shou-cang-bie-ren-de/_likes" data-url="/2018/12/04/lao-bo-ke/react-zhong-chang-jian-wen-ti-de-hui-zong-shou-cang-bie-ren-de/" data-title="react中常见问题的汇总，收藏别人的" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/react-zhong-xxx-is-not-an-absolute-path/" title=" React中常见的坑 之 React中XXX is not an absolute  path! ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/react-zhong-xxx-is-not-an-absolute-path/" title="React中常见的坑 之 React中XXX is not an absolute  path!">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/react-zhong-xxx-is-not-an-absolute-path/" itemprop="url">
+		React中常见的坑 之 React中XXX is not an absolute  path!
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							
+本周学习react中遇到了如下问题:            根据提示，The provided value  &quot;node_modules&qu...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/react-zhong-xxx-is-not-an-absolute-path/_visitors" data-url="/2018/12/04/lao-bo-ke/react-zhong-xxx-is-not-an-absolute-path/" data-title="React中常见的坑 之 React中XXX is not an absolute  path!">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/react-zhong-xxx-is-not-an-absolute-path/_likes" data-url="/2018/12/04/lao-bo-ke/react-zhong-xxx-is-not-an-absolute-path/" data-title="React中常见的坑 之 React中XXX is not an absolute  path!" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/react-zhong-es5-yu-es6-xie-fa-dui-bi/" title=" React中es5与es6写法对比 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/react-zhong-es5-yu-es6-xie-fa-dui-bi/" title="React中es5与es6写法对比">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/react-zhong-es5-yu-es6-xie-fa-dui-bi/" itemprop="url">
+		React中es5与es6写法对比
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							
 1.引入与导出方式不同
-//ES5 var React = require(“react”);//ES6 import React, { </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
+//ES5 var React = require(“react”);//ES6 import React, { Compone...
+						
+					
+				</p>
+				<p class="post-meta">
+					
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/react-zhong-create-react-app-bu-shi-nei-bu-huo-zhe-wai-bu-ming-ling...jie-jue-fang-an/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="react中“create-react-app”不是内部或者外部命令也不是可运行程序的解决办法">
-                            
-                            <span class="card-title">react中“create-react-app”不是内部或者外部命令也不是可运行程序的解决办法</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-1.分析问题的原因：           出现这种问题一般是因为命令所在路径和配置的环境变量的路径不统一所导致的，即命令所在的位置不是环境</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/react-jie-he-d3.js-he-svg-hui-zhi-tiao-xing-tong-ji-tu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="react结合d3.js和svg绘制条形统计图">
-                            
-                            <span class="card-title">react结合d3.js和svg绘制条形统计图</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">最近学习了下D3.js并仿照别人的案例写了个小demo【参考文章》http://wiki.jikexueyuan.com/project/d</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/04/lao-bo-ke/react-he-springboot-qian-hou-duan-fen-chi-kai-fa-mo-shi-xia-cai-yong-websocket-shi-xian-dan-she-bei-deng-lu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/32.jpg" class="responsive-img" alt="React和SpringBoot前后端分离开发模式下采用WebSocket实现单设备登录">
-                            
-                            <span class="card-title">React和SpringBoot前后端分离开发模式下采用WebSocket实现单设备登录</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-首先介绍下，什么是单设备登录？单设备登录可以理解为同一个应用某一时刻只允许单一用户使用处于登录状态。单设备登录可以类比QQ的踢出第二者登录</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Pursue
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
-
-</main>
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/react-zhong-es5-yu-es6-xie-fa-dui-bi/_visitors" data-url="/2018/12/04/lao-bo-ke/react-zhong-es5-yu-es6-xie-fa-dui-bi/" data-title="React中es5与es6写法对比">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
 
 
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/5/" class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fa fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">6 / 17</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/7/" class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fa fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/react-zhong-es5-yu-es6-xie-fa-dui-bi/_likes" data-url="/2018/12/04/lao-bo-ke/react-zhong-es5-yu-es6-xie-fa-dui-bi/" data-title="React中es5与es6写法对比" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/react-zhong-create-react-app-bu-shi-nei-bu-huo-zhe-wai-bu-ming-ling...jie-jue-fang-an/" title=" react中“create-react-app”不是内部或者外部命令也不是可运行程序的解决办法 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/react-zhong-create-react-app-bu-shi-nei-bu-huo-zhe-wai-bu-ming-ling...jie-jue-fang-an/" title="react中“create-react-app”不是内部或者外部命令也不是可运行程序的解决办法">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/react-zhong-create-react-app-bu-shi-nei-bu-huo-zhe-wai-bu-ming-ling...jie-jue-fang-an/" itemprop="url">
+		react中“create-react-app”不是内部或者外部命令也不是可运行程序的解决办法
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							
+1.分析问题的原因：           出现这种问题一般是因为命令所在路径和配置的环境变量的路径不统一所导致的，即命令所在的位置不是环境变量所指向的位...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/react-zhong-create-react-app-bu-shi-nei-bu-huo-zhe-wai-bu-ming-ling...jie-jue-fang-an/_visitors" data-url="/2018/12/04/lao-bo-ke/react-zhong-create-react-app-bu-shi-nei-bu-huo-zhe-wai-bu-ming-ling...jie-jue-fang-an/" data-title="react中“create-react-app”不是内部或者外部命令也不是可运行程序的解决办法">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/react-zhong-create-react-app-bu-shi-nei-bu-huo-zhe-wai-bu-ming-ling...jie-jue-fang-an/_likes" data-url="/2018/12/04/lao-bo-ke/react-zhong-create-react-app-bu-shi-nei-bu-huo-zhe-wai-bu-ming-ling...jie-jue-fang-an/" data-title="react中“create-react-app”不是内部或者外部命令也不是可运行程序的解决办法" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2018/12/04/lao-bo-ke/react-jie-he-d3.js-he-svg-hui-zhi-tiao-xing-tong-ji-tu/" title=" react结合d3.js和svg绘制条形统计图 ">
+				<img src="/img/cart_cover.jpg">
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十二月 4日, 2018
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2018/12/04/lao-bo-ke/react-jie-he-d3.js-he-svg-hui-zhi-tiao-xing-tong-ji-tu/" title="react结合d3.js和svg绘制条形统计图">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2018/12/04/lao-bo-ke/react-jie-he-d3.js-he-svg-hui-zhi-tiao-xing-tong-ji-tu/" itemprop="url">
+		react结合d3.js和svg绘制条形统计图
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+							最近学习了下D3.js并仿照别人的案例写了个小demo【参考文章》http://wiki.jikexueyuan.com/project/d3wiki/c...
+						
+					
+				</p>
+				<p class="post-meta">
+					
+
+    <span class="leancloud_visitors" id="/2018/12/04/lao-bo-ke/react-jie-he-d3.js-he-svg-hui-zhi-tiao-xing-tong-ji-tu/_visitors" data-url="/2018/12/04/lao-bo-ke/react-jie-he-d3.js-he-svg-hui-zhi-tiao-xing-tong-ji-tu/" data-title="react结合d3.js和svg绘制条形统计图">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2018/12/04/lao-bo-ke/react-jie-he-d3.js-he-svg-hui-zhi-tiao-xing-tong-ji-tu/_likes" data-url="/2018/12/04/lao-bo-ke/react-jie-he-d3.js-he-svg-hui-zhi-tiao-xing-tong-ji-tu/" data-title="react结合d3.js和svg绘制条形统计图" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+				</p>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	<div id="pagination">
+		
+			<a href="/page/7/" data-title="加载更多" data-status="没有了">加载更多</a>
+		
+	</div>
+
 </div>
+	
+
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Pursue. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_site_pv">
+	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+
+		<span id="busuanzi_container_site_uv">
+	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+		</span>
+		
+	
 
 
 
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://junzhou2016.github.io/" target="_blank">JunZhou</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
-            <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">hexo-theme-yilia</a>的主题搭建.
-        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
 
-<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-    <i class="fa fa-rss"></i>
-</a>
-</div>
-    </div>
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
 </footer>
+		
+    <!-- set '1' to show motto in all pages! -->
 
-<div class="progress-bar"></div>
-
-
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title">Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-</script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
-</div>
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-</body>
-</html>
+
+
+
+
+    <script src="/js/love.js"></script>
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>

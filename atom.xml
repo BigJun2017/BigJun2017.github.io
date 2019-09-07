@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-08-04T06:36:06.313Z</updated>
+  <updated>2019-09-07T09:59:20.843Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装</title>
+    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/"/>
+    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/</id>
+    <published>2019-09-07T09:58:00.000Z</published>
+    <updated>2019-09-07T09:59:20.843Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;背景：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最近公司要做用户行为日志的可视化展示，因为Elasticsearch对数据的可视化展示提供了初步支撑所以决定使用Elasticsearch。&lt;br&gt;个人理解：&lt;br&gt;           
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="elk" scheme="https://junzhou2016.github.io/tags/elk/"/>
+    
+  </entry>
   
   <entry>
     <title>linux开启某个端口防火墙的命令</title>
@@ -542,32 +570,6 @@
       <category term="MYSQL" scheme="https://junzhou2016.github.io/tags/MYSQL/"/>
     
       <category term="数据库" scheme="https://junzhou2016.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>好开心，七牛外链失效的图片找回来了</title>
-    <link href="https://junzhou2016.github.io/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/"/>
-    <id>https://junzhou2016.github.io/2018/12/08/sui-bi/hao-kai-xin-qi-niu-wai-lian-shi-xiao-de-tu-pian-zhao-hui-lai-liao/</id>
-    <published>2018-12-07T16:00:00.000Z</published>
-    <updated>2018-12-08T10:17:45.838Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;今天把我存在七牛云上的图片找回来了，好开心。&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="随笔" scheme="https://junzhou2016.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
     
   </entry>
   

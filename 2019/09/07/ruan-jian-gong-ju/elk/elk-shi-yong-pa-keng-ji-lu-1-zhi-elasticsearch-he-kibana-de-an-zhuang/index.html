@@ -1,0 +1,818 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装 | Blog4Jun
+    
+  </title>
+  <meta name="author" content="Pursue">
+  <meta name="keywords" content="">
+  <meta name="description" content="Doraemon">
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="random" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						<img src="/img/logo.png" alt="Logo">
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
+
+					
+				</ul>			
+			</div>				
+		</div>
+
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
+
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						当前文章&nbsp;:&nbsp;《elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装》
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
+
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
+				</li>
+				<li>
+					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
+				</li>
+				<li>
+					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+</div></header>
+
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<div class="layout-post">
+	
+	
+	<div class="article-title">
+		
+	<a href="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/" itemprop="url">
+		elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			
+	发布于
+	<a href="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/" itemprop="url">
+		<time datetime="2019-09-07T09:58:00.000Z" itemprop="datePublished">
+	  		2019-09-07
+	  </time>
+	</a> 
+
+	/
+	更新于
+	<a href="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/" itemprop="url">
+		<time datetime="2019-09-07T09:58:00.000Z" itemprop="dateUpdated">
+	  		2019-09-07
+	  </time>
+	</a> 	
+
+		</span>
+		/
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/elk/" class=" ">
+			elk
+		</a>
+	
+		
+		</span>
+		/
+		
+
+    <span class="leancloud_visitors" id="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/_visitors" data-url="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/" data-title="elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/_likes" data-url="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/" data-title="elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<p><strong>背景：</strong></p>
+<blockquote>
+<p>最近公司要做用户行为日志的可视化展示，因为Elasticsearch对数据的可视化展示提供了初步支撑所以决定使用Elasticsearch。<br>个人理解：<br>            Elasticsearch相当于提供数据存储功能的应用系统，提送数据的存储【包含数据分片和存储】功能并对外开放接口/API;<br>    Kibana提供数据的可视化展示功能，其数据源为Elasticsearch；<br>    总之，用起来挺简单的，但是安装和适配的过程会比较烦。</p>
+</blockquote>
+<p><strong>相关资源：</strong><br>             <a href="https://pan.baidu.com/s/1fj5B2WV7axJSdfCEBaR97g" target="_blank" rel="noopener"><br>                     elasticsearch-7.3.1-linux-x86_64.tar.gz、<br>                      kibana-7.3.1-linux-x86_64.tar.gz、<br>                      logstash-7.3.1.tar.gz、<br>                     node-v12.9.1-linux-x64.tar.xz、<br>                   openjdk-11.0.1_linux-x64_bin.tar.gz
+              </a></p>
+<p> <strong>安装</strong></p>
+<ol>
+<li>elasticsearch 安装</li>
+</ol>
+<blockquote>
+<p>Elasticsearch的安装实际就是下载解压[<strong><em>假设解压目录为/opt</em></strong>]然后进入bin目录执行可执可执行文件就好了，但是在执行<br><code>./elasticsearch</code>命令时可能会出现如下错误：</p>
+</blockquote>
+<p><strong>异常和解决方案</strong></p>
+<p>a、<code>Exception in thread &quot;main&quot; java.lang.RuntimeException: don&#39;t run elasticsearch as root.</code> </p>
+<p><strong>解决方案：</strong><br>          创建普通用户和普通用户组，如：elsearch用户组及elsearch用户</p>
+<blockquote>
+<p>1、新增用户组<br>    groupadd elsearch</p>
+</blockquote>
+<blockquote>
+<p>2、新增用户并将其加入新增的用户组中<br>    useradd elsearch -g elsearch -p /opt/elasticsearch-7.3.1</p>
+</blockquote>
+<blockquote>
+<p>3、更改elasticsearch文件夹及内部文件的所属用户及组为elsearch:elsearch<br>    cd elasticsearch-7.3.1<br>    chown -R elsearch:elsearch  /opt/elasticsearch-7.3.1</p>
+</blockquote>
+<blockquote>
+<p>4、切换到新增的普通用户启动/后台启动<br>    su elsearch cd /opt/elasticsearch/bin<br>    ./elasticsearch<br>        或者后台启动<br>     ./elasticsearch -d<br>(注：ElasticSearch后台启动命令):  ./elasticsearch -d</p>
+</blockquote>
+<p>参考文章：<br><a href="https://blog.csdn.net/lahand/article/details/78954112" target="_blank" rel="noopener">ElasticSearch Root身份运行异常解决方案</a><br><a href="https://blog.csdn.net/u011311291/article/details/100041912" target="_blank" rel="noopener">elasticsearch 7.2.0安装</a></p>
+<p>b、<code>future versions of Elasticsearch will require Java 11; your Java version from [/opt/jdk1.8.0_211/jre] does not meet this requirement</code></p>
+<p><strong>解决方案：</strong><br>                <a href="https://www.jianshu.com/p/6ddeae547f45" target="_blank" rel="noopener">Elasticsearch7.2启动指定JDK11</a></p>
+<p>c、<code>Error: Could not find or load main class org.elasticsearch.tools.java_version_checker.JavaVersionChecker</code></p>
+<p><strong>原因：</strong></p>
+<blockquote>
+<p>因为elasticsearch安装目录放在了root的家目录下，新用户是不能访问到的，所以即使新增的elasticsearch属于新用户了，但目录权限原因访问不到lib里的jar包，所以找不到Java类。</p>
+</blockquote>
+<p><strong>解决方案：</strong></p>
+<blockquote>
+<p> 把ES搬到新用户的家目录以内即可。eg:<code>mv elasticsearch-7.3.1 /home/elasticsearch</code></p>
+</blockquote>
+<p>参考文章：<br><a href="https://segmentfault.com/a/1190000019413175?utm_source=coffeephp.com" target="_blank" rel="noopener">Elasticsearch启动问题小记</a><br><a href="https://zhidao.baidu.com/question/129876177.html" target="_blank" rel="noopener">Linux系统里的家目录是什么意思</a></p>
+<p>d:    <code>[1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65536]</code></p>
+<p><strong>解决方案：</strong></p>
+<blockquote>
+<p>切换到root用户，编辑limits.conf添加如下内容，注意*不是注释，后面有空格的；<br>    vi /etc/security/limits.conf</p>
+<pre><code>*     soft nofile 65536
+*     hard nofile 65536
+</code></pre></blockquote>
+<p>参考文章：<br>    <a href="https://www.jianshu.com/p/2285f1f8ec21" target="_blank" rel="noopener">elasticsearch启动常见的几个报错</a></p>
+<p>e:    <code>max number of threads [3818] for user [es] is too low, increase to at least [4096]</code></p>
+<p><strong>解决方案：</strong></p>
+<blockquote>
+<p>修改配置文件etc/security/limits.conf，增加配置,注意*不是注释，后面有空格的；</p>
+<pre><code>*     soft nproc 4096
+*     hard nproc 4096
+</code></pre></blockquote>
+<p>参考文章：<br>    <a href="https://www.jianshu.com/p/2285f1f8ec21" target="_blank" rel="noopener">elasticsearch启动常见的几个报错</a></p>
+<p>2、安装Kibana可视化工具:<br>    和Kibana一样，下载，解压，然后去bin目录下执行<code>./kibana --allow-root</code>，因为使用root用户启动会提示不允许使用root用户启动，所以命令后面加上<code>--allow-root</code><br>    a、<code>Running Elastic without the Trial License</code></p>
+<p><strong>解决方案：</strong></p>
+<blockquote>
+<p>原因：kibana和elasticsearch整合的时候需要elasticsearch安全控制信息<br>解决：再elasticsearch的配置文件elasticsearch.yml中添加<code>xpack.license.self_generated.type: basic</code>指定只提供基础认证信息，因为高级的认证要收费的，好像还有点贵。</p>
+</blockquote>
+<p>参考文章：<br><a href="https://stackoverflow.com/questions/54079501/running-elastic-without-the-trial-license" target="_blank" rel="noopener">Running Elastic without the Trial License</a></p>
+<p>参考文档：<br>       <a href="https://blog.csdn.net/weixin_44026528/article/details/94375810" target="_blank" rel="noopener">Elasticsearch中ik_max_word和ik_smart的区别</a><br>       <a href="https://blog.csdn.net/u014082714/article/details/89963046" target="_blank" rel="noopener">windows下安装Elasticsearch7.X，IK分词器</a><br>       <a href="https://blog.csdn.net/weixin_30595035/article/details/99871248" target="_blank" rel="noopener">springboot整合elasticsearch7.2(基于官方high level client)</a></p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+		
+			<a href="/2019/08/04/linux-yun-wei/linux-kai-qi-mou-ge-duan-kou-fang-huo-qiang-de-ming-ling/" title="linux开启某个端口防火墙的命令" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/02/28/ruan-jian-gong-ju/docker/docker-de-gai-nian-he-xiang-guan-shu-xing/" title="Docker的概念和相关属性">
+							Docker的概念和相关属性
+						</a>
+						<p>
+							第一章 Docker的核心概念
+1.1Docker镜像 Docker镜像类似于虚拟机镜像，可以将其理解为一个只读的模板。例如，一个镜像可以包含一个基本的操作系统【Ubuntu、Centos、Alpine、BusyBox】环境，里面仅安...
+						</p>
+					</div>
+
+					<a href="/2019/02/28/ruan-jian-gong-ju/docker/docker-de-gai-nian-he-xiang-guan-shu-xing/" title="Docker的概念和相关属性">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Docker的概念和相关属性">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-er-ji-ben-ruan-jian-de-docker-an-zhuang-ji-ben-an-zhuang-ke-neng-bu-gua-yong-yu-sheng-chan-huan-jing/" title="Docker学习笔记（二）基本软件的Docker安装【基本安装，可能不适用于生产环境】">
+							Docker学习笔记（二）基本软件的Docker安装【基本安装，可能不适用于生产环境】
+						</a>
+						<p>
+							通过Docker安装常用软件，包产Mysql、Redis等。。。。。。
+
+Mysql安装
+
+docker run --name mysql_server -e MYSQL_ROOT_PASSWORD=123 -d mysql:late...
+						</p>
+					</div>
+
+					<a href="/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-er-ji-ben-ruan-jian-de-docker-an-zhuang-ji-ben-an-zhuang-ke-neng-bu-gua-yong-yu-sheng-chan-huan-jing/" title="Docker学习笔记（二）基本软件的Docker安装【基本安装，可能不适用于生产环境】">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Docker学习笔记（二）基本软件的Docker安装【基本安装，可能不适用于生产环境】">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-yi-shi-me-shi-docker/" title="Docker学习笔记（一）什么是docker？">
+							Docker学习笔记（一）什么是docker？
+						</a>
+						<p>
+							什么是Docker?       理解Docker首先需要理解Docker的三大核心概念。
+   1、镜像【Image】   
+
+ Docker镜像类似于虚拟机镜像，可以将其理解为一个只读的模板。例如一个镜像中可以包含Mysql、JD...
+						</p>
+					</div>
+
+					<a href="/2019/02/24/ruan-jian-gong-ju/docker/docker-xue-xi-bi-ji-yi-shi-me-shi-docker/" title="Docker学习笔记（一）什么是docker？">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Docker学习笔记（一）什么是docker？">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/17/ruan-jian-gong-ju/git/li-yong-github-hexo-da-jian-ge-ren-bo-ke-bing-chuang-jian-tu-chuang-dai-shi-pin-jiao-cheng/" title="利用github+hexo搭建个人博客并创建图床【带视频教程】">
+							利用github+hexo搭建个人博客并创建图床【带视频教程】
+						</a>
+						<p>
+							Git+hexo 搭建个人博客的步骤和要点步骤：1、    安装nodejs+git+tortoisegit2、    注册github账号，并创建个人独立主页仓库，就是那个username.github.io仓库;3、    安装和...
+						</p>
+					</div>
+
+					<a href="/2019/02/17/ruan-jian-gong-ju/git/li-yong-github-hexo-da-jian-ge-ren-bo-ke-bing-chuang-jian-tu-chuang-dai-shi-pin-jiao-cheng/" title="利用github+hexo搭建个人博客并创建图床【带视频教程】">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="利用github+hexo搭建个人博客并创建图床【带视频教程】">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/" title="使用nativefier将web打包为WebApp">
+							使用nativefier将web打包为WebApp
+						</a>
+						<p>
+							在github上浪的时候发现一款开源库，可以直接将任意的网站打包为webapp。具体的操作步骤如下：
+
+安装node.js环境
+使用npm安装nativefier库；
+
+npm install nativefier -g
+3.使用na...
+						</p>
+					</div>
+
+					<a href="/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/" title="使用nativefier将web打包为WebApp">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="使用nativefier将web打包为WebApp">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/" title="GitLab CI/CD 介绍和使用">
+							GitLab CI/CD 介绍和使用
+						</a>
+						<p>
+							一、持续集成介绍
+持续集成是一种软件开发实践，即团队开发成员经常集成他们的工作，通常每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试)来验证，从而尽快地发现集成错误。许...
+						</p>
+					</div>
+
+					<a href="/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/" title="GitLab CI/CD 介绍和使用">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="GitLab CI/CD 介绍和使用">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/" title="Vue 文档风格的 Typora 主题">
+							Vue 文档风格的 Typora 主题
+						</a>
+						<p>
+							
+typora-vue-theme 是 Typora Markdown 文档编辑器中一款类似Vue文档风格的主题。
+
+简介Typora是一款支持实时预览的 Markdown 编辑器和阅读器，支持Windows、macOS、Linux三...
+						</p>
+					</div>
+
+					<a href="/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/" title="Vue 文档风格的 Typora 主题">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="Vue 文档风格的 Typora 主题">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/11/18/ruan-jian-gong-ju/cpu-duo-ji-huan-cun/" title="CPU多级缓存">
+							CPU多级缓存
+						</a>
+						<p>
+							一、什么是CPU缓存1. CPU缓存的来历众所周知,CPU是计算机的大脑，它负责执行程序的指令，而内存负责存数据, 包括程序自身的数据。在很多年前，CPU的频率与内存总线的频率在同一层面上。内存的访问速度仅比寄存器慢一些。但是，这一局...
+						</p>
+					</div>
+
+					<a href="/2018/11/18/ruan-jian-gong-ju/cpu-duo-ji-huan-cun/" title="CPU多级缓存">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="CPU多级缓存">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/13/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-qi-ta-chang-yong-ming-ling/" title="常用Bash命令整理之其他常用命令">
+							常用Bash命令整理之其他常用命令
+						</a>
+						<p>
+							1. hostname - 查看主机名hostname命令用于查看系统的主机名，或是修改系统的主机名。
+hostname的常用命令如下：
+# 显示系统的当前主机名
+hostname
+
+# 修改你系统的主机名
+hostname blin...
+						</p>
+					</div>
+
+					<a href="/2018/10/13/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-qi-ta-chang-yong-ming-ling/" title="常用Bash命令整理之其他常用命令">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="常用Bash命令整理之其他常用命令">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2018/10/11/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-wen-ben-chu-li/" title="常用Bash命令整理之文本处理">
+							常用Bash命令整理之文本处理
+						</a>
+						<p>
+							1. sort - 文本排序sort命令用于将文本文件的行排序。默认情况下，sort命令是按照字符串的字母顺序排序。
+sort 的常用命令如下：
+# 将文本内容按字母顺序排序
+sort example.txt
+
+# 使用 -u 选项，...
+						</p>
+					</div>
+
+					<a href="/2018/10/11/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-wen-ben-chu-li/" title="常用Bash命令整理之文本处理">				
+						<img src="/img/cart_cover.jpg" class="relateImg" alt="常用Bash命令整理之文本处理">
+					</a>
+				</li>											
+		
+		
+	</ul>
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know 【表情】-->
+			
+		
+		
+	
+
+</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+
+<!-- show math formula -->
+
+
+
+
+<!-- TODO: There seems to be a bug when you close the post gallery! -->
+<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
+<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
+<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+<script type="text/javascript">
+	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
+	$('.article-content img').each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+	});
+
+	$('.article-content').lightGallery({
+		mode: 'lg-slide',
+		selector: '.img-responsive',
+		share: false,
+		zoom: false,
+		download: false
+	});
+	//TODO：支持video
+</script>
+
+<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Pursue. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
+</footer>
+		
+    <!-- set '1' to show motto in all pages! -->
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+
+    <script src="/js/love.js"></script>
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>
