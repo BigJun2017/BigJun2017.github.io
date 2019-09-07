@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-09-07T13:26:58.640Z</updated>
+  <updated>2019-09-07T14:02:10.464Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Websocket消息推送集群搭建1 之集群架构图</title>
+    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/"/>
+    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/</id>
+    <published>2019-09-07T13:26:00.000Z</published>
+    <updated>2019-09-07T14:02:10.464Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;背景：&lt;/strong&gt;&lt;br&gt;            最近公司需要做一个消息推送功能，为了保证可靠性，决定做集群。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;难点：&lt;/strong&gt;&lt;br&gt;       
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Websocket" scheme="https://junzhou2016.github.io/tags/Websocket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Websocket消息推送集群搭建1 之集群架构图</title>
+    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/"/>
+    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/</id>
+    <published>2019-09-07T13:26:00.000Z</published>
+    <updated>2019-09-07T14:01:35.313Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;背景：&lt;/strong&gt;&lt;br&gt;            最近公司需要做一个消息推送功能，为了保证可靠性，决定做集群。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;难点：&lt;/strong&gt;&lt;br&gt;       
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="websocket" scheme="https://junzhou2016.github.io/tags/websocket/"/>
+    
+  </entry>
   
   <entry>
     <title>elk使用爬坑记录 4 之 Elasticsearch中ik分词器的使用</title>
@@ -507,60 +561,6 @@ es.h
     
     
       <category term="SpringBoot" scheme="https://junzhou2016.github.io/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RestTemplate工具类的使用</title>
-    <link href="https://junzhou2016.github.io/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/"/>
-    <id>https://junzhou2016.github.io/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/</id>
-    <published>2018-12-18T14:32:00.000Z</published>
-    <updated>2018-12-18T15:38:10.396Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt; Rest,即 Representtational state
-        
-      
-    
-    </summary>
-    
-      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
-    
-      <category term="Spring" scheme="https://junzhou2016.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我还没强到可以掌控自己命运，何去何从？唯有不负韶华</title>
-    <link href="https://junzhou2016.github.io/2018/12/16/xiang-ce/wo-huan-mei-qiang-dao-ke-yi-zhang-kong-zi-ji-ming-yun-he-qu-he-cong-wei-you-bu-fu-shao-hua/"/>
-    <id>https://junzhou2016.github.io/2018/12/16/xiang-ce/wo-huan-mei-qiang-dao-ke-yi-zhang-kong-zi-ji-ming-yun-he-qu-he-cong-wei-you-bu-fu-shao-hua/</id>
-    <published>2018-12-15T16:00:00.000Z</published>
-    <updated>2018-12-27T13:39:46.736Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;朋友半年前一个人来到无锡，稍后就要离开了。感觉有点小失落，不知道何时才能再见面，预祝他一番风顺。何去何从，我们现在还不能做主，唯有不负韶华，好好努力吧。&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="相册" scheme="https://junzhou2016.github.io/categories/%E7%9B%B8%E5%86%8C/"/>
-    
-    
-      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
     
   </entry>
   
