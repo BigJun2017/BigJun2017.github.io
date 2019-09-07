@@ -1,0 +1,1128 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="elk使用爬坑记录 3 之 SpringBoot 中 Elasticsearch 相关API的使用, Blog4Jun">
+    <meta name="description" content="
+首先需要再application.properties中配置elasticsearch的相关属性：
+
+#-----------------elasticsearch相关的配置------------------
+es.host=192.1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>elk使用爬坑记录 3 之 SpringBoot 中 Elasticsearch 相关API的使用 | Blog4Jun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Blog4Jun</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Blog4Jun</div>
+        <div class="logo-desc">
+            
+            爱你所爱，无问西东
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/BigJun2017/BigJun2017.github.io.git" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请哆啦A梦吃铜锣烧吧！请扫码获取访问密码。')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        elk使用爬坑记录 3 之 SpringBoot 中 Elasticsearch 相关API的使用
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/elk/" target="_blank">
+                    <span class="chip bg-color">elk</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/软件工具/" class="post-category" target="_blank">
+                        软件工具
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-09-07
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ol>
+<li>首先需要再application.properties中配置elasticsearch的相关属性：</li>
+</ol>
+<pre><code>#-----------------elasticsearch相关的配置------------------
+es.host=192.168.100.102
+es.port=9200
+es.scheme=http
+es.time-out=60000
+es.max.batch=10000
+</code></pre><ol start="2">
+<li>EsUtils.java</li>
+</ol>
+<pre><code>package com.innovamed.amo.common.log.operation.es.server.utils;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
+import org.apache.http.HttpHost;
+import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.delete.DeleteRequest;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.client.indices.CreateIndexRequest;
+import org.elasticsearch.client.indices.CreateIndexResponse;
+import org.elasticsearch.client.indices.GetIndexRequest;
+import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.reindex.DeleteByQueryRequest;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import com.alibaba.fastjson.JSON;
+import com.innovamed.amo.common.log.operation.es.server.enums.EsIndexSchemaEnums;
+import com.innovamed.amo.common.log.operation.es.server.model.EsEntity;
+
+/***
+* 
+* Copyright: Copyright (c) 2019 Jun_Zhou
+* 
+* @ClassName: EsUtils.java
+* @Description: es操作相关的枚举类;
+* 
+* @version: v1.0.0
+* @author: JunZhou
+* @Email: 1769676159@qq.com
+* @Site: CERNO
+* @date: 2019年9月6日 上午9:32:44
+*/
+@SuppressWarnings(&quot;rawtypes&quot;)
+//@Component
+public class EsUtils
+{
+    @Value(&quot;${es.host}&quot;)
+    public String host;
+    @Value(&quot;${es.port}&quot;)
+    public int port;
+    @Value(&quot;${es.scheme}&quot;)
+    public String scheme;
+    @Value(&quot;${es.time-out}&quot;)
+    public String timeOut;
+    @Value(&quot;${es.max.batch}&quot;)
+    public String maxBatchOpNum;
+
+    public static final String    INDEX_NAME = EsIndexSchemaEnums.AMO_OPERATION_LOG_INDEX.getIndexName();
+    public static final String  INDEX_SCHEMA = EsIndexSchemaEnums.AMO_OPERATION_LOG_INDEX.getIndexSchema();
+    public static RestHighLevelClient client = null;
+
+
+    @PostConstruct
+    public void init() 
+    {
+        try {
+                if (client != null) 
+                {
+                    client.close();
+                }
+                    initIndex();
+            } catch (Exception e) {
+                    e.printStackTrace();
+                    System.exit(0);
+        }
+    }
+
+    /***
+           * 初始化索引;
+     * @throws Exception
+     * @throws IOException
+     */
+    public void initIndex() throws Exception, IOException
+    {
+        HttpHost httpHost = new HttpHost(host, port, scheme);
+                 client   = new RestHighLevelClient(RestClient.builder(httpHost));
+        if (this.indexExist(INDEX_NAME)) 
+        {
+            return;
+        }
+        CreateIndexRequest request = new CreateIndexRequest(INDEX_NAME);
+                           request.settings(Settings.builder().put(&quot;index.number_of_shards&quot;, 3).put(&quot;index.number_of_replicas&quot;, 2));
+                           request.mapping(INDEX_SCHEMA, XContentType.JSON);
+        CreateIndexResponse    res = client.indices().create(request, RequestOptions.DEFAULT);
+        if (!res.isAcknowledged()) 
+        {
+            throw new RuntimeException(&quot;初始化失败&quot;);
+        }
+    }
+
+    /**
+     * @Des:         判断某个index是否存在
+     * @param index: es的索引名称;
+     * @return       boolean
+     * @throws       Exception
+     */
+    public boolean indexExist(String index) throws Exception {
+        GetIndexRequest request = new GetIndexRequest(index);
+                        request.local(false);
+                        request.humanReadable(true);
+                        request.includeDefaults(false);
+            return client.indices().exists(request, RequestOptions.DEFAULT);
+    }
+
+    /**
+     * @Des:          插入/更新一条记录
+     * @param index:  索引名称;
+     * @param entity: es数据实体;
+     */
+    public void insertOrUpdateOne(String index, EsEntity entity) 
+    {
+        IndexRequest request = new IndexRequest(index);
+                     request.id(entity.getId());
+                     request.source(JSON.toJSONString(entity.getData()), XContentType.JSON);
+        try {
+                     client.index(request, RequestOptions.DEFAULT);
+            } catch (Exception e) 
+            {
+                   throw new RuntimeException(e);
+            }
+     }
+
+    /**
+     * @Des:         批量插入数据
+     * @param index: index名称;
+     * @param list:  待插入的数据列表;
+     */
+    public void insertBatch(String index, List&lt;EsEntity&gt; list) {
+        BulkRequest request = new BulkRequest();
+        list.forEach(item -&gt; request.add(new IndexRequest(index).id(item.getId())
+                .source(JSON.toJSONString(item.getData()), XContentType.JSON)));
+        try 
+        {
+                    client.bulk(request, RequestOptions.DEFAULT);
+        } catch (Exception e) {
+                throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * @Des:          批量删除
+     * @param index:  索引名称;
+     * @param delSet: 待删除的数据集合;
+     */
+    public &lt;T&gt; void deleteBatch(String index, Collection&lt;T&gt; delSet) {
+        BulkRequest request = new BulkRequest();
+        delSet.forEach(item -&gt; request.add(new DeleteRequest(index, item.toString())));
+        try {
+            client.bulk(request, RequestOptions.DEFAULT);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * @Des:             搜索指定索引中的指定数据;
+     * @param index:    指定的索引名称;
+     * @param builder:    查询参数
+     * @param c:        结果类对象的class对象;
+     * @return java.util.ArrayList
+     */
+    public &lt;T&gt; List&lt;T&gt; search(String index, SearchSourceBuilder builder, Class&lt;T&gt; c) {
+        SearchRequest request = new SearchRequest(index);
+        request.source(builder);
+        try {
+            SearchResponse        response  =     client.search(request, RequestOptions.DEFAULT);
+            SearchHit[]             hits  =     response.getHits().getHits();
+            List&lt;T&gt; res = new ArrayList&lt;&gt;(hits.length);
+            for (SearchHit hit : hits) 
+                {
+                    res.add(JSON.parseObject(hit.getSourceAsString(), c));
+                }
+                return res;
+            } catch (Exception e) 
+            {
+                throw new RuntimeException(e);
+            }
+    }
+
+    /**
+     * @Des:        删除指定的index
+     * @param index：索引名称;
+     */
+    public void deleteIndex(String index) 
+    {
+        try 
+        {
+            client.indices().delete(new DeleteIndexRequest(index), RequestOptions.DEFAULT);
+        } catch (Exception e) {
+               throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * @Des:             根据条件删除数据;
+     * @param index:    指定的索引名称;
+     * @param builder:    条件构造器;
+     */
+    public void deleteByQuery(String index, QueryBuilder builder) 
+    {
+        DeleteByQueryRequest request = new DeleteByQueryRequest(index);
+        request.setQuery(builder);
+        //设置批量操作数量,最大为10000
+        request.setBatchSize(Integer.parseInt(maxBatchOpNum));
+        request.setConflicts(&quot;proceed&quot;);
+        try {
+                client.deleteByQuery(request, RequestOptions.DEFAULT);
+            } catch (Exception e) 
+            {
+                throw new RuntimeException(e);
+            }
+    }
+
+}
+
+</code></pre><ol start="3">
+<li>AmoOperationLogController.java</li>
+</ol>
+<pre><code>package com.innovamed.amo.common.log.operation.es.server.controller;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.TermQueryBuilder;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.innovamed.amo.common.log.operation.es.client.annotation.AccessLog;
+import com.innovamed.amo.common.log.operation.es.client.model.OperationLog;
+import com.innovamed.amo.common.log.operation.es.server.constants.OpTypeConstants;
+import com.innovamed.amo.common.log.operation.es.server.model.EsEntity;
+import com.innovamed.amo.common.log.operation.es.server.utils.EsUtils;
+
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.lang.UUID;
+
+/***
+* 
+* Copyright: Copyright (c) 2019 Jun_Zhou
+* 
+* @ClassName: AmoOperationLogController.java
+* @Description: Amo项目的用户行为日志操作控制器;
+* 
+* @version: v1.0.0
+* @author: JunZhou
+* @Email: 1769676159@qq.com
+* @Site: CERNO
+* @date: 2019年9月6日 上午8:57:56
+*/
+//@RestController
+@RequestMapping(&quot;/amo_operation_log&quot;)
+public class AmoOperationLogController
+{
+    @Autowired
+    private EsUtils esUtil;
+
+    /**
+     * @Des:   根据记录的Id获取某一个索引下的文档记录;
+     * @param: uuid
+     * @return
+     */
+    @GetMapping(&quot;/{uuid}&quot;)
+    public OperationLog getById(@PathVariable(&quot;uuid&quot;) int uuid) {
+        SearchSourceBuilder builder =     new SearchSourceBuilder();
+                            builder.query(new TermQueryBuilder(&quot;uuid&quot;, uuid));
+        List&lt;OperationLog&gt;             res     =     esUtil.search(EsUtils.INDEX_NAME, builder, OperationLog.class);
+                            if (res.size() &gt; 0) {
+                                return res.get(0);
+                            } else {
+            return null;
+                            }
+    }
+
+    /**
+     * @Des:    获取指定索引下的全部文档记录;
+     * @return
+     */
+    @GetMapping(&quot;/&quot;)
+    public List&lt;OperationLog&gt; getAll() {
+        return esUtil.search(EsUtils.INDEX_NAME, new SearchSourceBuilder(), OperationLog.class);
+    }
+
+    /***
+     * @Des:            根据关键信息搜索指定索引下的文档;
+     * @param uuid:        文档的uuid;
+     * @param operator:    操作者;
+     * @return
+     */
+    @GetMapping(&quot;/search&quot;)
+    public List&lt;OperationLog&gt; searchByUserIdAndName(@RequestParam(&quot;uuid&quot;) String uuid,@RequestParam(&quot;operator&quot;)  String operator) {
+        BoolQueryBuilder     boolQueryBuilder = new BoolQueryBuilder();
+                             //boolQueryBuilder.must(QueryBuilders.termQuery(&quot;uuid&quot;, uuid));
+                             boolQueryBuilder.must(QueryBuilders.matchQuery(&quot;operator&quot;, operator));
+        SearchSourceBuilder builder = new SearchSourceBuilder();
+                            builder.size(10).query(boolQueryBuilder);
+        return esUtil.search(EsUtils.INDEX_NAME, builder, OperationLog.class);
+
+    }
+
+
+    /***
+     * @Des:    根据关键词模糊搜索某用户的行为日志;
+     * @param:  operationLog:操作日志实体;
+     * @return
+     */
+    @GetMapping(&quot;/fuzzyQueryByCondition&quot;)
+    public List&lt;OperationLog&gt; searchByCondition(@RequestBody OperationLog operationLog) {
+        String uuid = operationLog.getUuid();
+        String operator = operationLog.getOperator();
+        BoolQueryBuilder     boolQueryBuilder = new BoolQueryBuilder();
+                             boolQueryBuilder.must(QueryBuilders.termQuery(&quot;uuid&quot;, uuid));
+                            boolQueryBuilder.must(QueryBuilders.fuzzyQuery(&quot;operator&quot;, operator));
+        SearchSourceBuilder builder = new SearchSourceBuilder();
+                            builder.size(10).query(boolQueryBuilder);
+        return esUtil.search(EsUtils.INDEX_NAME, builder, OperationLog.class);
+    }
+
+    /***
+     * @Des:    单个插入用户的操作日志;
+     * @param:  operationLog:用户行为日志实体;
+     */
+    @PutMapping(&quot;/&quot;)
+    public void putOne(@RequestBody OperationLog operationLog) {
+        EsEntity&lt;OperationLog&gt; entity = new EsEntity&lt;OperationLog&gt;(operationLog.getUuid(), operationLog);
+        esUtil.insertOrUpdateOne(EsUtils.INDEX_NAME, entity);
+    }
+
+    /***
+     * @Des:                    批量插入用户的操作日志;
+     * @param operationLogSet:  用户行为日志的集合;
+     */
+    @SuppressWarnings(&quot;rawtypes&quot;)
+    @PutMapping(&quot;/many&quot;)
+    @AccessLog(type=OpTypeConstants.ADD,des=&quot;批量插入用户的操作日志&quot;)
+    public void putList(@RequestBody List&lt;OperationLog&gt; operationLogSet) {
+        List&lt;OperationLog&gt;  logSet  =  new ArrayList&lt;OperationLog&gt;();
+                    for (int i = 0; i &lt; 1; i++)
+                    {
+                        Date date = new Date();
+                        OperationLog opLog            =     new OperationLog();
+                                     opLog.setUuid(UUID.fastUUID().toString());
+                                     opLog.setOperationType(&quot;DEL&quot;);
+                                     opLog.setOperationDes(&quot;Del by Id&quot;);
+                                     opLog.setOperator(&quot;JunZhou&quot;);
+                                     opLog.setReferIp(&quot;127.0.0.1&quot;);
+                                     opLog.setReferMac(&quot;0000::0000::0000&quot;);
+                                     opLog.setCreateTime(DateUtil.formatDateTime(date));
+                                     opLog.setOperateTime(DateUtil.formatDateTime(date));
+                                     opLog.setOperateResult(&quot;SUCCESS&quot;);
+                                     opLog.setCreator(&quot;LOGGER&quot;);
+                                     logSet.add(opLog);
+                    }
+                    operationLogSet = logSet;
+        List&lt;EsEntity&gt; list  =  new ArrayList&lt;EsEntity&gt;();
+        operationLogSet.forEach(item -&gt; list.add(new EsEntity&lt;OperationLog&gt;(item.getUuid(), item)));
+        esUtil.insertBatch(EsUtils.INDEX_NAME, list);
+    }
+
+    /***
+     * @Des:   批量删除指定索引下的文档数据;
+     * @param: list
+     */
+    @DeleteMapping(&quot;/deleteBatch&quot;)
+    public void deleteBatch(List&lt;Integer&gt; list) {
+        esUtil.deleteBatch(EsUtils.INDEX_NAME, list);
+    }
+
+    /***
+     * @Des:    根据操作用户的信息删除指定索引下的用户行为日志的文档;
+     * @param:  operator
+     */
+    @DeleteMapping(&quot;/operator/{operator}&quot;)
+    public void deleteByUserId(@PathVariable(&quot;operator&quot;) int operator) {
+        esUtil.deleteByQuery(EsUtils.INDEX_NAME, new TermQueryBuilder(&quot;operator&quot;, operator));
+    }
+
+}
+
+</code></pre><ol start="4">
+<li>EsIndexConstants.java</li>
+</ol>
+<pre><code>package com.innovamed.amo.common.log.operation.es.server.constants;
+/***
+* 
+* Copyright: Copyright (c) 2019 Jun_Zhou
+* 
+* @ClassName: IndexConstants.java
+* @Description: es索引的默认常量集合;
+* 
+* @version: v1.0.0
+* @author: JunZhou
+* @Email: 1769676159@qq.com
+* @Site: CERNO
+* @date: 2019年9月6日 上午9:24:30
+ */
+public class EsIndexConstants
+{   
+    /**
+     * amo用户行为日志记录的es索引结构描述json结构;
+     */
+    public static final String AMO_OPERATION_LOG_INDEX = 
+            &quot;{\r\n&quot; + 
+            &quot;   \&quot;properties\&quot;:{\r\n&quot; + 
+            &quot;    \&quot;referMac\&quot;:            {\&quot;type\&quot;:\&quot;text\&quot;},\r\n&quot; + 
+            &quot;    \&quot;creator\&quot;:             {\r\n&quot; + 
+            &quot;                        \&quot;type\&quot;:\&quot;text\&quot;,\r\n&quot; + 
+            &quot;                        \&quot;index\&quot;:true,\r\n&quot; + 
+            &quot;                        \&quot;analyzer\&quot;:\&quot;ik_max_word\&quot;,\r\n&quot; + 
+            &quot;                        \&quot;search_analyzer\&quot;:\&quot;ik_smart\&quot;\r\n&quot; + 
+            &quot;                        },\r\n&quot; + 
+            &quot;    \&quot;operationDes\&quot;:     {\r\n&quot; + 
+            &quot;                        \&quot;type\&quot;:\&quot;text\&quot;,\r\n&quot; + 
+            &quot;                        \&quot;index\&quot;:true,\r\n&quot; + 
+            &quot;                        \&quot;analyzer\&quot;:\&quot;ik_max_word\&quot;,\r\n&quot; + 
+            &quot;                        \&quot;search_analyzer\&quot;:\&quot;ik_smart\&quot;\r\n&quot; + 
+            &quot;                        },\r\n&quot; + 
+            &quot;    \&quot;operateResult\&quot;:    {\&quot;type\&quot;:\&quot;text\&quot;,\r\n&quot; + 
+            &quot;                         \&quot;index\&quot;:true\r\n&quot; + 
+            &quot;                        },\r\n&quot; + 
+            &quot;    \&quot;createTime\&quot;:         {\&quot;type\&quot;:\&quot;date\&quot;,\r\n&quot; + 
+            &quot;                         \&quot;index\&quot;:true,\r\n&quot; + 
+            &quot;                         \&quot;format\&quot;:\&quot;yyyy-MM-dd HH:mm:ss || yyyy-MM-dd || yyyy/MM/dd HH:mm:ss|| yyyy/MM/dd ||epoch_millis\&quot;\r\n&quot; + 
+            &quot;                                    },\r\n&quot; + 
+            &quot;    \&quot;operateTime\&quot;:         {\&quot;type\&quot;:\&quot;date\&quot;,\r\n&quot; + 
+            &quot;                         \&quot;index\&quot;:true,\r\n&quot; + 
+            &quot;                         \&quot;format\&quot;:\&quot;yyyy-MM-dd HH:mm:ss || yyyy-MM-dd || yyyy/MM/dd HH:mm:ss|| yyyy/MM/dd ||epoch_millis\&quot;\r\n&quot; + 
+            &quot;                                    },\r\n&quot; + 
+            &quot;    \&quot;operationType\&quot;:     {\&quot;type\&quot;:\&quot;text\&quot;},\r\n&quot; + 
+            &quot;    \&quot;referIp\&quot;:             {\&quot;type\&quot;:\&quot;text\&quot;,\r\n&quot; + 
+            &quot;                         \&quot;index\&quot;:true\r\n&quot; + 
+            &quot;                        },\r\n&quot; + 
+            &quot;    \&quot;uuid\&quot;:             {\&quot;type\&quot;:\&quot;text\&quot;,\r\n&quot; + 
+            &quot;                         \&quot;index\&quot;:true\r\n&quot; + 
+            &quot;                         },\r\n&quot; + 
+            &quot;    \&quot;operator\&quot;:         {\&quot;type\&quot;:\&quot;text\&quot;,\r\n&quot; + 
+            &quot;                         \&quot;index\&quot;:true\r\n&quot; + 
+            &quot;                        }\r\n&quot; + 
+            &quot;            }\r\n&quot; + 
+            &quot;}&quot;;
+}
+
+</code></pre><ol start="5">
+<li>注意事项：<br>a.再elasticsearch中时间戳格式对应的type为date，定义格式如下：</li>
+</ol>
+<pre><code>&quot;createTime&quot;:         {&quot;type&quot;:&quot;date&quot;,
+                         &quot;index&quot;:true,
+                         &quot;format&quot;:&quot;yyyy-MM-dd HH:mm:ss || yyyy-MM-dd || yyyy/MM/dd HH:mm:ss|| yyyy/MM/dd ||epoch_millis&quot;
+                                    },
+    &quot;operateTime&quot;:         {&quot;type&quot;:&quot;date&quot;,
+                         &quot;index&quot;:true,
+                         &quot;format&quot;:&quot;yyyy-MM-dd HH:mm:ss || yyyy-MM-dd || yyyy/MM/dd HH:mm:ss|| yyyy/MM/dd ||epoch_millis&quot;
+                                    },
+</code></pre><p>b.Kibanaz中的时间会比上海时间早八个小时，为了最简单的解决时间匹配问题，建议在将数据导入elasticsearch中的时候自动向后偏移8小时,如下所示：</p>
+<pre><code>//用户行为的发生时间,注意向后偏移8小时，否则在kibana中将显示有误;
+Date date = DateUtil.offsetHour(DateUtil.date(), -8);
+</code></pre><p>代码资源（代码已做保密处理）：<a href="https://download.csdn.net/psearch/0/10/0/2/1/elasticsearch" target="_blank" rel="noopener">操作elasticsearch的java restful api</a></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://junzhou2016.github.io" class="b-link-green">Blog4Jun</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-3-zhi-springboot-zhong-elasticsearch-xiang-guan-api-de-shi-yong/" class="b-link-green">elk使用爬坑记录 3 之 SpringBoot 中 Elasticsearch 相关API的使用</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-2-zhi-springboot-ji-cheng-elasticsearch/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="elk使用爬坑记录 2 之 SpringBoot 集成 Elasticsearch">
+                        
+                        <span class="card-title">elk使用爬坑记录 2 之 SpringBoot 集成 Elasticsearch</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">目前最新版的ElasticSearch为7.3.1，SpringBoot2.x版本还没有即时的更新，其父级依赖还是&lt;elasticsearch.version&gt;5.6.10&lt;/elasticsearch.version&g</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/软件工具/" class="post-category" target="_blank">
+                                    软件工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/elk/" target="_blank">
+                        <span class="chip bg-color">elk</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-1-zhi-elasticsearch-he-kibana-de-an-zhuang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装">
+                        
+                        <span class="card-title">elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">背景：
+
+最近公司要做用户行为日志的可视化展示，因为Elasticsearch对数据的可视化展示提供了初步支撑所以决定使用Elasticsearch。个人理解：            Elasticsearch相当于提供数据存储功能的应用系</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/软件工具/" class="post-category" target="_blank">
+                                    软件工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/elk/" target="_blank">
+                        <span class="chip bg-color">elk</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://junzhou2016.github.io/" target="_blank">JunZhou</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">hexo-theme-yilia</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/JunZhou2016/JunZhou2016.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:1769676159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1769676159" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

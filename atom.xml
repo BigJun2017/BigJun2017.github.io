@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-09-07T09:59:20.843Z</updated>
+  <updated>2019-09-07T13:26:58.640Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,88 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>elk使用爬坑记录 4 之 Elasticsearch中ik分词器的使用</title>
+    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/"/>
+    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/</id>
+    <published>2019-09-07T13:26:00.000Z</published>
+    <updated>2019-09-07T13:26:58.640Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;ik分词器对中文支持较好的开源分词器，开源地址为&lt;a href=&quot;https://github.com/medcl/elasticsearch-analysis-ik&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="elk" scheme="https://junzhou2016.github.io/tags/elk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>elk使用爬坑记录 2 之 SpringBoot 集成 Elasticsearch</title>
+    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-2-zhi-springboot-ji-cheng-elasticsearch/"/>
+    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-2-zhi-springboot-ji-cheng-elasticsearch/</id>
+    <published>2019-09-07T12:55:00.000Z</published>
+    <updated>2019-09-07T13:26:11.708Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;目前最新版的ElasticSearch为7.3.1，SpringBoot2.x版本还没有即时的更新，其父级依赖还是&lt;code&gt;&amp;lt;elasticsearch.version&amp;gt;5.6.10&amp;lt;/elasticsearch.version&amp;gt;&lt;/code&gt;，因
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="elk" scheme="https://junzhou2016.github.io/tags/elk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>elk使用爬坑记录 3 之 SpringBoot 中 Elasticsearch 相关API的使用</title>
+    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-3-zhi-springboot-zhong-elasticsearch-xiang-guan-api-de-shi-yong/"/>
+    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-3-zhi-springboot-zhong-elasticsearch-xiang-guan-api-de-shi-yong/</id>
+    <published>2019-09-07T12:38:16.000Z</published>
+    <updated>2019-09-07T13:26:38.892Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;首先需要再application.properties中配置elasticsearch的相关属性：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;#-----------------elasticsearch相关的配置------------------
+es.h
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="elk" scheme="https://junzhou2016.github.io/tags/elk/"/>
+    
+  </entry>
   
   <entry>
     <title>elk使用爬坑记录 1 之 Elasticsearch和Kibana的安装</title>
@@ -479,97 +561,6 @@
     
     
       <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用nativefier将web打包为WebApp</title>
-    <link href="https://junzhou2016.github.io/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/"/>
-    <id>https://junzhou2016.github.io/2018/12/09/ruan-jian-gong-ju/nodejs/shi-yong-nativefier-jiang-web-da-bao-wei-webapp/</id>
-    <published>2018-12-09T15:10:00.000Z</published>
-    <updated>2018-12-09T08:13:48.302Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在github上浪的时候发现一款开源库，可以直接将任意的网站打包为webapp。具体的操作步骤如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;安装node.js环境&lt;/li&gt;
-&lt;li&gt;使用npm安装nativefier库；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;npm
-        
-      
-    
-    </summary>
-    
-      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="NodeJs" scheme="https://junzhou2016.github.io/tags/NodeJs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alibaba开源组件-分布式流量控制框架sentinel初探</title>
-    <link href="https://junzhou2016.github.io/2018/12/09/hou-duan/fen-bu-shi-kuang-jia/alibaba-kai-yuan-zu-jian-fen-bu-shi-liu-liang-kong-zhi-kuang-jia-sentinel-chu-tan/"/>
-    <id>https://junzhou2016.github.io/2018/12/09/hou-duan/fen-bu-shi-kuang-jia/alibaba-kai-yuan-zu-jian-fen-bu-shi-liu-liang-kong-zhi-kuang-jia-sentinel-chu-tan/</id>
-    <published>2018-12-09T10:47:00.000Z</published>
-    <updated>2018-12-09T10:30:12.593Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Sentinel 是什么？&lt;br&gt;还是皮一下吧详细的介绍在Alibaba已经介绍的很详细了。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/alibaba/Sentinel/wiki/%E4%BB%8B%E7%BB%8D&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="分布式" scheme="https://junzhou2016.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-      <category term="Sentinel" scheme="https://junzhou2016.github.io/tags/Sentinel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MYSQL线上审核规范</title>
-    <link href="https://junzhou2016.github.io/2018/12/09/shu-ju-ku/mysql-xian-shang-shen-he-gui-fan/"/>
-    <id>https://junzhou2016.github.io/2018/12/09/shu-ju-ku/mysql-xian-shang-shen-he-gui-fan/</id>
-    <published>2018-12-09T10:27:00.000Z</published>
-    <updated>2018-12-09T10:28:11.649Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;命名规范&lt;/strong&gt;&lt;br&gt;Ø库名、表名、字段名，使用小写字母&lt;/p&gt;
-&lt;p&gt;Ø库名、表名、字段名，不要超过30个字符&lt;/p&gt;
-&lt;p&gt;Ø库名、表名、字段名，尽量见名知意，使用下划线分割&lt;/p&gt;
-&lt;p&gt;Ø库名、表名、字段名，禁止使用MySQL保留字&lt;/p
-        
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="https://junzhou2016.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="MYSQL" scheme="https://junzhou2016.github.io/tags/MYSQL/"/>
-    
-      <category term="数据库" scheme="https://junzhou2016.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
