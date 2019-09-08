@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-09-08T02:05:36.606Z</updated>
+  <updated>2019-09-08T14:55:15.769Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Websocket消息推送集群搭建1 之集群架构图</title>
-    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/"/>
-    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/</id>
-    <published>2019-09-07T13:26:00.000Z</published>
-    <updated>2019-09-08T02:05:36.606Z</updated>
+    <title>Linux(Centos)安装nexus实现maven私服</title>
+    <link href="https://junzhou2016.github.io/2019/09/08/ruan-jian-gong-ju/devops/linux-centos-an-zhuang-nexus-shi-xian-maven-si-fu/"/>
+    <id>https://junzhou2016.github.io/2019/09/08/ruan-jian-gong-ju/devops/linux-centos-an-zhuang-nexus-shi-xian-maven-si-fu/</id>
+    <published>2019-09-08T14:54:00.000Z</published>
+    <updated>2019-09-08T14:55:15.769Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,36 @@
       
         
         
-          &lt;p&gt;&lt;strong&gt;背景：&lt;/strong&gt;&lt;br&gt;            最近公司需要做一个消息推送功能，为了保证可靠性，决定做集群。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;难点：&lt;/strong&gt;&lt;br&gt;       
+          &lt;p&gt;想搭建一个maven私服，把工具类传上去共享，在这里记录下搭建的步骤。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;下载nexus的安装包，官网对国内非常不友好，不是拒绝就是异常的慢，这里准备了nexus3.13.0-01的安装包供大家使用；&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;   
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Nexus" scheme="https://junzhou2016.github.io/tags/Nexus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对 WebSocket 和 HTTP 关系的认识</title>
+    <link href="https://junzhou2016.github.io/2019/09/08/ruan-jian-gong-ju/websocket/dui-websocket-he-http-guan-xi-de-ren-shi/"/>
+    <id>https://junzhou2016.github.io/2019/09/08/ruan-jian-gong-ju/websocket/dui-websocket-he-http-guan-xi-de-ren-shi/</id>
+    <published>2019-09-08T13:53:00.000Z</published>
+    <updated>2019-09-08T14:56:05.081Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、首先Websocket和http都是应用层协议,网络协议分层结构如下所示：&lt;br&gt;&lt;img
         
       
     
@@ -66,6 +94,33 @@
     
     
       <category term="elk" scheme="https://junzhou2016.github.io/tags/elk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Websocket消息推送集群搭建1 之集群架构图</title>
+    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/"/>
+    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/</id>
+    <published>2019-09-07T13:26:00.000Z</published>
+    <updated>2019-09-08T02:05:36.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;背景：&lt;/strong&gt;&lt;br&gt;            最近公司需要做一个消息推送功能，为了保证可靠性，决定做集群。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;难点：&lt;/strong&gt;&lt;br&gt;       
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Websocket" scheme="https://junzhou2016.github.io/tags/Websocket/"/>
     
   </entry>
   
@@ -508,60 +563,6 @@ es.h
     
     
       <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>springboot中使用@Value读取配置文件，通过静态变量实现非侵入式集中管理</title>
-    <link href="https://junzhou2016.github.io/2018/12/19/hou-duan/fen-bu-shi-kuang-jia/springboot-zhong-shi-yong-value-du-qu-pei-zhi-wen-jian-tong-guo-jing-tai-bian-liang-shi-xian-fei-qin-ru-shi-ji-zhong-guan-li/"/>
-    <id>https://junzhou2016.github.io/2018/12/19/hou-duan/fen-bu-shi-kuang-jia/springboot-zhong-shi-yong-value-du-qu-pei-zhi-wen-jian-tong-guo-jing-tai-bian-liang-shi-xian-fei-qin-ru-shi-ji-zhong-guan-li/</id>
-    <published>2018-12-19T10:47:00.000Z</published>
-    <updated>2018-12-19T15:14:16.961Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在SpringBoot中读取XXX.properties等配置文件有许多方法，常见的方法有：@ConfigurationProperties方式、使用@Value注解方式、使用Environment、以及使用PropertiesLoaderUtils这四种方式。本文中主要讲
-        
-      
-    
-    </summary>
-    
-      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="SpringBoot" scheme="https://junzhou2016.github.io/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RestTemplate工具类的使用</title>
-    <link href="https://junzhou2016.github.io/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/"/>
-    <id>https://junzhou2016.github.io/2018/12/18/hou-duan/java/resttemplate-gong-ju-lei-de-shi-yong/</id>
-    <published>2018-12-18T14:32:00.000Z</published>
-    <updated>2018-12-18T15:38:10.396Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt; Rest,即 Representtational state
-        
-      
-    
-    </summary>
-    
-      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
-    
-      <category term="Spring" scheme="https://junzhou2016.github.io/tags/Spring/"/>
     
   </entry>
   
