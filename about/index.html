@@ -480,7 +480,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Linux运维","value":1},{"name":"前端","value":5},{"name":"编程之道","value":4},{"name":"相册","value":18},{"name":"数据库","value":3},{"name":"软件设计","value":14},{"name":"随笔","value":2},{"name":"老博客","value":9},{"name":"软件工具","value":20},{"name":"后端","value":30}],
+                data: [{"name":"前端","value":5},{"name":"Linux运维","value":1},{"name":"数据库","value":3},{"name":"相册","value":18},{"name":"编程之道","value":4},{"name":"老博客","value":9},{"name":"软件设计","value":14},{"name":"随笔","value":2},{"name":"软件工具","value":20},{"name":"后端","value":30}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -504,7 +504,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["Java","设计模式","Apache","面向对象编程","JavaScript","elk","Linux","数据库","SpringBoot","Docker"]
+                data: ["Java","设计模式","JavaScript","Apache","面向对象编程","Linux","elk","数据库","Docker","SpringBoot"]
             }
         ],
         yAxis: [
@@ -586,6 +586,18 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     <a href="https://gitee.com/Super_Jun/BlogDevByVue.git" target="_blank">Vue-Blog</a>
                 </div>
                 <div class="info-desc">用Vue2.x开发的个人博客，适用于毕业生。</div>
+            </div>
+        </div>
+        
+        <div class="col s12 m6 l4" data-aos="fade-up">
+            <div class="info center-align">
+                <a href="https://gitee.com/Super_Jun/InnovamedWsApp" class="icon" style="background: linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)" target="_blank">
+                    <i class="fa fa fa-bell"></i>
+                </a>
+                <div class="info-title">
+                    <a href="https://gitee.com/Super_Jun/InnovamedWsApp" target="_blank">InnovamedWsCluster</a>
+                </div>
+                <div class="info-desc">基于Spring Cloud GateWay和Websocket的消息推送集群软件,简化了Websockt集群后端服务的开发。</div>
             </div>
         </div>
         
@@ -732,18 +744,10 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         <div class="tag-chips center-align">
             
             
+            
+            
             <a href="/tags/Linux运维/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">Linux运维</span>
-            </a>
-            
-            
-            
-            
-            
-            
-            
-            <a href="/tags/面向对象编程/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">面向对象编程</span>
             </a>
             
             
@@ -756,6 +760,14 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <a href="/tags/数据库/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">数据库</span>
+            </a>
+            
+            
+            
+            
+            
+            <a href="/tags/面向对象编程/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">面向对象编程</span>
             </a>
             
             
@@ -784,29 +796,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
-            <a href="/tags/整洁代码/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">整洁代码</span>
-            </a>
-            
-            
-            
-            <a href="/tags/重构/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">重构</span>
-            </a>
-            
-            
-            
-            <a href="/tags/测试/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">测试</span>
-            </a>
-            
-            
-            
-            
-            
             <a href="/tags/MVEL/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">MVEL</span>
             </a>
+            
+            
             
             
             
@@ -828,8 +822,20 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
-            <a href="/tags/Apollo/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">Apollo</span>
+            <a href="/tags/整洁代码/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">整洁代码</span>
+            </a>
+            
+            
+            
+            <a href="/tags/重构/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">重构</span>
+            </a>
+            
+            
+            
+            <a href="/tags/测试/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">测试</span>
             </a>
             
             
@@ -838,12 +844,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <a href="/tags/elk/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">elk</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Git/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">Git</span>
             </a>
             
             
@@ -864,8 +864,14 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
-            <a href="/tags/NodeJs/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">NodeJs</span>
+            <a href="/tags/Apollo/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">Apollo</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Git/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">Git</span>
             </a>
             
             
@@ -876,14 +882,20 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
+            <a href="/tags/设计模式/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">设计模式</span>
+            </a>
+            
+            
+            
             <a href="/tags/Nexus/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">Nexus</span>
             </a>
             
             
             
-            <a href="/tags/设计模式/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">设计模式</span>
+            <a href="/tags/NodeJs/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">NodeJs</span>
             </a>
             
             
