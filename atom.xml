@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2019-10-10T13:02:46.385Z</updated>
+  <updated>2020-04-29T12:50:39.672Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot中的统一异常处理器的实现</title>
+    <link href="https://junzhou2016.github.io/2020/04/29/hou-duan/java/springboot-zhong-de-tong-yi-yi-chang-chu-li-qi-de-shi-xian/"/>
+    <id>https://junzhou2016.github.io/2020/04/29/hou-duan/java/springboot-zhong-de-tong-yi-yi-chang-chu-li-qi-de-shi-xian/</id>
+    <published>2020-04-29T12:50:00.000Z</published>
+    <updated>2020-04-29T12:50:39.672Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：&lt;br&gt;在和第三方对接的时候，其要求接口格式必须和文档要求的一致，并且错误格式也得和文档一致。正常响应很好处理，难点就在对异常情况下响应信息的封装了。springboot中可以使用ControllerAdvice和ExceptionH
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="https://junzhou2016.github.io/tags/Java/"/>
+    
+      <category term="SpringBoot" scheme="https://junzhou2016.github.io/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>可靠消息最终一致性-分布式事务解决方案</title>
@@ -535,35 +563,6 @@ es.h
     
     
       <category term="Git" scheme="https://junzhou2016.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Apollo配置中心和SpringCloud中Zuul结合使用创建配置网关</title>
-    <link href="https://junzhou2016.github.io/2019/01/03/hou-duan/fen-bu-shi-kuang-jia/apollo-pei-zhi-zhong-xin-he-springcloud-zhong-zuul-jie-he-shi-yong-chuang-jian-pei-zhi-wang-guan/"/>
-    <id>https://junzhou2016.github.io/2019/01/03/hou-duan/fen-bu-shi-kuang-jia/apollo-pei-zhi-zhong-xin-he-springcloud-zhong-zuul-jie-he-shi-yong-chuang-jian-pei-zhi-wang-guan/</id>
-    <published>2019-01-03T13:21:45.000Z</published>
-    <updated>2019-01-03T13:22:04.174Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;当配置中心要求高可用的时候，集群是一种不错的解决办法。当配置中心进行集群的时候，Zuul就派上了用场。并且Apollo和SpringCloud中zuul结合非常的方便，此处只解释在结合网关中路由刷新的部分原理：&lt;/p&gt;
-&lt;p&gt; 
-        
-      
-    
-    </summary>
-    
-      <category term="后端" scheme="https://junzhou2016.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="分布式" scheme="https://junzhou2016.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-      <category term="Apollo" scheme="https://junzhou2016.github.io/tags/Apollo/"/>
     
   </entry>
   
