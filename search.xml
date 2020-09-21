@@ -7,7 +7,7 @@
       <link href="/2020/09/21/ruan-jian-she-ji/xiang-mu-uml-jian-mo-tu-li/"/>
       <url>/2020/09/21/ruan-jian-she-ji/xiang-mu-uml-jian-mo-tu-li/</url>
       
-        <content type="html"><![CDATA[<p>一下为本人工作种对自己负责模块的UML建模图示，因保密要求，展示数据均为测试环境活实例数据,如展示不清楚可在浏览器种放大查阅。</p><ol><li><a href="https://images.gitee.com/uploads/images/2020/0920/175510_a3c9ddc9_1393656.jpeg" target="_blank" rel="noopener">项目架构图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175510_a3c9ddc9_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175510_a3c9ddc9_1393656.jpeg</a></p></blockquote><ol start="2"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175533_b8e65ed9_1393656.jpeg" target="_blank" rel="noopener">项目部署图</a> </li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175533_b8e65ed9_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175533_b8e65ed9_1393656.jpeg</a></p></blockquote><ol start="3"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175552_aef38cc5_1393656.png" target="_blank" rel="noopener">项目功能图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175552_aef38cc5_1393656.png" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175552_aef38cc5_1393656.png</a></p></blockquote><ol start="4"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175611_d9f95b02_1393656.jpeg" target="_blank" rel="noopener">项目ER图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175611_d9f95b02_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175611_d9f95b02_1393656.jpeg</a></p></blockquote><ol start="5"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175644_10d001ba_1393656.jpeg" target="_blank" rel="noopener">粗粒度的项目某模块数据流图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175644_10d001ba_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175644_10d001ba_1393656.jpeg</a></p></blockquote><ol start="6"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175710_39cacbb7_1393656.jpeg" target="_blank" rel="noopener">消息推送集群架构展示图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175710_39cacbb7_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175710_39cacbb7_1393656.jpeg</a></p></blockquote><ol start="7"><li><a href="https://gitee.com/Super_Jun/agile.git" target="_blank" rel="noopener">敏捷开发相关文档</a></li></ol><blockquote><p><a href="https://gitee.com/Super_Jun/agile.git" target="_blank" rel="noopener">https://gitee.com/Super_Jun/agile.git</a></p></blockquote>]]></content>
+        <content type="html"><![CDATA[<p>以下为本人工作种对自己负责模块的UML建模图示，因保密要求，展示数据均为测试环境活实例数据,如展示不清楚可在浏览器种放大查阅。</p><ol><li><a href="https://images.gitee.com/uploads/images/2020/0920/175510_a3c9ddc9_1393656.jpeg" target="_blank" rel="noopener">项目架构图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175510_a3c9ddc9_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175510_a3c9ddc9_1393656.jpeg</a></p></blockquote><ol start="2"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175533_b8e65ed9_1393656.jpeg" target="_blank" rel="noopener">项目部署图</a> </li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175533_b8e65ed9_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175533_b8e65ed9_1393656.jpeg</a></p></blockquote><ol start="3"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175552_aef38cc5_1393656.png" target="_blank" rel="noopener">项目功能图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175552_aef38cc5_1393656.png" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175552_aef38cc5_1393656.png</a></p></blockquote><ol start="4"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175611_d9f95b02_1393656.jpeg" target="_blank" rel="noopener">项目ER图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175611_d9f95b02_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175611_d9f95b02_1393656.jpeg</a></p></blockquote><ol start="5"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175644_10d001ba_1393656.jpeg" target="_blank" rel="noopener">粗粒度的项目某模块数据流图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175644_10d001ba_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175644_10d001ba_1393656.jpeg</a></p></blockquote><ol start="6"><li><a href="https://images.gitee.com/uploads/images/2020/0920/175710_39cacbb7_1393656.jpeg" target="_blank" rel="noopener">消息推送集群架构展示图</a></li></ol><blockquote><p><a href="https://images.gitee.com/uploads/images/2020/0920/175710_39cacbb7_1393656.jpeg" target="_blank" rel="noopener">https://images.gitee.com/uploads/images/2020/0920/175710_39cacbb7_1393656.jpeg</a></p></blockquote><ol start="7"><li><a href="https://gitee.com/Super_Jun/agile.git" target="_blank" rel="noopener">敏捷开发相关文档</a></li></ol><blockquote><p><a href="https://gitee.com/Super_Jun/agile.git" target="_blank" rel="noopener">https://gitee.com/Super_Jun/agile.git</a></p></blockquote>]]></content>
       
       
       <categories>
@@ -126,29 +126,6 @@
     </entry>
     
     <entry>
-      <title>elk使用爬坑记录 4 之 Elasticsearch中ik分词器的使用</title>
-      <link href="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/"/>
-      <url>/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/</url>
-      
-        <content type="html"><![CDATA[<p>ik分词器对中文支持较好的开源分词器，开源地址为<a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="noopener">https://github.com/medcl/elasticsearch-analysis-ik</a></p><p>使用注意事项：</p><ol><li>ik分词器的版本必须和elasticsearch的版本对应;</li><li>官网上7.x的源码下来后，编译出来的版本仍然是7.0的，需要手动在下载的源码中elasticsearch的版本改正为对应的7.X版本，应该是开发者手误;</li></ol><p>将   &lt;elasticsearch.version&gt;7.0.0&lt;/elasticsearch.version&gt;更正如下：</p><pre><code>&lt;properties&gt;        &lt;elasticsearch.version&gt;7.3.1&lt;/elasticsearch.version&gt;        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;        &lt;elasticsearch.assembly.descriptor&gt;${project.basedir}/src/main/assemblies/plugin.xml&lt;/elasticsearch.assembly.descriptor&gt;        &lt;elasticsearch.plugin.name&gt;analysis-ik&lt;/elasticsearch.plugin.name&gt;        &lt;elasticsearch.plugin.classname&gt;org.elasticsearch.plugin.analysis.ik.AnalysisIkPlugin&lt;/elasticsearch.plugin.classname&gt;        &lt;elasticsearch.plugin.jvm&gt;true&lt;/elasticsearch.plugin.jvm&gt;        &lt;tests.rest.load_packaged&gt;false&lt;/tests.rest.load_packaged&gt;        &lt;skip.unit.tests&gt;true&lt;/skip.unit.tests&gt;        &lt;gpg.keyname&gt;4E899B30&lt;/gpg.keyname&gt;        &lt;gpg.useagent&gt;true&lt;/gpg.useagent&gt;    &lt;/properties&gt;</code></pre><p>参考文章：<br><a href="https://blog.csdn.net/u011265001/article/details/100030592" target="_blank" rel="noopener">elasticsearch7.3版本已经不需要额外安装中文分词插件了</a><br><a href="https://blog.csdn.net/weixin_43744419/article/details/93974778" target="_blank" rel="noopener">ElasticSearch7.2.0安装以及IK分词器安装时的避坑手册</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件工具 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> elk </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>Websocket消息推送集群搭建1 之集群架构图</title>
       <link href="/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/"/>
       <url>/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/</url>
@@ -166,6 +143,29 @@
         <tags>
             
             <tag> Websocket </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>elk使用爬坑记录 4 之 Elasticsearch中ik分词器的使用</title>
+      <link href="/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/"/>
+      <url>/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<p>ik分词器对中文支持较好的开源分词器，开源地址为<a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="noopener">https://github.com/medcl/elasticsearch-analysis-ik</a></p><p>使用注意事项：</p><ol><li>ik分词器的版本必须和elasticsearch的版本对应;</li><li>官网上7.x的源码下来后，编译出来的版本仍然是7.0的，需要手动在下载的源码中elasticsearch的版本改正为对应的7.X版本，应该是开发者手误;</li></ol><p>将   &lt;elasticsearch.version&gt;7.0.0&lt;/elasticsearch.version&gt;更正如下：</p><pre><code>&lt;properties&gt;        &lt;elasticsearch.version&gt;7.3.1&lt;/elasticsearch.version&gt;        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;        &lt;elasticsearch.assembly.descriptor&gt;${project.basedir}/src/main/assemblies/plugin.xml&lt;/elasticsearch.assembly.descriptor&gt;        &lt;elasticsearch.plugin.name&gt;analysis-ik&lt;/elasticsearch.plugin.name&gt;        &lt;elasticsearch.plugin.classname&gt;org.elasticsearch.plugin.analysis.ik.AnalysisIkPlugin&lt;/elasticsearch.plugin.classname&gt;        &lt;elasticsearch.plugin.jvm&gt;true&lt;/elasticsearch.plugin.jvm&gt;        &lt;tests.rest.load_packaged&gt;false&lt;/tests.rest.load_packaged&gt;        &lt;skip.unit.tests&gt;true&lt;/skip.unit.tests&gt;        &lt;gpg.keyname&gt;4E899B30&lt;/gpg.keyname&gt;        &lt;gpg.useagent&gt;true&lt;/gpg.useagent&gt;    &lt;/properties&gt;</code></pre><p>参考文章：<br><a href="https://blog.csdn.net/u011265001/article/details/100030592" target="_blank" rel="noopener">elasticsearch7.3版本已经不需要额外安装中文分词插件了</a><br><a href="https://blog.csdn.net/weixin_43744419/article/details/93974778" target="_blank" rel="noopener">ElasticSearch7.2.0安装以及IK分词器安装时的避坑手册</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> elk </tag>
             
         </tags>
       

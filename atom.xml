@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://junzhou2016.github.io/"/>
-  <updated>2020-09-21T05:58:21.787Z</updated>
+  <updated>2020-09-21T09:24:03.528Z</updated>
   <id>https://junzhou2016.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://junzhou2016.github.io/2020/09/21/ruan-jian-she-ji/xiang-mu-uml-jian-mo-tu-li/"/>
     <id>https://junzhou2016.github.io/2020/09/21/ruan-jian-she-ji/xiang-mu-uml-jian-mo-tu-li/</id>
     <published>2020-09-20T16:30:00.000Z</published>
-    <updated>2020-09-21T05:58:21.787Z</updated>
+    <updated>2020-09-21T09:24:03.528Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;一下为本人工作种对自己负责模块的UML建模图示，因保密要求，展示数据均为测试环境活实例数据,如展示不清楚可在浏览器种放大查阅。&lt;/p&gt;
+          &lt;p&gt;以下为本人工作种对自己负责模块的UML建模图示，因保密要求，展示数据均为测试环境活实例数据,如展示不清楚可在浏览器种放大查阅。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a
         
@@ -160,32 +160,6 @@
   </entry>
   
   <entry>
-    <title>elk使用爬坑记录 4 之 Elasticsearch中ik分词器的使用</title>
-    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/"/>
-    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/</id>
-    <published>2019-09-07T13:26:00.000Z</published>
-    <updated>2019-09-07T13:26:58.640Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;ik分词器对中文支持较好的开源分词器，开源地址为&lt;a href=&quot;https://github.com/medcl/elasticsearch-analysis-ik&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="elk" scheme="https://junzhou2016.github.io/tags/elk/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Websocket消息推送集群搭建1 之集群架构图</title>
     <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/"/>
     <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/websocket/websocket-xiao-xi-tui-song-ji-qun-da-jian-1-zhi-ji-qun-jia-gou-tu/</id>
@@ -209,6 +183,32 @@
     
     
       <category term="Websocket" scheme="https://junzhou2016.github.io/tags/Websocket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>elk使用爬坑记录 4 之 Elasticsearch中ik分词器的使用</title>
+    <link href="https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/"/>
+    <id>https://junzhou2016.github.io/2019/09/07/ruan-jian-gong-ju/elk/elk-shi-yong-pa-keng-ji-lu-4-zhi-elasticsearch-zhong-ik-fen-ci-qi-de-shi-yong/</id>
+    <published>2019-09-07T13:26:00.000Z</published>
+    <updated>2019-09-07T13:26:58.640Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;ik分词器对中文支持较好的开源分词器，开源地址为&lt;a href=&quot;https://github.com/medcl/elasticsearch-analysis-ik&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="https://junzhou2016.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="elk" scheme="https://junzhou2016.github.io/tags/elk/"/>
     
   </entry>
   
